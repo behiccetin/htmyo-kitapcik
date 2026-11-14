@@ -91,6 +91,9 @@ main{max-width:1000px;margin:-44px auto 0;padding:0 16px 40px;position:relative}
 .htmyo-tg input{margin-top:3px;accent-color:var(--htmyo-p)}
 .htmyo-tg b{display:block;font-size:14px}
 .htmyo-tg span{font-size:12.5px;color:var(--htmyo-mut)}
+.htmyo-tg .ik{flex:0 0 38px;height:38px;border-radius:10px;background:var(--htmyo-l);display:grid;place-items:center;font-size:20px;color:inherit}
+.htmyo-tg:has(input:checked) .ik{background:#fff;box-shadow:0 0 0 1px var(--htmyo-p3)}
+#optBig~.ik{background:#E0F2FE}
 .htmyo-books{display:flex;gap:10px;margin:14px 0 18px;align-items:center;flex-wrap:wrap}
 .htmyo-book{width:58px;height:66px;border:2px solid var(--htmyo-bd);border-radius:10px;display:grid;place-items:center;cursor:pointer;font-size:24px;font-weight:800;color:var(--htmyo-p3);position:relative;user-select:none}
 .htmyo-book small{position:absolute;bottom:4px;font-size:10px;font-weight:600}
@@ -175,6 +178,22 @@ td.ipt{color:#B91C1C;font-weight:700}
 .htmyo-imza i{color:#666;font-style:normal;margin-top:26px}
 @media (max-width:760px){.htmyo-ma,.htmyo-bform{grid-template-columns:1fr}.htmyo-q{grid-template-columns:30px 1fr}.htmyo-qx{grid-column:1/-1}}
 @media print{.htmyo-onlyprint{display:block!important}body.pa #c4{display:none!important}body:not(.pa) #c5{display:none!important}body.pa #c5{display:block!important}#c5 .htmyo-tbl{overflow:visible}}
+.htmyo-mah{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.htmyo-mah i{font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--htmyo-p);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:700}
+.htmyo-madurum{font-size:13px;border-radius:8px;padding:8px 10px;margin:4px 0 6px;background:#fff;border:1px dashed var(--htmyo-bd);color:var(--htmyo-mut)}
+.htmyo-madurum.ok{background:var(--htmyo-okbg);border:1px solid #86EFAC;color:var(--htmyo-ok)}
+.htmyo-madurum.hata{background:#FEF2F2;border:1px solid #FCA5A5;color:#B91C1C}
+.htmyo-orn{margin:4px 0}.htmyo-orn table{font-size:12px}.htmyo-orn td{font-family:ui-monospace,Consolas,monospace}
+.htmyo-mak{display:block;font-size:11.5px;color:var(--htmyo-mut);margin:2px 0 10px}
+.htmyo-yap{margin-top:10px;font-size:13px}.htmyo-yap summary{cursor:pointer;color:var(--htmyo-p)}
+.htmyo-herobtns{display:flex;gap:10px;flex-wrap:wrap}
+.htmyo-sablon{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;border:2px solid var(--htmyo-p3);background:linear-gradient(135deg,var(--htmyo-l),#fff);border-radius:14px;padding:14px 16px;margin:4px 0 14px}
+.htmyo-sablon-b{display:flex;gap:12px;align-items:center;flex:1 1 320px}
+.htmyo-sablon-b .ik{width:44px;height:44px;border-radius:12px;background:var(--htmyo-p);display:grid;place-items:center;font-size:22px;flex:0 0 44px}
+.htmyo-sablon-b b{display:block;font-size:15px;color:var(--htmyo-p)}.htmyo-sablon-b span b{display:inline;font-size:inherit;color:var(--htmyo-tx)}.htmyo-sablon-b span{font-size:12.5px;color:var(--htmyo-mut)}
+.htmyo-sablon-l{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.htmyo-sablon-l .htmyo-btn{text-decoration:none;font-size:14.5px;padding:11px 18px;white-space:nowrap}
+#maOptAd{display:block;margin-top:6px}
 </style>
 </head>
 <body>
@@ -184,7 +203,7 @@ td.ipt{color:#B91C1C;font-weight:700}
     <span class="htmyo-badge">BUCAK HİKMET TOLUNAY ULAŞTIRMA VE LOJİSTİK MESLEK YÜKSEKOKULU · SINAV ARAÇLARI</span>
     <h1>Kitapçık Oluşturucu</h1>
     <p>Hazırladığınız A kitapçığından (yüksekokul şablonu ya da kendi Word dosyanız), soruların ve şıkların yeri değiştirilmiş B, C, D ve E kitapçıklarını ve her birinin cevap anahtarını birkaç tıklamayla üretin.</p>
-    <a class="htmyo-howbtn" href="#nasil">Nasıl kullanılır? →</a>
+    <div class="htmyo-herobtns"><a class="htmyo-howbtn" href="#nasil">Nasıl kullanılır? →</a><a class="htmyo-howbtn" href="yardim.html" target="_blank" rel="noopener">📘 Resimli yardım</a></div>
   </div>
   <div class="side">
     <div class="htmyo-chip"><b>Çevrimdışı ve güvenli</b>Sorular bilgisayarınızdan çıkmaz</div>
@@ -203,6 +222,12 @@ td.ipt{color:#B91C1C;font-weight:700}
 <section class="htmyo-card" id="c1">
   <h2>1. A kitapçığını yükleyin</h2>
   <p class="lead">Yüksekokulumuzun Sınav Soruları Formu (PFRM-217) ile, kendi Word dosyanızla ya da bir metin dosyasıyla (.txt, Aiken biçimi de olur) hazırladığınız A kitapçığı. Kendi dosyanızı kullanacaksanız <a href="#nasil">yazım kurallarına</a> göz atın.</p>
+  <div class="htmyo-sablon">
+    <div class="htmyo-sablon-b"><span class="ik">📥</span><div><b>Henüz A kitapçığınız yok mu? Önce şablonu indirin.</b><span>Açılan Personel Formları sayfasında <b>Sınav İşlemleri</b> başlığının altındaki <b>Sınav Soruları Formu (Test)</b> ya da <b>(Klasik ve Karma)</b> dosyasını indirin. Soruları yazıp kaydedin, sonra buraya yükleyin.</span></div></div>
+    <div class="htmyo-sablon-l">
+      <a class="htmyo-btn" href="https://htmyo.mehmetakif.edu.tr/content/19994" target="_blank" rel="noopener">📥 Sınav şablonlarını aç</a>
+    </div>
+  </div>
   <div id="drop" class="htmyo-drop" tabindex="0" role="button" aria-label="Dosya seç">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 17v-6"/><path d="m9 13 3-3 3 3"/></svg>
     <b>Dosyayı buraya sürükleyin</b>
@@ -239,13 +264,13 @@ td.ipt{color:#B91C1C;font-weight:700}
     <label class="htmyo-book">E<input type="checkbox" class="bk" value="E"><small>kitapçık</small></label>
   </div>
   <div class="htmyo-toggles">
-    <label class="htmyo-tg"><input type="checkbox" id="optQ" checked><div><b>Soruların yerini değiştir</b><span>Görselli, öncüllü ve tablolu sorular bütün olarak taşınır.</span></div></label>
-    <label class="htmyo-tg"><input type="checkbox" id="optO" checked><div><b>Şıkların yerini değiştir</b><span>Doğru/Yanlış gibi iki şıklı sorular karıştırılmaz.</span></div></label>
-    <label class="htmyo-tg"><input type="checkbox" id="optFix" checked><div><b>"Hepsi / Hiçbiri" yerinde kalsın</b><span>Bu tür şıklar bulundukları harfte bırakılır.</span></div></label>
-    <label class="htmyo-tg"><input type="checkbox" id="optRun" checked><div><b>Aynı cevap harfi en fazla 3 kez üst üste gelsin</b><span>Öğrencinin "art arda dört C olmaz" diye tahmin yürütmesini önler. 2. adımda doğru cevapların işaretlenmesi gerekir.</span></div></label>
-    <label class="htmyo-tg"><input type="checkbox" id="optFoot" checked><div><b>Her sayfanın altına kitapçık türü ve sayfa numarası yaz</b><span>Örneğin "B KİTAPÇIĞI · Sayfa 2 / 4". Zımbalanan sayfalar karışmaz, öğrenci kitapçık türünü her sayfada görür.</span></div></label>
-    <label class="htmyo-tg"><input type="checkbox" id="optBig"><div><b>Büyük puntolu kopyalar da üretilsin</b><span>Her kitapçığın en az 18 punto, tek sütun bir kopyası ayrıca iner. Büyük puntolu soru kitapçığı hakkı olan öğrenciler için.</span></div></label>
-    <label class="htmyo-tg"><input type="checkbox" id="optDiff" checked><div><b>Aynı sıradaki cevap kitapçıklar arasında farklı olsun</b><span>Örneğin A kitapçığının 1. sorusunun cevabı B ise B, C, D ve E kitapçıklarının 1. sorusunun cevabı B olmaz ve bu kitapçıklar arasında da tekrar etmez. Yan yana oturan öğrenciler birbirinin cevabını kopyalayamaz. 2. adımda doğru cevapların işaretlenmesi gerekir.</span></div></label>
+    <label class="htmyo-tg"><input type="checkbox" id="optQ" checked><span class="ik" aria-hidden="true">🔀</span><div><b>Soruların yerini değiştir</b><span>Görselli, öncüllü ve tablolu sorular bütün olarak taşınır.</span></div></label>
+    <label class="htmyo-tg"><input type="checkbox" id="optO" checked><span class="ik" aria-hidden="true">🔤</span><div><b>Şıkların yerini değiştir</b><span>Doğru/Yanlış gibi iki şıklı sorular karıştırılmaz.</span></div></label>
+    <label class="htmyo-tg"><input type="checkbox" id="optFix" checked><span class="ik" aria-hidden="true">📌</span><div><b>"Hepsi / Hiçbiri" yerinde kalsın</b><span>Bu tür şıklar bulundukları harfte bırakılır.</span></div></label>
+    <label class="htmyo-tg"><input type="checkbox" id="optRun" checked><span class="ik" aria-hidden="true">🔁</span><div><b>Aynı cevap harfi en fazla 3 kez üst üste gelsin</b><span>Öğrencinin "art arda dört C olmaz" diye tahmin yürütmesini önler. 2. adımda doğru cevapların işaretlenmesi gerekir.</span></div></label>
+    <label class="htmyo-tg"><input type="checkbox" id="optFoot" checked><span class="ik" aria-hidden="true">📄</span><div><b>Her sayfanın altına kitapçık türü ve sayfa numarası yaz</b><span>Örneğin "B KİTAPÇIĞI · Sayfa 2 / 4". Zımbalanan sayfalar karışmaz, öğrenci kitapçık türünü her sayfada görür.</span></div></label>
+    <label class="htmyo-tg"><input type="checkbox" id="optBig"><span class="ik" aria-hidden="true">♿</span><div><b>Büyük puntolu kopyalar da üretilsin</b><span>Engelli öğrenciler için: her kitapçığın ayrıca bir kopyası iner. Sorular, şıklar ve yönerge en az 18 punto ve tek sütun olur; form başlığı ve bilgi tabloları normal boyutta kalır.</span></div></label>
+    <label class="htmyo-tg"><input type="checkbox" id="optDiff" checked><span class="ik" aria-hidden="true">👥</span><div><b>Aynı sıradaki cevap kitapçıklar arasında farklı olsun</b><span>Örneğin A kitapçığının 1. sorusunun cevabı B ise B, C, D ve E kitapçıklarının 1. sorusunun cevabı B olmaz ve bu kitapçıklar arasında da tekrar etmez. Yan yana oturan öğrenciler birbirinin cevabını kopyalayamaz. 2. adımda doğru cevapların işaretlenmesi gerekir.</span></div></label>
   </div>
   <div class="htmyo-kod"><label for="kod"><b>Üretim kodu</b> (isteğe bağlı)</label><input id="kod" type="text" maxlength="12" placeholder="Boş bırakırsanız yeni kod verilir" autocomplete="off" spellcheck="false"><small>Aynı dosya, aynı cevaplar, aynı seçenekler ve aynı kodla kitapçıklar birebir aynı üretilir. Dosyalar kaybolursa önceki kodu yazıp yeniden oluşturabilirsiniz.</small></div>
   <div style="margin-top:18px"><button class="htmyo-btn big" id="go">Kitapçıkları oluştur</button></div>
@@ -281,19 +306,34 @@ td.ipt{color:#B91C1C;font-weight:700}
 <!-- MADDE ANALİZİ -->
 <section class="htmyo-card htmyo-print" id="c5">
   <h2>Sınav sonrası: madde analizi</h2>
-  <p class="lead">Optik okuyucunun verdiği öğrenci cevaplarını yükleyin. Araç bütün kitapçıkları A sırasına çevirir; her sorunun güçlük ve ayırt edicilik değerini, çeldiricilerin işleyip işlemediğini ve sınavın güvenirliğini (KR-20) hesaplar. Öğrenci bilgileri bilgisayarınızdan çıkmaz.</p>
+  <p class="lead"><b>Ne zaman kullanılır?</b> Sınav yapılıp optik formlar okutulduktan sonra. <b>Ne verir?</b> Hangi soruların iyi çalıştığını, hangilerinin çok kolay, çok zor ya da hatalı olabileceğini, sınavın güvenilirliğini ve öğrenci puanlarını gösterir. B, C, D, E kitapçıklarını kendiliğinden A sırasına çevirir. Öğrenci bilgileri bilgisayarınızdan çıkmaz.</p>
   <div class="htmyo-ma htmyo-noprint">
-    <div class="htmyo-mabox"><b>1. Cevap anahtarı</b><p id="maKeyDurum">Bu sayfada kitapçık oluşturduysanız o anahtar kullanılır. Başka bir gün için kitapçıkları oluştururken indirdiğiniz <b>cevap anahtarı dosyasını (.csv)</b> seçin.</p><label class="htmyo-btn sec htmyo-filebtn">Cevap anahtarı dosyası seç<input type="file" id="maKey" accept=".csv,.txt"></label></div>
-    <div class="htmyo-mabox"><b>2. Öğrenci cevapları</b><p>Optik okuyucu çıktısı (.txt, .csv ya da Excel .xlsx). Her satırda bir öğrenci: numara veya ad, kitapçık türü ve cevaplar. Dosyayı seçin ya da aşağıya yapıştırın.</p><label class="htmyo-btn sec htmyo-filebtn">Optik çıktı dosyası seç<input type="file" id="maOpt" accept=".txt,.csv,.xlsx"></label><span id="maOptAd" class="htmyo-count"></span>
-      <textarea id="maTxt" rows="4" spellcheck="false" placeholder="2025001;A;BCDAE-ABCD...&#10;2025002;B;ACDBE*ABCE..."></textarea></div>
+    <div class="htmyo-mabox">
+      <div class="htmyo-mah"><i>1</i><b>Cevap anahtarı</b></div>
+      <div id="maKeyDurum" class="htmyo-madurum"></div>
+      <p>Kitapçıkları oluşturduğunuz gün sonuç ekranındaki <b>"Cevap anahtarını indir (Excel/CSV)"</b> düğmesiyle indirdiğiniz dosyayı seçin. Bu dosya hangi sorunun hangi kitapçıkta kaçıncı sırada olduğunu bilir.</p>
+      <label class="htmyo-btn sec htmyo-filebtn">📄 Cevap anahtarı dosyasını seç<input type="file" id="maKey" accept=".csv,.txt"></label>
+    </div>
+    <div class="htmyo-mabox">
+      <div class="htmyo-mah"><i>2</i><b>Öğrenci cevapları</b></div>
+      <p>Optik okuyucunun verdiği sonuç dosyası (.xlsx, .csv ya da .txt). Her satırda bir öğrenci; <b>öğrenci numarası</b>, <b>kitapçık türü</b> ve <b>cevaplar</b> bulunmalı:</p>
+      <div class="htmyo-tbl htmyo-orn"><table><tr><th>Numara</th><th>Kitapçık</th><th>Cevaplar</th></tr><tr><td>2025001</td><td>A</td><td style="text-align:left">BCDAE-ABCD</td></tr><tr><td>2025002</td><td>B</td><td style="text-align:left">ACDBE*ABCE</td></tr></table></div>
+      <small class="htmyo-mak">Boş bırakılan soru: tire (-) ya da boşluk. Birden çok işaretlenen soru: yıldız (*).</small>
+      <label class="htmyo-btn sec htmyo-filebtn">📊 Optik sonuç dosyasını seç<input type="file" id="maOpt" accept=".txt,.csv,.xlsx"></label><span id="maOptAd" class="htmyo-count"></span>
+      <details class="htmyo-yap"><summary>ya da cevapları buraya yapıştırın</summary><textarea id="maTxt" rows="4" spellcheck="false" placeholder="2025001;A;BCDAE-ABCD&#10;2025002;B;ACDBE*ABCE"></textarea></details>
+    </div>
   </div>
-  <div class="htmyo-bulk htmyo-noprint"><label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--htmyo-mut)">İptal edilen sorular (A'daki no):<input id="maIptal" type="text" placeholder="örn. 7, 12" style="max-width:160px"></label><button class="htmyo-btn big" id="maGo">Analiz et</button></div>
+  <div class="htmyo-mabox htmyo-noprint" style="margin-bottom:12px">
+    <div class="htmyo-mah"><i>3</i><b>İptal edilen soru varsa</b> <span style="font-weight:400;color:var(--htmyo-mut)">(isteğe bağlı)</span></div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><label style="font-size:13px;color:var(--htmyo-mut)">A kitapçığındaki numarası:</label><input id="maIptal" type="text" placeholder="örn. 7, 12" style="max-width:160px"><small class="htmyo-mak" style="margin:0">İptal edilen soru herkese doğru sayılır.</small></div>
+  </div>
+  <div class="htmyo-noprint"><button class="htmyo-btn big" id="maGo">Analizi başlat</button></div>
   <div id="maSonuc"></div>
 </section>
 
 <section class="htmyo-card htmyo-noprint" id="nasil">
   <h2>Nasıl kullanılır?</h2>
-  <p class="lead">Araç iki tür dosyayla çalışır. Hangisini kullanırsanız kullanın, yalnızca A kitapçığını hazırlarsınız; B, C, D ve E kitapçıkları ondan türetilir.</p>
+  <p class="lead">Araç üç tür dosyayla çalışır. Hangisini kullanırsanız kullanın, yalnızca A kitapçığını hazırlarsınız; B, C, D ve E kitapçıkları ondan türetilir. Adım adım ekran görüntüleriyle anlatım için <a href="yardim.html" target="_blank" rel="noopener"><b>📘 Resimli yardım</b></a> sayfasına bakın.</p>
   <div class="htmyo-guide">
     <div>
       <h3>A. Yüksekokulumuzun şablonuyla</h3>
@@ -593,6 +633,22 @@ function htmyoYerlestir(bloklar,sabitB,n,r){
     const k=ser.findIndex(b=>b.length<=L);if(k<0)return null;const b=ser.splice(k,1)[0];b.forEach((ui,j)=>yer[pos+j]=ui);pos+=b.length}
   return ser.length?null:yer;
 }
+const HTMYO_RPR_SONRA=['szCs','highlight','u','effect','bdr','shd','fitText','vertAlign','rtl','cs','em','lang','eastAsianLayout','specVanish','oMath'];
+const HTMYO_PPR_SONRA=['ind','contextualSpacing','mirrorIndents','suppressOverlap','jc','textDirection','textAlignment','textboxTightWrap','outlineLvl','divId','cnfStyle','rPr','sectPr','pPrChange'];
+function htmyoSira(par,yeni,sonra){const k=Array.from(par.childNodes).find(n=>n.nodeType===1&&sonra.includes(n.localName));par.insertBefore(yeni,k||null)}
+function htmyoRprSz(doc,rPr,hedef){let sz=htmyoKids(rPr,'sz')[0];const v=sz?+sz.getAttributeNS(HTMYO_W,'val'):0;const y=String(Math.max(hedef,Math.round(v*1.5)));
+  if(!sz){sz=doc.createElementNS(HTMYO_W,'w:sz');htmyoSira(rPr,sz,HTMYO_RPR_SONRA)}sz.setAttributeNS(HTMYO_W,'w:val',y);
+  let cs=htmyoKids(rPr,'szCs')[0];if(!cs){cs=doc.createElementNS(HTMYO_W,'w:szCs');htmyoSira(rPr,cs,HTMYO_RPR_SONRA.slice(1))}cs.setAttributeNS(HTMYO_W,'w:val',y)}
+function htmyoBuyutEl(doc,el,hedef){
+  /* HTMYO · büyük punto: yalnız öğrencinin okuyacağı içerik büyür · Dr. Behiç ÇETİN */
+  const rs=el.localName==='r'?[el]:Array.from(el.getElementsByTagNameNS(HTMYO_W,'r'));
+  rs.forEach(r=>{let rPr=htmyoKids(r,'rPr')[0];if(!rPr){rPr=doc.createElementNS(HTMYO_W,'w:rPr');r.insertBefore(rPr,r.firstChild)}htmyoRprSz(doc,rPr,hedef)});
+  const ps=el.localName==='p'?[el]:Array.from(el.getElementsByTagNameNS(HTMYO_W,'p'));
+  ps.forEach(p=>{let pPr=htmyoKids(p,'pPr')[0];if(!pPr){pPr=doc.createElementNS(HTMYO_W,'w:pPr');p.insertBefore(pPr,p.firstChild)}
+    let rPr=htmyoKids(pPr,'rPr')[0];if(!rPr){rPr=doc.createElementNS(HTMYO_W,'w:rPr');htmyoSira(pPr,rPr,['sectPr','pPrChange'])}htmyoRprSz(doc,rPr,hedef);
+    let sp=htmyoKids(pPr,'spacing')[0];if(!sp){sp=doc.createElementNS(HTMYO_W,'w:spacing');htmyoSira(pPr,sp,HTMYO_PPR_SONRA)}
+    const lr=sp.getAttributeNS(HTMYO_W,'lineRule');if(lr==='exact'||lr==='atLeast'||!sp.getAttributeNS(HTMYO_W,'line')){sp.setAttributeNS(HTMYO_W,'w:line','276');sp.setAttributeNS(HTMYO_W,'w:lineRule','auto')}});
+}
 function htmyoKitapcik(xml,numXml,stilXml,harf,sec,anahtar,kullanilan){
   const m=htmyoCoz(xml,numXml,stilXml),{doc,body,units}=m;
   const last=units[units.length-1];const lastEl=last.els[last.els.length-1];
@@ -650,7 +706,12 @@ function htmyoKitapcik(xml,numXml,stilXml,harf,sec,anahtar,kullanilan){
   const cevap=sira.map(oi=>{const a=anahtar[oi];if(!a||!units[oi].siklar.length)return '';const pos=perm[oi].indexOf(HTMYO_HARF.indexOf(a));return pos<0?'':HTMYO_HARF[pos]});
   const out='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'+new XMLSerializer().serializeToString(doc).replace(/^<\?xml[^>]*\?>\s*/,'');
   const sikSira=sira.map(oi=>units[oi].siklar.length?perm[oi].map(i=>HTMYO_HARF[i]).join(''):'');
-  return {xml:out,sira,cevap,olmadi,sikSira};
+  let xmlBuyuk=null;
+  if(sec.buyukDe){units.forEach(u=>[...(u.onEk||[]),...u.els].forEach(e=>htmyoBuyutEl(doc,e,36)));
+    if(m.sablon)htmyoSdtBul(doc,'Sınav yönergesi').forEach(x=>htmyoBuyutEl(doc,x,32));
+    Array.from(doc.getElementsByTagNameNS(HTMYO_W,'cols')).forEach(c=>{c.setAttributeNS(HTMYO_W,'w:num','1');c.removeAttributeNS(HTMYO_W,'equalWidth');htmyoKids(c,'col').forEach(x=>c.removeChild(x))});
+    xmlBuyuk='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'+new XMLSerializer().serializeToString(doc).replace(/^<\?xml[^>]*\?>\s*/,'')}
+  return {xml:out,xmlBuyuk,sira,cevap,olmadi,sikSira};
 }
 
 /* ---- HTMYO · arayüz ---- */
@@ -692,12 +753,12 @@ function htmyoTemizle(files){
   });
   return {files,rap};
 }
-function htmyoAltBilgi(files,harf){
+function htmyoAltBilgi(files,harf,buyuk){
   const bul=n=>files.find(f=>f.name===n);const dF=bul('word/document.xml');const doc=htmyoXml(htmyoDec(dF));
   const rN='word/_rels/document.xml.rels';if(!bul(rN))files.push({name:rN,data:htmyoEnc('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"/>')});
   const rels=htmyoXml(htmyoDec(bul(rN)));const relMap={};Array.from(rels.documentElement.childNodes).filter(n=>n.nodeType===1).forEach(r=>relMap[r.getAttribute('Id')]=r);
   const yol=id=>{const r=relMap[id];if(!r)return null;const t=r.getAttribute('Target').replace(/^\//,'');return t.startsWith('word/')?t:'word/'+t};
-  const p=`<w:p xmlns:w="${HTMYO_W}"><w:pPr><w:spacing w:before="80" w:after="0"/><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:b/><w:bCs/><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t xml:space="preserve">${harf} KİTAPÇIĞI</w:t></w:r><w:r><w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t xml:space="preserve">  ·  Sayfa </w:t></w:r><w:fldSimple w:instr=" PAGE "><w:r><w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t>1</w:t></w:r></w:fldSimple><w:r><w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t xml:space="preserve"> / </w:t></w:r><w:fldSimple w:instr=" NUMPAGES "><w:r><w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t>1</w:t></w:r></w:fldSimple></w:p>`;
+  const p=`<w:p xmlns:w="${HTMYO_W}"><w:pPr><w:spacing w:before="80" w:after="0"/><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:b/><w:bCs/><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t xml:space="preserve">${harf} KİTAPÇIĞI${buyuk?' (BÜYÜK PUNTO)':''}</w:t></w:r><w:r><w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t xml:space="preserve">  ·  Sayfa </w:t></w:r><w:fldSimple w:instr=" PAGE "><w:r><w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t>1</w:t></w:r></w:fldSimple><w:r><w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t xml:space="preserve"> / </w:t></w:r><w:fldSimple w:instr=" NUMPAGES "><w:r><w:rPr><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr><w:t>1</w:t></w:r></w:fldSimple></w:p>`;
   const hedef=new Set();let yeniId=null;
   const yeni=()=>{if(yeniId)return yeniId;yeniId='rIdHtmyoFtr';
     files.push({name:'word/footerHtmyo.xml',data:htmyoEnc(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:ftr xmlns:w="${HTMYO_W}" xmlns:r="${HTMYO_R}">${p.replace(` xmlns:w="${HTMYO_W}"`,'')}</w:ftr>`)});
@@ -715,17 +776,13 @@ function htmyoAltBilgi(files,harf){
   return files;
 }
 function htmyoBuyut(files){
-  files.forEach(f=>{if(!/^word\/(document|styles|header\d*|footer\w*|footnotes|endnotes|numbering)\.xml$/.test(f.name))return;
-    const d=htmyoXml(htmyoDec(f));
-    ['sz','szCs'].forEach(ln=>Array.from(d.getElementsByTagNameNS(HTMYO_W,ln)).forEach(e=>{const v=+e.getAttributeNS(HTMYO_W,'val');if(v)e.setAttributeNS(HTMYO_W,'w:val',String(Math.max(36,Math.round(v*1.6))))}));
-    if(f.name==='word/styles.xml'){const rd=d.getElementsByTagNameNS(HTMYO_W,'rPrDefault')[0];if(rd){let rp=htmyoKids(rd,'rPr')[0];if(!rp){rp=d.createElementNS(HTMYO_W,'w:rPr');rd.appendChild(rp)}['sz','szCs'].forEach(ln=>{if(!htmyoKids(rp,ln).length){const e=d.createElementNS(HTMYO_W,'w:'+ln);e.setAttributeNS(HTMYO_W,'w:val','36');rp.appendChild(e)}})}}
-    Array.from(d.getElementsByTagNameNS(HTMYO_W,'cols')).forEach(c=>{c.setAttributeNS(HTMYO_W,'w:num','1');c.removeAttributeNS(HTMYO_W,'equalWidth');htmyoKids(c,'col').forEach(x=>c.removeChild(x))});
-    f.data=htmyoEnc(htmyoSer(d))});
-  return files;
+  const f=files.find(x=>x.name==='word/numbering.xml');if(!f)return files;const d=htmyoXml(htmyoDec(f));
+  Array.from(d.getElementsByTagNameNS(HTMYO_W,'lvl')).forEach(l=>{const rp=htmyoKids(l,'rPr')[0];if(!rp)return;['sz','szCs'].forEach(ln=>htmyoKids(rp,ln).forEach(e=>{const v=+e.getAttributeNS(HTMYO_W,'val');if(v)e.setAttributeNS(HTMYO_W,'w:val',String(Math.max(36,Math.round(v*1.5))))}))});
+  f.data=htmyoEnc(htmyoSer(d));return files;
 }
 function htmyoPaketle(zip,xml,harf,o){
   let files=zip.map(f=>({name:f.name,data:f.name==='word/document.xml'?htmyoEnc(xml):f.data.slice()}));
-  if(o.altBilgi)files=htmyoAltBilgi(files,harf);
+  if(o.altBilgi)files=htmyoAltBilgi(files,harf,o.buyuk);
   if(o.buyuk)files=htmyoBuyut(files);
   const rels=files.filter(f=>f.name.endsWith('.rels')).map(htmyoDec).join(' ');
   return files.filter(f=>!/^word\/media\//.test(f.name)||rels.includes(f.name.replace(/^word\//,'')));
@@ -910,15 +967,15 @@ $('#go').onclick=async()=>{
   const dl=$('#dl'),dlb=$('#dlb');dl.innerHTML='';dlb.innerHTML='';const buyukLink=[];
   const link=async(h,xml,b)=>{const files=htmyoPaketle(htmyoDurum.zip,xml,h,{altBilgi:alt,buyuk:b});const a=document.createElement('a');a.href=URL.createObjectURL(await htmyoZip(files));
     a.download=`${htmyoDurum.ad}_${h}${b?'_buyuk-punto':''}.docx`;a.innerHTML=`<div class="L">${h}</div><div><b>${h} kitapçığı${b?' (büyük punto)':''}</b><span>Word (.docx) indir</span></div>`;return a};
-  const indir=async(h,xml)=>{dl.appendChild(await link(h,xml,false));if(buyuk)buyukLink.push(await link(h,xml,true))};
-  const A=htmyoKitapcik(M.xml,M.numXml,M.stilXml,'A',{q:false,o:false,fix:true,bagli,sabit,seed:htmyoHash(kod+'|A')},anahtar);await indir('A',A.xml);
+  const indir=async(h,b)=>{dl.appendChild(await link(h,b.xml,false));if(buyuk)buyukLink.push(await link(h,b.xmlBuyuk,true))};
+  const A=htmyoKitapcik(M.xml,M.numXml,M.stilXml,'A',{q:false,o:false,fix:true,bagli,sabit,buyukDe:buyuk,seed:htmyoHash(kod+'|A')},anahtar);await indir('A',A);
   const res=[{h:'A',cevap:anahtar.map((a,i)=>M.units[i].siklar.length?a:''),sira:[...Array(n).keys()],sikSira:M.units.map(u=>HTMYO_HARF.slice(0,u.siklar.length))}];
   if(limit&&htmyoSeri(res[0].cevap)>limit)seriAsan.push('A');
   for(const h of harfler){let en=null;
-    for(let a=0;a<(limit?400:1);a++){const kk=htmyoKopya(kullanilan);const b=htmyoKitapcik(M.xml,M.numXml,M.stilXml,h,{...sec,seed:htmyoHash(kod+'|'+h+'|'+a)},anahtar,kk);const sr=htmyoSeri(b.cevap);
+    for(let a=0;a<(limit?400:1);a++){const kk=htmyoKopya(kullanilan);const b=htmyoKitapcik(M.xml,M.numXml,M.stilXml,h,{...sec,buyukDe:buyuk,seed:htmyoHash(kod+'|'+h+'|'+a)},anahtar,kk);const sr=htmyoSeri(b.cevap);
       if(!en||sr<en.sr)en={b,kk,sr};if(!limit||sr<=limit)break}
     kullanilan=en.kk;if(limit&&en.sr>limit)seriAsan.push(h);
-    await indir(h,en.b.xml);en.b.olmadi.forEach(x=>olmadi.add(x));res.push({h,cevap:en.b.cevap,sira:en.b.sira,sikSira:en.b.sikSira})}
+    await indir(h,en.b);en.b.olmadi.forEach(x=>olmadi.add(x));res.push({h,cevap:en.b.cevap,sira:en.b.sira,sikSira:en.b.sikSira})}
   if(buyukLink.length){dlb.innerHTML='<h3 class="htmyo-h">Büyük puntolu kopyalar</h3><div class="htmyo-dl" id="dlb2"></div>';buyukLink.forEach(a=>$('#dlb2').appendChild(a))}
   const t=htmyoDurum.temiz||{};$('#temizRapor').innerHTML=`<div class="htmyo-note i"><span>🧹</span><div>Kitapçıklardan yazar ve son kaydeden bilgisi${t.aciklama?', açıklamalar':''}${t.degisiklik?', izlenen değişiklikler':''}${t.gizli?', gizli metin':''} temizlendi.${alt?' Her sayfanın altında kitapçık türü ve sayfa numarası yazar.':''}</div></div>`;
   const uy=[];
@@ -970,8 +1027,10 @@ $('#csv').onclick=()=>{const R=htmyoDurum.sonuc;if(!R)return;const n=R[0].cevap.
   htmyoIndir(`${htmyoDurum.ad}_cevap-anahtari.csv`,new Blob([s],{type:'text/csv'}))};
 /* ---- HTMYO · madde analizi (güçlük, ayırt edicilik, çeldirici, KR-20) · Dr. Behiç ÇETİN ---- */
 htmyoDurum.maAnahtar=null;htmyoDurum.maSatir=null;
-function htmyoMaAnahtarDurum(){const k=htmyoDurum.maAnahtar||(htmyoDurum.sonuc&&{kaynak:'bu oturum'});
-  if(htmyoDurum.sonuc&&!htmyoDurum.maAnahtar)$('#maKeyDurum').innerHTML=`✓ Bu sayfada oluşturulan kitapçıkların anahtarı kullanılacak (${htmyoDurum.sonuc.map(r=>r.h).join(', ')} · ${htmyoDurum.sonuc[0].cevap.length} soru). Başka bir sınavın analizi için cevap anahtarı dosyasını seçin.`;
+function htmyoMaDurum(html,cls){const e=$('#maKeyDurum');e.className='htmyo-madurum'+(cls?' '+cls:'');e.innerHTML=html}
+htmyoMaDurum('Henüz anahtar yok. Aşağıdaki düğmeyle dosyayı seçin. (Kitapçıkları bu sayfada az önce oluşturduysanız bir şey yüklemenize gerek yok.)');
+function htmyoMaAnahtarDurum(){
+  if(htmyoDurum.sonuc&&!htmyoDurum.maAnahtar)htmyoMaDurum(`✓ Az önce bu sayfada oluşturduğunuz kitapçıkların anahtarı hazır (${htmyoDurum.sonuc.map(r=>r.h).join(', ')} · ${htmyoDurum.sonuc[0].cevap.length} soru). Ayrıca dosya seçmenize gerek yok.`,'ok');
   if(htmyoDurum.sonuc)$('#maIptal').value=[...htmyoDurum.iptal].map(x=>x+1).sort((a,b)=>a-b).join(', ')}
 function htmyoAnahtarCsv(metin){
   const L=metin.replace(/^\uFEFF/,'').split(/\r?\n/).map(x=>x.split(';'));const K={};let n=0,i=L.findIndex(r=>/^Kitap/i.test(r[0]||''));
@@ -1054,8 +1113,8 @@ function htmyoAnalizGoster(S){
   $('#maCsv').onclick=()=>kay(`${ad}_madde-analizi.csv`,'Soru (A);Cevap;p;Güçlük;Üst grup;Alt grup;D;Ayırt edicilik;A;B;C;D;E;Boş;Not\n'+S.M.map(m=>[m.q+1,m.k,htmyoF(m.p),htmyoPsin(m.p)[0],htmyoF(m.pu),htmyoF(m.pa),htmyoF(m.D),htmyoDsin(m.D)[0],...[...HTMYO_HARF].map(h=>h in m.say?m.say[h]:''),m.say[''],m.not.join(' ')].join(';')).join('\n')+`\n\nÖğrenci;${S.N}\nOrtalama puan;${htmyoF(S.puanOrt,1)}\nStandart sapma (doğru);${htmyoF(S.ss)}\nKR-20;${S.kr20==null?'':htmyoF(S.kr20)}\nİptal;${[...S.iptal].map(x=>x+1).join(' ')}\n`);
   $('#maOgr').onclick=()=>kay(`${ad}_ogrenci-puanlari.csv`,'Öğrenci;Kitapçık;Doğru;Yanlış;Boş;Puan (100)\n'+S.O.map(o=>[o.kimlik.replace(/;/g,','),o.kit,o.dogru,o.yanlis,o.bos,htmyoF(o.puan,1)].join(';')).join('\n')+'\n');
 }
-$('#maKey').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{htmyoDurum.maAnahtar=htmyoAnahtarCsv(htmyoMetinOku(await f.arrayBuffer()));const K=htmyoDurum.maAnahtar;$('#maKeyDurum').innerHTML=`✓ <b>${htmyoEsc(f.name)}</b>: ${K.R.map(r=>r.h).join(', ')} kitapçıkları, ${K.n} soru.`;$('#maIptal').value=K.iptal.map(x=>x+1).join(', ')}catch(err){htmyoDurum.maAnahtar=null;$('#maKeyDurum').innerHTML=`<span style="color:#B91C1C">⚠️ ${htmyoEsc(err.message)}</span>`}};
-$('#maOpt').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const b=await f.arrayBuffer();htmyoDurum.maSatir=/\.xlsx$/i.test(f.name)?await htmyoXlsxSatir(b):htmyoMetinSatir(htmyoMetinOku(b));$('#maOptAd').textContent=`${f.name} · ${htmyoDurum.maSatir.length} satır`;$('#maTxt').value=''}catch(err){htmyoDurum.maSatir=null;$('#maOptAd').textContent='⚠️ '+err.message}};
+$('#maKey').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{htmyoDurum.maAnahtar=htmyoAnahtarCsv(htmyoMetinOku(await f.arrayBuffer()));const K=htmyoDurum.maAnahtar;htmyoMaDurum(`✓ <b>${htmyoEsc(f.name)}</b> yüklendi: ${K.R.map(r=>r.h).join(', ')} kitapçıkları, ${K.n} soru.`,'ok');$('#maIptal').value=K.iptal.map(x=>x+1).join(', ')}catch(err){htmyoDurum.maAnahtar=null;htmyoMaDurum(`⚠️ ${htmyoEsc(err.message)}`,'hata')}};
+$('#maOpt').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const b=await f.arrayBuffer();htmyoDurum.maSatir=/\.xlsx$/i.test(f.name)?await htmyoXlsxSatir(b):htmyoMetinSatir(htmyoMetinOku(b));$('#maOptAd').textContent=`✓ ${f.name} · ${htmyoDurum.maSatir.length} satır`;$('#maTxt').value=''}catch(err){htmyoDurum.maSatir=null;$('#maOptAd').textContent='⚠️ '+err.message}};
 $('#maTxt').oninput=()=>{htmyoDurum.maSatir=null;$('#maOptAd').textContent=''};
 $('#maGo').onclick=()=>{
   try{

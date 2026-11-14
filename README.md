@@ -6,6 +6,8 @@ Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir 
 
 **Kullanmak için:** https://behiccetin.github.io/htmyo-kitapcik/
 
+**Resimli yardım:** https://behiccetin.github.io/htmyo-kitapcik/yardim.html (ekran görüntüleriyle adım adım anlatım ve deneme dosyaları)
+
 Sistem mimarı ve geliştirici: **Öğr. Gör. Dr. Behiç ÇETİN**
 Burdur Mehmet Akif Ersoy Üniversitesi, Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu
 
@@ -70,7 +72,7 @@ Aracın "Nasıl kullanılır?" bölümünden örnek Aiken ve düz metin dosyalar
 - **Ardışık harf sınırı:** aynı cevap harfi en fazla 3 kez üst üste gelir.
 - **Alt bilgi:** her sayfanın altına "B KİTAPÇIĞI · Sayfa 2 / 4" yazılır.
 - **Gizlilik temizliği:** Word açıklamaları, gizli metin, yazar ve son kaydeden bilgisi silinir; izlenen değişiklikler kabul edilir.
-- **Büyük puntolu kopya:** büyük puntolu soru kitapçığı hakkı olan öğrenciler için her kitapçığın en az 18 punto, tek sütun kopyası.
+- **Büyük puntolu kopya:** büyük puntolu soru kitapçığı hakkı olan öğrenciler için her kitapçığın ayrı bir kopyası; sorular, şıklar ve yönerge en az 18 punto ve tek sütun olur, form başlığı ve bilgi tabloları normal boyutta kalır.
 - **Üretim kodu:** aynı dosya, aynı cevaplar, aynı seçenekler ve aynı kodla kitapçıklar birebir aynı yeniden üretilir.
 - **Soru iptali ve anahtar düzeltme:** A'daki bir sorunun her kitapçıktaki yeri gösterilir; iptal ya da cevap değişikliği bütün anahtarlara tek seferde işlenir.
 - **Madde analizi:** optik okuyucu çıktısı (.txt, .csv, .xlsx) yüklenir; bütün kitapçıklar A sırasına çevrilir, her soru için güçlük (p), ayırt edicilik (D) ve çeldirici analizi, sınav için KR-20 güvenirliği hesaplanır; öğrenci puanları CSV olarak alınır.

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta name="author" content="Öğr. Gör. Dr. Behiç ÇETİN">
+<title>Resimli Yardım · Kitapçık Oluşturucu · Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu</title>
+<!--
+  HTMYO Kitapçık Oluşturucu · Resimli Yardım
+  Sistem mimarı ve geliştirici: Öğr. Gör. Dr. Behiç ÇETİN (HTMYO, MAKÜ)
+  © 2026 Behiç ÇETİN · MIT Lisansı · https://github.com/behiccetin/htmyo-kitapcik
+-->
+<style>
+:root{--p:#3B2A8F;--p2:#6A5BB5;--p3:#8A7FC0;--l:#ECE9F5;--l2:#F5F3FB;--bg:#F4F3F9;--tx:#1F1B2E;--mut:#6B6880;--bd:#DDD8EE;--ok:#15803D;--okbg:#ECFDF3;--w:#B45309;--wbg:#FFF4E5;--red:#E11D48}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:15.5px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--tx);background:var(--bg)}
+a{color:var(--p)}
+header.hero{background:linear-gradient(135deg,#2A1D6E,var(--p) 55%,var(--p2));color:#fff;padding:34px 20px 30px}
+header .in,main,.foot .in{max-width:1080px;margin:0 auto}
+.badge{display:inline-block;font-size:11px;letter-spacing:.08em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 10px;border-radius:99px}
+header h1{font-size:32px;margin:12px 0 6px;line-height:1.2}
+header p{margin:0;max-width:760px;opacity:.92}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--p);font-weight:700;text-decoration:none;padding:10px 16px;border-radius:10px}
+.btn.o{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+main{padding:24px 20px 40px}
+.card{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:24px 26px;margin-bottom:20px;box-shadow:0 1px 2px rgba(30,20,80,.04)}
+h2{font-size:22px;color:var(--p);margin:0 0 6px;display:flex;align-items:center;gap:12px}
+h2 .n{flex:0 0 38px;height:38px;border-radius:12px;background:var(--p);color:#fff;display:grid;place-items:center;font-size:18px}
+h3{font-size:17px;margin:22px 0 6px;color:var(--p)}
+.lead{color:var(--mut);margin:0 0 12px}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.flow a{display:block;text-decoration:none;color:var(--tx);border:1px solid var(--bd);border-radius:14px;padding:14px;background:var(--l2);position:relative}
+.flow a:hover{border-color:var(--p2)}
+.flow .e{font-size:26px}.flow b{display:block;color:var(--p);margin:4px 0 2px}.flow span{font-size:13px;color:var(--mut)}
+.flow a:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:42%;color:var(--p3);font-weight:700}
+.toc{columns:2;column-gap:28px;margin:0;padding-left:20px}.toc li{margin:3px 0}
+figure{margin:14px 0 6px;border:1px solid var(--bd);border-radius:14px;overflow:hidden;background:#fff}
+figure a{display:block}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:12.5px;color:var(--mut);padding:8px 12px;border-top:1px solid var(--bd);background:var(--l2)}
+ol.adim{list-style:none;padding:0;margin:10px 0 0;counter-reset:a}
+ol.adim li{position:relative;padding:6px 0 6px 44px;counter-increment:a}
+ol.adim li::before{content:counter(a);position:absolute;left:0;top:5px;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;display:grid;place-items:center;font-size:14px;box-shadow:0 0 0 2px #fff,0 0 0 3px var(--red)}
+.not{display:flex;gap:12px;border-radius:12px;padding:12px 14px;margin:14px 0;font-size:14.5px}
+.not .i{font-size:20px;line-height:1.3}
+.not.w{background:var(--wbg);border:1px solid #F5C77E}
+.not.b{background:#EEF2FF;border:1px solid #C7D2FE}
+.not.g{background:var(--okbg);border:1px solid #86EFAC}
+.not.r{background:#FEF2F2;border:1px solid #FCA5A5}
+.iki{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.yol{border:1px solid var(--bd);border-radius:14px;padding:14px 16px;background:var(--l2)}
+.yol b{color:var(--p)}
+.ex{font:13px/1.55 ui-monospace,Consolas,monospace;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:10px 12px;white-space:pre-wrap;margin:8px 0}
+.ex .k{color:#B91C1C;font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}
+th,td{border:1px solid var(--bd);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--l);color:var(--p)}
+.dl{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
+.dl a{display:flex;gap:12px;align-items:center;border:1px solid var(--bd);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--tx);background:#fff}
+.dl a:hover{border-color:var(--p2);background:var(--l2)}
+.dl .e{font-size:24px}.dl b{display:block;color:var(--p)}.dl span{font-size:12.5px;color:var(--mut)}
+code,kbd{font-family:ui-monospace,Consolas,monospace;background:var(--l);padding:1px 6px;border-radius:6px;font-size:.92em}
+.sss details{border:1px solid var(--bd);border-radius:12px;padding:10px 14px;margin:8px 0;background:#fff}
+.sss summary{cursor:pointer;font-weight:700;color:var(--p)}
+.sss p{margin:8px 0 2px}
+.foot{background:#fff;border-top:1px solid var(--bd);padding:20px;font-size:13px;color:var(--mut)}
+.top{display:inline-block;margin-top:8px;font-size:13px}
+@media (max-width:820px){.flow,.iki,.dl{grid-template-columns:1fr}.flow a:not(:last-child)::after{display:none}.toc{columns:1}header h1{font-size:25px}}
+@media print{header.hero{background:#fff;color:var(--tx)}.btns,.top{display:none}.card{break-inside:avoid-page;box-shadow:none}figure{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="in">
+  <span class="badge">BUCAK HİKMET TOLUNAY ULAŞTIRMA VE LOJİSTİK MESLEK YÜKSEKOKULU · SINAV ARAÇLARI</span>
+  <h1>Kitapçık Oluşturucu · Resimli Yardım</h1>
+  <p>Sınav kitapçıklarının nasıl hazırlanacağını, cevap anahtarının nasıl alınacağını ve sınavdan sonra sonuçların nasıl işleneceğini ekran görüntüleriyle adım adım anlatır. Görsellerdeki <b>kırmızı numaralar</b>, altındaki açıklamalardaki aynı numaralı maddeye karşılık gelir.</p>
+  <div class="btns"><a class="btn" href="index.html">← Kitapçık Oluşturucu'yu aç</a><a class="btn o" href="#deneme">🧪 Deneme dosyaları</a></div>
+</div></header>
+
+<main>
+
+<section class="card" id="ozet">
+  <h2>Kısaca nasıl işler?</h2>
+  <p class="lead">Siz yalnızca <b>A kitapçığını</b> hazırlarsınız. Araç soruların ve şıkların yerini değiştirerek B, C, D ve E kitapçıklarını ve her birinin cevap anahtarını üretir. Bütün işlem kendi bilgisayarınızda yapılır; sorularınız internete gönderilmez.</p>
+  <div class="flow">
+    <a href="#hazirla"><div class="e">✍️</div><b>1. Hazırlayın</b><span>A kitapçığını şablona, Word'e ya da metin dosyasına yazın.</span></a>
+    <a href="#yukle"><div class="e">📤</div><b>2. Yükleyin ve işaretleyin</b><span>Dosyayı yükleyin, doğru cevapları işaretleyin.</span></a>
+    <a href="#olustur"><div class="e">📚</div><b>3. Oluşturun ve indirin</b><span>Kitapçıkları ve cevap anahtarı dosyasını indirin.</span></a>
+    <a href="#sonra"><div class="e">📊</div><b>4. Sınavdan sonra</b><span>İptal ve düzeltme, madde analizi, öğrenci puanları.</span></a>
+  </div>
+  <h3>İçindekiler</h3>
+  <ol class="toc">
+    <li><a href="#hazirla">A kitapçığını hazırlama</a></li>
+    <li><a href="#yukle">Aracı açma ve dosyayı yükleme</a></li>
+    <li><a href="#cevap">Doğru cevapları işaretleme</a></li>
+    <li><a href="#olustur">Seçenekler ve kitapçıkları oluşturma</a></li>
+    <li><a href="#indir">İndirme, cevap anahtarı ve yazdırma</a></li>
+    <li><a href="#sinav">Çoğaltma ve sınav günü</a></li>
+    <li><a href="#sonra">Sınavdan sonra: iptal ve düzeltme</a></li>
+    <li><a href="#analiz">Madde analizi ve öğrenci puanları</a></li>
+    <li><a href="#deneme">Deneme dosyalarıyla alıştırma</a></li>
+    <li><a href="#sss">Sık karşılaşılan durumlar</a></li>
+  </ol>
+</section>
+
+<section class="card" id="hazirla">
+  <h2><span class="n">1</span>A kitapçığını hazırlama</h2>
+  <p class="lead">A kitapçığını üç yoldan biriyle hazırlayabilirsiniz. Hangisini seçerseniz seçin araç aynı şekilde çalışır.</p>
+  <div class="iki">
+    <div class="yol"><b>Yol 1 · Yüksekokulun şablonu (önerilen)</b><br>Aracın ilk adımındaki <b>Sınav şablonlarını aç</b> düğmesine basın (aşağıdaki görselde 1 numara). Açılan Personel Formları sayfasında <b>Sınav İşlemleri</b> başlığının altından <b>Sınav Soruları Formu (Test)</b> ya da <b>(Klasik ve Karma)</b> dosyasını indirin. Ders bilgilerini doldurun, soruları ve şıkları kutulara yazın. Kullanmadığınız "Ek soru tipleri" örneklerini ve boş kalan soruları silip kaydedin.</div>
+    <div class="yol"><b>Yol 2 · Kendi Word dosyanız</b><br>Her soru <code>1.</code> ya da <code>1)</code> ile başlasın (Word'ün otomatik numaralandırması da olur). Her şık ayrı satırda <code>A)</code>, <code>B)</code> ile başlasın. Görsel, tablo ve öncüller soru ile şıklar arasında olabilir.</div>
+  </div>
+  <figure><a href="yardim/02-yukle.png"><img src="yardim/02-yukle.png" alt="Şablon indirme düğmeleri ve dosya yükleme alanı" loading="lazy"></a><figcaption>Aracın 1. adımı: şablon kutusu ve dosya yükleme alanı</figcaption></figure>
+  <ol class="adim">
+    <li><b>Sınav şablonlarını aç.</b> Yüksekokulun Personel Formları sayfasını yeni sekmede açar. Test sınavı için "Sınav Soruları Formu (Test)", açık uçlu ya da karışık sınav için "Sınav Soruları Formu (Klasik ve Karma)" dosyasını indirin.</li>
+    <li><b>Dosya yükleme alanı.</b> Hazırladığınız A kitapçığını buraya sürükleyin ya da tıklayıp seçin (bir sonraki bölüm).</li>
+  </ol>
+
+  <h3>Yol 3 · Metin dosyası (.txt) ya da Aiken biçimi</h3>
+  <p>Soruları Not Defteri'nde düz metin olarak da yazabilirsiniz. Araç bu dosyadan düzgün biçimli bir A kitapçığı (Word) oluşturur. <b>Aiken</b> biçiminde (Moodle'ın da kullandığı biçim) her sorunun altına <code>ANSWER: B</code> satırı yazılır; doğru cevaplar araçta kendiliğinden işaretlenir.</p>
+  <div class="iki">
+    <div><b>Aiken (cevaplı)</b><div class="ex">Aşağıdakilerden hangisi bir taşıma türüdür?
+A) Depolama
+B) Karayolu
+C) Paketleme
+D) Etiketleme
+E) Sayım
+<span class="k">ANSWER: B</span></div></div>
+    <div><b>Düz metin (cevapsız)</b><div class="ex">1. Aşağıdakilerden hangisi bir taşıma türüdür?
+A) Depolama
+B) Karayolu
+C) Paketleme
+D) Etiketleme
+E) Sayım</div></div>
+  </div>
+  <figure><a href="yardim/03-ornek-dosya.png"><img src="yardim/03-ornek-dosya.png" alt="Örnek Aiken ve düz metin dosyası indirme düğmeleri" loading="lazy"></a><figcaption>Aracın "Nasıl kullanılır?" bölümündeki metin dosyası anlatımı</figcaption></figure>
+  <ol class="adim">
+    <li><b>Örnek Aiken dosyası.</b> İndirip açın, kendi sorularınızı aynı düzende yazın.</li>
+    <li><b>Örnek düz metin dosyası.</b> Cevapları araçta işaretlemek istiyorsanız bu düzeni kullanın.</li>
+  </ol>
+
+  <div class="not w"><span class="i">⚠️</span><div><b>Bir şıkkın içinde Enter'a basmayın.</b> Uzun şık kendiliğinden alt satıra kayar. Enter'a basılırsa şık ikiye bölünür; araç bunu fark edip uyarır, ama o sorunun şıklarını karıştıramaz.<div class="ex">B) Rota optimizasyonu ve yük konsolidasyonu yaparak <span class="k">⏎ Enter</span>
+araç doluluk oranını artırmak</div></div></div>
+  <div class="not b"><span class="i">🔗</span><div><b>Ortak metne bağlı sorular.</b> Bir metin ya da tablo birkaç soruya aitse metnin başına <code>7-9. soruları aşağıdaki metne göre cevaplayınız.</code> gibi bir satır yazın. Araç bu soruları metinle birlikte taşır ve başlıktaki numaraları her kitapçıkta düzeltir. "Yukarıdaki soruya göre" diye başlayan sorular da bir önceki soruyla birlikte kalır.</div></div>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="yukle">
+  <h2><span class="n">2</span>Aracı açma ve dosyayı yükleme</h2>
+  <p class="lead">Aracı yüksekokulun web sitesindeki <b>Personel Formları</b> sayfasında, "Sınav İşlemleri" başlığının altındaki bağlantıdan açın. Size e-posta veya mesajla gelen başka kopyaları kullanmayın.</p>
+  <figure><a href="yardim/01-giris.png"><img src="yardim/01-giris.png" alt="Aracın giriş ekranı" loading="lazy"></a><figcaption>Aracın giriş ekranı</figcaption></figure>
+  <ol class="adim">
+    <li><b>Nasıl kullanılır?</b> Aynı sayfadaki kısa yazım kurallarına ve örneklere götürür.</li>
+    <li><b>Resimli yardım.</b> Şu an okuduğunuz bu sayfayı açar.</li>
+    <li><b>Adım çubuğu.</b> Hangi adımda olduğunuzu gösterir: yükle, işaretle, indir.</li>
+  </ol>
+  <p>A kitapçığını yükleme alanına sürükleyin ya da tıklayıp seçin. Yükleme bitince dosyanın adı, türü ve kaç soru bulunduğu görünür:</p>
+  <figure><a href="yardim/04-yuklendi.png"><img src="yardim/04-yuklendi.png" alt="Dosya yüklendikten sonraki bilgi kutusu" loading="lazy"></a><figcaption>Dosya yüklendikten sonra</figcaption></figure>
+  <ol class="adim">
+    <li><b>Dosya bilgisi.</b> "Yüksekokul şablonu · 25 soru bulundu, 25 tanesi şıklı" gibi. Soru sayısı beklediğinizden azsa ya da fazlaysa Word'de numaraları ve şıkları kontrol edip dosyayı yeniden yükleyin. Sarı uyarı kutuları çıkarsa okuyun; neyin düzeltilmesi gerektiğini yazar.</li>
+  </ol>
+  <div class="not g"><span class="i">🧹</span><div>Dosyada Word açıklamaları (yorumlar), izlenen değişiklikler ya da gizli metin varsa araç bunları öğrenciye gidecek bütün kitapçıklardan siler ve size bildirir. Yazar adı gibi dosya bilgileri de temizlenir. Böylece unutulmuş bir not doğru cevabı ele vermez.</div></div>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="cevap">
+  <h2><span class="n">3</span>Doğru cevapları işaretleme</h2>
+  <p class="lead">A kitapçığının doğru cevaplarını işaretlersiniz. Diğer kitapçıkların anahtarı kendiliğinden hesaplanır. Aiken dosyası yüklediyseniz cevaplar zaten işaretlidir; yalnızca kontrol edin.</p>
+  <figure><a href="yardim/05-cevaplar.png"><img src="yardim/05-cevaplar.png" alt="Doğru cevapların işaretlendiği 2. adım" loading="lazy"></a><figcaption>2. adım: doğru cevaplar</figcaption></figure>
+  <ol class="adim">
+    <li><b>Toplu giriş.</b> Bütün cevapları tek seferde yazıp <b>Uygula</b>'ya basın. Örneğin <code>EBDABCDACB...</code> 1. sorunun cevabı E, 2. sorunun cevabı B demektir.</li>
+    <li><b>Şık dağılımı.</b> A kitapçığında kaç sorunun cevabının hangi harfte olduğunu gösterir. Bir harf çok fazlaysa öğrenci tahminle puan alabilir; dengeli olması iyidir.</li>
+    <li><b>Tek tek işaretleme.</b> İsterseniz her sorunun doğru harfine tıklayın. İşaretli harf mor görünür.</li>
+    <li><b>🔗 Öncekiyle ve 📌 Sabit.</b> "Öncekiyle" işaretli soru bir önceki soruyla aynı blokta taşınır. "Sabit" işaretli sorunun numarası hiçbir kitapçıkta değişmez. Ortak metinli gruplar ve "yukarıdaki soruya göre" soruları kendiliğinden işaretlenir.</li>
+  </ol>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="olustur">
+  <h2><span class="n">4</span>Seçenekler ve kitapçıkları oluşturma</h2>
+  <p class="lead">Varsayılan seçenekler çoğu sınav için uygundur. Yalnızca kaç kitapçık istediğinizi seçip <b>Kitapçıkları oluştur</b>'a basmanız yeterlidir.</p>
+  <figure><a href="yardim/06-secenekler.png"><img src="yardim/06-secenekler.png" alt="Kitapçık seçimi ve seçenekler" loading="lazy"></a><figcaption>3. adım: kitapçıklar ve seçenekler</figcaption></figure>
+  <ol class="adim">
+    <li><b>Kitapçıklar.</b> A her zaman üretilir. B, C, D ve E'den istediklerinizi seçin. Kalabalık salonda dört ya da beş kitapçık önerilir.</li>
+    <li><b>♿ Büyük puntolu kopyalar.</b> Büyük puntolu soru kitapçığı hakkı olan engelli öğrenciler için her kitapçığın ayrıca bir kopyası iner. Sorular, şıklar ve yönerge en az 18 punto ve tek sütun olur; form başlığı ve bilgi tabloları normal boyutta kalır. Öğrenciye, salonda dağıtılan kitapçık türünün büyük puntolu kopyasını verin.</li>
+    <li><b>Üretim kodu.</b> Boş bırakırsanız araç yeni bir kod verir. Aynı A kitapçığı, aynı cevaplar, aynı seçenekler ve aynı kodla kitapçıklar birebir aynı üretilir. Dosyaları kaybederseniz kodu yazıp yeniden oluşturabilirsiniz.</li>
+    <li><b>Kitapçıkları oluştur.</b> Birkaç saniye içinde indirme bağlantıları ve cevap anahtarı görünür.</li>
+  </ol>
+  <table>
+    <tr><th>Seçenek</th><th>Ne işe yarar?</th></tr>
+    <tr><td>🔀 Soruların yerini değiştir</td><td>Soruların sırası her kitapçıkta farklı olur. Görselli, öncüllü ve tablolu sorular bütün olarak taşınır.</td></tr>
+    <tr><td>🔤 Şıkların yerini değiştir</td><td>Şıkların sırası değişir. Doğru/Yanlış gibi iki şıklı sorular karıştırılmaz.</td></tr>
+    <tr><td>📌 "Hepsi / Hiçbiri" yerinde kalsın</td><td>"Hepsi", "Hiçbiri" gibi şıklar bulundukları harfte kalır.</td></tr>
+    <tr><td>🔁 En fazla 3 kez üst üste</td><td>Aynı cevap harfi art arda dörtten fazla gelmez; öğrenci örüntüden tahmin yürütemez.</td></tr>
+    <tr><td>📄 Alt bilgi</td><td>Her sayfanın altına "B KİTAPÇIĞI · Sayfa 2 / 4" yazılır; zımbalanan sayfalar karışmaz.</td></tr>
+    <tr><td>👥 Aynı sıradaki cevap farklı olsun</td><td>A kitapçığının 1. sorusunun cevabı B ise diğer kitapçıkların 1. sorusunun cevabı B olmaz ve birbirini tekrar etmez. Yan yana oturan öğrenciler birbirinin cevabını kopyalayamaz.</td></tr>
+  </table>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="indir">
+  <h2><span class="n">5</span>İndirme, cevap anahtarı ve yazdırma</h2>
+  <figure><a href="yardim/07-sonuc.png"><img src="yardim/07-sonuc.png" alt="Kitapçıkların indirildiği sonuç ekranı" loading="lazy"></a><figcaption>Sonuç ekranı</figcaption></figure>
+  <ol class="adim">
+    <li><b>Kitapçıkları indirin.</b> Her kartta bir Word dosyası var. Büyük puntolu kopyalar istediyseniz ayrı bir satırda görünür. İndirdiğiniz dosyaları Word'de açıp göz gezdirin.</li>
+    <li><b>Yazdırma bilgileri.</b> Ders, sınav, tarih ve öğretim elemanı yazdırılan cevap anahtarının başında ve imza alanında görünür. Şablon kullandıysanız kendiliğinden dolar.</li>
+    <li><b>Cevap anahtarı tablosu.</b> Her kitapçığın her sorusunun doğru cevabı. Altında soru eşleşmesi (B'deki 1. soru A'da kaçıncı soru) ve harf dağılımı tabloları bulunur.</li>
+  </ol>
+  <figure><a href="yardim/08-anahtar-indir.png"><img src="yardim/08-anahtar-indir.png" alt="Cevap anahtarını yazdırma ve indirme düğmeleri" loading="lazy"></a><figcaption>Cevap anahtarı düğmeleri</figcaption></figure>
+  <ol class="adim">
+    <li><b>Cevap anahtarını indir (Excel/CSV).</b> Bu dosyayı mutlaka indirip saklayın.</li>
+    <li><b>Cevap anahtarını yazdır.</b> "GİZLİDİR · CEVAP ANAHTARI" başlıklı, imza alanlı bir sayfa yazdırır. Sınav evrakıyla birlikte saklanabilir.</li>
+  </ol>
+  <div class="not r"><span class="i">📌</span><div><b>Cevap anahtarı dosyasını (.csv) neden saklamalıyım?</b> Araç hiçbir şeyi kaydetmez; sayfayı kapattığınızda her şey silinir. Sınavdan günler sonra madde analizi yapmak ya da bir soruyu iptal etmek istediğinizde, aracın hangi sorunun hangi kitapçıkta kaçıncı sırada olduğunu bilmesi gerekir. Bu bilgi yalnızca bu dosyada bulunur. Dosyayı ders klasörünüzde, kitapçıkların yanında saklayın. Kaybederseniz <b>üretim kodu</b> ile kitapçıkları yeniden oluşturup dosyayı tekrar indirebilirsiniz.</div></div>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="sinav">
+  <h2><span class="n">6</span>Çoğaltma ve sınav günü</h2>
+  <figure><a href="yardim/13-kitapcik.png"><img src="yardim/13-kitapcik.png" alt="Üretilmiş B kitapçığının ilk sayfası" loading="lazy"></a><figcaption>Üretilmiş B kitapçığının ilk sayfası (Test şablonu)</figcaption></figure>
+  <ol class="adim">
+    <li><b>Kitapçık türü alanı.</b> Şablonda her dosyanın kitapçık türü kendi harfiyle doludur. Kendi Word dosyanızda en üste "Kitapçık Türü: B" satırı eklenir.</li>
+    <li><b>Alt bilgi.</b> Her sayfanın altında kitapçık türü ve sayfa numarası yazar.</li>
+  </ol>
+  <ul>
+    <li><b>Çift taraflı baskı:</b> 4 sayfalık kitapçıkta 1-2 ve 3-4. sayfaları arkalı önlü basıp zımbalayın.</li>
+    <li><b>Dağıtım:</b> Kitapçıkları sıra sıra A, B, C, D, E diye dağıtın; yan yana ve arka arkaya oturanlar aynı kitapçığı almasın.</li>
+    <li><b>Renkli kâğıt (isteğe bağlı):</b> Her kitapçığı farklı renkte kâğıda basmak, gözetmenin dağıtımı bir bakışta kontrol etmesini sağlar.</li>
+    <li><b>Optik form:</b> Öğrencilere kitapçık türünü optik forma kodlamalarını sınav başında hatırlatın. Yanlış kitapçık kodlayan öğrencinin cevapları yanlış anahtarla okunur.</li>
+  </ul>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="sonra">
+  <h2><span class="n">7</span>Sınavdan sonra: soru iptali ve anahtar düzeltme</h2>
+  <p class="lead">Sınavdan sonra bir soru iptal edilirse ya da doğru cevabı değişirse, sonuç ekranının altındaki <b>Soru iptali ve anahtar düzeltme</b> bölümünü kullanın. Kitapçıkları yeniden indirmeniz gerekmez; yalnızca anahtar değişir.</p>
+  <figure><a href="yardim/09-iptal.png"><img src="yardim/09-iptal.png" alt="Soru iptali ve anahtar düzeltme bölümü" loading="lazy"></a><figcaption>Soru iptali ve anahtar düzeltme</figcaption></figure>
+  <ol class="adim">
+    <li><b>A'daki soru numarası.</b> Sorunun A kitapçığındaki numarasını yazıp <b>Göster</b>'e basın.</li>
+    <li><b>Kitapçıklardaki yeri.</b> Sorunun her kitapçıkta kaçıncı sırada olduğu ve doğru cevabı görünür. Görseldeki örnekte A'daki 5. soru B'de 17., D'de 2. sırada.</li>
+    <li><b>Yeni doğru cevap.</b> A kitapçığına göre yeni doğru harfi seçip <b>Anahtarı güncelle</b>'ye basın; bütün kitapçıkların anahtarı tek seferde düzelir.</li>
+    <li><b>İptal.</b> <b>Bu soruyu iptal et</b> ile soru anahtarda "İPT" olarak görünür. İptal edilen soru madde analizinde herkese doğru sayılır.</li>
+  </ol>
+  <div class="not b"><span class="i">💡</span><div>Bu bölüm yalnızca kitapçıkları oluşturduğunuz oturumda görünür. Sayfayı kapattıysanız iptal edilen soruları doğrudan madde analizindeki "İptal edilen soru varsa" kutusuna yazın.</div></div>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="analiz">
+  <h2><span class="n">8</span>Madde analizi ve öğrenci puanları</h2>
+  <p class="lead">Optik formlar okutulduktan sonra kullanılır. Hangi soruların iyi çalıştığını, hangilerinin çok kolay, çok zor ya da hatalı olabileceğini, sınavın güvenilirliğini ve öğrenci puanlarını verir. B, C, D ve E kitapçıklarını kendiliğinden A sırasına çevirir. Bölüm, aracın sayfasının en altındadır.</p>
+  <h3>Neye ihtiyacınız var?</h3>
+  <table>
+    <tr><th>Dosya</th><th>Nereden gelir?</th></tr>
+    <tr><td><b>Cevap anahtarı dosyası (.csv)</b></td><td>Kitapçıkları oluşturduğunuz gün sonuç ekranındaki "Cevap anahtarını indir (Excel/CSV)" düğmesiyle indirdiğiniz dosya. Kitapçıkları aynı oturumda, sayfayı kapatmadan oluşturduysanız gerekmez.</td></tr>
+    <tr><td><b>Optik sonuç dosyası (.xlsx, .csv, .txt)</b></td><td>Optik okuyucudan alınan öğrenci cevapları. Her satırda bir öğrenci: numara (ya da ad), kitapçık türü ve cevaplar. Boş soru için tire (-) ya da boşluk, birden çok işaret için yıldız (*).</td></tr>
+  </table>
+  <div class="ex">Numara;Kitapçık;Cevaplar
+2025001;A;BCDAE-ABCDE...
+2025002;B;ACDBE*ABCEA...</div>
+  <figure><a href="yardim/10-analiz-giris.png"><img src="yardim/10-analiz-giris.png" alt="Madde analizi giriş ekranı" loading="lazy"></a><figcaption>Madde analizi: dosyaların seçilmesi</figcaption></figure>
+  <ol class="adim">
+    <li><b>Cevap anahtarı dosyasını seçin.</b> Yüklenince yeşil kutuda dosya adı, kitapçıklar ve soru sayısı görünür. Kitapçıkları bu oturumda oluşturduysanız kutu zaten yeşildir; bir şey seçmeyin.</li>
+    <li><b>Optik sonuç dosyasını seçin.</b> Dosya yerine cevapları kopyalayıp "ya da cevapları buraya yapıştırın" kutusuna da yapıştırabilirsiniz.</li>
+    <li><b>İptal edilen sorular.</b> Varsa A kitapçığındaki numaralarını virgülle yazın (örneğin <code>7, 12</code>).</li>
+    <li><b>Analizi başlat.</b></li>
+  </ol>
+  <figure><a href="yardim/11-analiz-sonuc.png"><img src="yardim/11-analiz-sonuc.png" alt="Madde analizi sonuçları" loading="lazy"></a><figcaption>Madde analizi sonuçları</figcaption></figure>
+  <ol class="adim">
+    <li><b>Özet kutuları.</b> Öğrenci sayısı, ortalama puan, standart sapma, en düşük ve en yüksek doğru sayısı ve KR-20 güvenirlik katsayısı.</li>
+    <li><b>Ayırt edicilik.</b> Sorunun başarılı öğrencilerle başarısız öğrencileri ne kadar iyi ayırdığı. Renkli yorum: yeşil iyi, sarı düzeltilmeli, kırmızı zayıf.</li>
+    <li><b>Not sütunu.</b> Araç dikkat edilmesi gereken durumları yazar: anahtar hatası olabileceği, kimsenin seçmediği (işlemeyen) çeldiriciler, üst grubun yanlış şıkka yöneldiği sorular.</li>
+  </ol>
+  <h3>Sonuçlar nasıl okunur?</h3>
+  <table>
+    <tr><th>Değer</th><th>Anlamı</th><th>Yorum</th></tr>
+    <tr><td><b>p</b> (güçlük)</td><td>Soruyu doğru yanıtlayanların oranı. Büyüdükçe soru kolaylaşır.</td><td>0,30 altı zor · 0,30-0,70 orta · 0,70 üstü kolay</td></tr>
+    <tr><td><b>D</b> (ayırt edicilik)</td><td>En başarılı %27 ile en başarısız %27'nin doğru oranları farkı.</td><td>0,40 ve üstü çok iyi · 0,30-0,39 iyi · 0,20-0,29 düzeltilmeli · 0,19 ve altı zayıf · negatif: anahtarı kontrol edin</td></tr>
+    <tr><td><b>KR-20</b></td><td>Sınavın bir bütün olarak tutarlılığı (güvenirlik).</td><td>0,70 ve üstü genellikle yeterli sayılır</td></tr>
+  </table>
+  <figure><a href="yardim/12-analiz-indir.png"><img src="yardim/12-analiz-indir.png" alt="Analiz sonuçlarını yazdırma ve indirme düğmeleri" loading="lazy"></a><figcaption>Analiz sonuçlarını kaydetme</figcaption></figure>
+  <ol class="adim">
+    <li><b>Analizi yazdır.</b> Ders dosyası ya da kalite kanıtı için yazdırılabilir rapor.</li>
+    <li><b>Madde analizini indir.</b> Soru bazındaki bütün değerler Excel'de açılabilen bir dosya olarak iner.</li>
+    <li><b>Öğrenci puanlarını indir.</b> Her öğrencinin kitapçık türü, doğru, yanlış, boş sayısı ve 100 üzerinden puanı.</li>
+  </ol>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="deneme">
+  <h2><span class="n">9</span>Deneme dosyalarıyla alıştırma</h2>
+  <p class="lead">Aracı gerçek bir sınavdan önce denemek için aşağıdaki örnek dosyaları kullanabilirsiniz. Öğrenci adları ve cevapları uydurmadır.</p>
+  <div class="dl">
+    <a href="ornek/Ornek_Sinav.docx" download><span class="e">📝</span><div><b>Örnek A kitapçığı</b><span>25 soruluk test, yüksekokul şablonuyla (Word)</span></div></a>
+    <a href="ornek/Ornek_Sinav_cevap-anahtari.csv" download><span class="e">🔑</span><div><b>Örnek cevap anahtarı dosyası</b><span>A, B, C, D, E kitapçıkları · üretim kodu ORNEK1</span></div></a>
+    <a href="ornek/ornek-optik.xlsx" download><span class="e">📊</span><div><b>Örnek optik sonuç (Excel)</b><span>42 uydurma öğrenci</span></div></a>
+    <a href="ornek/ornek-optik.csv" download><span class="e">📄</span><div><b>Örnek optik sonuç (CSV)</b><span>Aynı veriler, metin biçiminde</span></div></a>
+  </div>
+  <h3>Alıştırma adımları</h3>
+  <ol>
+    <li>Kitapçık Oluşturucu'yu açın ve <b>Örnek A kitapçığı</b>nı yükleyin.</li>
+    <li>Toplu giriş kutusuna <code>EBDABCDACBEACBEDACBDACAEB</code> yazıp <b>Uygula</b>'ya basın.</li>
+    <li>3. adımda B, C, D ve E'nin hepsini seçin, seçenekleri olduğu gibi bırakın, üretim koduna <code>ORNEK1</code> yazıp <b>Kitapçıkları oluştur</b>'a basın. Ortaya çıkan anahtar, örnek cevap anahtarı dosyasıyla birebir aynı olur.</li>
+    <li>Sayfanın en altındaki madde analizinde <b>örnek cevap anahtarı dosyası</b>nı ve <b>örnek optik sonucu</b> seçip <b>Analizi başlat</b>'a basın.</li>
+  </ol>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card sss" id="sss">
+  <h2><span class="n">?</span>Sık karşılaşılan durumlar</h2>
+  <details><summary>Araç beklediğimden az ya da çok soru buldu.</summary><p>Kendi Word dosyanızda her sorunun yeni paragrafta "1." ya da "1)" ile başladığını, şıkların ayrı satırlarda "A)" ile başladığını kontrol edin. Şablonda kullanmadığınız "Ek soru tipleri" örneklerini ve boş soruları silin. Sonra dosyayı yeniden yükleyin.</p></details>
+  <details><summary>"Bir şık iki satıra bölünmüş olabilir" uyarısı çıktı.</summary><p>Uyarıda yazan sorunun şıklarından birinin içinde Enter'a basılmış. Word'de o satırın başındaki boşluğu silip iki satırı birleştirin ve dosyayı yeniden yükleyin. Düzeltmezseniz o soru yine yer değiştirir ama şıkları karışmaz.</p></details>
+  <details><summary>Eski .doc dosyam yüklenmiyor.</summary><p>Dosyayı Word'de açıp "Farklı Kaydet" ile "Word Belgesi (.docx)" olarak kaydedin.</p></details>
+  <details><summary>Kitapçıkları ya da cevap anahtarı dosyasını kaybettim.</summary><p>Aynı A kitapçığını yükleyin, aynı cevapları işaretleyin, aynı seçenekleri seçin ve sonuç ekranında yazan <b>üretim kodunu</b> girerek yeniden oluşturun. Kitapçıklar ve anahtar birebir aynı çıkar. Kodu cevap anahtarı dosyasının içinde ve yazdırılan anahtarda da bulabilirsiniz.</p></details>
+  <details><summary>Bir öğrenci yanlış kitapçık türünü kodlamış olabilir.</summary><p>Öğrencinin puanı beklenmedik derecede düşükse, cevaplarını diğer kitapçıkların anahtarıyla da karşılaştırın. Optik forma kodlama hatası sınav yönetmeliğine göre değerlendirilir.</p></details>
+  <details><summary>Madde analizinde "satır okunamadı" uyarısı çıktı.</summary><p>Bu satırlarda kitapçık türü boş olabilir ya da anahtarda olmayan bir kitapçık harfi yazılı olabilir. Optik sonuç dosyasında kitapçık türünün ve cevapların ayrı sütunlarda olduğunu kontrol edin.</p></details>
+  <details><summary>Sorularım internete gidiyor mu?</summary><p>Hayır. Araç bir web sayfası olsa da bütün işlem kendi bilgisayarınızda, tarayıcınızın içinde yapılır. Sayfa, hiçbir sunucuya bağlanamayacak şekilde güvenlik kuralıyla kilitlenmiştir. Sayfa açıldıktan sonra internet bağlantınızı kesseniz de çalışır.</p></details>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+</main>
+
+<footer class="foot"><div class="in">
+  <b>Kitapçık Oluşturucu</b> · Resimli Yardım · Sistem mimarı ve geliştirici: <b>Öğr. Gör. Dr. Behiç ÇETİN</b><br>
+  Burdur Mehmet Akif Ersoy Üniversitesi, Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu · © 2026 Behiç ÇETİN · MIT Lisansı
+</div></footer>
+</body>
+</html>
