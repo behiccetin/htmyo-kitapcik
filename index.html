@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   ╔══════════════════════════════════════════════════════════════════════╗
-  ║  HTMYO Kitapçık Oluşturucu  ·  v1.3.0                                  ║
+  ║  HTMYO Kitapçık Oluşturucu  ·  v2.0.0                                  ║
   ║  Sistem mimarı ve geliştirici: Öğr. Gör. Dr. Behiç ÇETİN               ║
   ║  Burdur Mehmet Akif Ersoy Üniversitesi                                 ║
   ║  Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu (HTMYO) ║
@@ -9,7 +9,7 @@
   ║  © 2026 Behiç ÇETİN. MIT Lisansı ile yayımlanmıştır.                   ║
   ║  Bu kodu kullanan, değiştiren veya dağıtan herkes yukarıdaki telif      ║
   ║  bildirimini korumak ve şu atfı vermek zorundadır:                     ║
-  ║    Çetin, B. (2026). Kitapçık Oluşturucu (v1.3.0). Burdur Mehmet Akif  ║
+  ║    Çetin, B. (2026). Kitapçık Oluşturucu (v2.0.0). Burdur Mehmet Akif  ║
   ║    Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu.  ║
   ║    https://github.com/behiccetin/htmyo-kitapcik                        ║
   ║                                                                        ║
@@ -219,6 +219,18 @@ td.ipt{color:#B91C1C;font-weight:700}
 #dlx{margin-top:14px}
 @media (max-width:760px){.htmyo-q{grid-template-columns:30px 1fr}.htmyo-oc{grid-column:1/-1}.htmyo-ocl{left:0;right:auto;grid-template-columns:repeat(3,auto);min-width:0}}
 @media print{body.po #maSonuc .ma-madde,body.po #maSonuc>.htmyo-note,body.po #c5>h2,body.po #c5>.lead{display:none!important}body:not(.po) #maSonuc .ma-oc .htmyo-onlyprint{display:none!important}}
+.htmyo-yb{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--htmyo-p3);background:#fff;color:var(--htmyo-p);font:700 13px/1 inherit;cursor:pointer;margin-left:6px;vertical-align:middle;padding:0;flex:0 0 22px}
+.htmyo-yb:hover,.htmyo-yb[aria-expanded="true"]{background:var(--htmyo-p);color:#fff;border-color:var(--htmyo-p)}
+.htmyo-yb:focus-visible{outline:3px solid var(--htmyo-p3);outline-offset:2px}
+.htmyo-lrow{display:flex;align-items:center;gap:2px}
+.htmyo-pop{position:absolute;z-index:100;background:#fff;border:1px solid var(--htmyo-bd);border-radius:14px;box-shadow:0 14px 40px rgba(30,20,80,.22);padding:12px 14px;font-size:13.5px;line-height:1.55;color:var(--htmyo-tx)}
+.htmyo-pop .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}
+.htmyo-pop .hd b{color:var(--htmyo-p);font-size:14.5px}
+.htmyo-pop .x{border:0;background:var(--htmyo-l);color:var(--htmyo-p);width:26px;height:26px;border-radius:8px;cursor:pointer;flex:0 0 26px;font-size:13px}
+.htmyo-pop .bd code{background:var(--htmyo-l);padding:1px 5px;border-radius:5px;font-size:12.5px}
+.htmyo-pop .ln{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--htmyo-p)}
+.htmyo-pop.alt{position:fixed;left:12px!important;right:12px;bottom:12px;top:auto!important;width:auto!important;max-height:70vh;overflow:auto}
+.htmyo-tg b .htmyo-yb{margin-left:4px}
 </style>
 </head>
 <body>
@@ -245,7 +257,7 @@ td.ipt{color:#B91C1C;font-weight:700}
 
 <!-- ADIM 1 -->
 <section class="htmyo-card" id="c1">
-  <h2>1. A kitapçığını yükleyin</h2>
+  <h2 data-yb="dosya">1. A kitapçığını yükleyin</h2>
   <p class="lead">Yüksekokulumuzun Sınav Soruları Formu (PFRM-217) ile, kendi Word dosyanızla ya da bir metin dosyasıyla (.txt, Aiken biçimi de olur) hazırladığınız A kitapçığı. Kendi dosyanızı kullanacaksanız <a href="#nasil">yazım kurallarına</a> göz atın.</p>
   <div class="htmyo-sablon">
     <div class="htmyo-sablon-b"><span class="ik">📥</span><div><b>Henüz A kitapçığınız yok mu? Önce şablonu indirin.</b><span>Açılan Personel Formları sayfasında <b>Sınav İşlemleri</b> başlığının altındaki <b>Sınav Soruları Formu (Test)</b> ya da <b>(Klasik ve Karma)</b> dosyasını indirin. Soruları yazıp kaydedin, sonra buraya yükleyin.</span></div></div>
@@ -269,16 +281,16 @@ td.ipt{color:#B91C1C;font-weight:700}
   <p class="lead">A kitapçığındaki doğru şıkları seçin; diğer kitapçıkların anahtarı kendiliğinden hesaplanır. Cevap anahtarı istemiyorsanız bu adımı atlayabilirsiniz.</p>
   <div class="htmyo-bulk">
     <input id="bulk" type="text" placeholder="Toplu giriş: örn. CABDEBACD..." autocomplete="off" spellcheck="false">
-    <button class="htmyo-btn sec" id="applyBulk">Uygula</button>
+    <button class="htmyo-btn sec" id="applyBulk">Uygula</button><span data-yb="bulk"></span>
     <span class="htmyo-count" id="count"></span>
   </div>
   <div class="htmyo-dag" id="dagilim"></div>
   <div class="htmyo-ocbar">
     <div class="htmyo-ocbas"><span class="ik" aria-hidden="true">🎯</span><div><b>Öğrenme çıktıları (ÖÇ) · isteğe bağlı</b><span>Her sorunun ölçtüğü dersin öğrenme çıktısını seçin. ÖÇ'ler öğrenciye giden kitapçıklarda <b>görünmez</b>; ayrıca üretilen PFRM-248 Sınav Cevap Anahtarı'na, cevap anahtarı dosyasına ve madde analizindeki ÖÇ tablosuna yazılır. Seçmezseniz araç ÖÇ'siz çalışır.</span></div></div>
-    <div class="htmyo-ocrow"><label class="htmyo-ocn">Dersin ÖÇ sayısı <select id="ocSay"><option value="0">ÖÇ kullanmıyorum</option></select></label>
+    <div class="htmyo-ocrow"><label class="htmyo-ocn">Dersin ÖÇ sayısı <select id="ocSay"><option value="0">ÖÇ kullanmıyorum</option></select></label><span data-yb="oc"></span>
       <div class="htmyo-ocb"><input id="ocBulk" type="text" placeholder="Toplu giriş, soru sırasıyla: 1 2 1,3 - 2  (- boş)" autocomplete="off" spellcheck="false"><button class="htmyo-btn sec" id="ocApply">Uygula</button></div></div>
   </div>
-  <div class="htmyo-legend"><span><b>🔗 Öncekiyle</b> işaretli soru, bir önceki soruyla aynı blokta taşınır (ortak metin, tablo, "yukarıdaki soruya göre").</span><span><b>📌 Sabit</b> işaretli sorunun numarası hiçbir kitapçıkta değişmez.</span></div>
+  <div class="htmyo-legend"><span><b>🔗 Öncekiyle</b> işaretli soru, bir önceki soruyla aynı blokta taşınır (ortak metin, tablo, "yukarıdaki soruya göre").</span><span><b>📌 Sabit</b> işaretli sorunun numarası hiçbir kitapçıkta değişmez.</span><span data-yb="blok"></span></div>
   <div class="htmyo-qgrid" id="qlist"></div>
 </section>
 
@@ -300,9 +312,9 @@ td.ipt{color:#B91C1C;font-weight:700}
     <label class="htmyo-tg"><input type="checkbox" id="optRun" checked><span class="ik" aria-hidden="true">🔁</span><div><b>Aynı cevap harfi en fazla 3 kez üst üste gelsin</b><span>Öğrencinin "art arda dört C olmaz" diye tahmin yürütmesini önler. 2. adımda doğru cevapların işaretlenmesi gerekir.</span></div></label>
     <label class="htmyo-tg"><input type="checkbox" id="optFoot" checked><span class="ik" aria-hidden="true">📄</span><div><b>Her sayfanın altına kitapçık türü ve sayfa numarası yaz</b><span>Örneğin "B KİTAPÇIĞI · Sayfa 2 / 4". Zımbalanan sayfalar karışmaz, öğrenci kitapçık türünü her sayfada görür.</span></div></label>
     <label class="htmyo-tg"><input type="checkbox" id="optBig"><span class="ik" aria-hidden="true">♿</span><div><b>Büyük puntolu kopyalar da üretilsin</b><span>Engelli öğrenciler için: her kitapçığın ayrıca bir kopyası iner. Sorular, şıklar ve yönerge en az 18 punto ve tek sütun olur; form başlığı ve bilgi tabloları normal boyutta kalır.</span></div></label>
-    <label class="htmyo-tg"><input type="checkbox" id="optDiff" checked><span class="ik" aria-hidden="true">👥</span><div><b>Aynı sıradaki cevap kitapçıklar arasında farklı olsun</b><span>Örneğin A kitapçığının 1. sorusunun cevabı B ise B, C, D ve E kitapçıklarının 1. sorusunun cevabı B olmaz ve bu kitapçıklar arasında da tekrar etmez. Yan yana oturan öğrenciler birbirinin cevabını kopyalayamaz. 2. adımda doğru cevapların işaretlenmesi gerekir.</span></div></label>
+    <label class="htmyo-tg"><input type="checkbox" id="optDiff" checked><span class="ik" aria-hidden="true">👥</span><div><b data-yb="farkli">Aynı sıradaki cevap kitapçıklar arasında farklı olsun</b><span>Örneğin A kitapçığının 1. sorusunun cevabı B ise B, C, D ve E kitapçıklarının 1. sorusunun cevabı B olmaz ve bu kitapçıklar arasında da tekrar etmez. Yan yana oturan öğrenciler birbirinin cevabını kopyalayamaz. 2. adımda doğru cevapların işaretlenmesi gerekir.</span></div></label>
   </div>
-  <div class="htmyo-kod"><label for="kod"><b>Üretim kodu</b> (isteğe bağlı)</label><input id="kod" type="text" maxlength="12" placeholder="Boş bırakırsanız yeni kod verilir" autocomplete="off" spellcheck="false"><small>Aynı dosya, aynı cevaplar, aynı seçenekler ve aynı kodla kitapçıklar birebir aynı üretilir. Dosyalar kaybolursa önceki kodu yazıp yeniden oluşturabilirsiniz.</small></div>
+  <div class="htmyo-kod"><div class="htmyo-lrow"><label for="kod"><b>Üretim kodu</b> (isteğe bağlı)</label><span data-yb="kod"></span></div><input id="kod" type="text" maxlength="12" placeholder="Boş bırakırsanız yeni kod verilir" autocomplete="off" spellcheck="false"><small>Aynı dosya, aynı cevaplar, aynı seçenekler ve aynı kodla kitapçıklar birebir aynı üretilir. Dosyalar kaybolursa önceki kodu yazıp yeniden oluşturabilirsiniz.</small></div>
   <div style="margin-top:18px"><button class="htmyo-btn big" id="go">Kitapçıkları oluştur</button></div>
 </section>
 
@@ -312,10 +324,10 @@ td.ipt{color:#B91C1C;font-weight:700}
   <p class="lead">Dosyaları indirip Word'de açarak son bir kez göz gezdirin.</p>
   <div class="htmyo-dl htmyo-noprint" id="dl"></div>
   <div id="dlb" class="htmyo-noprint"></div>
-  <div id="dlx" class="htmyo-noprint"><h3 class="htmyo-h">Ayrı dosya</h3><div class="htmyo-dl"><a href="#" id="pf248"><div class="L" style="font-size:15px">248</div><div><b>PFRM-248 Sınav Cevap Anahtarı</b><span>Word (.docx) · her kitapçık için Soru No, Beklenen cevap, Ölçülen DÖÇ, Puan</span></div></a></div></div>
+  <div id="dlx" class="htmyo-noprint"><h3 class="htmyo-h" data-yb="p248">Ayrı dosya</h3><div class="htmyo-dl"><a href="#" id="pf248"><div class="L" style="font-size:15px">248</div><div><b>PFRM-248 Sınav Cevap Anahtarı</b><span>Word (.docx) · her kitapçık için Soru No, Beklenen cevap, Ölçülen DÖÇ, Puan</span></div></a></div></div>
   <div id="temizRapor" class="htmyo-noprint"></div>
   <div class="htmyo-baski htmyo-noprint">
-    <h3 class="htmyo-h">Yazdırma bilgileri</h3>
+    <h3 class="htmyo-h" data-yb="baski">Yazdırma bilgileri</h3>
     <p class="lead" style="margin:0 0 8px">Cevap anahtarı çıktısının başında ve imza alanında görünür. Şablondan gelen bilgiler kendiliğinden doldurulur.</p>
     <div class="htmyo-bform"><label>Ders<input id="pDers"></label><label>Bölüm / Program<input id="pBolum"></label><label>Sınav<input id="pSinav"></label><label>Tarih<input id="pTarih"></label><label>Öğretim elemanı<input id="pOgr"></label></div>
   </div>
@@ -323,14 +335,14 @@ td.ipt{color:#B91C1C;font-weight:700}
   <div id="keywrap"></div>
   <div id="imza" class="htmyo-onlyprint"></div>
   <div class="htmyo-iptal htmyo-noprint">
-    <h3 class="htmyo-h">Soru iptali ve anahtar düzeltme</h3>
+    <h3 class="htmyo-h" data-yb="iptal">Soru iptali ve anahtar düzeltme</h3>
     <p class="lead" style="margin:0 0 8px">Sınavdan sonra bir soru iptal edilirse ya da doğru cevabı değişirse A kitapçığındaki numarasını yazın. Sorunun her kitapçıktaki yerini ve cevabını görür, anahtarı tek seferde güncellersiniz. Kitapçıkları yeniden indirmeniz gerekmez.</p>
     <div class="htmyo-bulk"><input id="iq" type="number" min="1" placeholder="A'daki soru no" style="max-width:170px"><button class="htmyo-btn sec" id="ibul">Göster</button></div>
     <div id="isonuc"></div>
   </div>
   <div class="htmyo-noprint" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
     <button class="htmyo-btn sec" id="print">Cevap anahtarını yazdır</button>
-    <button class="htmyo-btn sec" id="csv">Cevap anahtarını indir (Excel/CSV)</button>
+    <button class="htmyo-btn sec" id="csv">Cevap anahtarını indir (Excel/CSV)</button><span data-yb="csv" style="align-self:center"></span>
   </div>
 </section>
 
@@ -340,13 +352,13 @@ td.ipt{color:#B91C1C;font-weight:700}
   <p class="lead"><b>Ne zaman kullanılır?</b> Sınav yapılıp optik formlar okutulduktan sonra. <b>Ne verir?</b> Hangi soruların iyi çalıştığını, hangilerinin çok kolay, çok zor ya da hatalı olabileceğini, sınavın güvenilirliğini ve öğrenci puanlarını gösterir. B, C, D, E kitapçıklarını kendiliğinden A sırasına çevirir. Öğrenci bilgileri bilgisayarınızdan çıkmaz.</p>
   <div class="htmyo-ma htmyo-noprint">
     <div class="htmyo-mabox">
-      <div class="htmyo-mah"><i>1</i><b>Cevap anahtarı</b></div>
+      <div class="htmyo-mah" data-yb="maKey"><i>1</i><b>Cevap anahtarı</b></div>
       <div id="maKeyDurum" class="htmyo-madurum"></div>
       <p>Kitapçıkları oluşturduğunuz gün sonuç ekranındaki <b>"Cevap anahtarını indir (Excel/CSV)"</b> düğmesiyle indirdiğiniz dosyayı seçin. Bu dosya hangi sorunun hangi kitapçıkta kaçıncı sırada olduğunu bilir.</p>
       <label class="htmyo-btn sec htmyo-filebtn">📄 Cevap anahtarı dosyasını seç<input type="file" id="maKey" accept=".csv,.txt"></label>
     </div>
     <div class="htmyo-mabox">
-      <div class="htmyo-mah"><i>2</i><b>Öğrenci cevapları</b></div>
+      <div class="htmyo-mah" data-yb="maOpt"><i>2</i><b>Öğrenci cevapları</b></div>
       <p>Optik okuyucunun verdiği sonuç dosyası (.xlsx, .csv ya da .txt). Her satırda bir öğrenci; <b>öğrenci numarası</b>, <b>kitapçık türü</b> ve <b>cevaplar</b> bulunmalı:</p>
       <div class="htmyo-tbl htmyo-orn"><table><tr><th>Numara</th><th>Kitapçık</th><th>Cevaplar</th></tr><tr><td>2025001</td><td>A</td><td style="text-align:left">BCDAE-ABCD</td></tr><tr><td>2025002</td><td>B</td><td style="text-align:left">ACDBE*ABCE</td></tr></table></div>
       <small class="htmyo-mak">Boş bırakılan soru: tire (-) ya da boşluk. Birden çok işaretlenen soru: yıldız (*).</small>
@@ -355,11 +367,11 @@ td.ipt{color:#B91C1C;font-weight:700}
     </div>
   </div>
   <div class="htmyo-mabox htmyo-noprint" style="margin-bottom:12px">
-    <div class="htmyo-mah"><i>3</i><b>İptal edilen soru varsa</b> <span style="font-weight:400;color:var(--htmyo-mut)">(isteğe bağlı)</span></div>
+    <div class="htmyo-mah" data-yb="maIptal"><i>3</i><b>İptal edilen soru varsa</b> <span style="font-weight:400;color:var(--htmyo-mut)">(isteğe bağlı)</span></div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><label style="font-size:13px;color:var(--htmyo-mut)">A kitapçığındaki numarası:</label><input id="maIptal" type="text" placeholder="örn. 7, 12" style="max-width:160px"><small class="htmyo-mak" style="margin:0">İptal edilen soru herkese doğru sayılır.</small></div>
   </div>
   <div class="htmyo-mabox htmyo-noprint" style="margin-bottom:12px">
-    <div class="htmyo-mah"><i>4</i><b>Öğrenme çıktısı (ÖÇ) raporu</b> <span style="font-weight:400;color:var(--htmyo-mut)">(kitapçıklar oluşturulurken ÖÇ seçildiyse)</span></div>
+    <div class="htmyo-mah" data-yb="esik"><i>4</i><b>Öğrenme çıktısı (ÖÇ) raporu</b> <span style="font-weight:400;color:var(--htmyo-mut)">(kitapçıklar oluşturulurken ÖÇ seçildiyse)</span></div>
     <div class="htmyo-bform" style="grid-template-columns:140px 1fr 1fr 1fr"><label>Başarı eşiği (%)<input id="maEsik" type="number" min="1" max="100" value="60"></label><label>Ders<input id="maDers"></label><label>Sınav türü<input id="maSinav"></label><label>Tarih<input id="maTarih"></label></div>
     <small class="htmyo-mak" style="margin:6px 0 0">Bir ÖÇ'ye, sınıfın o ÖÇ'yü ölçen sorulardaki ortalama başarısı eşiğe ulaştığında "Ulaşıldı" denir. Ders, sınav türü ve tarih rapor başlığında görünür.</small>
   </div>
@@ -469,25 +481,25 @@ E) Hattaki son durak</div></div>
 
 <footer class="htmyo-foot"><div class="in">
   <div>
-    <b>Kitapçık Oluşturucu</b> · v1.3.0<br>
+    <b>Kitapçık Oluşturucu</b> · v2.0.0<br>
     Sistem mimarı ve geliştirici: <b>Öğr. Gör. Dr. Behiç ÇETİN</b><br>
     Burdur Mehmet Akif Ersoy Üniversitesi<br>Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu<br>
     © 2026 Behiç ÇETİN · MIT Lisansı · Telif bildirimi korunarak ve atıf verilerek kullanılabilir.
   </div>
   <div>
     <b>Atıf için:</b>
-    <code>Çetin, B. (2026). Kitapçık Oluşturucu (Sürüm 1.3.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik</code>
+    <code>Çetin, B. (2026). Kitapçık Oluşturucu (Sürüm 2.0.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik</code>
   </div>
 </div></footer>
 
 <script>
 /*!
- * HTMYO Kitapçık Oluşturucu v1.3.0
+ * HTMYO Kitapçık Oluşturucu v2.0.0
  * Sistem mimarı ve geliştirici: Öğr. Gör. Dr. Behiç ÇETİN (HTMYO, MAKÜ)
  * © 2026 Behiç ÇETİN · MIT Lisansı · Atıf: https://github.com/behiccetin/htmyo-kitapcik
  */
 "use strict";
-const HTMYO_SURUM='1.3.0', HTMYO_MIMAR='Dr. Behiç ÇETİN';
+const HTMYO_SURUM='2.0.0', HTMYO_MIMAR='Dr. Behiç ÇETİN';
 const HTMYO_W='http://schemas.openxmlformats.org/wordprocessingml/2006/main';
 const $=s=>document.querySelector(s);
 const htmyoDurum={zip:null,ad:'',model:null,sonuc:null,metin:false,metinCevap:null};
@@ -1143,6 +1155,40 @@ function htmyoPfrm248(){
   return [['[Content_Types].xml',e.encode(ct)],['_rels/.rels',e.encode(rels)],['word/document.xml',e.encode(doc)],['word/styles.xml',e.encode(stil)],['word/_rels/document.xml.rels',e.encode(drels)],['word/media/logo.jpg',Uint8Array.from(atob(HTMYO_LOGO),c=>c.charCodeAt(0))]].map(([name,data])=>({name,data}));
 }
 $('#pf248').onclick=async e=>{e.preventDefault();if(!htmyoDurum.sonuc)return;htmyoIndir(`${htmyoDurum.ad}_PFRM-248_cevap-anahtari.docx`,await htmyoZip(htmyoPfrm248()))};
+/* ---- HTMYO · "?" yardım düğmeleri ve açılır açıklamalar · Dr. Behiç ÇETİN ---- */
+const HTMYO_YARDIM={
+  dosya:['Hangi dosyaları yükleyebilirim?',`Yüksekokulun <b>PFRM-217 Sınav Soruları Formu</b>, soruları "1." ile ve şıkları "A)" ile başlayan herhangi bir <b>Word (.docx)</b> dosyası ya da bir <b>metin dosyası (.txt)</b>. Metin dosyası Aiken biçiminde olabilir (her sorunun altında <code>ANSWER: B</code>).<br>Eski .doc dosyalarını Word'de "Farklı Kaydet" ile .docx olarak kaydedin. Dosyanız bilgisayarınızdan çıkmaz.`,'hazirla'],
+  bulk:['Toplu cevap girişi',`A kitapçığının doğru cevaplarını soru sırasıyla tek seferde yazıp <b>Uygula</b>'ya basın. <code>EBDAC</code> yazarsanız 1. sorunun cevabı E, 2. sorunun B, 3. sorunun D olur.<br>Açık uçlu (şıksız) bir sorunun sırasına gelen harf yok sayılır; sıra kaymasın diye oraya da bir harf yazın.<br>İsterseniz her sorunun doğru harfine tek tek tıklayabilirsiniz. Cevap işaretlemek isteğe bağlıdır, ama cevap anahtarı, "aynı sıradaki cevap farklı olsun" seçeneği ve madde analizi için gereklidir.`,'cevap'],
+  oc:['Öğrenme çıktıları (ÖÇ)',`Her sorunun ölçtüğü dersin öğrenme çıktısını seçersiniz. ÖÇ'ler öğrenciye giden kitapçıklarda <b>görünmez</b>; PFRM-248 Sınav Cevap Anahtarı'na, cevap anahtarı dosyasına ve madde analizindeki ÖÇ tablosuna yazılır.<br><b>Nasıl?</b> Önce dersin ÖÇ sayısını seçin (Ders Bilgi Paketindeki sayı). Sonra her sorunun yanındaki 🎯 ÖÇ düğmesinden işaretleyin ya da toplu girişe soru sırasıyla yazın: <code>1 2 1,3 - 2</code> (virgül: birden çok ÖÇ, tire: ÖÇ'süz soru).<br>İsteğe bağlıdır; seçmezseniz araç ÖÇ'siz çalışır.`,'oc'],
+  blok:['Öncekiyle ve Sabit',`<b>🔗 Öncekiyle:</b> soru, bir önceki soruyla aynı blokta kalır ve birlikte taşınır. Ortak bir metne, tabloya ya da görsele bağlı sorular ve "yukarıdaki soruya göre" diye başlayan sorular için kullanın. "7-9. soruları ..." başlıklı gruplar kendiliğinden işaretlenir.<br><b>📌 Sabit:</b> sorunun numarası hiçbir kitapçıkta değişmez. Örneğin her kitapçıkta son soru olarak kalması gereken bir soru için.`,'cevap'],
+  farkli:['Aynı sıradaki cevap farklı olsun',`Yan yana oturan öğrencilerin aynı numaralı sorularda aynı harfi işaretleyerek kopya çekmesini zorlaştırır. A kitapçığının 1. sorusunun cevabı B ise B, C, D ve E kitapçıklarında 1. sorunun cevabı B olmaz; bu kitapçıklar birbirini de tekrar etmez.<br>"Hepsi / Hiçbiri" gibi yerinde kalan şıklarda ya da sabit sorularda her zaman sağlanamayabilir; araç bunu sonuç ekranında uyarır. Doğru cevapların 2. adımda işaretlenmiş olması gerekir.`,'olustur'],
+  kod:['Üretim kodu nedir?',`Kitapçıkların <b>karıştırma anahtarıdır</b>. Araç soruları ve şıkları bu koda göre karıştırır; aynı kod her zaman aynı kitapçıkları verir.<br><b>Nasıl kullanılır?</b> İlk oluşturmada boş bırakın; araç bir kod verir. Kod, sonuç ekranında, yazdırılan anahtarda ve indirilen dosyalarda yazar. Kitapçıkları kaybederseniz ya da sonradan ÖÇ'li PFRM-248 veya büyük puntolu kopya gerekirse kodu buraya yazıp yeniden oluşturun.<br><b>Birebir aynı çıkması için</b> A kitapçığı, işaretli cevaplar, seçenekler ve seçilen kitapçık türleri de aynı olmalıdır. ÖÇ seçimi ve büyük punto kitapçıkları değiştirmez.<br><b>Gizli tutun:</b> A kitapçığı ile kod birlikte bütün kitapçıkları ve anahtarları üretir. Kodu öğrencinin göreceği bir yere yazmayın.`,'olustur'],
+  p248:['PFRM-248 Sınav Cevap Anahtarı',`Yüksekokulun Sınav Cevap Anahtarı formunun doldurulmuş hâlidir (Word). Her kitapçık için ayrı tabloda <b>Soru No, Beklenen cevap, Ölçülen DÖÇ ve Puan</b> bulunur. Sorular karıştığı için ÖÇ'ler her kitapçıkta o kitapçığın sırasına göre yazılır.<br>Bilgiler aşağıdaki "Yazdırma bilgileri" kutularından alınır. Açık uçlu soruların beklenen cevabını Word'de siz yazarsınız. Dosya sınav evrakıyla Bölüm Başkanlığına teslim edilir.`,'oc-dosya'],
+  baski:['Yazdırma bilgileri',`Buraya yazdıklarınız yazdırılan cevap anahtarının başlığına, imza alanına ve PFRM-248 Sınav Cevap Anahtarı'na girer. Şablondan gelen bilgiler kendiliğinden dolar; değiştirebilirsiniz.<br>PFRM-248'i bu kutuları doldurduktan sonra indirin. Bu bilgiler öğrenciye giden kitapçıklara yazılmaz.`,'indir'],
+  csv:['Cevap anahtarı dosyası neden saklanmalı?',`Excel'de açılan bu dosya; her kitapçığın cevaplarını, hangi sorunun hangi kitapçıkta kaçıncı sırada olduğunu, ÖÇ'leri ve üretim kodunu içerir.<br>Araç hiçbir şeyi kaydetmez; sayfayı kapatınca her şey silinir. Sınavdan sonra madde analizi yapmak için <b>bu dosyayı yüklemeniz gerekir</b>. Ders klasörünüzde, kitapçıkların yanında saklayın.`,'indir'],
+  iptal:['Soru iptali ve anahtar düzeltme',`Sınavdan sonra bir soru iptal edilirse ya da cevabı değişirse kullanılır. A kitapçığındaki numarayı yazın; sorunun her kitapçıktaki yeri ve cevabı görünür.<br><b>Anahtarı güncelle:</b> A'ya göre seçtiğiniz yeni cevap bütün kitapçıklara doğru harfle işlenir.<br><b>Bu soruyu iptal et:</b> soru anahtarda "İPT" olur, analizde herkese doğru sayılır.<br>Kitapçıkları yeniden indirmeniz gerekmez; değişiklikten sonra cevap anahtarı dosyasını ve PFRM-248'i yeniden indirin.`,'sonra'],
+  maKey:['Cevap anahtarı dosyası',`Kitapçıkları oluşturduğunuz gün sonuç ekranındaki "Cevap anahtarını indir (Excel/CSV)" düğmesiyle indirdiğiniz dosya.<br>Araç; B, C, D, E kitapçıklarındaki cevapları A sırasına çevirmek için hangi sorunun nereye gittiğini, ÖÇ'leri ve puanları bu dosyadan öğrenir. Kitapçıkları bu sayfada, sayfayı kapatmadan oluşturduysanız dosya seçmenize gerek yoktur.`,'analiz'],
+  maOpt:['Optik sonuç dosyası',`Optik okuyucunun verdiği öğrenci cevapları (.xlsx, .csv ya da .txt). Her satırda bir öğrenci olmalı: <b>numara</b> (ya da ad), <b>kitapçık türü</b> (A-E) ve <b>cevaplar</b>.<br>Cevaplar tek bir dizi hâlinde olur: <code>BCDAE-ABCD</code>. Boş soru için tire, boşluk ya da nokta; birden çok işaret için yıldız kullanılır. İlk satır başlık olabilir.<br>Öğrenci bilgileri bilgisayarınızdan çıkmaz.`,'analiz'],
+  maIptal:['İptal edilen sorular',`İptal edilen soruların <b>A kitapçığındaki</b> numaralarını virgülle yazın (örneğin <code>7, 12</code>). Bu sorular bütün öğrencilere doğru sayılır; güçlük, ayırt edicilik, KR-20 ve ÖÇ hesabına katılmaz.`,'analiz'],
+  esik:['Başarı eşiği ve ÖÇ raporu',`Bir ÖÇ'ye "Ulaşıldı" denmesi için gereken en düşük başarı yüzdesidir (varsayılan %60, PFRM-250'deki gibi). Sınıfın o ÖÇ'yü ölçen sorulardaki ortalama başarısı bu eşiğe ulaşırsa "Ulaşıldı" yazar.<br>Ders, sınav türü ve tarih, yazdırılan ÖÇ raporunun ve CSV dosyasının başlığına girer. Eşiği değiştirince tablo yeniden hesaplanır.`,'oc-tablo'],
+  madde:['p, D ve KR-20 nasıl okunur?',`<b>p (güçlük):</b> soruyu doğru yapanların oranı. 0,30 altı zor, 0,30-0,70 orta, 0,70 üstü kolay.<br><b>D (ayırt edicilik):</b> en başarılı %27 ile en başarısız %27'nin doğru oranları farkı. 0,40 ve üstü çok iyi, 0,30-0,39 iyi, 0,20-0,29 düzeltilmeli, 0,19 ve altı zayıf; negatifse anahtarı kontrol edin.<br><b>A-E sütunları:</b> o şıkkı seçen öğrenci sayısı; doğru cevap koyu renklidir. Kimsenin seçmediği çeldirici işlemiyor demektir.<br><b>KR-20:</b> sınavın güvenirliği; 0,70 ve üstü genellikle yeterli sayılır.`,'analiz'],
+  octablo:['Öğrenme Çıktılarına Ulaşma tablosu',`<b>Sınıfın başarı yüzdesi:</b> o ÖÇ'yü ölçen sorularda öğrencilerin ortalama doğru oranı (PFRM-250'deki "Gerçekleşme %").<br><b>Hedefe ulaşan öğrenci:</b> bu sorularda eşik ve üstü başarı gösteren öğrenci sayısı.<br><b>Durum:</b> sınıfın başarı yüzdesine göre belirlenir.<br>İptal edilen sorular sayılmaz; birden çok ÖÇ'ye bağlı soru her birine tam sayılır. CSV'deki "Gerçekleşme %" ve "Sonuç (S/X)" sütunları PFRM-250'ye aktarılır.`,'oc-tablo']
+};
+const htmyoYB=k=>`<button type="button" class="htmyo-yb htmyo-noprint" data-yardim="${k}" aria-label="${htmyoEsc(HTMYO_YARDIM[k][0])}: açıklama" aria-haspopup="dialog" aria-expanded="false">?</button>`;
+document.body.insertAdjacentHTML('beforeend','<div id="htmyoPop" class="htmyo-pop htmyo-noprint" role="dialog" aria-modal="false" hidden><div class="hd"><b></b><button type="button" class="x" aria-label="Kapat">✕</button></div><div class="bd"></div><a class="ln" target="_blank" rel="noopener">📘 Resimli yardımda ayrıntılar →</a></div>');
+const htmyoPop=$('#htmyoPop');let htmyoPopBtn=null;
+function htmyoPopKapat(){if(htmyoPop.hidden)return;htmyoPop.hidden=true;if(htmyoPopBtn){htmyoPopBtn.setAttribute('aria-expanded','false');htmyoPopBtn.focus({preventScroll:true})}htmyoPopBtn=null}
+function htmyoPopAc(b){const y=HTMYO_YARDIM[b.dataset.yardim];if(!y)return;if(htmyoPopBtn===b){htmyoPopKapat();return}
+  if(htmyoPopBtn)htmyoPopBtn.setAttribute('aria-expanded','false');htmyoPopBtn=b;b.setAttribute('aria-expanded','true');
+  htmyoPop.querySelector('.hd b').textContent=y[0];htmyoPop.querySelector('.bd').innerHTML=y[1];htmyoPop.querySelector('.ln').href='yardim.html#'+y[2];htmyoPop.setAttribute('aria-label',y[0]);htmyoPop.hidden=false;
+  const r=b.getBoundingClientRect(),W=Math.min(380,innerWidth-24);htmyoPop.style.width=W+'px';
+  if(innerWidth<600){htmyoPop.classList.add('alt');htmyoPop.style.left='';htmyoPop.style.top=''}
+  else{htmyoPop.classList.remove('alt');let x=r.left+scrollX+r.width/2-W/2;x=Math.max(scrollX+12,Math.min(x,scrollX+innerWidth-W-12));let yy=r.bottom+scrollY+8;const h=htmyoPop.offsetHeight;if(r.bottom+8+h>innerHeight&&r.top-8-h>0)yy=r.top+scrollY-8-h;htmyoPop.style.left=x+'px';htmyoPop.style.top=yy+'px'}
+  htmyoPop.querySelector('.x').focus({preventScroll:true})}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.htmyo-yb');if(b){e.preventDefault();e.stopPropagation();htmyoPopAc(b);return}if(e.target.closest&&e.target.closest('#htmyoPop .x')){htmyoPopKapat();return}if(!(e.target.closest&&e.target.closest('#htmyoPop')))htmyoPopKapat()},true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')htmyoPopKapat()});
+addEventListener('resize',htmyoPopKapat);
+document.querySelectorAll('[data-yb]').forEach(el=>el.insertAdjacentHTML('beforeend',htmyoYB(el.dataset.yb)));
 /* ---- HTMYO · madde analizi (güçlük, ayırt edicilik, çeldirici, KR-20) · Dr. Behiç ÇETİN ---- */
 htmyoDurum.maAnahtar=null;htmyoDurum.maSatir=null;
 function htmyoMaDurum(html,cls){const e=$('#maKeyDurum');e.className='htmyo-madurum'+(cls?' '+cls:'');e.innerHTML=html}
@@ -1228,7 +1274,7 @@ function htmyoAnalizGoster(S){
   let t=`<div class="ma-madde">${basl('MADDE ANALİZİ')}
   <div class="htmyo-stats"><div><b>${S.N}</b><span>öğrenci</span></div><div><b>${S.kk}</b><span>analiz edilen soru${S.iptal.size?` (+${S.iptal.size} iptal)`:''}</span></div><div><b>${htmyoF(S.puanOrt,1)}</b><span>ortalama puan (100)</span></div><div><b>${htmyoF(S.ort,1)} / ${S.kk}</b><span>ortalama doğru</span></div><div><b>${htmyoF(S.ss,2)}</b><span>standart sapma</span></div><div><b>${htmyoF(S.med,1)}</b><span>ortanca doğru</span></div><div><b>${S.min} · ${S.max}</b><span>en düşük · en yüksek</span></div><div><b>${kr}</b><span>KR-20 güvenirlik${krY?' ('+krY+')':''}</span></div></div>`;
   if(S.N<20)t+=`<div class="htmyo-note w"><span>⚠️</span><div>Öğrenci sayısı az (${S.N}). Üst ve alt grupların her biri ${S.g} kişi; değerler büyük dalgalanabilir, yorumlarken dikkatli olun.</div></div>`;
-  t+=`<h3 class="htmyo-h">Soru bazında sonuçlar (A kitapçığı sırasıyla)</h3><p class="lead" style="margin:0">p: güçlük indeksi (doğru yanıtlayanların oranı; büyüdükçe soru kolaylaşır). D: ayırt edicilik indeksi (üst %27 ile alt %27 grubun doğru oranları farkı). Şık sütunları o şıkkı seçen öğrenci sayısıdır; doğru cevap koyu renkli.</p>
+  t+=`<h3 class="htmyo-h">Soru bazında sonuçlar (A kitapçığı sırasıyla)${htmyoYB('madde')}</h3><p class="lead" style="margin:0">p: güçlük indeksi (doğru yanıtlayanların oranı; büyüdükçe soru kolaylaşır). D: ayırt edicilik indeksi (üst %27 ile alt %27 grubun doğru oranları farkı). Şık sütunları o şıkkı seçen öğrenci sayısıdır; doğru cevap koyu renkli.</p>
   <div class="htmyo-tbl"><table><tr><th>Soru</th><th>Cevap</th><th>p</th><th>Güçlük</th><th>Üst</th><th>Alt</th><th>D</th><th>Ayırt edicilik</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>Boş</th><th>Not</th></tr>`;
   S.M.forEach(m=>{const ds=htmyoDsin(m.D),ps=htmyoPsin(m.p);t+=`<tr><td class="kb">${m.q+1}</td><td>${m.k}</td><td>${htmyoF(m.p)}</td><td class="${ps[1]}">${ps[0]}</td><td>${htmyoF(m.pu)}</td><td>${htmyoF(m.pa)}</td><td>${htmyoF(m.D)}</td><td class="${ds[1]}">${ds[0]}</td>`+[...HTMYO_HARF].map(h=>h in m.say?`<td${h===m.k?' class="anah"':''}>${m.say[h]}</td>`:'<td>·</td>').join('')+`<td>${m.say['']}${m.say.X?` <small title="birden çok işaret">(+${m.say.X} çift)</small>`:''}</td><td class="not">${m.not.join(' ')||'·'}</td></tr>`});
   t+='</table></div>';
@@ -1238,7 +1284,7 @@ function htmyoAnalizGoster(S){
   <div class="htmyo-noprint" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="htmyo-btn sec" id="maPrint">Analizi yazdır</button><button class="htmyo-btn sec" id="maCsv">Madde analizini indir (CSV)</button><button class="htmyo-btn sec" id="maOgr">Öğrenci puanlarını indir (CSV)</button></div>`;
   t+='</div>';
   if(S.OCT){
-    t+=`<div class="ma-oc">${basl('ÖĞRENME ÇIKTILARINA ULAŞMA')}<h3 class="htmyo-h">Öğrenme Çıktılarına Ulaşma</h3><p class="lead" style="margin:0">Sınıf başarı yüzdesi: o ÖÇ'yü ölçen sorularda öğrencilerin ortalama doğru oranı (PFRM-250'deki "Gerçekleşme %"). Hedefe ulaşan öğrenci: bu sorularda %${S.esik} ve üstü başarı gösteren öğrenci. İptal edilen sorular hesaba katılmaz; birden çok ÖÇ'ye bağlı soru her birine tam sayılır.</p>
+    t+=`<div class="ma-oc">${basl('ÖĞRENME ÇIKTILARINA ULAŞMA')}<h3 class="htmyo-h">Öğrenme Çıktılarına Ulaşma${htmyoYB('octablo')}</h3><p class="lead" style="margin:0">Sınıf başarı yüzdesi: o ÖÇ'yü ölçen sorularda öğrencilerin ortalama doğru oranı (PFRM-250'deki "Gerçekleşme %"). Hedefe ulaşan öğrenci: bu sorularda %${S.esik} ve üstü başarı gösteren öğrenci. İptal edilen sorular hesaba katılmaz; birden çok ÖÇ'ye bağlı soru her birine tam sayılır.</p>
     <div class="htmyo-tbl"><table><tr><th>ÖÇ</th><th>Soru sayısı</th><th>Sorular (A kitapçığı)</th><th>Toplam puan</th><th>Sınıfın başarı yüzdesi</th><th>Hedefe ulaşan öğrenci</th><th>Oran</th><th>Durum</th></tr>`+
     S.OCT.map(o=>o.n?`<tr><td class="kb">ÖÇ${o.k}</td><td>${o.n}</td><td>${o.qs.map(q=>q+1).join(', ')}</td><td>${htmyoF(o.puan,1)}</td><td>%${htmyoF(o.yuzde,1)}</td><td>${o.ulasan} / ${S.N}</td><td>%${htmyoF(o.oran,1)}</td><td class="${o.ok?'iyi':'kotu'}">${o.ok?'Ulaşıldı':'Ulaşılamadı'}</td></tr>`:`<tr><td class="kb">ÖÇ${o.k}</td><td>0</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td style="color:var(--htmyo-mut)">Ölçülmedi</td></tr>`).join('')+'</table></div>';
     if(S.ocAtanmamis)t+=`<p style="font-size:12px;color:var(--htmyo-mut)">${S.ocAtanmamis} soruya ÖÇ atanmamış; bu sorular ÖÇ tablosuna katılmadı.</p>`;
