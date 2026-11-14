@@ -75,6 +75,8 @@ Aracın "Nasıl kullanılır?" bölümünden örnek Aiken ve düz metin dosyalar
 - **Büyük puntolu kopya:** büyük puntolu soru kitapçığı hakkı olan öğrenciler için her kitapçığın ayrı bir kopyası; sorular, şıklar ve yönerge en az 18 punto ve tek sütun olur, form başlığı ve bilgi tabloları normal boyutta kalır.
 - **Üretim kodu:** aynı dosya, aynı cevaplar, aynı seçenekler ve aynı kodla kitapçıklar birebir aynı yeniden üretilir.
 - **Soru iptali ve anahtar düzeltme:** A'daki bir sorunun her kitapçıktaki yeri gösterilir; iptal ya da cevap değişikliği bütün anahtarlara tek seferde işlenir.
+- **Öğrenme çıktıları (ÖÇ):** her sorunun ölçtüğü ÖÇ araçta seçilir; sorulara ve öğrenciye giden kitapçıklara ÖÇ yazılmaz. ÖÇ bilgisi ayrı olarak üretilen **PFRM-248 Sınav Cevap Anahtarı** Word dosyasına (Soru No, Beklenen cevap, Ölçülen DÖÇ, Puan; her kitapçık için ayrı tablo), cevap anahtarı tablosuna ve CSV dosyasına yazılır. Dosyadaki `[ÖÇ2]` notları ve Aiken'daki `OC: 2` satırları okunur ve kitapçıklardan silinir.
+- **Öğrenme Çıktılarına Ulaşma tablosu:** madde analizinde her ÖÇ için soru sayısı, toplam puan, sınıfın başarı yüzdesi, hedefe ulaşan öğrenci sayısı ve oranı, Ulaşıldı/Ulaşılamadı durumu; eşik ayarlanabilir (varsayılan %60), iptal edilen sorular sayılmaz, birden çok ÖÇ'ye bağlı soru her birine tam sayılır. Tablo yazdırılır ve PFRM-250 Program Çıktıları Değerlendirme Formu'na aktarılacak düzende CSV olarak iner.
 - **Madde analizi:** optik okuyucu çıktısı (.txt, .csv, .xlsx) yüklenir; bütün kitapçıklar A sırasına çevrilir, her soru için güçlük (p), ayırt edicilik (D) ve çeldirici analizi, sınav için KR-20 güvenirliği hesaplanır; öğrenci puanları CSV olarak alınır.
 
 ## Güvenlik ve gizlilik
@@ -87,6 +89,6 @@ Aracın "Nasıl kullanılır?" bölümünden örnek Aiken ve düz metin dosyalar
 
 Bu yazılım MIT Lisansı ile yayımlanmıştır. Kullanan, değiştiren veya dağıtan herkes telif bildirimini korumalı ve şu atfı vermelidir:
 
-> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 1.2.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
+> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 1.3.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
 
 © 2026 Behiç ÇETİN

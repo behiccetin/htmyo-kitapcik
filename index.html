@@ -152,7 +152,7 @@ footer.htmyo-foot code{display:block;background:rgba(255,255,255,.07);border-rad
 .htmyo-kod{margin-top:16px;display:grid;gap:4px;max-width:520px}
 .htmyo-kod input,.htmyo-bform input,#maIptal,#iq{border:1px solid var(--htmyo-bd);border-radius:8px;padding:8px 10px;font:inherit}
 .htmyo-kod small{color:var(--htmyo-mut);font-size:12px}
-.htmyo-bform{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.htmyo-bform{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .htmyo-bform label{display:grid;gap:3px;font-size:12.5px;color:var(--htmyo-mut)}
 .htmyo-baski,.htmyo-iptal{margin-top:18px;padding-top:12px;border-top:1px solid var(--htmyo-bd)}
 .htmyo-onlyprint{display:none}
@@ -194,6 +194,31 @@ td.ipt{color:#B91C1C;font-weight:700}
 .htmyo-sablon-l{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .htmyo-sablon-l .htmyo-btn{text-decoration:none;font-size:14.5px;padding:11px 18px;white-space:nowrap}
 #maOptAd{display:block;margin-top:6px}
+.htmyo-ocbar{border:1px solid var(--htmyo-bd);border-radius:12px;background:var(--htmyo-l2);padding:12px 14px;margin:10px 0}
+.htmyo-ocbas{display:flex;gap:12px;align-items:flex-start}
+.htmyo-ocbas .ik{flex:0 0 38px;height:38px;border-radius:10px;background:#fff;display:grid;place-items:center;font-size:20px;box-shadow:0 0 0 1px var(--htmyo-bd)}
+.htmyo-ocbas b{display:block;color:var(--htmyo-p)}.htmyo-ocbas span{font-size:12.5px;color:var(--htmyo-mut)}
+.htmyo-ocbas span b{display:inline;color:var(--htmyo-tx)}
+#dlx .htmyo-dl{grid-template-columns:minmax(0,560px)}
+.htmyo-ocrow{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:10px}
+.htmyo-ocn{font-size:13.5px;font-weight:600;color:var(--htmyo-p);display:flex;gap:8px;align-items:center}
+.htmyo-ocn select{border:1px solid var(--htmyo-bd);border-radius:8px;padding:7px 10px;font:inherit;background:#fff}
+.htmyo-ocb{display:flex;gap:8px;flex:1 1 320px}.htmyo-ocb input{flex:1;border:1px solid var(--htmyo-bd);border-radius:8px;padding:8px 10px;font:inherit}
+.htmyo-ocrow.ocyok .htmyo-ocb{display:none}
+.htmyo-q{grid-template-columns:40px 1fr auto auto auto}
+#qlist.ocyok .htmyo-oc{display:none}
+.htmyo-oc{position:relative}
+.htmyo-oc summary{list-style:none;cursor:pointer;font-size:12px;border:1px solid var(--htmyo-bd);border-radius:8px;padding:4px 8px;color:var(--htmyo-mut);white-space:nowrap;user-select:none}
+.htmyo-oc summary::-webkit-details-marker{display:none}
+.htmyo-oc.dolu summary{background:#FEF3C7;border-color:#F59E0B;color:#92400E;font-weight:600}
+.htmyo-ocl{position:absolute;right:0;top:calc(100% + 4px);z-index:20;background:#fff;border:1px solid var(--htmyo-bd);border-radius:10px;box-shadow:0 8px 24px rgba(30,20,80,.15);padding:8px;display:grid;grid-template-columns:repeat(5,auto);gap:4px;min-width:250px}
+.htmyo-ocl label{display:flex;align-items:center;gap:4px;font-size:12px;padding:4px 6px;border-radius:6px;cursor:pointer;white-space:nowrap}
+.htmyo-ocl label:hover{background:var(--htmyo-l)}
+.htmyo-ocl label:has(input:checked){background:#FEF3C7;color:#92400E;font-weight:600}
+.htmyo-occ{display:block;font-size:9.5px;color:#92400E;font-weight:600;line-height:1.1;margin-top:1px}
+#dlx{margin-top:14px}
+@media (max-width:760px){.htmyo-q{grid-template-columns:30px 1fr}.htmyo-oc{grid-column:1/-1}.htmyo-ocl{left:0;right:auto;grid-template-columns:repeat(3,auto);min-width:0}}
+@media print{body.po #maSonuc .ma-madde,body.po #maSonuc>.htmyo-note,body.po #c5>h2,body.po #c5>.lead{display:none!important}body:not(.po) #maSonuc .ma-oc .htmyo-onlyprint{display:none!important}}
 </style>
 </head>
 <body>
@@ -248,6 +273,11 @@ td.ipt{color:#B91C1C;font-weight:700}
     <span class="htmyo-count" id="count"></span>
   </div>
   <div class="htmyo-dag" id="dagilim"></div>
+  <div class="htmyo-ocbar">
+    <div class="htmyo-ocbas"><span class="ik" aria-hidden="true">🎯</span><div><b>Öğrenme çıktıları (ÖÇ) · isteğe bağlı</b><span>Her sorunun ölçtüğü dersin öğrenme çıktısını seçin. ÖÇ'ler öğrenciye giden kitapçıklarda <b>görünmez</b>; ayrıca üretilen PFRM-248 Sınav Cevap Anahtarı'na, cevap anahtarı dosyasına ve madde analizindeki ÖÇ tablosuna yazılır. Seçmezseniz araç ÖÇ'siz çalışır.</span></div></div>
+    <div class="htmyo-ocrow"><label class="htmyo-ocn">Dersin ÖÇ sayısı <select id="ocSay"><option value="0">ÖÇ kullanmıyorum</option></select></label>
+      <div class="htmyo-ocb"><input id="ocBulk" type="text" placeholder="Toplu giriş, soru sırasıyla: 1 2 1,3 - 2  (- boş)" autocomplete="off" spellcheck="false"><button class="htmyo-btn sec" id="ocApply">Uygula</button></div></div>
+  </div>
   <div class="htmyo-legend"><span><b>🔗 Öncekiyle</b> işaretli soru, bir önceki soruyla aynı blokta taşınır (ortak metin, tablo, "yukarıdaki soruya göre").</span><span><b>📌 Sabit</b> işaretli sorunun numarası hiçbir kitapçıkta değişmez.</span></div>
   <div class="htmyo-qgrid" id="qlist"></div>
 </section>
@@ -282,11 +312,12 @@ td.ipt{color:#B91C1C;font-weight:700}
   <p class="lead">Dosyaları indirip Word'de açarak son bir kez göz gezdirin.</p>
   <div class="htmyo-dl htmyo-noprint" id="dl"></div>
   <div id="dlb" class="htmyo-noprint"></div>
+  <div id="dlx" class="htmyo-noprint"><h3 class="htmyo-h">Ayrı dosya</h3><div class="htmyo-dl"><a href="#" id="pf248"><div class="L" style="font-size:15px">248</div><div><b>PFRM-248 Sınav Cevap Anahtarı</b><span>Word (.docx) · her kitapçık için Soru No, Beklenen cevap, Ölçülen DÖÇ, Puan</span></div></a></div></div>
   <div id="temizRapor" class="htmyo-noprint"></div>
   <div class="htmyo-baski htmyo-noprint">
     <h3 class="htmyo-h">Yazdırma bilgileri</h3>
     <p class="lead" style="margin:0 0 8px">Cevap anahtarı çıktısının başında ve imza alanında görünür. Şablondan gelen bilgiler kendiliğinden doldurulur.</p>
-    <div class="htmyo-bform"><label>Ders<input id="pDers"></label><label>Sınav<input id="pSinav"></label><label>Tarih<input id="pTarih"></label><label>Öğretim elemanı<input id="pOgr"></label></div>
+    <div class="htmyo-bform"><label>Ders<input id="pDers"></label><label>Bölüm / Program<input id="pBolum"></label><label>Sınav<input id="pSinav"></label><label>Tarih<input id="pTarih"></label><label>Öğretim elemanı<input id="pOgr"></label></div>
   </div>
   <div id="printhead" class="htmyo-onlyprint"></div>
   <div id="keywrap"></div>
@@ -326,6 +357,11 @@ td.ipt{color:#B91C1C;font-weight:700}
   <div class="htmyo-mabox htmyo-noprint" style="margin-bottom:12px">
     <div class="htmyo-mah"><i>3</i><b>İptal edilen soru varsa</b> <span style="font-weight:400;color:var(--htmyo-mut)">(isteğe bağlı)</span></div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><label style="font-size:13px;color:var(--htmyo-mut)">A kitapçığındaki numarası:</label><input id="maIptal" type="text" placeholder="örn. 7, 12" style="max-width:160px"><small class="htmyo-mak" style="margin:0">İptal edilen soru herkese doğru sayılır.</small></div>
+  </div>
+  <div class="htmyo-mabox htmyo-noprint" style="margin-bottom:12px">
+    <div class="htmyo-mah"><i>4</i><b>Öğrenme çıktısı (ÖÇ) raporu</b> <span style="font-weight:400;color:var(--htmyo-mut)">(kitapçıklar oluşturulurken ÖÇ seçildiyse)</span></div>
+    <div class="htmyo-bform" style="grid-template-columns:140px 1fr 1fr 1fr"><label>Başarı eşiği (%)<input id="maEsik" type="number" min="1" max="100" value="60"></label><label>Ders<input id="maDers"></label><label>Sınav türü<input id="maSinav"></label><label>Tarih<input id="maTarih"></label></div>
+    <small class="htmyo-mak" style="margin:6px 0 0">Bir ÖÇ'ye, sınıfın o ÖÇ'yü ölçen sorulardaki ortalama başarısı eşiğe ulaştığında "Ulaşıldı" denir. Ders, sınav türü ve tarih rapor başlığında görünür.</small>
   </div>
   <div class="htmyo-noprint"><button class="htmyo-btn big" id="maGo">Analizi başlat</button></div>
   <div id="maSonuc"></div>
@@ -451,7 +487,7 @@ E) Hattaki son durak</div></div>
  * © 2026 Behiç ÇETİN · MIT Lisansı · Atıf: https://github.com/behiccetin/htmyo-kitapcik
  */
 "use strict";
-const HTMYO_SURUM='1.2.0', HTMYO_MIMAR='Dr. Behiç ÇETİN';
+const HTMYO_SURUM='1.3.0', HTMYO_MIMAR='Dr. Behiç ÇETİN';
 const HTMYO_W='http://schemas.openxmlformats.org/wordprocessingml/2006/main';
 const $=s=>document.querySelector(s);
 const htmyoDurum={zip:null,ad:'',model:null,sonuc:null,metin:false,metinCevap:null};
@@ -510,6 +546,15 @@ function htmyoSeed(){const u=new Uint32Array(1);crypto.getRandomValues(u);return
 
 /* ---- HTMYO · belge çözümleme (şablon modu ve genel mod) · Dr. Behiç ÇETİN ---- */
 const HTMYO_GRUP=/^\s*(\d{1,3})\s*(?:[-–]|ve|,)\s*(?:\d{1,3}\s*(?:,|ve)\s*)*(\d{1,3})\s*\.?\s*(?:[ıiuü]nc[ıiuü]\s*)?sorular/i, HTMYO_BAGLI=/(yukar[ıi]daki|bir [öo]nceki|[öo]nceki)\s+(soru|sorudaki|soruya)/i;
+/* HTMYO · ÖÇ (öğrenme çıktısı) etiketi: [ÖÇ2], [ÖÇ1,ÖÇ3], [ÖÇ 1, 3] · Dr. Behiç ÇETİN */
+const HTMYO_OCT=/\s*\[\s*D?[ÖO][ÇC]\s*\d{1,2}(?:\s*[,;\/]\s*(?:D?[ÖO][ÇC]\s*)?\d{1,2})*\s*\]/giu;
+function htmyoOcSay(t){const s=new Set();(String(t).match(HTMYO_OCT)||[]).forEach(m=>(m.match(/\d{1,2}/g)||[]).forEach(x=>{const v=+x;if(v>=1&&v<=15)s.add(v)}));return [...s].sort((a,b)=>a-b)}
+const htmyoOcTemiz=t=>String(t).replace(HTMYO_OCT,'');
+const htmyoOcYaz=l=>l&&l.length?l.map(k=>'ÖÇ'+k).join(', '):'';
+function htmyoOcSil(p){const ts=Array.from(p.getElementsByTagNameNS(HTMYO_W,'t'));const tam=ts.map(t=>t.textContent).join('');const ms=[...tam.matchAll(HTMYO_OCT)];if(!ms.length)return false;
+  const sil=new Uint8Array(tam.length);ms.forEach(m=>{for(let k=m.index;k<m.index+m[0].length;k++)sil[k]=1});
+  let o=0;ts.forEach(t=>{const x=t.textContent;let y='';for(let k=0;k<x.length;k++)if(!sil[o+k])y+=x[k];o+=x.length;if(y!==x){t.textContent=y;t.setAttribute('xml:space','preserve')}});
+  return !htmyoOcTemiz(tam).trim()}
 const HTMYO_SIK_GENEL=/^\s*([A-Ea-e])\s*([).:])\s*/, HTMYO_NO=/^\s*(\d{1,3})\s*([.)])\s*/;
 function htmyoNumFmt(numXml,stilXml){
   const map={},stil={};
@@ -558,7 +603,8 @@ function htmyoCoz(xml,numXml,stilXml){
   units.forEach(u=>{
     const stem=u.els[0];
     u.bos=stem.getElementsByTagNameNS(HTMYO_W,'showingPlcHdr').length>0&&/Soru (metnini|kökünü)|İfadeyi yapıştırın/.test(htmyoTxt(stem));
-    u.ozet=htmyoTxt(stem).trim().slice(0,140);
+    u.ozet=htmyoOcTemiz(htmyoTxt(stem)).trim().slice(0,140);
+    u.oc=htmyoOcSay(u.els.map(htmyoTxt).join(' '));
     const opts=[];const ps=u.els.filter(e=>e.localName==='p');
     for(const p of ps.slice(1)){
       const t=htmyoTxt(p);const L=sablon?null:htmyoListe(p,fmt);
@@ -572,8 +618,8 @@ function htmyoCoz(xml,numXml,stilXml){
     u.siklar=opts.length>=2?opts.map(o=>o.p):[];u.sikBilgi=opts.length>=2?opts:[];
     /* HTMYO · bölünmüş şık kontrolü: şıklardan sonra yazı varsa ya da tek şık bulunduysa uyar */
     if(opts.length===1)u.bolunmus=true;
-    else if(opts.length>=2){const son=ps.indexOf(opts[opts.length-1].p);const sonra=ps.slice(son+1).filter(x=>htmyoTxt(x).trim());if(sonra.length&&!(sablon&&sonra.every(x=>htmyoEk(x))))u.bolunmus=true;
-      const ara=ps.slice(ps.indexOf(opts[0].p),son+1).filter(x=>!opts.some(o=>o.p===x)&&htmyoTxt(x).trim());if(ara.length)u.bolunmus=true}
+    else if(opts.length>=2){const son=ps.indexOf(opts[opts.length-1].p);const sonra=ps.slice(son+1).filter(x=>htmyoOcTemiz(htmyoTxt(x)).trim());if(sonra.length&&!(sablon&&sonra.every(x=>htmyoEk(x))))u.bolunmus=true;
+      const ara=ps.slice(ps.indexOf(opts[0].p),son+1).filter(x=>!opts.some(o=>o.p===x)&&htmyoOcTemiz(htmyoTxt(x)).trim());if(ara.length)u.bolunmus=true}
     if(u.bolunmus){u.siklar=[];u.sikBilgi=[]}
     if(!sablon&&units.indexOf(u)===units.length-1&&opts.length>=2){const son=u.els.indexOf(opts[opts.length-1].p);u.els=u.els.slice(0,son+1)}
   });
@@ -652,7 +698,11 @@ function htmyoBuyutEl(doc,el,hedef){
 function htmyoKitapcik(xml,numXml,stilXml,harf,sec,anahtar,kullanilan){
   const m=htmyoCoz(xml,numXml,stilXml),{doc,body,units}=m;
   const last=units[units.length-1];const lastEl=last.els[last.els.length-1];
-  const anchor=m.sablon?(htmyoKids(body)[m.end]||null):lastEl.nextSibling;
+  let anchor=m.sablon?(htmyoKids(body)[m.end]||null):lastEl.nextSibling;
+  /* HTMYO · ÖÇ etiketleri öğrenciye giden kitapçıklardan silinir; istenirse soru sonunda yeniden yazılır */
+  {const bas=new Set(units.map(u=>u.els[0])),ops=new Set(units.flatMap(u=>u.siklar));
+    Array.from(doc.getElementsByTagNameNS(HTMYO_W,'p')).forEach(p=>{if(htmyoOcSil(p)&&!bas.has(p)&&!ops.has(p)&&p.parentNode===body){if(p===anchor)anchor=p.nextSibling;body.removeChild(p)}});
+    units.forEach(u=>{u.els=u.els.filter(e=>e.parentNode)});}
   const r=htmyoRng(sec.seed!==undefined?sec.seed:(htmyoSeed()^htmyoHash(harf)));const n=units.length;let sira=units.map((_,i)=>i);
   /* HTMYO · bloklar (birlikte taşınan sorular) ve yerinde sabit sorular · Dr. Behiç ÇETİN */
   const bloklar=[];units.forEach((u,i)=>{if(i>0&&sec.bagli&&sec.bagli[i])bloklar[bloklar.length-1].push(i);else bloklar.push([i])});
@@ -800,6 +850,7 @@ function htmyoMetinCoz(metin){
     if(HTMYO_GRUP.test(t)&&(!cur||kapali||bosOnce)){grup={grup:true,satir:[t],bitti:false};sorular.push(grup);cur=null;kapali=false;bosOnce=false;continue}
     if(grup&&!grup.bitti){grup.satir.push(t);continue}
     const c=t.match(CVP);if(c&&cur){cur.cevap=c[2].toUpperCase();kapali=true;bosOnce=false;continue}
+    const oc=t.match(/^\s*(?:D?[ÖO][ÇC]|LO)\s*[:=]\s*([\d\s,;]+)$/iu);if(oc&&cur){cur.oc=(oc[1].match(/\d{1,2}/g)||[]).map(Number).filter(v=>v>=1&&v<=15);bosOnce=false;continue}
     const m=t.match(SIK);
     if(m&&cur&&!kapali&&m[1].toUpperCase()===HTMYO_HARF[cur.siklar.length]&&!(bosOnce&&cur.siklar.length)){cur.siklar.push(m[2].trim());bosOnce=false;continue}
     if(!cur||kapali||cur.siklar.length&&(bosOnce||NO.test(t)||cur.siklar.length===5))yeni(t);
@@ -819,6 +870,7 @@ function htmyoMetinDocx(sorular,baslik){
   sorular.forEach(q=>{
     if(q.grup){b+=par(run(q.satir[0],true),'<w:keepNext/><w:spacing w:before="240" w:after="60"/>');q.satir.slice(1).forEach(t=>{b+=par(run(t),'<w:keepNext/><w:keepLines/><w:spacing w:after="60"/><w:jc w:val="both"/>')});return}
     const son=!q.siklar.length,i=no++;
+    if(q.oc&&q.oc.length)q.kok[q.kok.length-1]+=' ['+q.oc.map(k=>'ÖÇ'+k).join(',')+']';
     b+=par(run((i+1)+'. ',true)+run(q.kok[0]||''),'<w:keepNext/><w:keepLines/><w:spacing w:before="200" w:after="60"/><w:ind w:left="340" w:hanging="340"/>');
     q.kok.slice(1).forEach(k=>{b+=par(run(k),'<w:keepNext/><w:keepLines/><w:spacing w:after="60"/><w:ind w:left="340"/>')});
     q.siklar.forEach((o,k)=>{b+=par(run(HTMYO_HARF[k]+') ',true)+run(o),(k<q.siklar.length-1?'<w:keepNext/>':'')+'<w:keepLines/><w:spacing w:after="40"/><w:ind w:left="680" w:hanging="340"/>')});
@@ -937,16 +989,35 @@ async function htmyoYukle(f){
     u.forEach((q,i)=>{const row=document.createElement('div');row.className='htmyo-q';row.id='q'+i;
       const ops=q.siklar.length?`<div class="htmyo-opts">${q.siklar.map((_,k)=>`<label><input type="radio" name="a${i}" value="${HTMYO_HARF[k]}">${HTMYO_HARF[k]}</label>`).join('')}</div>`:'<small style="color:var(--htmyo-mut)">Şıksız soru</small>';
       const qx=`<div class="htmyo-qx"><label title="Bu soru bir önceki soruyla birlikte taşınsın"><input type="checkbox" id="bg${i}" ${i===0?'disabled':''} ${q.bagliOto&&i>0?'checked':''}>🔗 Öncekiyle</label><label title="Bu sorunun numarası değişmesin"><input type="checkbox" id="sb${i}">📌 Sabit</label></div>`;
-      row.innerHTML=`<div class="no">${i+1}</div><div class="st" title="${htmyoEsc(q.ozet)}">${htmyoEsc(q.ozet)||'<small>(boş soru)</small>'}</div>${ops}${qx}`;ql.appendChild(row)});
+      const ocx=`<details class="htmyo-oc" id="oc${i}"><summary>🎯 ÖÇ <b id="ocs${i}">seç</b></summary><div class="htmyo-ocl" id="ocl${i}"></div></details>`;
+      row.innerHTML=`<div class="no">${i+1}</div><div class="st" title="${htmyoEsc(q.ozet)}">${htmyoEsc(q.ozet)||'<small>(boş soru)</small>'}</div>${ops}${ocx}${qx}`;ql.appendChild(row)});
     if(htmyoDurum.metin&&htmyoDurum.metinCevap)htmyoDurum.metinCevap.forEach((c,i)=>{const el=c&&document.querySelector(`input[name=a${i}][value=${c}]`);if(el)el.checked=true});
-    ql.onchange=htmyoSay;htmyoSay();
+    ql.onchange=htmyoSay;htmyoSay();htmyoOcHazirla();
+    /* HTMYO · soru puanları: şablondaki "Soru puanı" alanları; yoksa test sınavında eşit puan */
+    {const D=htmyoDurum.model.doc;const sp=u.map((q,i)=>{const s=Array.from(q.els[0].getElementsByTagNameNS(HTMYO_W,'sdt')).find(x=>{const pr=htmyoKids(x,'sdtPr')[0],tg=pr&&htmyoKids(pr,'tag')[0];return tg&&tg.getAttributeNS(HTMYO_W,'val')==='Soru puanı'});
+        let v=null;if(s){const pr=htmyoKids(s,'sdtPr')[0];if(!htmyoKids(pr,'showingPlcHdr').length)v=parseFloat(htmyoTxt(htmyoKids(s,'sdtContent')[0]).replace(',','.'))}
+        if(!(v>0)){const t=htmyoSdtOku(D,'S'+(i+1)+' puan');if(t)v=parseFloat(t.replace(',','.'))}return v>0?v:null});
+      htmyoDurum.puan=sp.some(v=>v!==null)?sp:(u.every(q=>q.siklar.length)?u.map(()=>Math.round(10000/u.length)/100):u.map(()=>null))}
     /* HTMYO · yazdırma bilgilerini şablondan al */
-    {const D=htmyoDurum.model.doc,oku=t=>(htmyoSdtOku(D,t)||'').trim();$('#pDers').value=oku('Dersin kodu ve adı')||(htmyoDurum.metin?htmyoDurum.ad:'');$('#pSinav').value=oku('Sınav türü');$('#pTarih').value=oku('Sınav tarihi');$('#pOgr').value=oku('Öğretim elemanı')}
+    {const D=htmyoDurum.model.doc,oku=t=>(htmyoSdtOku(D,t)||'').trim();$('#pDers').value=oku('Dersin kodu ve adı')||(htmyoDurum.metin?htmyoDurum.ad:'');$('#pSinav').value=oku('Sınav türü');$('#pTarih').value=oku('Sınav tarihi');$('#pOgr').value=oku('Öğretim elemanı');$('#pBolum').value=oku('Bölüm / Program')||oku('Program')||''}
     $('#c2').classList.remove('hide');$('#c3').classList.remove('hide');htmyoAdim(2);
   }catch(err){$('#fileinfo').innerHTML=`<div class="htmyo-note w"><span>⚠️</span><div>${htmyoEsc(err.message)}</div></div>`}
 }
 $('#applyBulk').onclick=()=>{const s=$('#bulk').value.toUpperCase().replace(/[^A-E]/g,'');htmyoDurum.model.units.forEach((q,i)=>{const c=s[i];const el=c&&document.querySelector(`input[name=a${i}][value=${c}]`);if(el)el.checked=true});htmyoSay()};
 $('#bulk').onkeydown=e=>{if(e.key==='Enter')$('#applyBulk').click()};
+/* ---- HTMYO · öğrenme çıktısı (ÖÇ) seçimi: kitapçıklarda görünmez, ayrı dosyaya yazılır · Dr. Behiç ÇETİN ---- */
+$('#ocSay').insertAdjacentHTML('beforeend',[...Array(15)].map((_,k)=>`<option value="${k+1}">${k+1}</option>`).join(''));
+function htmyoOcHazirla(){const u=htmyoDurum.model.units;htmyoDurum.ocSec=u.map(q=>new Set(q.oc||[]));$('#ocSay').value=String(Math.max(0,...u.flatMap(q=>q.oc||[])));htmyoOcCiz()}
+function htmyoOcOzet(i){const N=+$('#ocSay').value,l=[...htmyoDurum.ocSec[i]].filter(v=>v<=N).sort((a,b)=>a-b);const s=$('#ocs'+i);if(!s)return;s.textContent=l.length?l.join(','):'seç';$('#oc'+i).classList.toggle('dolu',!!l.length)}
+function htmyoOcCiz(){const N=+$('#ocSay').value;$('#qlist').classList.toggle('ocyok',!N);$('.htmyo-ocrow').classList.toggle('ocyok',!N);
+  htmyoDurum.model.units.forEach((q,i)=>{const l=$('#ocl'+i);if(!l)return;l.innerHTML=[...Array(N)].map((_,k)=>`<label><input type="checkbox" data-oc="${i}" value="${k+1}" ${htmyoDurum.ocSec[i].has(k+1)?'checked':''}>ÖÇ${k+1}</label>`).join('');htmyoOcOzet(i)})}
+function htmyoOcListe(){const N=+$('#ocSay').value;return htmyoDurum.model.units.map((_,i)=>N?[...htmyoDurum.ocSec[i]].filter(v=>v<=N).sort((a,b)=>a-b):[])}
+$('#ocSay').onchange=htmyoOcCiz;
+$('#qlist').addEventListener('change',e=>{const t=e.target;if(t.dataset&&t.dataset.oc!==undefined){const i=+t.dataset.oc;t.checked?htmyoDurum.ocSec[i].add(+t.value):htmyoDurum.ocSec[i].delete(+t.value);htmyoOcOzet(i)}});
+$('#qlist').addEventListener('toggle',e=>{if(e.target.open)document.querySelectorAll('details.htmyo-oc[open]').forEach(d=>{if(d!==e.target)d.open=false})},true);
+document.addEventListener('click',e=>{if(!e.target.closest||!e.target.closest('.htmyo-oc'))document.querySelectorAll('details.htmyo-oc[open]').forEach(d=>d.open=false)});
+$('#ocApply').onclick=()=>{const N=+$('#ocSay').value;if(!N)return;const tok=$('#ocBulk').value.trim().split(/[\s;]+/).filter(Boolean);htmyoDurum.model.units.forEach((q,i)=>{if(i>=tok.length)return;htmyoDurum.ocSec[i]=new Set((tok[i].match(/\d{1,2}/g)||[]).map(Number).filter(v=>v>=1&&v<=N))});htmyoOcCiz()};
+$('#ocBulk').onkeydown=e=>{if(e.key==='Enter')$('#ocApply').click()};
 
 /* ---- HTMYO · kitapçık üretimi, üretim kodu, ardışık harf sınırı · Dr. Behiç ÇETİN ---- */
 const HTMYO_KODH='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -960,6 +1031,7 @@ $('#go').onclick=async()=>{
   const anahtar=M.units.map((_,i)=>{const el=document.querySelector(`input[name=a${i}]:checked`);return el?el.value:''});
   const bagli=M.units.map((_,i)=>!!($('#bg'+i)||{}).checked),sabit=M.units.map((_,i)=>!!($('#sb'+i)||{}).checked);
   const sec={q:$('#optQ').checked,o:$('#optO').checked,fix:$('#optFix').checked,farkli:$('#optDiff').checked,bagli,sabit};
+  const oc=htmyoOcListe(),ocSay=+$('#ocSay').value;
   const limit=$('#optRun').checked&&anahtar.some(Boolean)?3:0,alt=$('#optFoot').checked,buyuk=$('#optBig').checked;
   const kod=($('#kod').value||'').toUpperCase().replace(/[^A-Z0-9]/g,'')||htmyoKodUret();$('#kod').value=kod;
   const ilk=i=>new Set(anahtar[i]&&M.units[i].siklar.length?[HTMYO_HARF.indexOf(anahtar[i])]:[]);
@@ -983,14 +1055,15 @@ $('#go').onclick=async()=>{
   if(seriAsan.length)uy.push(`${seriAsan.join(', ')} kitapçığında aynı cevap harfi 3'ten fazla kez üst üste geliyor.${seriAsan.includes('A')?' A kitapçığının sırasını siz belirlediğiniz için araç onu değiştirmez.':' Bu kitapçık için sınıra uyan bir sıra bulunamadı (sabit sorular ya da bloklar çok olabilir).'}`);
   if(sec.farkli&&anahtar.every(a=>!a))uy.push('"Aynı sıradaki cevap kitapçıklar arasında farklı olsun" ve "en fazla 3 kez üst üste" seçenekleri için 2. adımda doğru cevapları işaretlemeniz gerekir; bu kez uygulanmadı.');
   if(anahtar.every(a=>!a))uy.push('Doğru cevaplar işaretlenmediği için cevap anahtarı boş. 2. adımda işaretleyip aynı üretim koduyla yeniden oluşturabilirsiniz.');
-  Object.assign(htmyoDurum,{sonuc:res,anahtar:anahtar.slice(),kod,iptal:new Set(),uyari:uy,tarih:new Date()});
+  Object.assign(htmyoDurum,{sonuc:res,anahtar:anahtar.slice(),kod,iptal:new Set(),uyari:uy,tarih:new Date(),oc,ocSay});
   htmyoTablolar();$('#isonuc').innerHTML='';$('#iq').value='';
   $('#c4').classList.remove('hide');htmyoAdim(3);htmyoMaAnahtarDurum();$('#c4').scrollIntoView({behavior:'smooth'});
 };
 function htmyoTablolar(){
-  const R=htmyoDurum.sonuc,n=R[0].cevap.length,ip=htmyoDurum.iptal;
+  const R=htmyoDurum.sonuc,n=R[0].cevap.length,ip=htmyoDurum.iptal,OC=htmyoDurum.oc||R[0].cevap.map(()=>[]),OCV=OC.some(l=>l.length);
   const bas='<tr><th>Kitapçık</th>'+[...Array(n).keys()].map(i=>`<th>${i+1}</th>`).join('')+'</tr>';
-  let t=`<h3 class="htmyo-h">Cevap anahtarı</h3><div class="htmyo-tbl"><table>${bas}`+R.map(r=>`<tr><td class="kb">${r.h}</td>`+r.cevap.map((a,j)=>ip.has(r.sira[j])?'<td class="ipt" title="İptal">İPT</td>':`<td>${a||'·'}</td>`).join('')+'</tr>').join('')+'</table></div>';
+  let t=`<h3 class="htmyo-h">Cevap anahtarı</h3><div class="htmyo-tbl"><table>${bas}`+R.map(r=>`<tr><td class="kb">${r.h}</td>`+r.cevap.map((a,j)=>ip.has(r.sira[j])?'<td class="ipt" title="İptal">İPT</td>':`<td>${a||'·'}${OCV&&OC[r.sira[j]].length?`<small class="htmyo-occ">ÖÇ${OC[r.sira[j]].join(',')}</small>`:''}</td>`).join('')+'</tr>').join('')+'</table></div>';
+  if(OCV)t+=`<p style="font-size:12px;margin:4px 0">Harflerin altındaki küçük yazı, o sorunun ölçtüğü öğrenme çıktısıdır (öğrenciye giden kitapçıklarda görünmez). Ayrıntılı liste için PFRM-248 Sınav Cevap Anahtarı dosyasını indirin.</p>`;
   if(ip.size)t+=`<p style="font-size:12px;margin:4px 0">İPT: iptal edilen soru (A kitapçığında ${[...ip].map(x=>x+1).sort((a,b)=>a-b).join(', ')}. soru).</p>`;
   t+=`<h3 class="htmyo-h">Soru eşleşmesi</h3><p class="lead" style="margin:0">Her hücre, o kitapçıktaki sorunun A kitapçığındaki numarasını gösterir.</p><div class="htmyo-tbl"><table>${bas}`+R.slice(1).map(r=>`<tr><td class="kb">${r.h}</td>`+r.sira.map(o=>`<td>${o+1}</td>`).join('')+'</tr>').join('')+'</table></div>';
   const dag=r=>{const c={A:0,B:0,C:0,D:0,E:0};r.cevap.forEach((a,j)=>{if(a&&!ip.has(r.sira[j]))c[a]++});return c};
@@ -1015,6 +1088,7 @@ function htmyoIptalGoster(){
   let t=`<div class="htmyo-tbl"><table><tr><th>Kitapçık</th><th>Soru no</th><th>Doğru cevap</th></tr>`+R.map(r=>{const j=r.sira.indexOf(q);return `<tr><td class="kb">${r.h}</td><td>${j+1}</td><td>${ip?'İPTAL':(r.cevap[j]||'·')}</td></tr>`}).join('')+'</table></div>';
   if(k)t+=`<div class="htmyo-bulk"><label>Yeni doğru cevap (A kitapçığına göre): <select id="iyeni">${[...HTMYO_HARF.slice(0,k)].map(h=>`<option${h===htmyoDurum.anahtar[q]?' selected':''}>${h}</option>`).join('')}</select></label><button class="htmyo-btn sec" id="iguncel">Anahtarı güncelle</button><button class="htmyo-btn sec" id="iiptal">${ip?'İptali kaldır':'Bu soruyu iptal et'}</button></div>`;
   else t+='<p class="lead">Bu soru şıksız; cevap anahtarında yer almaz.</p>';
+  const ocq=(htmyoDurum.oc||[])[q];if(ocq&&ocq.length)t=`<p style="font-size:13px;margin:4px 0">Bu sorunun ölçtüğü öğrenme çıktısı: <b>${htmyoOcYaz(ocq)}</b></p>`+t;
   $('#isonuc').innerHTML=t;
   if(k){$('#iguncel').onclick=()=>{const y=$('#iyeni').value;htmyoDurum.anahtar[q]=y;R.forEach(r=>{const j=r.sira.indexOf(q);r.cevap[j]=HTMYO_HARF[r.sikSira[j].indexOf(y)]||''});htmyoTablolar();htmyoIptalGoster()};
     $('#iiptal').onclick=()=>{ip?htmyoDurum.iptal.delete(q):htmyoDurum.iptal.add(q);$('#maIptal').value=[...htmyoDurum.iptal].map(x=>x+1).sort((a,b)=>a-b).join(', ');htmyoTablolar();htmyoIptalGoster()}}
@@ -1024,24 +1098,68 @@ $('#print').onclick=()=>{document.body.classList.remove('pa');htmyoBaskiBas();wi
 $('#csv').onclick=()=>{const R=htmyoDurum.sonuc;if(!R)return;const n=R[0].cevap.length,ip=htmyoDurum.iptal;let s='\uFEFFKitapçık;'+[...Array(n).keys()].map(i=>i+1).join(';')+'\n';R.forEach(r=>{s+=r.h+';'+r.cevap.map((a,j)=>ip.has(r.sira[j])?'İPTAL':a).join(';')+'\n'});
   s+='\nKitapçık;A;B;C;D;E\n';R.forEach(r=>{const c={A:0,B:0,C:0,D:0,E:0};r.cevap.forEach((a,j)=>{if(a&&!ip.has(r.sira[j]))c[a]++});s+=r.h+';'+[...HTMYO_HARF].map(h=>c[h]).join(';')+'\n'});
   s+=`\n#HTMYO;${HTMYO_SURUM};${htmyoDurum.kod};${htmyoDurum.ad.replace(/;/g,',')}\n#ANAHTAR;${htmyoDurum.anahtar.join(';')}\n`;R.forEach(r=>{s+=`#SIRA;${r.h};${r.sira.map(x=>x+1).join(';')}\n#SIK;${r.h};${r.sikSira.map(x=>x||'-').join(';')}\n`});s+=`#IPTAL;${[...ip].map(x=>x+1).join(';')}\n`;
+  const OC=htmyoDurum.oc||[],PU=htmyoDurum.puan||[],tz=x=>String(x||'').replace(/[;\r\n]/g,' ').trim();
+  s+=`#OCSAYI;${htmyoDurum.ocSay||0}\n#OC;${R[0].cevap.map((_,q)=>(OC[q]||[]).join(',')).join(';')}\n#PUAN;${R[0].cevap.map((_,q)=>PU[q]==null?'':String(PU[q]).replace('.',',')).join(';')}\n#BILGI;${tz($('#pDers').value)};${tz($('#pSinav').value)};${tz($('#pTarih').value)};${tz($('#pOgr').value)};${tz($('#pBolum').value)}\n`;
+  s+=`\nPFRM-248 Sınav Cevap Anahtarı düzeni\nKitapçık;Soru No;Beklenen cevap;Ölçülen DÖÇ;Puan\n`;R.forEach(r=>r.sira.forEach((q,j)=>{s+=`${r.h};${j+1};${ip.has(q)?'İPTAL':(r.cevap[j]||'')};${htmyoOcYaz(OC[q])};${PU[q]==null?'':String(PU[q]).replace('.',',')}\n`}));
   htmyoIndir(`${htmyoDurum.ad}_cevap-anahtari.csv`,new Blob([s],{type:'text/csv'}))};
+/* ---- HTMYO · PFRM-248 Sınav Cevap Anahtarı (Word): her kitapçık için Soru No, Beklenen cevap, Ölçülen DÖÇ, Puan · Dr. Behiç ÇETİN ---- */
+const HTMYO_LOGO='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';
+function htmyoPfrm248(){
+  const R=htmyoDurum.sonuc,ip=htmyoDurum.iptal,OC=htmyoDurum.oc||[],PU=htmyoDurum.puan||[],n=R[0].cevap.length;
+  const v=id=>($(id).value||'').trim();const x=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const rp=(o={})=>`<w:rPr>${o.b?'<w:b/><w:bCs/>':''}${o.i?'<w:i/><w:iCs/>':''}${o.c?`<w:color w:val="${o.c}"/>`:''}<w:sz w:val="${o.sz||20}"/><w:szCs w:val="${o.sz||20}"/></w:rPr>`;
+  const run=(t,o)=>`<w:r>${rp(o)}<w:t xml:space="preserve">${x(t)}</w:t></w:r>`;
+  const fld=(ins,o)=>`<w:fldSimple w:instr=" ${ins} "><w:r>${rp(o)}<w:t>1</w:t></w:r></w:fldSimple>`;
+  const p=(inner,o={})=>`<w:p><w:pPr>${o.keep?'<w:keepNext/>':''}${o.bdr?'<w:pBdr><w:bottom w:val="single" w:sz="18" w:space="1" w:color="000000"/></w:pBdr>':''}<w:spacing w:before="${o.before||0}" w:after="${o.after||0}"/>${o.jc?`<w:jc w:val="${o.jc}"/>`:''}</w:pPr>${inner}</w:p>`;
+  const tc=(inner,w,o={})=>`<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/>${o.span?`<w:gridSpan w:val="${o.span}"/>`:''}${o.fill?`<w:shd w:val="clear" w:color="auto" w:fill="${o.fill}"/>`:''}<w:vAlign w:val="${o.va||'center'}"/></w:tcPr>${inner||p('')}</w:tc>`;
+  const kenar=(sz,c)=>['top','left','bottom','right','insideH','insideV'].map(k=>`<w:${k} w:val="${sz?'single':'nil'}"${sz?` w:sz="${sz}" w:space="0" w:color="${c}"`:''}/>`).join('');
+  const tbl=(cols,rows,o={})=>`<w:tbl><w:tblPr><w:tblW w:w="${cols.reduce((a,b)=>a+b,0)}" w:type="dxa"/><w:tblBorders>${kenar(o.kenarsiz?0:4,'8C8C8C')}</w:tblBorders><w:tblLayout w:type="fixed"/><w:tblCellMar><w:left w:w="85" w:type="dxa"/><w:right w:w="85" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tblGrid>${cols.map(c=>`<w:gridCol w:w="${c}"/>`).join('')}</w:tblGrid>${rows}</w:tbl>`;
+  const tr=(cells,h,bas)=>`<w:tr><w:trPr>${bas?'<w:tblHeader/>':''}<w:trHeight w:val="${h||280}"/></w:trPr>${cells}</w:tr>`;
+  const LAB='E9E5F5',bugun=new Date().toLocaleDateString('tr-TR',{day:'2-digit',month:'2-digit',year:'numeric'});
+  const logo=`<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="391590" cy="687000"/><wp:docPr id="1" name="Logo"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="1" name="logo.jpg"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="rIdLogo"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="391590" cy="687000"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>`;
+  let b=tbl([1150,5050,3438],tr(tc(p(logo,{jc:'center'}),1150)+tc(p(run('T.C.',{sz:18}))+p(run('BURDUR MEHMET AKİF ERSOY ÜNİVERSİTESİ',{b:1,sz:21}),{before:20})+p(run('Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu',{sz:18}),{before:20}),5050)+
+    tc(p(run('Doküman No: ',{sz:15})+run('HTMYO-PFRM-248',{b:1,sz:15}))+p(run('Yürürlük Tarihi: ',{sz:15})+run('08.10.2026',{b:1,sz:15}))+p(run('Revizyon No: -',{sz:15}))+p(run('Revizyon Tarihi: -',{sz:15}))+p(run('Sayfa: ',{sz:15})+fld('PAGE',{sz:15})+run(' / ',{sz:15})+fld('NUMPAGES',{sz:15})),3438),1100),{kenarsiz:1});
+  b+=p('',{bdr:1,after:120})+p(run('SINAV CEVAP ANAHTARI',{b:1,sz:28}),{jc:'center',before:60,after:80})+p(run('Düzenleme Tarihi: ',{b:1,sz:18})+run(bugun,{sz:18}),{jc:'right',after:80});
+  const top=PU.filter(q=>q!=null).reduce((a,c)=>a+c,0);const fmt=q=>q==null?'':String(Math.round(q*100)/100).replace('.',',');
+  const L=t=>tc(p(run(t,{b:1,sz:17})),2050,{fill:LAB}),V=t=>tc(p(run(t,{sz:18})),2769);
+  b+=tbl([2050,2769,2050,2769],tr(L('Dersin kodu ve adı')+V(v('#pDers'))+L('Öğretim elemanı')+V(v('#pOgr')),360)+tr(L('Bölüm / Program')+V(v('#pBolum'))+L('Sınav türü')+V(v('#pSinav')),360)+
+    tr(L('Sınav tarihi ve saati')+V(v('#pTarih'))+L('Soru sayısı / Toplam puan')+V(`${n}${top?' / '+fmt(top):''}`),360)+tr(L('Kitapçıklar')+V(R.map(r=>r.h).join(', '))+L('Üretim kodu')+V(htmyoDurum.kod||''),360));
+  const W=[1100,5338,2000,1200];
+  R.forEach(r=>{
+    b+=p(run(`${r.h} KİTAPÇIĞI`,{b:1,sz:20,c:'3B2A8F'}),{keep:1,before:240,after:60});
+    let rows=tr(tc(p(run('Soru No',{b:1,sz:17}),{jc:'center'}),W[0],{fill:LAB})+tc(p(run('Beklenen cevap / çözüm özeti',{b:1,sz:17}),{jc:'center'}),W[1],{fill:LAB})+tc(p(run('Ölçülen DÖÇ',{b:1,sz:17}),{jc:'center'}),W[2],{fill:LAB})+tc(p(run('Puan',{b:1,sz:17}),{jc:'center'}),W[3],{fill:LAB}),300,1);
+    r.sira.forEach((q,j)=>{const c=ip.has(q)?'İPTAL':(r.cevap[j]||'');rows+=tr(tc(p(run(String(j+1),{sz:18}),{jc:'center'}),W[0])+tc(p(run(c,{sz:18,b:!!c&&c.length===1}),{jc:c.length===1?'center':'left'}),W[1])+tc(p(run(htmyoOcYaz(OC[q]),{sz:18}),{jc:'center'}),W[2])+tc(p(run(fmt(PU[q]),{sz:18}),{jc:'center'}),W[3]),270)});
+    b+=tbl(W,rows)});
+  b+=p(run('DÖÇ: dersin öğrenme çıktısı (Ders Bilgi Paketindeki numarasıyla). ÖÇ bilgisi öğrenciye giden kitapçıklarda yer almaz. Cevap anahtarı, HTMYO-PFRM-217 Sınav Soruları Formu ile birlikte Bölüm Başkanlığına teslim edilir; sınav sonrasında sınav evrakıyla birlikte beş yıl saklanır.',{i:1,sz:15}),{before:100,after:60});
+  b+=p(run(`Kitapçık Oluşturucu v${HTMYO_SURUM} ile üretilmiştir · Üretim kodu: ${htmyoDurum.kod||''} · Dosya: ${htmyoDurum.ad}`,{sz:14,c:'7F7F7F'}),{after:160});
+  b+=tbl([4819,4819],tr(tc(p(run('Öğretim elemanı',{b:1,sz:17}),{jc:'center'}),4819,{fill:LAB})+tc(p(run('Teslim alan (Bölüm Başkanlığı)',{b:1,sz:17}),{jc:'center'}),4819,{fill:LAB}),300)+tr(tc(p(run(v('#pOgr'),{sz:18}),{jc:'center',before:60})+p(run('İmza',{sz:15,c:'7F7F7F'}),{jc:'center',before:420}),4819,{va:'top'})+tc(p('')+p(run('İmza',{sz:15,c:'7F7F7F'}),{jc:'center',before:420}),4819,{va:'top'}),1000));
+  const ns=`xmlns:w="${HTMYO_W}" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"`;
+  const doc=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document ${ns}><w:body>${b}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="851" w:right="1134" w:bottom="851" w:left="1134" w:header="454" w:footer="454" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const stil=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="${HTMYO_W}"><w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:eastAsia="Calibri" w:cs="Calibri"/><w:sz w:val="20"/><w:szCs w:val="20"/><w:lang w:val="tr-TR"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="0" w:line="240" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style></w:styles>`;
+  const ct=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="jpg" ContentType="image/jpeg"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const drels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rIdLogo" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/logo.jpg"/></Relationships>`;
+  const e=new TextEncoder();
+  return [['[Content_Types].xml',e.encode(ct)],['_rels/.rels',e.encode(rels)],['word/document.xml',e.encode(doc)],['word/styles.xml',e.encode(stil)],['word/_rels/document.xml.rels',e.encode(drels)],['word/media/logo.jpg',Uint8Array.from(atob(HTMYO_LOGO),c=>c.charCodeAt(0))]].map(([name,data])=>({name,data}));
+}
+$('#pf248').onclick=async e=>{e.preventDefault();if(!htmyoDurum.sonuc)return;htmyoIndir(`${htmyoDurum.ad}_PFRM-248_cevap-anahtari.docx`,await htmyoZip(htmyoPfrm248()))};
 /* ---- HTMYO · madde analizi (güçlük, ayırt edicilik, çeldirici, KR-20) · Dr. Behiç ÇETİN ---- */
 htmyoDurum.maAnahtar=null;htmyoDurum.maSatir=null;
 function htmyoMaDurum(html,cls){const e=$('#maKeyDurum');e.className='htmyo-madurum'+(cls?' '+cls:'');e.innerHTML=html}
 htmyoMaDurum('Henüz anahtar yok. Aşağıdaki düğmeyle dosyayı seçin. (Kitapçıkları bu sayfada az önce oluşturduysanız bir şey yüklemenize gerek yok.)');
 function htmyoMaAnahtarDurum(){
   if(htmyoDurum.sonuc&&!htmyoDurum.maAnahtar)htmyoMaDurum(`✓ Az önce bu sayfada oluşturduğunuz kitapçıkların anahtarı hazır (${htmyoDurum.sonuc.map(r=>r.h).join(', ')} · ${htmyoDurum.sonuc[0].cevap.length} soru). Ayrıca dosya seçmenize gerek yok.`,'ok');
-  if(htmyoDurum.sonuc)$('#maIptal').value=[...htmyoDurum.iptal].map(x=>x+1).sort((a,b)=>a-b).join(', ')}
+  if(htmyoDurum.sonuc){$('#maIptal').value=[...htmyoDurum.iptal].map(x=>x+1).sort((a,b)=>a-b).join(', ');if(!htmyoDurum.maAnahtar){$('#maDers').value=$('#pDers').value;$('#maSinav').value=$('#pSinav').value;$('#maTarih').value=$('#pTarih').value}}}
 function htmyoAnahtarCsv(metin){
   const L=metin.replace(/^\uFEFF/,'').split(/\r?\n/).map(x=>x.split(';'));const K={};let n=0,i=L.findIndex(r=>/^Kitap/i.test(r[0]||''));
   if(i<0)throw new Error('Bu dosya Kitapçık Oluşturucu\'nun cevap anahtarı dosyası değil.');n=L[i].length-1;
   for(i++;i<L.length&&/^[A-E]$/.test((L[i][0]||'').trim());i++)K[L[i][0].trim()]={cevap:L[i].slice(1,n+1).map(x=>/^[A-E]$/.test(x.trim())?x.trim():'')};
-  let ipt=[],ana=null;
-  L.forEach(r=>{if(r[0]==='#SIRA'&&K[r[1]])K[r[1]].sira=r.slice(2,n+2).map(x=>(+x)-1);if(r[0]==='#SIK'&&K[r[1]])K[r[1]].sikSira=r.slice(2,n+2).map(x=>x==='-'?'':x.trim());if(r[0]==='#IPTAL')ipt=r.slice(1).filter(Boolean).map(x=>(+x)-1);if(r[0]==='#ANAHTAR')ana=r.slice(1,n+1)});
+  let ipt=[],ana=null,oc=null,ocSay=0,bilgi=null,kod='',puan=null,ad='';
+  L.forEach(r=>{if(r[0]==='#OC')oc=r.slice(1,n+1).map(x=>(String(x||'').match(/\d{1,2}/g)||[]).map(Number).filter(v=>v>=1&&v<=15));if(r[0]==='#OCSAYI')ocSay=+r[1]||0;if(r[0]==='#BILGI')bilgi=r.slice(1);if(r[0]==='#HTMYO'){kod=r[2]||'';ad=r[3]||''}if(r[0]==='#PUAN')puan=r.slice(1,n+1).map(x=>x?parseFloat(x.replace(',','.')):null);if(r[0]==='#SIRA'&&K[r[1]])K[r[1]].sira=r.slice(2,n+2).map(x=>(+x)-1);if(r[0]==='#SIK'&&K[r[1]])K[r[1]].sikSira=r.slice(2,n+2).map(x=>x==='-'?'':x.trim());if(r[0]==='#IPTAL')ipt=r.slice(1).filter(Boolean).map(x=>(+x)-1);if(r[0]==='#ANAHTAR')ana=r.slice(1,n+1)});
   if(K.A){K.A.sira=K.A.sira||[...Array(n).keys()];if(!K.A.sikSira)K.A.sikSira=Array(n).fill('ABCDE')}
   const eksik=Object.keys(K).filter(h=>!K[h].sira||!K[h].sikSira);if(eksik.length)throw new Error(`Bu anahtar dosyası eski bir sürümle oluşturulmuş; ${eksik.join(', ')} kitapçığının soru eşleşmesi bilgisi yok. Kitapçıkları bu sürümle aynı üretim koduyla yeniden oluşturup yeni anahtar dosyasını kullanın.`);
   if(ana&&K.A)K.A.cevap=K.A.cevap.map((c,q)=>c||(/^[A-E]$/.test(ana[q]||'')?ana[q]:''));
-  return {R:Object.keys(K).sort().map(h=>({h,...K[h]})),iptal:ipt,n};
+  return {R:Object.keys(K).sort().map(h=>({h,...K[h]})),iptal:ipt,n,oc,ocSay,bilgi,kod,puan,ad};
 }
 async function htmyoXlsxSatir(buf){
   const z=await htmyoUnzip(buf),g=nm=>{const f=z.find(x=>x.name===nm);return f?htmyoDec(f):null};const ss=[];const sx=g('xl/sharedStrings.xml');
@@ -1067,7 +1185,7 @@ function htmyoOptik(satirlar,n,harfler){
   });
   return {ogr,hata};
 }
-function htmyoAnaliz(K,ogr,iptal){
+function htmyoAnaliz(K,ogr,iptal,esik){esik=esik||60;
   const n=K.n,byH={};K.R.forEach(r=>byH[r.h]=r);const A=byH.A||K.R[0];
   const anahtarA=[...Array(n).keys()].map(q=>{for(const r of K.R){const j=r.sira.indexOf(q);if(j>=0&&r.cevap[j]&&r.sikSira[j]){return r.sikSira[j][HTMYO_HARF.indexOf(r.cevap[j])]||''}}return ''});
   const sk=[...Array(n).keys()].map(q=>{let m=0;K.R.forEach(r=>{const j=r.sira.indexOf(q);if(j>=0)m=Math.max(m,(r.sikSira[j]||'').length)});return m||5});
@@ -1088,14 +1206,26 @@ function htmyoAnaliz(K,ogr,iptal){
     const bos0=cel.filter(h=>say[h]===0);if(bos0.length)not.push(`${bos0.join(', ')} çeldiricisini kimse seçmemiş (işlemiyor).`);
     return {q,k,p,pu,pa,D,say,cel,not}});
   const kk=M.length,spq=M.reduce((a,m)=>a+m.p*(1-m.p),0),kr20=kk>1&&vr>0?kk/(kk-1)*(1-spq/vr):null;
-  return {O,M,N,kk,ort,ss,med,min:sir[0],max:sir[N-1],kr20,g,iptal,maddeler,sk,puanOrt:O.reduce((a,o)=>a+o.puan,0)/N};
+  /* HTMYO · öğrenme çıktılarına ulaşma: iptal edilen sorular sayılmaz, birden çok ÖÇ'ye bağlı soru her birine tam sayılır */
+  let OCT=null,ocAtanmamis=0;const ocL=(K.oc||[]).map(l=>l||[]);
+  if(ocL.some(l=>l.length)){const NO=Math.max(K.ocSay||0,...ocL.flat()),PU=K.puan||[],pp=maddeler.length?100/maddeler.length:0;OCT=[];
+    for(let k=1;k<=NO;k++){const qs=analiz.filter(q=>(ocL[q]||[]).includes(k));if(!qs.length){OCT.push({k,n:0,qs});continue}
+      const top=O.reduce((a,o)=>a+qs.reduce((b,q)=>b+o.dg[q],0),0),yuzde=top/(N*qs.length)*100;
+      const ulasan=O.filter(o=>qs.reduce((b,q)=>b+o.dg[q],0)/qs.length*100>=esik-1e-9).length;
+      const puan=qs.reduce((a,q)=>a+(PU[q]!=null?PU[q]:pp),0);
+      OCT.push({k,n:qs.length,qs,puan,yuzde,ulasan,oran:ulasan/N*100,ok:yuzde>=esik-1e-9})}
+    ocAtanmamis=analiz.filter(q=>!(ocL[q]||[]).length).length;
+    O.forEach(o=>{o.oc=OCT.map(t=>t.n?t.qs.reduce((b,q)=>b+o.dg[q],0)/t.n*100:null)})}
+  return {OCT,ocAtanmamis,esik,O,M,N,kk,ort,ss,med,min:sir[0],max:sir[N-1],kr20,g,iptal,maddeler,sk,puanOrt:O.reduce((a,o)=>a+o.puan,0)/N};
 }
 const htmyoF=(x,d=2)=>x==null||isNaN(x)?'·':x.toFixed(d).replace('.',',');
 const htmyoDsin=D=>D<0?['Hatalı','kotu']:D>=.40?['Çok iyi','iyi']:D>=.30?['İyi','iyi']:D>=.20?['Düzeltilmeli','orta']:['Zayıf','kotu'];
 const htmyoPsin=p=>p<.30?['Zor','orta']:p<=.70?['Orta','iyi']:['Kolay','orta'];
 function htmyoAnalizGoster(S){
   const kr=S.kr20==null?'·':htmyoF(S.kr20),krY=S.kr20==null?'':S.kr20>=.70?'yeterli':S.kr20>=.50?'kabul edilebilir sınırda':'düşük';
-  let t=`<div class="htmyo-onlyprint"><div class="htmyo-ph"><div class="gz">MADDE ANALİZİ</div><table><tr><td>Ders</td><td>${htmyoEsc($('#pDers').value||'')||'&nbsp;'}</td><td>Sınav</td><td>${htmyoEsc($('#pSinav').value||'')||'&nbsp;'}</td></tr></table></div></div>
+  const bv=id=>htmyoEsc(($(id).value||'').trim())||'&nbsp;';
+  const basl=b=>`<div class="htmyo-onlyprint"><div class="htmyo-ph"><div class="gz">${b}</div><table><tr><td>Ders</td><td>${bv('#maDers')}</td><td>Sınav türü</td><td>${bv('#maSinav')}</td></tr><tr><td>Tarih</td><td>${bv('#maTarih')}</td><td>Öğrenci sayısı</td><td>${S.N}</td></tr><tr><td>Üretim kodu</td><td>${htmyoEsc(S.kod)||'&nbsp;'}</td><td>Başarı eşiği</td><td>%${S.esik}</td></tr></table></div></div>`;
+  let t=`<div class="ma-madde">${basl('MADDE ANALİZİ')}
   <div class="htmyo-stats"><div><b>${S.N}</b><span>öğrenci</span></div><div><b>${S.kk}</b><span>analiz edilen soru${S.iptal.size?` (+${S.iptal.size} iptal)`:''}</span></div><div><b>${htmyoF(S.puanOrt,1)}</b><span>ortalama puan (100)</span></div><div><b>${htmyoF(S.ort,1)} / ${S.kk}</b><span>ortalama doğru</span></div><div><b>${htmyoF(S.ss,2)}</b><span>standart sapma</span></div><div><b>${htmyoF(S.med,1)}</b><span>ortanca doğru</span></div><div><b>${S.min} · ${S.max}</b><span>en düşük · en yüksek</span></div><div><b>${kr}</b><span>KR-20 güvenirlik${krY?' ('+krY+')':''}</span></div></div>`;
   if(S.N<20)t+=`<div class="htmyo-note w"><span>⚠️</span><div>Öğrenci sayısı az (${S.N}). Üst ve alt grupların her biri ${S.g} kişi; değerler büyük dalgalanabilir, yorumlarken dikkatli olun.</div></div>`;
   t+=`<h3 class="htmyo-h">Soru bazında sonuçlar (A kitapçığı sırasıyla)</h3><p class="lead" style="margin:0">p: güçlük indeksi (doğru yanıtlayanların oranı; büyüdükçe soru kolaylaşır). D: ayırt edicilik indeksi (üst %27 ile alt %27 grubun doğru oranları farkı). Şık sütunları o şıkkı seçen öğrenci sayısıdır; doğru cevap koyu renkli.</p>
@@ -1106,24 +1236,43 @@ function htmyoAnalizGoster(S){
   t+=`<h3 class="htmyo-h">Özet</h3><div class="htmyo-tbl"><table><tr><th>Ayırt edicilik</th><th>Çok iyi (0,40 ve üstü)</th><th>İyi (0,30-0,39)</th><th>Düzeltilmeli (0,20-0,29)</th><th>Zayıf (0,19 ve altı)</th><th>Negatif</th></tr><tr><td class="kb">Soru sayısı</td><td>${say(m=>m.D>=.4)}</td><td>${say(m=>m.D>=.3&&m.D<.4)}</td><td>${say(m=>m.D>=.2&&m.D<.3)}</td><td>${say(m=>m.D>=0&&m.D<.2)}</td><td>${say(m=>m.D<0)}</td></tr></table></div>
   <p style="font-size:12px;color:var(--htmyo-mut)">Ayırt edicilikte yaygın sınıflama: 0,40 ve üstü çok iyi, 0,30-0,39 iyi, 0,20-0,29 düzeltilmeli, 0,19 ve altı zayıf (soru çıkarılmalı ya da yeniden yazılmalı). Güçlükte 0,30 altı zor, 0,30-0,70 orta, 0,70 üstü kolay kabul edilir. KR-20 için 0,70 ve üstü genellikle yeterli sayılır. İptal edilen sorular herkes için doğru sayılır, ancak güçlük, ayırt edicilik ve KR-20 hesabına katılmaz.</p>
   <div class="htmyo-noprint" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="htmyo-btn sec" id="maPrint">Analizi yazdır</button><button class="htmyo-btn sec" id="maCsv">Madde analizini indir (CSV)</button><button class="htmyo-btn sec" id="maOgr">Öğrenci puanlarını indir (CSV)</button></div>`;
+  t+='</div>';
+  if(S.OCT){
+    t+=`<div class="ma-oc">${basl('ÖĞRENME ÇIKTILARINA ULAŞMA')}<h3 class="htmyo-h">Öğrenme Çıktılarına Ulaşma</h3><p class="lead" style="margin:0">Sınıf başarı yüzdesi: o ÖÇ'yü ölçen sorularda öğrencilerin ortalama doğru oranı (PFRM-250'deki "Gerçekleşme %"). Hedefe ulaşan öğrenci: bu sorularda %${S.esik} ve üstü başarı gösteren öğrenci. İptal edilen sorular hesaba katılmaz; birden çok ÖÇ'ye bağlı soru her birine tam sayılır.</p>
+    <div class="htmyo-tbl"><table><tr><th>ÖÇ</th><th>Soru sayısı</th><th>Sorular (A kitapçığı)</th><th>Toplam puan</th><th>Sınıfın başarı yüzdesi</th><th>Hedefe ulaşan öğrenci</th><th>Oran</th><th>Durum</th></tr>`+
+    S.OCT.map(o=>o.n?`<tr><td class="kb">ÖÇ${o.k}</td><td>${o.n}</td><td>${o.qs.map(q=>q+1).join(', ')}</td><td>${htmyoF(o.puan,1)}</td><td>%${htmyoF(o.yuzde,1)}</td><td>${o.ulasan} / ${S.N}</td><td>%${htmyoF(o.oran,1)}</td><td class="${o.ok?'iyi':'kotu'}">${o.ok?'Ulaşıldı':'Ulaşılamadı'}</td></tr>`:`<tr><td class="kb">ÖÇ${o.k}</td><td>0</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td style="color:var(--htmyo-mut)">Ölçülmedi</td></tr>`).join('')+'</table></div>';
+    if(S.ocAtanmamis)t+=`<p style="font-size:12px;color:var(--htmyo-mut)">${S.ocAtanmamis} soruya ÖÇ atanmamış; bu sorular ÖÇ tablosuna katılmadı.</p>`;
+    t+=`<div class="htmyo-noprint" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="htmyo-btn sec" id="ocPrint">ÖÇ tablosunu yazdır</button><button class="htmyo-btn sec" id="ocCsv">ÖÇ tablosunu indir (PFRM-250 için CSV)</button></div></div>`;
+  }else t+=`<p class="htmyo-noprint" style="font-size:12px;color:var(--htmyo-mut);margin-top:10px">Öğrenme çıktısı tablosu için kitapçıkları oluştururken 2. adımda soruların ÖÇ'lerini seçin; bu bilgi cevap anahtarı dosyasına da yazılır.</p>`;
   $('#maSonuc').innerHTML=t;
-  $('#maPrint').onclick=()=>{document.body.classList.add('pa');window.print();setTimeout(()=>document.body.classList.remove('pa'),500)};
+  if(S.OCT){
+    $('#ocPrint').onclick=()=>{document.body.classList.add('pa','po');window.print();setTimeout(()=>document.body.classList.remove('pa','po'),500)};
+    $('#ocCsv').onclick=()=>{const tz=id=>($(id).value||'').replace(/[;\r\n]/g,' ').trim(),arac=tz('#maSinav')||'Sınav';
+      let c=`Öğrenme Çıktılarına Ulaşma Tablosu\nDers;${tz('#maDers')}\nSınav türü;${tz('#maSinav')}\nTarih;${tz('#maTarih')}\nÖğrenci sayısı;${S.N}\nÜretim kodu;${S.kod}\nBaşarı eşiği (%);${S.esik}\n\n`;
+      c+='ÖÇ No;Ölçme aracı;Soru sayısı;Sorular (A kitapçığı);Toplam puan;Hedef %;Gerçekleşme % (sınıfın başarı yüzdesi);Hedefe ulaşan öğrenci;Hedefe ulaşan oranı %;Sonuç (S/X);Durum\n';
+      S.OCT.forEach(o=>{c+=o.n?`ÖÇ${o.k};${arac};${o.n};${o.qs.map(q=>q+1).join(' ')};${htmyoF(o.puan,1)};${S.esik};${htmyoF(o.yuzde,1)};${o.ulasan};${htmyoF(o.oran,1)};${o.ok?'S':'X'};${o.ok?'Ulaşıldı':'Ulaşılamadı'}\n`:`ÖÇ${o.k};${arac};0;;;${S.esik};;;;;Ölçülmedi\n`});
+      c+=`\nNot;Gerçekleşme yüzdesi PFRM-250 Program Çıktıları Değerlendirme Formu'ndaki "Gerçek. %" sütununa, Sonuç (S: sağlandı, X: sağlanamadı) "Sonuç" sütununa aktarılır. ÖÇ'nin katkı verdiği PÇ, Ders Bilgi Paketindeki ÖÇ-PÇ ilişki matrisinden alınır.\n`;
+      htmyoIndir(`${S.ad||'sinav'}_ogrenme-ciktilari.csv`,new Blob(['\uFEFF'+c],{type:'text/csv'}))}}
+  $('#maPrint').onclick=()=>{document.body.classList.remove('po');document.body.classList.add('pa');window.print();setTimeout(()=>document.body.classList.remove('pa'),500)};
   const kay=(ad,s)=>htmyoIndir(ad,new Blob(['\uFEFF'+s],{type:'text/csv'}));
-  const ad=(htmyoDurum.ad||'sinav');
+  const ad=S.ad||htmyoDurum.ad||'sinav';
   $('#maCsv').onclick=()=>kay(`${ad}_madde-analizi.csv`,'Soru (A);Cevap;p;Güçlük;Üst grup;Alt grup;D;Ayırt edicilik;A;B;C;D;E;Boş;Not\n'+S.M.map(m=>[m.q+1,m.k,htmyoF(m.p),htmyoPsin(m.p)[0],htmyoF(m.pu),htmyoF(m.pa),htmyoF(m.D),htmyoDsin(m.D)[0],...[...HTMYO_HARF].map(h=>h in m.say?m.say[h]:''),m.say[''],m.not.join(' ')].join(';')).join('\n')+`\n\nÖğrenci;${S.N}\nOrtalama puan;${htmyoF(S.puanOrt,1)}\nStandart sapma (doğru);${htmyoF(S.ss)}\nKR-20;${S.kr20==null?'':htmyoF(S.kr20)}\nİptal;${[...S.iptal].map(x=>x+1).join(' ')}\n`);
-  $('#maOgr').onclick=()=>kay(`${ad}_ogrenci-puanlari.csv`,'Öğrenci;Kitapçık;Doğru;Yanlış;Boş;Puan (100)\n'+S.O.map(o=>[o.kimlik.replace(/;/g,','),o.kit,o.dogru,o.yanlis,o.bos,htmyoF(o.puan,1)].join(';')).join('\n')+'\n');
+  const ocB=S.OCT?S.OCT.filter(o=>o.n):[];
+  $('#maOgr').onclick=()=>kay(`${ad}_ogrenci-puanlari.csv`,'Öğrenci;Kitapçık;Doğru;Yanlış;Boş;Puan (100)'+ocB.map(o=>`;ÖÇ${o.k} başarı %`).join('')+'\n'+S.O.map(o=>[o.kimlik.replace(/;/g,','),o.kit,o.dogru,o.yanlis,o.bos,htmyoF(o.puan,1),...ocB.map(b=>htmyoF(o.oc[S.OCT.indexOf(b)],1))].join(';')).join('\n')+'\n');
 }
-$('#maKey').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{htmyoDurum.maAnahtar=htmyoAnahtarCsv(htmyoMetinOku(await f.arrayBuffer()));const K=htmyoDurum.maAnahtar;htmyoMaDurum(`✓ <b>${htmyoEsc(f.name)}</b> yüklendi: ${K.R.map(r=>r.h).join(', ')} kitapçıkları, ${K.n} soru.`,'ok');$('#maIptal').value=K.iptal.map(x=>x+1).join(', ')}catch(err){htmyoDurum.maAnahtar=null;htmyoMaDurum(`⚠️ ${htmyoEsc(err.message)}`,'hata')}};
+$('#maKey').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{htmyoDurum.maAnahtar=htmyoAnahtarCsv(htmyoMetinOku(await f.arrayBuffer()));const K=htmyoDurum.maAnahtar;htmyoMaDurum(`✓ <b>${htmyoEsc(f.name)}</b> yüklendi: ${K.R.map(r=>r.h).join(', ')} kitapçıkları, ${K.n} soru.`,'ok');$('#maIptal').value=K.iptal.map(x=>x+1).join(', ');if(K.bilgi){$('#maDers').value=K.bilgi[0]||'';$('#maSinav').value=K.bilgi[1]||'';$('#maTarih').value=K.bilgi[2]||''}}catch(err){htmyoDurum.maAnahtar=null;htmyoMaDurum(`⚠️ ${htmyoEsc(err.message)}`,'hata')}};
 $('#maOpt').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const b=await f.arrayBuffer();htmyoDurum.maSatir=/\.xlsx$/i.test(f.name)?await htmyoXlsxSatir(b):htmyoMetinSatir(htmyoMetinOku(b));$('#maOptAd').textContent=`✓ ${f.name} · ${htmyoDurum.maSatir.length} satır`;$('#maTxt').value=''}catch(err){htmyoDurum.maSatir=null;$('#maOptAd').textContent='⚠️ '+err.message}};
+$('#maEsik').onchange=()=>{if(htmyoDurum.maSon)$('#maGo').click()};
 $('#maTxt').oninput=()=>{htmyoDurum.maSatir=null;$('#maOptAd').textContent=''};
 $('#maGo').onclick=()=>{
   try{
-    const K=htmyoDurum.maAnahtar||(htmyoDurum.sonuc&&{R:htmyoDurum.sonuc,n:htmyoDurum.sonuc[0].cevap.length,iptal:[...htmyoDurum.iptal]});
+    const K=htmyoDurum.maAnahtar||(htmyoDurum.sonuc&&{R:htmyoDurum.sonuc,n:htmyoDurum.sonuc[0].cevap.length,iptal:[...htmyoDurum.iptal],oc:htmyoDurum.oc,ocSay:htmyoDurum.ocSay,kod:htmyoDurum.kod,puan:htmyoDurum.puan});
     if(!K)throw new Error('Önce cevap anahtarını yükleyin ya da bu sayfada kitapçıkları oluşturun.');
     const sat=htmyoDurum.maSatir||($('#maTxt').value.trim()?htmyoMetinSatir($('#maTxt').value):null);if(!sat)throw new Error('Öğrenci cevaplarını yükleyin ya da yapıştırın.');
     const iptal=new Set(($('#maIptal').value.match(/\d+/g)||[]).map(x=>(+x)-1).filter(q=>q>=0&&q<K.n));
     const {ogr,hata}=htmyoOptik(sat,K.n,K.R.map(r=>r.h));if(!ogr.length)throw new Error('Öğrenci satırı okunamadı. Her satırda kitapçık türü (A-E) ve cevaplar ayrı sütunda olmalı; örnek: 2025001;B;ACDBE-ABCE');
-    const S=htmyoAnaliz(K,ogr,iptal);htmyoAnalizGoster(S);
+    const esik=Math.min(100,Math.max(1,+$('#maEsik').value||60));$('#maEsik').value=esik;
+    const S=htmyoAnaliz(K,ogr,iptal,esik);S.kod=K.kod||'';S.ad=(htmyoDurum.maAnahtar&&K.ad)||htmyoDurum.ad||K.ad||'sinav';htmyoAnalizGoster(S);htmyoDurum.maSon=true;
     if(hata.length)$('#maSonuc').insertAdjacentHTML('afterbegin',`<div class="htmyo-note w htmyo-noprint"><span>⚠️</span><div>${hata.length} satır okunamadı ve analize alınmadı (satır ${hata.slice(0,15).join(', ')}${hata.length>15?'...':''}). Kitapçık türü yazılmamış ya da anahtarda olmayan bir kitapçık olabilir.</div></div>`);
   }catch(err){$('#maSonuc').innerHTML=`<div class="htmyo-note w"><span>⚠️</span><div>${htmyoEsc(err.message)}</div></div>`}
 };

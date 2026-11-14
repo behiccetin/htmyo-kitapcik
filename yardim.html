@@ -91,16 +91,25 @@ code,kbd{font-family:ui-monospace,Consolas,monospace;background:var(--l);padding
     <a href="#olustur"><div class="e">📚</div><b>3. Oluşturun ve indirin</b><span>Kitapçıkları ve cevap anahtarı dosyasını indirin.</span></a>
     <a href="#sonra"><div class="e">📊</div><b>4. Sınavdan sonra</b><span>İptal ve düzeltme, madde analizi, öğrenci puanları.</span></a>
   </div>
+  <h3>Araç arka planda ne yapar?</h3>
+  <ol>
+    <li><b>Dosyayı okur.</b> Word dosyasının içini tarayıcınızda açar; soruları numaralarından, şıkları "A)" gibi başlangıçlarından tanır. Metin dosyasından önce düzenli bir Word dosyası oluşturur.</li>
+    <li><b>Temizler.</b> Word açıklamalarını, izlenen değişiklikleri, gizli metni ve yazar bilgisini öğrenciye gidecek kopyalardan siler.</li>
+    <li><b>Karıştırır.</b> Her kitapçık için soruların ve şıkların sırasını değiştirir. Bu karıştırma rastgele görünür ama <b>üretim kodu</b>na bağlıdır: aynı kod aynı kitapçıkları verir.</li>
+    <li><b>İzler.</b> Hangi sorunun hangi kitapçıkta kaçıncı sıraya, hangi şıkkın hangi harfe gittiğini kaydeder. Cevap anahtarları, ÖÇ eşlemesi ve madde analizi bu kayıttan hesaplanır.</li>
+    <li><b>Dosyaları üretir.</b> Kitapçıkları Word olarak, cevap anahtarını tablo, CSV ve PFRM-248 Word dosyası olarak verir.</li>
+  </ol>
   <h3>İçindekiler</h3>
   <ol class="toc">
     <li><a href="#hazirla">A kitapçığını hazırlama</a></li>
     <li><a href="#yukle">Aracı açma ve dosyayı yükleme</a></li>
     <li><a href="#cevap">Doğru cevapları işaretleme</a></li>
+    <li><a href="#oc">Öğrenme çıktıları (ÖÇ): sistem nasıl çalışır?</a></li>
     <li><a href="#olustur">Seçenekler ve kitapçıkları oluşturma</a></li>
     <li><a href="#indir">İndirme, cevap anahtarı ve yazdırma</a></li>
     <li><a href="#sinav">Çoğaltma ve sınav günü</a></li>
     <li><a href="#sonra">Sınavdan sonra: iptal ve düzeltme</a></li>
-    <li><a href="#analiz">Madde analizi ve öğrenci puanları</a></li>
+    <li><a href="#analiz">Madde analizi, öğrenci puanları ve ÖÇ tablosu</a></li>
     <li><a href="#deneme">Deneme dosyalarıyla alıştırma</a></li>
     <li><a href="#sss">Sık karşılaşılan durumlar</a></li>
   </ol>
@@ -113,7 +122,7 @@ code,kbd{font-family:ui-monospace,Consolas,monospace;background:var(--l);padding
     <div class="yol"><b>Yol 1 · Yüksekokulun şablonu (önerilen)</b><br>Aracın ilk adımındaki <b>Sınav şablonlarını aç</b> düğmesine basın (aşağıdaki görselde 1 numara). Açılan Personel Formları sayfasında <b>Sınav İşlemleri</b> başlığının altından <b>Sınav Soruları Formu (Test)</b> ya da <b>(Klasik ve Karma)</b> dosyasını indirin. Ders bilgilerini doldurun, soruları ve şıkları kutulara yazın. Kullanmadığınız "Ek soru tipleri" örneklerini ve boş kalan soruları silip kaydedin.</div>
     <div class="yol"><b>Yol 2 · Kendi Word dosyanız</b><br>Her soru <code>1.</code> ya da <code>1)</code> ile başlasın (Word'ün otomatik numaralandırması da olur). Her şık ayrı satırda <code>A)</code>, <code>B)</code> ile başlasın. Görsel, tablo ve öncüller soru ile şıklar arasında olabilir.</div>
   </div>
-  <figure><a href="yardim/02-yukle.png"><img src="yardim/02-yukle.png" alt="Şablon indirme düğmeleri ve dosya yükleme alanı" loading="lazy"></a><figcaption>Aracın 1. adımı: şablon kutusu ve dosya yükleme alanı</figcaption></figure>
+  <figure><a href="yardim/02-yukle.png"><img src="yardim/02-yukle.png" width="1452" height="759" alt="Şablon indirme düğmeleri ve dosya yükleme alanı" loading="lazy"></a><figcaption>Aracın 1. adımı: şablon kutusu ve dosya yükleme alanı</figcaption></figure>
   <ol class="adim">
     <li><b>Sınav şablonlarını aç.</b> Yüksekokulun Personel Formları sayfasını yeni sekmede açar. Test sınavı için "Sınav Soruları Formu (Test)", açık uçlu ya da karışık sınav için "Sınav Soruları Formu (Klasik ve Karma)" dosyasını indirin.</li>
     <li><b>Dosya yükleme alanı.</b> Hazırladığınız A kitapçığını buraya sürükleyin ya da tıklayıp seçin (bir sonraki bölüm).</li>
@@ -136,7 +145,7 @@ C) Paketleme
 D) Etiketleme
 E) Sayım</div></div>
   </div>
-  <figure><a href="yardim/03-ornek-dosya.png"><img src="yardim/03-ornek-dosya.png" alt="Örnek Aiken ve düz metin dosyası indirme düğmeleri" loading="lazy"></a><figcaption>Aracın "Nasıl kullanılır?" bölümündeki metin dosyası anlatımı</figcaption></figure>
+  <figure><a href="yardim/03-ornek-dosya.png"><img src="yardim/03-ornek-dosya.png" width="1383" height="1112" alt="Örnek Aiken ve düz metin dosyası indirme düğmeleri" loading="lazy"></a><figcaption>Aracın "Nasıl kullanılır?" bölümündeki metin dosyası anlatımı</figcaption></figure>
   <ol class="adim">
     <li><b>Örnek Aiken dosyası.</b> İndirip açın, kendi sorularınızı aynı düzende yazın.</li>
     <li><b>Örnek düz metin dosyası.</b> Cevapları araçta işaretlemek istiyorsanız bu düzeni kullanın.</li>
@@ -151,14 +160,14 @@ araç doluluk oranını artırmak</div></div></div>
 <section class="card" id="yukle">
   <h2><span class="n">2</span>Aracı açma ve dosyayı yükleme</h2>
   <p class="lead">Aracı yüksekokulun web sitesindeki <b>Personel Formları</b> sayfasında, "Sınav İşlemleri" başlığının altındaki bağlantıdan açın. Size e-posta veya mesajla gelen başka kopyaları kullanmayın.</p>
-  <figure><a href="yardim/01-giris.png"><img src="yardim/01-giris.png" alt="Aracın giriş ekranı" loading="lazy"></a><figcaption>Aracın giriş ekranı</figcaption></figure>
+  <figure><a href="yardim/01-giris.png"><img src="yardim/01-giris.png" width="1770" height="653" alt="Aracın giriş ekranı" loading="lazy"></a><figcaption>Aracın giriş ekranı</figcaption></figure>
   <ol class="adim">
     <li><b>Nasıl kullanılır?</b> Aynı sayfadaki kısa yazım kurallarına ve örneklere götürür.</li>
     <li><b>Resimli yardım.</b> Şu an okuduğunuz bu sayfayı açar.</li>
     <li><b>Adım çubuğu.</b> Hangi adımda olduğunuzu gösterir: yükle, işaretle, indir.</li>
   </ol>
   <p>A kitapçığını yükleme alanına sürükleyin ya da tıklayıp seçin. Yükleme bitince dosyanın adı, türü ve kaç soru bulunduğu görünür:</p>
-  <figure><a href="yardim/04-yuklendi.png"><img src="yardim/04-yuklendi.png" alt="Dosya yüklendikten sonraki bilgi kutusu" loading="lazy"></a><figcaption>Dosya yüklendikten sonra</figcaption></figure>
+  <figure><a href="yardim/04-yuklendi.png"><img src="yardim/04-yuklendi.png" width="1452" height="885" alt="Dosya yüklendikten sonraki bilgi kutusu" loading="lazy"></a><figcaption>Dosya yüklendikten sonra</figcaption></figure>
   <ol class="adim">
     <li><b>Dosya bilgisi.</b> "Yüksekokul şablonu · 25 soru bulundu, 25 tanesi şıklı" gibi. Soru sayısı beklediğinizden azsa ya da fazlaysa Word'de numaraları ve şıkları kontrol edip dosyayı yeniden yükleyin. Sarı uyarı kutuları çıkarsa okuyun; neyin düzeltilmesi gerektiğini yazar.</li>
   </ol>
@@ -169,7 +178,7 @@ araç doluluk oranını artırmak</div></div></div>
 <section class="card" id="cevap">
   <h2><span class="n">3</span>Doğru cevapları işaretleme</h2>
   <p class="lead">A kitapçığının doğru cevaplarını işaretlersiniz. Diğer kitapçıkların anahtarı kendiliğinden hesaplanır. Aiken dosyası yüklediyseniz cevaplar zaten işaretlidir; yalnızca kontrol edin.</p>
-  <figure><a href="yardim/05-cevaplar.png"><img src="yardim/05-cevaplar.png" alt="Doğru cevapların işaretlendiği 2. adım" loading="lazy"></a><figcaption>2. adım: doğru cevaplar</figcaption></figure>
+  <figure><a href="yardim/05-cevaplar.png"><img src="yardim/05-cevaplar.png" width="1452" height="1064" alt="Doğru cevapların işaretlendiği 2. adım" loading="lazy"></a><figcaption>2. adım: doğru cevaplar</figcaption></figure>
   <ol class="adim">
     <li><b>Toplu giriş.</b> Bütün cevapları tek seferde yazıp <b>Uygula</b>'ya basın. Örneğin <code>EBDABCDACB...</code> 1. sorunun cevabı E, 2. sorunun cevabı B demektir.</li>
     <li><b>Şık dağılımı.</b> A kitapçığında kaç sorunun cevabının hangi harfte olduğunu gösterir. Bir harf çok fazlaysa öğrenci tahminle puan alabilir; dengeli olması iyidir.</li>
@@ -179,10 +188,73 @@ araç doluluk oranını artırmak</div></div></div>
   <a class="top" href="#ozet">↑ Başa dön</a>
 </section>
 
+<section class="card" id="oc">
+  <h2><span class="n">4</span>Öğrenme çıktıları (ÖÇ): sistem nasıl çalışır?</h2>
+  <p class="lead">Bir sınavın hangi öğrenme çıktılarını ne ölçüde sağladığını göstermek, MEDEK ve YÖKAK süreçlerinde istenen bir kanıttır. Kitapçık Oluşturucu bunu sorulara hiçbir şey eklemeden yapar: ÖÇ'leri yalnızca araçta seçersiniz, araç da bunları ayrı dosyalara yazar.</p>
+  <div class="flow" style="grid-template-columns:repeat(4,1fr)">
+    <a href="#oc-sec"><div class="e">✍️</div><b>1. Sorular her zamanki gibi</b><span>Soru formuna ya da sorulara ÖÇ yazılmaz.</span></a>
+    <a href="#oc-sec"><div class="e">🎯</div><b>2. ÖÇ araçta seçilir</b><span>2. adımda her sorunun ölçtüğü ÖÇ işaretlenir.</span></a>
+    <a href="#oc-dosya"><div class="e">📄</div><b>3. Ayrı dosyalar</b><span>PFRM-248 Sınav Cevap Anahtarı ve cevap anahtarı dosyası ÖÇ'leri içerir. Kitapçıklarda ÖÇ yoktur.</span></a>
+    <a href="#oc-tablo"><div class="e">📊</div><b>4. Sınavdan sonra</b><span>Madde analizi her ÖÇ'ye ulaşılıp ulaşılmadığını hesaplar; tablo PFRM-250'ye aktarılır.</span></a>
+  </div>
+  <div class="not b"><span class="i">💡</span><div><b>Neden sorulara yazılmıyor?</b> Kitapçıkta ÖÇ görünürse öğrenci sorunun hangi konudan geldiğini anlar, bu da bir tür ipucudur. Bu yüzden ÖÇ bilgisi yalnızca hocada kalan dosyalarda bulunur. ÖÇ seçmek isteğe bağlıdır; seçmezseniz araç eskisi gibi çalışır.</div></div>
+
+  <h3 id="oc-sec">ÖÇ'leri seçme (2. adım)</h3>
+  <figure><a href="yardim/14-oc-secim.png"><img src="yardim/14-oc-secim.png" width="1452" height="693" alt="2. adımda ÖÇ seçimi" loading="lazy"></a><figcaption>2. adım: dersin ÖÇ sayısı ve her sorunun ÖÇ'sü</figcaption></figure>
+  <ol class="adim">
+    <li><b>Dersin ÖÇ sayısı.</b> Ders Bilgi Paketindeki öğrenme çıktısı sayısını seçin (1 ile 15 arası). "ÖÇ kullanmıyorum" seçili kalırsa ÖÇ alanları gizlenir.</li>
+    <li><b>Toplu giriş.</b> Bütün soruların ÖÇ'lerini soru sırasıyla, boşlukla ayırarak yazıp <b>Uygula</b>'ya basın. Birden fazla ÖÇ için virgül, ÖÇ'süz soru için tire kullanın: <code>1 2 1,3 - 2</code> demek 1. soru ÖÇ1, 2. soru ÖÇ2, 3. soru ÖÇ1 ve ÖÇ3, 4. soru ÖÇ'süz, 5. soru ÖÇ2 demektir.</li>
+    <li><b>Sorunun ÖÇ düğmesi.</b> Her sorunun yanındaki "🎯 ÖÇ" düğmesi seçili ÖÇ'leri gösterir. Seçim yapılan sorular sarı görünür.</li>
+    <li><b>Tek tek seçme.</b> Düğmeye tıklayınca açılan listeden bir ya da birden fazla ÖÇ işaretleyin.</li>
+  </ol>
+  <div class="not g"><span class="i">📝</span><div>Dosyanızda zaten <code>[ÖÇ2]</code> ya da <code>[ÖÇ1,ÖÇ3]</code> gibi notlar varsa araç bunları okuyup seçimleri kendiliğinden doldurur ve öğrenciye giden kitapçıklardan siler. Aiken dosyasında <code>ANSWER: B</code> satırından sonraki <code>OC: 2</code> satırı da okunur. Bunları yazmanız gerekmez; seçimi araçta yapmanız yeterlidir.</div></div>
+
+  <h3 id="oc-dosya">ÖÇ'lerin yazıldığı dosyalar</h3>
+  <figure><a href="yardim/15-oc-anahtar.png"><img src="yardim/15-oc-anahtar.png" width="1443" height="1031" alt="Sonuç ekranında PFRM-248 düğmesi ve ÖÇ'li cevap anahtarı" loading="lazy"></a><figcaption>Sonuç ekranı: ayrı dosya ve ÖÇ'li cevap anahtarı</figcaption></figure>
+  <ol class="adim">
+    <li><b>PFRM-248 Sınav Cevap Anahtarı.</b> Yüksekokulun formunun doldurulmuş hâli Word olarak iner. Ders, bölüm/program, öğretim elemanı, sınav türü ve tarih "Yazdırma bilgileri" kutularından alınır.</li>
+    <li><b>Cevap anahtarı tablosu.</b> Her cevap harfinin altında o sorunun ölçtüğü ÖÇ küçük yazıyla görünür. Aynı bilgi "Cevap anahtarını indir (Excel/CSV)" dosyasına da yazılır; madde analizi ÖÇ'leri bu dosyadan okur.</li>
+  </ol>
+  <figure><a href="yardim/16-pfrm248.png"><img src="yardim/16-pfrm248.png" width="1075" height="1521" alt="Üretilen PFRM-248 Sınav Cevap Anahtarı" loading="lazy"></a><figcaption>Üretilen PFRM-248 Sınav Cevap Anahtarı (ilk sayfa)</figcaption></figure>
+  <ol class="adim">
+    <li><b>Bilgi tablosu.</b> Ders, öğretim elemanı, bölüm/program, sınav türü, tarih, soru sayısı ve toplam puan, kitapçıklar ve üretim kodu.</li>
+    <li><b>Ölçülen DÖÇ sütunu.</b> Her kitapçık için ayrı tablo vardır. Sorular karıştığı için her kitapçıkta ÖÇ'ler o kitapçığın sırasına göre yazılır: A'daki 1. soru B'de 7. sıraya gittiyse onun ÖÇ'sü de B tablosunun 7. satırındadır. Puan sütunu, şablondaki soru puanlarından ya da test sınavında eşit dağılımdan gelir.</li>
+  </ol>
+  <p>Dosya, sınav evrakıyla birlikte Bölüm Başkanlığına teslim edilir ve imza alanları bulunur.</p>
+
+  <h3 id="oc-tablo">Sınavdan sonra: Öğrenme Çıktılarına Ulaşma tablosu</h3>
+  <p>Madde analizini çalıştırdığınızda, ÖÇ seçilmişse soru tablosunun altında bu tablo çıkar (<a href="#analiz">bkz. Madde analizi</a>).</p>
+  <figure><a href="yardim/17-oc-tablo.png"><img src="yardim/17-oc-tablo.png" width="1452" height="564" alt="Öğrenme Çıktılarına Ulaşma tablosu" loading="lazy"></a><figcaption>Öğrenme Çıktılarına Ulaşma tablosu</figcaption></figure>
+  <ol class="adim">
+    <li><b>Sınıfın başarı yüzdesi.</b> O ÖÇ'yü ölçen sorularda bütün öğrencilerin ortalama doğru oranıdır. PFRM-250'deki "Gerçekleşme %" değeri budur.</li>
+    <li><b>Durum.</b> Sınıfın başarı yüzdesi başarı eşiğine (varsayılan %60) ulaştıysa "Ulaşıldı", ulaşmadıysa "Ulaşılamadı". Hiç sorusu olmayan ÖÇ "Ölçülmedi" görünür.</li>
+    <li><b>ÖÇ tablosunu yazdır.</b> Başlığında ders, sınav türü, tarih, öğrenci sayısı, üretim kodu ve eşik bulunan tek sayfalık rapor.</li>
+    <li><b>ÖÇ tablosunu indir (PFRM-250 için CSV).</b> Excel'de açılır; "Gerçekleşme %" ve "Sonuç (S/X)" sütunları PFRM-250'deki aynı adlı sütunlara aktarılır.</li>
+  </ol>
+  <h3>Hesap nasıl yapılır? Bir örnek</h3>
+  <p>ÖÇ2'yi 6 soru ölçüyor ve sınava 40 öğrenci girmiş olsun:</p>
+  <table>
+    <tr><th>Değer</th><th>Nasıl bulunur?</th><th>Örnek</th></tr>
+    <tr><td>Soru sayısı</td><td>ÖÇ2 seçilen ve iptal edilmemiş sorular</td><td>6</td></tr>
+    <tr><td>Toplam puan</td><td>Bu soruların puanlarının toplamı</td><td>6 × 4 = 24</td></tr>
+    <tr><td>Sınıfın başarı yüzdesi</td><td>Bu 6 soruda verilen toplam doğru ÷ (40 öğrenci × 6 soru)</td><td>156 ÷ 240 = %65</td></tr>
+    <tr><td>Hedefe ulaşan öğrenci</td><td>Bu 6 sorunun en az %60'ını (4 tanesini) doğru yapan öğrenci</td><td>27 öğrenci (%67,5)</td></tr>
+    <tr><td>Durum</td><td>%65, %60 eşiğinin üstünde</td><td>Ulaşıldı</td></tr>
+  </table>
+  <ul>
+    <li><b>Birden fazla ÖÇ'ye bağlı soru</b> her ÖÇ'nün hesabına tam olarak girer (ÖÇ1,ÖÇ3 seçilen soru hem ÖÇ1'e hem ÖÇ3'e sayılır).</li>
+    <li><b>İptal edilen sorular</b> ÖÇ hesabına katılmaz.</li>
+    <li><b>ÖÇ seçilmemiş sorular</b> ÖÇ tablosuna girmez; tablonun altında kaç tane olduğu yazar.</li>
+    <li><b>Başarı eşiği</b> madde analizindeki "Başarı eşiği (%)" kutusundan değiştirilebilir; değiştirince tablo yeniden hesaplanır.</li>
+    <li><b>PÇ'ye aktarma:</b> Bir ÖÇ'nün hangi program çıktısına (PÇ) katkı verdiği, Ders Bilgi Paketindeki ÖÇ-PÇ ilişki matrisinden alınır. Program koordinatörü, PÇ'ye katkı veren derslerin ÖÇ tablolarındaki gerçekleşme yüzdelerini PFRM-250'ye işler.</li>
+  </ul>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
 <section class="card" id="olustur">
-  <h2><span class="n">4</span>Seçenekler ve kitapçıkları oluşturma</h2>
+  <h2><span class="n">5</span>Seçenekler ve kitapçıkları oluşturma</h2>
   <p class="lead">Varsayılan seçenekler çoğu sınav için uygundur. Yalnızca kaç kitapçık istediğinizi seçip <b>Kitapçıkları oluştur</b>'a basmanız yeterlidir.</p>
-  <figure><a href="yardim/06-secenekler.png"><img src="yardim/06-secenekler.png" alt="Kitapçık seçimi ve seçenekler" loading="lazy"></a><figcaption>3. adım: kitapçıklar ve seçenekler</figcaption></figure>
+  <figure><a href="yardim/06-secenekler.png"><img src="yardim/06-secenekler.png" width="1452" height="1310" alt="Kitapçık seçimi ve seçenekler" loading="lazy"></a><figcaption>3. adım: kitapçıklar ve seçenekler</figcaption></figure>
   <ol class="adim">
     <li><b>Kitapçıklar.</b> A her zaman üretilir. B, C, D ve E'den istediklerinizi seçin. Kalabalık salonda dört ya da beş kitapçık önerilir.</li>
     <li><b>♿ Büyük puntolu kopyalar.</b> Büyük puntolu soru kitapçığı hakkı olan engelli öğrenciler için her kitapçığın ayrıca bir kopyası iner. Sorular, şıklar ve yönerge en az 18 punto ve tek sütun olur; form başlığı ve bilgi tabloları normal boyutta kalır. Öğrenciye, salonda dağıtılan kitapçık türünün büyük puntolu kopyasını verin.</li>
@@ -202,14 +274,14 @@ araç doluluk oranını artırmak</div></div></div>
 </section>
 
 <section class="card" id="indir">
-  <h2><span class="n">5</span>İndirme, cevap anahtarı ve yazdırma</h2>
-  <figure><a href="yardim/07-sonuc.png"><img src="yardim/07-sonuc.png" alt="Kitapçıkların indirildiği sonuç ekranı" loading="lazy"></a><figcaption>Sonuç ekranı</figcaption></figure>
+  <h2><span class="n">6</span>İndirme, cevap anahtarı ve yazdırma</h2>
+  <figure><a href="yardim/07-sonuc.png"><img src="yardim/07-sonuc.png" width="1452" height="1470" alt="Kitapçıkların indirildiği sonuç ekranı" loading="lazy"></a><figcaption>Sonuç ekranı</figcaption></figure>
   <ol class="adim">
     <li><b>Kitapçıkları indirin.</b> Her kartta bir Word dosyası var. Büyük puntolu kopyalar istediyseniz ayrı bir satırda görünür. İndirdiğiniz dosyaları Word'de açıp göz gezdirin.</li>
-    <li><b>Yazdırma bilgileri.</b> Ders, sınav, tarih ve öğretim elemanı yazdırılan cevap anahtarının başında ve imza alanında görünür. Şablon kullandıysanız kendiliğinden dolar.</li>
-    <li><b>Cevap anahtarı tablosu.</b> Her kitapçığın her sorusunun doğru cevabı. Altında soru eşleşmesi (B'deki 1. soru A'da kaçıncı soru) ve harf dağılımı tabloları bulunur.</li>
+    <li><b>Yazdırma bilgileri.</b> Ders, bölüm/program, sınav, tarih ve öğretim elemanı; yazdırılan cevap anahtarının ve PFRM-248 dosyasının başında görünür. Şablon kullandıysanız kendiliğinden dolar.</li>
+    <li><b>Cevap anahtarı tablosu.</b> Her kitapçığın her sorusunun doğru cevabı; ÖÇ seçtiyseniz harfin altında ÖÇ'si. Altında soru eşleşmesi (B'deki 1. soru A'da kaçıncı soru) ve harf dağılımı tabloları bulunur. Bu ekranda ayrıca <b>PFRM-248 Sınav Cevap Anahtarı</b> Word dosyası da iner (<a href="#oc-dosya">bkz. ÖÇ bölümü</a>).</li>
   </ol>
-  <figure><a href="yardim/08-anahtar-indir.png"><img src="yardim/08-anahtar-indir.png" alt="Cevap anahtarını yazdırma ve indirme düğmeleri" loading="lazy"></a><figcaption>Cevap anahtarı düğmeleri</figcaption></figure>
+  <figure><a href="yardim/08-anahtar-indir.png"><img src="yardim/08-anahtar-indir.png" width="1452" height="450" alt="Cevap anahtarını yazdırma ve indirme düğmeleri" loading="lazy"></a><figcaption>Cevap anahtarı düğmeleri</figcaption></figure>
   <ol class="adim">
     <li><b>Cevap anahtarını indir (Excel/CSV).</b> Bu dosyayı mutlaka indirip saklayın.</li>
     <li><b>Cevap anahtarını yazdır.</b> "GİZLİDİR · CEVAP ANAHTARI" başlıklı, imza alanlı bir sayfa yazdırır. Sınav evrakıyla birlikte saklanabilir.</li>
@@ -219,8 +291,8 @@ araç doluluk oranını artırmak</div></div></div>
 </section>
 
 <section class="card" id="sinav">
-  <h2><span class="n">6</span>Çoğaltma ve sınav günü</h2>
-  <figure><a href="yardim/13-kitapcik.png"><img src="yardim/13-kitapcik.png" alt="Üretilmiş B kitapçığının ilk sayfası" loading="lazy"></a><figcaption>Üretilmiş B kitapçığının ilk sayfası (Test şablonu)</figcaption></figure>
+  <h2><span class="n">7</span>Çoğaltma ve sınav günü</h2>
+  <figure><a href="yardim/13-kitapcik.png"><img src="yardim/13-kitapcik.png" width="1075" height="1521" alt="Üretilmiş B kitapçığının ilk sayfası" loading="lazy"></a><figcaption>Üretilmiş B kitapçığının ilk sayfası (Test şablonu)</figcaption></figure>
   <ol class="adim">
     <li><b>Kitapçık türü alanı.</b> Şablonda her dosyanın kitapçık türü kendi harfiyle doludur. Kendi Word dosyanızda en üste "Kitapçık Türü: B" satırı eklenir.</li>
     <li><b>Alt bilgi.</b> Her sayfanın altında kitapçık türü ve sayfa numarası yazar.</li>
@@ -235,9 +307,9 @@ araç doluluk oranını artırmak</div></div></div>
 </section>
 
 <section class="card" id="sonra">
-  <h2><span class="n">7</span>Sınavdan sonra: soru iptali ve anahtar düzeltme</h2>
+  <h2><span class="n">8</span>Sınavdan sonra: soru iptali ve anahtar düzeltme</h2>
   <p class="lead">Sınavdan sonra bir soru iptal edilirse ya da doğru cevabı değişirse, sonuç ekranının altındaki <b>Soru iptali ve anahtar düzeltme</b> bölümünü kullanın. Kitapçıkları yeniden indirmeniz gerekmez; yalnızca anahtar değişir.</p>
-  <figure><a href="yardim/09-iptal.png"><img src="yardim/09-iptal.png" alt="Soru iptali ve anahtar düzeltme bölümü" loading="lazy"></a><figcaption>Soru iptali ve anahtar düzeltme</figcaption></figure>
+  <figure><a href="yardim/09-iptal.png"><img src="yardim/09-iptal.png" width="1455" height="678" alt="Soru iptali ve anahtar düzeltme bölümü" loading="lazy"></a><figcaption>Soru iptali ve anahtar düzeltme</figcaption></figure>
   <ol class="adim">
     <li><b>A'daki soru numarası.</b> Sorunun A kitapçığındaki numarasını yazıp <b>Göster</b>'e basın.</li>
     <li><b>Kitapçıklardaki yeri.</b> Sorunun her kitapçıkta kaçıncı sırada olduğu ve doğru cevabı görünür. Görseldeki örnekte A'daki 5. soru B'de 17., D'de 2. sırada.</li>
@@ -249,7 +321,7 @@ araç doluluk oranını artırmak</div></div></div>
 </section>
 
 <section class="card" id="analiz">
-  <h2><span class="n">8</span>Madde analizi ve öğrenci puanları</h2>
+  <h2><span class="n">9</span>Madde analizi ve öğrenci puanları</h2>
   <p class="lead">Optik formlar okutulduktan sonra kullanılır. Hangi soruların iyi çalıştığını, hangilerinin çok kolay, çok zor ya da hatalı olabileceğini, sınavın güvenilirliğini ve öğrenci puanlarını verir. B, C, D ve E kitapçıklarını kendiliğinden A sırasına çevirir. Bölüm, aracın sayfasının en altındadır.</p>
   <h3>Neye ihtiyacınız var?</h3>
   <table>
@@ -260,14 +332,15 @@ araç doluluk oranını artırmak</div></div></div>
   <div class="ex">Numara;Kitapçık;Cevaplar
 2025001;A;BCDAE-ABCDE...
 2025002;B;ACDBE*ABCEA...</div>
-  <figure><a href="yardim/10-analiz-giris.png"><img src="yardim/10-analiz-giris.png" alt="Madde analizi giriş ekranı" loading="lazy"></a><figcaption>Madde analizi: dosyaların seçilmesi</figcaption></figure>
+  <figure><a href="yardim/10-analiz-giris.png"><img src="yardim/10-analiz-giris.png" width="1452" height="1251" alt="Madde analizi giriş ekranı" loading="lazy"></a><figcaption>Madde analizi: dosyaların seçilmesi</figcaption></figure>
   <ol class="adim">
     <li><b>Cevap anahtarı dosyasını seçin.</b> Yüklenince yeşil kutuda dosya adı, kitapçıklar ve soru sayısı görünür. Kitapçıkları bu oturumda oluşturduysanız kutu zaten yeşildir; bir şey seçmeyin.</li>
     <li><b>Optik sonuç dosyasını seçin.</b> Dosya yerine cevapları kopyalayıp "ya da cevapları buraya yapıştırın" kutusuna da yapıştırabilirsiniz.</li>
     <li><b>İptal edilen sorular.</b> Varsa A kitapçığındaki numaralarını virgülle yazın (örneğin <code>7, 12</code>).</li>
-    <li><b>Analizi başlat.</b></li>
+    <li><b>ÖÇ raporu.</b> Başarı eşiğini (varsayılan %60) ve rapor başlığına girecek ders, sınav türü ve tarihi kontrol edin. Anahtar dosyasından kendiliğinden dolar.</li>
+    <li><b>Analizi başlat.</b> ÖÇ seçilmişse soru tablosunun altında <a href="#oc-tablo">Öğrenme Çıktılarına Ulaşma</a> tablosu da çıkar.</li>
   </ol>
-  <figure><a href="yardim/11-analiz-sonuc.png"><img src="yardim/11-analiz-sonuc.png" alt="Madde analizi sonuçları" loading="lazy"></a><figcaption>Madde analizi sonuçları</figcaption></figure>
+  <figure><a href="yardim/11-analiz-sonuc.png"><img src="yardim/11-analiz-sonuc.png" width="1452" height="840" alt="Madde analizi sonuçları" loading="lazy"></a><figcaption>Madde analizi sonuçları</figcaption></figure>
   <ol class="adim">
     <li><b>Özet kutuları.</b> Öğrenci sayısı, ortalama puan, standart sapma, en düşük ve en yüksek doğru sayısı ve KR-20 güvenirlik katsayısı.</li>
     <li><b>Ayırt edicilik.</b> Sorunun başarılı öğrencilerle başarısız öğrencileri ne kadar iyi ayırdığı. Renkli yorum: yeşil iyi, sarı düzeltilmeli, kırmızı zayıf.</li>
@@ -280,21 +353,21 @@ araç doluluk oranını artırmak</div></div></div>
     <tr><td><b>D</b> (ayırt edicilik)</td><td>En başarılı %27 ile en başarısız %27'nin doğru oranları farkı.</td><td>0,40 ve üstü çok iyi · 0,30-0,39 iyi · 0,20-0,29 düzeltilmeli · 0,19 ve altı zayıf · negatif: anahtarı kontrol edin</td></tr>
     <tr><td><b>KR-20</b></td><td>Sınavın bir bütün olarak tutarlılığı (güvenirlik).</td><td>0,70 ve üstü genellikle yeterli sayılır</td></tr>
   </table>
-  <figure><a href="yardim/12-analiz-indir.png"><img src="yardim/12-analiz-indir.png" alt="Analiz sonuçlarını yazdırma ve indirme düğmeleri" loading="lazy"></a><figcaption>Analiz sonuçlarını kaydetme</figcaption></figure>
+  <figure><a href="yardim/12-analiz-indir.png"><img src="yardim/12-analiz-indir.png" width="1452" height="285" alt="Analiz sonuçlarını yazdırma ve indirme düğmeleri" loading="lazy"></a><figcaption>Analiz sonuçlarını kaydetme</figcaption></figure>
   <ol class="adim">
     <li><b>Analizi yazdır.</b> Ders dosyası ya da kalite kanıtı için yazdırılabilir rapor.</li>
     <li><b>Madde analizini indir.</b> Soru bazındaki bütün değerler Excel'de açılabilen bir dosya olarak iner.</li>
-    <li><b>Öğrenci puanlarını indir.</b> Her öğrencinin kitapçık türü, doğru, yanlış, boş sayısı ve 100 üzerinden puanı.</li>
+    <li><b>Öğrenci puanlarını indir.</b> Her öğrencinin kitapçık türü, doğru, yanlış, boş sayısı, 100 üzerinden puanı ve ÖÇ seçildiyse her ÖÇ'deki başarı yüzdesi.</li>
   </ol>
   <a class="top" href="#ozet">↑ Başa dön</a>
 </section>
 
 <section class="card" id="deneme">
-  <h2><span class="n">9</span>Deneme dosyalarıyla alıştırma</h2>
+  <h2><span class="n">10</span>Deneme dosyalarıyla alıştırma</h2>
   <p class="lead">Aracı gerçek bir sınavdan önce denemek için aşağıdaki örnek dosyaları kullanabilirsiniz. Öğrenci adları ve cevapları uydurmadır.</p>
   <div class="dl">
     <a href="ornek/Ornek_Sinav.docx" download><span class="e">📝</span><div><b>Örnek A kitapçığı</b><span>25 soruluk test, yüksekokul şablonuyla (Word)</span></div></a>
-    <a href="ornek/Ornek_Sinav_cevap-anahtari.csv" download><span class="e">🔑</span><div><b>Örnek cevap anahtarı dosyası</b><span>A, B, C, D, E kitapçıkları · üretim kodu ORNEK1</span></div></a>
+    <a href="ornek/Ornek_Sinav_cevap-anahtari.csv" download><span class="e">🔑</span><div><b>Örnek cevap anahtarı dosyası</b><span>A, B, C, D, E kitapçıkları · üretim kodu ORNEK1 · ÖÇ'li</span></div></a>
     <a href="ornek/ornek-optik.xlsx" download><span class="e">📊</span><div><b>Örnek optik sonuç (Excel)</b><span>42 uydurma öğrenci</span></div></a>
     <a href="ornek/ornek-optik.csv" download><span class="e">📄</span><div><b>Örnek optik sonuç (CSV)</b><span>Aynı veriler, metin biçiminde</span></div></a>
   </div>
@@ -302,8 +375,10 @@ araç doluluk oranını artırmak</div></div></div>
   <ol>
     <li>Kitapçık Oluşturucu'yu açın ve <b>Örnek A kitapçığı</b>nı yükleyin.</li>
     <li>Toplu giriş kutusuna <code>EBDABCDACBEACBEDACBDACAEB</code> yazıp <b>Uygula</b>'ya basın.</li>
+    <li>İsterseniz ÖÇ'leri de deneyin: "Dersin ÖÇ sayısı" olarak <b>5</b> seçin, ÖÇ toplu giriş kutusuna <code>1 2 3 4 5 1,2 2 3 - 4 5 1 2,3 3 4 5 1 2 3 4 5,1 1 2 3 4</code> yazıp <b>Uygula</b>'ya basın.</li>
     <li>3. adımda B, C, D ve E'nin hepsini seçin, seçenekleri olduğu gibi bırakın, üretim koduna <code>ORNEK1</code> yazıp <b>Kitapçıkları oluştur</b>'a basın. Ortaya çıkan anahtar, örnek cevap anahtarı dosyasıyla birebir aynı olur.</li>
-    <li>Sayfanın en altındaki madde analizinde <b>örnek cevap anahtarı dosyası</b>nı ve <b>örnek optik sonucu</b> seçip <b>Analizi başlat</b>'a basın.</li>
+    <li>Sonuç ekranından <b>PFRM-248 Sınav Cevap Anahtarı</b>'nı indirip açın.</li>
+    <li>Sayfanın en altındaki madde analizinde <b>örnek cevap anahtarı dosyası</b>nı ve <b>örnek optik sonucu</b> seçip <b>Analizi başlat</b>'a basın. Soru tablosunun altında ÖÇ tablosu da görünür.</li>
   </ol>
   <a class="top" href="#ozet">↑ Başa dön</a>
 </section>
@@ -316,6 +391,8 @@ araç doluluk oranını artırmak</div></div></div>
   <details><summary>Kitapçıkları ya da cevap anahtarı dosyasını kaybettim.</summary><p>Aynı A kitapçığını yükleyin, aynı cevapları işaretleyin, aynı seçenekleri seçin ve sonuç ekranında yazan <b>üretim kodunu</b> girerek yeniden oluşturun. Kitapçıklar ve anahtar birebir aynı çıkar. Kodu cevap anahtarı dosyasının içinde ve yazdırılan anahtarda da bulabilirsiniz.</p></details>
   <details><summary>Bir öğrenci yanlış kitapçık türünü kodlamış olabilir.</summary><p>Öğrencinin puanı beklenmedik derecede düşükse, cevaplarını diğer kitapçıkların anahtarıyla da karşılaştırın. Optik forma kodlama hatası sınav yönetmeliğine göre değerlendirilir.</p></details>
   <details><summary>Madde analizinde "satır okunamadı" uyarısı çıktı.</summary><p>Bu satırlarda kitapçık türü boş olabilir ya da anahtarda olmayan bir kitapçık harfi yazılı olabilir. Optik sonuç dosyasında kitapçık türünün ve cevapların ayrı sütunlarda olduğunu kontrol edin.</p></details>
+  <details><summary>ÖÇ seçmek zorunlu mu? Öğrenci ÖÇ'leri görür mü?</summary><p>Zorunlu değildir; seçmezseniz araç ÖÇ'siz çalışır. Öğrenci ÖÇ'leri görmez: ÖÇ bilgisi yalnızca PFRM-248 dosyasında, cevap anahtarı dosyasında ve madde analizinde bulunur. Dosyanızda <code>[ÖÇ2]</code> gibi notlar unutulmuşsa da araç bunları kitapçıklardan siler.</p></details>
+  <details><summary>Eski cevap anahtarı dosyamla ÖÇ tablosu çıkmıyor.</summary><p>1.3.0 sürümünden önce indirilen cevap anahtarı dosyalarında ÖÇ bilgisi yoktur; madde analizi yine çalışır ama ÖÇ tablosu çıkmaz. Aynı A kitapçığı, aynı cevaplar ve aynı üretim koduyla kitapçıkları yeniden oluşturup 2. adımda ÖÇ'leri seçin ve yeni anahtar dosyasını indirin. Kitapçıklar birebir aynı çıkar.</p></details>
   <details><summary>Sorularım internete gidiyor mu?</summary><p>Hayır. Araç bir web sayfası olsa da bütün işlem kendi bilgisayarınızda, tarayıcınızın içinde yapılır. Sayfa, hiçbir sunucuya bağlanamayacak şekilde güvenlik kuralıyla kilitlenmiştir. Sayfa açıldıktan sonra internet bağlantınızı kesseniz de çalışır.</p></details>
   <a class="top" href="#ozet">↑ Başa dön</a>
 </section>
