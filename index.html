@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   ╔══════════════════════════════════════════════════════════════════════╗
-  ║  HTMYO Kitapçık Oluşturucu  ·  v1.1.0                                  ║
+  ║  HTMYO Kitapçık Oluşturucu  ·  v1.1.1                                  ║
   ║  Sistem mimarı ve geliştirici: Öğr. Gör. Dr. Behiç ÇETİN               ║
   ║  Burdur Mehmet Akif Ersoy Üniversitesi                                 ║
   ║  Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu (HTMYO) ║
@@ -9,7 +9,7 @@
   ║  © 2026 Behiç ÇETİN. MIT Lisansı ile yayımlanmıştır.                   ║
   ║  Bu kodu kullanan, değiştiren veya dağıtan herkes yukarıdaki telif      ║
   ║  bildirimini korumak ve şu atfı vermek zorundadır:                     ║
-  ║    Çetin, B. (2026). Kitapçık Oluşturucu (v1.1.0). Burdur Mehmet Akif  ║
+  ║    Çetin, B. (2026). Kitapçık Oluşturucu (v1.1.1). Burdur Mehmet Akif  ║
   ║    Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu.  ║
   ║    https://github.com/behiccetin/htmyo-kitapcik                        ║
   ║                                                                        ║
@@ -195,7 +195,7 @@ footer.htmyo-foot code{display:block;background:rgba(255,255,255,.07);border-rad
     <label class="htmyo-tg"><input type="checkbox" id="optQ" checked><div><b>Soruların yerini değiştir</b><span>Görselli, öncüllü ve tablolu sorular bütün olarak taşınır.</span></div></label>
     <label class="htmyo-tg"><input type="checkbox" id="optO" checked><div><b>Şıkların yerini değiştir</b><span>Doğru/Yanlış gibi iki şıklı sorular karıştırılmaz.</span></div></label>
     <label class="htmyo-tg"><input type="checkbox" id="optFix" checked><div><b>"Hepsi / Hiçbiri" yerinde kalsın</b><span>Bu tür şıklar bulundukları harfte bırakılır.</span></div></label>
-    <label class="htmyo-tg"><input type="checkbox" id="optDiff" checked><div><b>Doğru cevabın harfi her kitapçıkta farklı olsun</b><span>Örneğin bir sorunun cevabı A kitapçığında B ise, aynı soru B, C, D ve E kitapçıklarında B şıkkında olmaz ve kitapçıklar arasında da tekrar etmez. 2. adımda doğru cevapların işaretlenmesi gerekir.</span></div></label>
+    <label class="htmyo-tg"><input type="checkbox" id="optDiff" checked><div><b>Aynı sıradaki cevap kitapçıklar arasında farklı olsun</b><span>Örneğin A kitapçığının 1. sorusunun cevabı B ise B, C, D ve E kitapçıklarının 1. sorusunun cevabı B olmaz ve bu kitapçıklar arasında da tekrar etmez. Yan yana oturan öğrenciler birbirinin cevabını kopyalayamaz. 2. adımda doğru cevapların işaretlenmesi gerekir.</span></div></label>
   </div>
   <div style="margin-top:18px"><button class="htmyo-btn big" id="go">Kitapçıkları oluştur</button></div>
 </section>
@@ -261,25 +261,25 @@ E) Sayım</div>
 
 <footer class="htmyo-foot"><div class="in">
   <div>
-    <b>Kitapçık Oluşturucu</b> · v1.1.0<br>
+    <b>Kitapçık Oluşturucu</b> · v1.1.1<br>
     Sistem mimarı ve geliştirici: <b>Öğr. Gör. Dr. Behiç ÇETİN</b><br>
     Burdur Mehmet Akif Ersoy Üniversitesi<br>Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu<br>
     © 2026 Behiç ÇETİN · MIT Lisansı · Telif bildirimi korunarak ve atıf verilerek kullanılabilir.
   </div>
   <div>
     <b>Atıf için:</b>
-    <code>Çetin, B. (2026). Kitapçık Oluşturucu (Sürüm 1.1.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik</code>
+    <code>Çetin, B. (2026). Kitapçık Oluşturucu (Sürüm 1.1.1) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik</code>
   </div>
 </div></footer>
 
 <script>
 /*!
- * HTMYO Kitapçık Oluşturucu v1.1.0
+ * HTMYO Kitapçık Oluşturucu v1.1.1
  * Sistem mimarı ve geliştirici: Öğr. Gör. Dr. Behiç ÇETİN (HTMYO, MAKÜ)
  * © 2026 Behiç ÇETİN · MIT Lisansı · Atıf: https://github.com/behiccetin/htmyo-kitapcik
  */
 "use strict";
-const HTMYO_SURUM='1.1.0', HTMYO_MIMAR='Dr. Behiç ÇETİN';
+const HTMYO_SURUM='1.1.1', HTMYO_MIMAR='Dr. Behiç ÇETİN';
 const HTMYO_W='http://schemas.openxmlformats.org/wordprocessingml/2006/main';
 const $=s=>document.querySelector(s);
 const htmyoDurum={zip:null,ad:'',model:null,sonuc:null};
@@ -432,19 +432,32 @@ function htmyoKitapcik(xml,numXml,stilXml,harf,sec,anahtar,kullanilan){
   const r=htmyoRng(htmyoSeed()^htmyoHash(harf));const n=units.length;let sira=units.map((_,i)=>i);
   if(sec.q&&n>1)for(let k=0;k<20;k++){sira=htmyoKaristir(units.map((_,i)=>i),r);if(sira.some((v,i)=>v!==i))break}
   const olmadi=[];
+  const sabitMi=u=>sec.fix?u.siklar.map(o=>HTMYO_SABIT.test(htmyoTxt(o).replace(HTMYO_SIK_GENEL,''))):u.siklar.map(()=>false);
+  /* HTMYO · sabit şıklı (Hepsi/Hiçbiri) doğru cevabı olan soruları, o harfin henüz kullanılmadığı sıralara yerleştir */
+  if(sec.farkli&&sec.q&&kullanilan){
+    const sabitHarf=units.map((u,ui)=>{const d=anahtar[ui]?HTMYO_HARF.indexOf(anahtar[ui]):-1;if(d<0||!u.siklar.length)return -1;const sb=sabitMi(u);return (sb[d]||!sec.o||u.siklar.length<3)?d:-1});
+    for(let ni=0;ni<n;ni++){const ui=sira[ni],f=sabitHarf[ui];if(f<0||!kullanilan.poz[ni].has(f))continue;
+      const adaylar=[];for(let nj=0;nj<n;nj++){if(nj===ni)continue;const uj=sira[nj];if(kullanilan.poz[nj].has(f)||sabitHarf[uj]>=0)continue;adaylar.push(nj)}
+      if(adaylar.length){const nj=adaylar[Math.floor(r()*adaylar.length)];[sira[ni],sira[nj]]=[sira[nj],sira[ni]]}}
+  }
+  const sayac=[0,0,0,0,0];
   const perm=units.map((u,ui)=>{
     const k=u.siklar.length;let p=[...Array(k).keys()];if(!sec.o||k<3)return p;
     const sabit=sec.fix?u.siklar.map(o=>HTMYO_SABIT.test(htmyoTxt(o).replace(HTMYO_SIK_GENEL,''))):Array(k).fill(false);const serbest=p.filter(i=>!sabit[i]);
     /* HTMYO · doğru cevabın harfi önceki kitapçıklardakinden farklı olsun · Dr. Behiç ÇETİN */
     const dogru=anahtar[ui]?HTMYO_HARF.indexOf(anahtar[ui]):-1;
+    const ni=sira.indexOf(ui);
     if(sec.farkli&&kullanilan&&dogru>=0&&dogru<k){
-      const used=kullanilan[ui];const aday=sabit[dogru]?[]:serbest.filter(i=>!used.has(i));
-      if(aday.length){const t=aday[Math.floor(r()*aday.length)];const kalanO=htmyoKaristir(serbest.filter(i=>i!==dogru),r);const res=p.slice();let j=0;
-        for(const i of serbest){if(i===t)res[i]=dogru;else res[i]=kalanO[j++]}used.add(t);return res}
-      olmadi.push(ui);
+      const poz=kullanilan.poz[ni],ic=kullanilan.icerik[ui];
+      let aday=sabit[dogru]?[]:serbest.filter(i=>!poz.has(i)&&!ic.has(i));
+      if(!aday.length&&!sabit[dogru])aday=serbest.filter(i=>!poz.has(i));
+      if(aday.length){const mn=Math.min(...aday.map(i=>sayac[i]));const enAz=aday.filter(i=>sayac[i]===mn);const t=enAz[Math.floor(r()*enAz.length)];sayac[t]++;const kalanO=htmyoKaristir(serbest.filter(i=>i!==dogru),r);const res=p.slice();let j=0;
+        for(const i of serbest){if(i===t)res[i]=dogru;else res[i]=kalanO[j++]}poz.add(t);ic.add(t);return res}
+      if(!(sabit[dogru]&&!poz.has(dogru)))olmadi.push(ni);
     }
     for(let t=0;t<20;t++){const s=htmyoKaristir(serbest,r),res=p.slice();let j=0;for(let i=0;i<k;i++)if(!sabit[i])res[i]=s[j++];p=res;if(serbest.length<2||res.some((v,i)=>v!==i))break}
-    if(kullanilan&&dogru>=0)kullanilan[ui].add(p.indexOf(dogru));
+    if(dogru>=0&&p.indexOf(dogru)>=0)sayac[p.indexOf(dogru)]++;
+    if(kullanilan&&dogru>=0){kullanilan.poz[ni].add(p.indexOf(dogru));kullanilan.icerik[ui].add(p.indexOf(dogru))}
     return p;
   });
   units.forEach((u,ui)=>{if(!u.siklar.length)return;
@@ -510,7 +523,8 @@ $('#go').onclick=()=>{
   if(!harfler.length){alert('En az bir kitapçık (B, C, D veya E) seçin.');return}
   const anahtar=M.units.map((_,i)=>{const el=document.querySelector(`input[name=a${i}]:checked`);return el?el.value:''});
   const sec={q:$('#optQ').checked,o:$('#optO').checked,fix:$('#optFix').checked,farkli:$('#optDiff').checked};
-  const kullanilan=M.units.map((_,i)=>new Set(anahtar[i]&&M.units[i].siklar.length?[HTMYO_HARF.indexOf(anahtar[i])]:[]));let olmadi=new Set();
+  const ilk=i=>new Set(anahtar[i]&&M.units[i].siklar.length?[HTMYO_HARF.indexOf(anahtar[i])]:[]);
+  const kullanilan={poz:M.units.map((_,i)=>ilk(i)),icerik:M.units.map((_,i)=>ilk(i))};let olmadi=new Set();
   const dl=$('#dl');dl.innerHTML='';
   const indir=(h,xml)=>{const files=htmyoDurum.zip.map(f=>f.name==='word/document.xml'?{name:f.name,data:new TextEncoder().encode(xml)}:f);const a=document.createElement('a');a.href=URL.createObjectURL(htmyoZip(files));a.download=`${htmyoDurum.ad}_${h}.docx`;a.innerHTML=`<div class="L">${h}</div><div><b>${h} kitapçığı</b><span>Word (.docx) indir</span></div>`;dl.appendChild(a)};
   const A=htmyoKitapcik(M.xml,M.numXml,M.stilXml,'A',{q:false,o:false,fix:true},anahtar);indir('A',A.xml);
@@ -525,7 +539,7 @@ $('#go').onclick=()=>{
   if(!anahtar.every(a=>!a)){
     t+=`<h3 class="htmyo-h">Doğru cevapların şıklara dağılımı</h3><p class="lead" style="margin:0">Her kitapçıkta kaç sorunun doğru cevabının hangi şıkta olduğunu gösterir.</p><div class="htmyo-tbl"><table><tr><th>Kitapçık</th>${[...HTMYO_HARF].map(h=>`<th>${h}</th>`).join('')}<th>Toplam</th></tr>`+res.map(r=>{const c=dag(r);const top=Object.values(c).reduce((a,b)=>a+b,0);const mx=Math.max(...Object.values(c));return `<tr><td class="kb">${r.h}</td>`+[...HTMYO_HARF].map(h=>`<td${c[h]===mx&&mx>0?' style="font-weight:700;color:var(--htmyo-p)"':''}>${c[h]}</td>`).join('')+`<td>${top}</td></tr>`}).join('')+'</table></div>';
   }
-  if(sec.farkli&&olmadi.size)t+=`<div class="htmyo-note w htmyo-noprint"><span>⚠️</span><div>${[...olmadi].map(i=>i+1).sort((a,b)=>a-b).join(', ')}. ${olmadi.size>1?'sorularda':'soruda'} doğru cevap her kitapçıkta farklı harfe taşınamadı (doğru şık "Hepsi/Hiçbiri" gibi sabit bir şık ya da yeterli serbest şık yok). Bu ${olmadi.size>1?'sorular':'soru'} normal şekilde karıştırıldı.</div></div>`;
+  if(sec.farkli&&olmadi.size)t+=`<div class="htmyo-note w htmyo-noprint"><span>⚠️</span><div>${[...olmadi].map(i=>i+1).sort((a,b)=>a-b).join(', ')}. sırada cevap harfi kitapçıklar arasında tekrar ediyor: bu sıraya düşen sorunun doğru şıkkı "Hepsi / Hiçbiri" gibi yerinde sabit bir şık. Dilerseniz kitapçıkları yeniden oluşturun ya da "Hepsi / Hiçbiri yerinde kalsın" seçeneğini kapatın.</div></div>`;
   if(sec.farkli&&anahtar.every(a=>!a))t+='<div class="htmyo-note w htmyo-noprint"><span>⚠️</span><div>"Doğru cevabın harfi her kitapçıkta farklı olsun" seçeneği için 2. adımda doğru cevapları işaretlemeniz gerekir; bu kez uygulanmadı.</div></div>';
   if(anahtar.every(a=>!a))t+='<div class="htmyo-note w htmyo-noprint"><span>⚠️</span><div>Doğru cevaplar işaretlenmediği için cevap anahtarı boş. 2. adımda işaretleyip yeniden oluşturabilirsiniz.</div></div>';
   t+=`<p style="font-size:11px;color:var(--htmyo-mut);margin-top:10px">${htmyoEsc(htmyoDurum.ad)} · Kitapçık Oluşturucu v${HTMYO_SURUM} · ${new Date().toLocaleString('tr-TR')}</p>`;
