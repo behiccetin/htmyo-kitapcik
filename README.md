@@ -2,7 +2,7 @@
 
 **Burdur Mehmet Akif Ersoy Üniversitesi, Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu**
 
-Yüksekokulun Sınav Soruları Formu (PFRM-217) ya da kendi Word dosyanızla hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı.
+Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir metin dosyasıyla (.txt, Aiken biçimi dahil) hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı.
 
 **Kullanmak için:** https://behiccetin.github.io/htmyo-kitapcik/
 
@@ -29,6 +29,8 @@ Yalnızca A kitapçığını hazırlarsınız; B, C, D ve E kitapçıkları onda
 - Şıklar aynı satıra yan yana yazılmışsa soru yer değiştirir ama şıkları karıştırılamaz.
 - Sorulardan önceki başlık ve öğrenci bilgileri ile son sorudan sonraki yazılar yerinde kalır.
 - Her kitapçığın en üstüne sağa yaslı "Kitapçık Türü: B" satırı eklenir.
+- **Bir şıkkın içinde Enter'a basmayın.** Uzun şık kendiliğinden alt satıra kayar; Enter'a basılırsa şık ikiye bölünür ve araç o sorunun şıklarını karıştırmaz.
+- Ortak metne bağlı sorularda metnin başına `7-9. soruları aşağıdaki metne göre cevaplayınız.` gibi bir satır yazın; sorular metinle birlikte taşınır, başlıktaki numaralar her kitapçıkta düzeltilir.
 
 ```
 1. Aşağıdakilerden hangisi bir taşıma türüdür?
@@ -39,6 +41,22 @@ D) Etiketleme
 E) Sayım
 ```
 
+### C. Metin dosyasıyla (.txt ya da Aiken)
+
+Sorular arasında bir boş satır bırakın, şıkları `A)` ya da `A.` ile başlatın. Aiken biçiminde şıklardan sonra `ANSWER: B` (ya da `CEVAP: B`) satırı gelir ve cevaplar kendiliğinden işaretlenir. Araç metinden düzenli bir A kitapçığı (Word) oluşturur.
+
+```
+Aşağıdakilerden hangisi bir taşıma türüdür?
+A) Depolama
+B) Karayolu
+C) Paketleme
+D) Etiketleme
+E) Sayım
+ANSWER: B
+```
+
+Aracın "Nasıl kullanılır?" bölümünden örnek Aiken ve düz metin dosyaları indirilebilir.
+
 ## Özellikler
 
 - Soruları ve şıkları karıştırır; görselli, öncüllü ve tablolu sorular bütün olarak taşınır.
@@ -47,7 +65,15 @@ E) Sayım
 - İstenirse aynı sıradaki sorunun doğru cevabını kitapçıklar arasında farklı harfe koyar (A kitapçığının 1. sorusunun cevabı B ise B, C, D, E kitapçıklarının 1. sorusunun cevabı B olmaz ve birbirini tekrar etmez); harf dağılımını da dengeler.
 - Doğru cevapların şıklara dağılımını (hangi şıkta kaç doğru cevap olduğunu) her kitapçık için gösterir.
 - Her dosyanın "Kitapçık türü" alanını kendi harfiyle doldurur.
-- Cevap anahtarını ve soru eşleşme tablosunu yazdırılabilir ve CSV olarak verir.
+- Cevap anahtarını ve soru eşleşme tablosunu yazdırılabilir ve CSV olarak verir. Yazdırılan anahtarda ders, sınav, tarih, öğretim elemanı ve imza alanı bulunur.
+- **Soru blokları ve sabit sorular:** ortak metne bağlı ya da "yukarıdaki soruya göre" diye başlayan sorular birlikte taşınır; istenen soru yerinde sabit kalır.
+- **Ardışık harf sınırı:** aynı cevap harfi en fazla 3 kez üst üste gelir.
+- **Alt bilgi:** her sayfanın altına "B KİTAPÇIĞI · Sayfa 2 / 4" yazılır.
+- **Gizlilik temizliği:** Word açıklamaları, gizli metin, yazar ve son kaydeden bilgisi silinir; izlenen değişiklikler kabul edilir.
+- **Büyük puntolu kopya:** büyük puntolu soru kitapçığı hakkı olan öğrenciler için her kitapçığın en az 18 punto, tek sütun kopyası.
+- **Üretim kodu:** aynı dosya, aynı cevaplar, aynı seçenekler ve aynı kodla kitapçıklar birebir aynı yeniden üretilir.
+- **Soru iptali ve anahtar düzeltme:** A'daki bir sorunun her kitapçıktaki yeri gösterilir; iptal ya da cevap değişikliği bütün anahtarlara tek seferde işlenir.
+- **Madde analizi:** optik okuyucu çıktısı (.txt, .csv, .xlsx) yüklenir; bütün kitapçıklar A sırasına çevrilir, her soru için güçlük (p), ayırt edicilik (D) ve çeldirici analizi, sınav için KR-20 güvenirliği hesaplanır; öğrenci puanları CSV olarak alınır.
 
 ## Güvenlik ve gizlilik
 
@@ -59,6 +85,6 @@ E) Sayım
 
 Bu yazılım MIT Lisansı ile yayımlanmıştır. Kullanan, değiştiren veya dağıtan herkes telif bildirimini korumalı ve şu atfı vermelidir:
 
-> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 1.1.2) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
+> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 1.2.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
 
 © 2026 Behiç ÇETİN
