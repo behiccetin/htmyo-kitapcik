@@ -4,6 +4,14 @@ type: software
 title: "Kitapçık Oluşturucu"
 abstract: "Kitapçık Oluşturucu, Word (PFRM-217) ya da metin (Aiken) biçimindeki çoktan seçmeli sınav dosyasından soruları ve şıkları karıştırarak A, B, C, D ve E kitapçıklarını ve cevap anahtarını üreten, tarayıcıda çalışan açık kaynaklı bir araçtır. Aynı üretim kodu her zaman aynı kitapçıkları verir. Öğrenme çıktısı (ÖÇ) eşlemesiyle PFRM-248 Sınav Cevap Anahtarı Word dosyasını hazırlar; sınavdan sonra optik okuyucu çıktısıyla madde analizi (güçlük, ayırt edicilik, çeldirici analizi, KR-20), anahtar eşleşme denetimi ve ÖÇ'lere ulaşma tablosu (PFRM-250) üretir. Bütün işlemler kullanıcının kendi tarayıcısında yapılır; hiçbir dosya ya da öğrenci verisi bir sunucuya gönderilmez. Burdur Mehmet Akif Ersoy Üniversitesi, Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu için geliştirilmiştir."
 version: 2.1.0
+doi: 10.5281/zenodo.24226187
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24226187
+    description: "Bütün sürümler"
+  - type: doi
+    value: 10.5281/zenodo.24226188
+    description: "Sürüm 2.1.0"
 date-released: 2026-11-14
 license: MIT
 repository-code: "https://github.com/behiccetin/htmyo-kitapcik"

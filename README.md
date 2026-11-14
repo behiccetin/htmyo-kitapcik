@@ -1,5 +1,7 @@
 # Kitapçık Oluşturucu
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24226188.svg)](https://doi.org/10.5281/zenodo.24226188)
+
 **Burdur Mehmet Akif Ersoy Üniversitesi, Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu**
 
 Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir metin dosyasıyla (.txt, Aiken biçimi dahil) hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı.
@@ -110,6 +112,8 @@ Aracın "Nasıl kullanılır?" bölümünden örnek Aiken ve düz metin dosyalar
 
 Bu yazılım MIT Lisansı ile yayımlanmıştır. Kullanan, değiştiren veya dağıtan herkes telif bildirimini korumalı ve şu atfı vermelidir:
 
-> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 2.1.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
+> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 2.1.0) [Yazılım]. Zenodo. https://doi.org/10.5281/zenodo.24226188
+
+DOI: [10.5281/zenodo.24226188](https://doi.org/10.5281/zenodo.24226188) (bu sürüm) · Bütün sürümler için: [10.5281/zenodo.24226187](https://doi.org/10.5281/zenodo.24226187) · Kaynak kod: https://github.com/behiccetin/htmyo-kitapcik
 
 © 2026 Behiç ÇETİN
