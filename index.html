@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   ╔══════════════════════════════════════════════════════════════════════╗
-  ║  HTMYO Kitapçık Oluşturucu  ·  v2.0.0                                  ║
+  ║  HTMYO Kitapçık Oluşturucu  ·  v2.1.0                                  ║
   ║  Sistem mimarı ve geliştirici: Öğr. Gör. Dr. Behiç ÇETİN               ║
   ║  Burdur Mehmet Akif Ersoy Üniversitesi                                 ║
   ║  Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu (HTMYO) ║
@@ -9,7 +9,7 @@
   ║  © 2026 Behiç ÇETİN. MIT Lisansı ile yayımlanmıştır.                   ║
   ║  Bu kodu kullanan, değiştiren veya dağıtan herkes yukarıdaki telif      ║
   ║  bildirimini korumak ve şu atfı vermek zorundadır:                     ║
-  ║    Çetin, B. (2026). Kitapçık Oluşturucu (v2.0.0). Burdur Mehmet Akif  ║
+  ║    Çetin, B. (2026). Kitapçık Oluşturucu (v2.1.0). Burdur Mehmet Akif  ║
   ║    Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu.  ║
   ║    https://github.com/behiccetin/htmyo-kitapcik                        ║
   ║                                                                        ║
@@ -65,6 +65,11 @@ main{max-width:1000px;margin:-44px auto 0;padding:0 16px 40px;position:relative}
 .htmyo-note{border-radius:10px;padding:10px 14px;font-size:14px;margin:12px 0 0;display:flex;gap:10px}
 .htmyo-note.i{background:#EEF2FB;border-left:4px solid var(--htmyo-p)}
 .htmyo-note.w{background:var(--htmyo-wbg);border-left:4px solid var(--htmyo-w);color:#7c3d06}
+.htmyo-note.r{background:#FEF2F2;border:2px solid #DC2626;border-left-width:6px;color:#7F1D1D;font-size:15px;margin:12px 0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.htmyo-note.r b{color:#B91C1C}.htmyo-note.r ul{margin:8px 0 0;padding-left:20px;font-size:13.5px}.htmyo-note.r li{margin:3px 0}
+.ma-bas{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:18px 0 6px;padding:12px 16px;border-radius:12px;background:var(--htmyo-l2);border:1px solid var(--htmyo-bd)}
+.ma-bas>span{font-size:20px;font-weight:700;color:var(--htmyo-p)}.ma-bas div{text-align:right}.ma-bas small{display:block;font-size:12px;color:var(--htmyo-mut)}
+.ma-bas b{font:700 30px/1.1 ui-monospace,Consolas,monospace;letter-spacing:3px;color:var(--htmyo-p)}
 .htmyo-qgrid{display:grid;gap:6px;max-height:520px;overflow:auto;padding-right:4px}
 .htmyo-q{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;border:1px solid var(--htmyo-bd);border-radius:10px;padding:8px 10px}
 .htmyo-q.set{border-color:#BBE5C8;background:#FAFFFB}
@@ -154,6 +159,7 @@ footer.htmyo-foot code{display:block;background:rgba(255,255,255,.07);border-rad
 .htmyo-kod small{color:var(--htmyo-mut);font-size:12px}
 .htmyo-bform{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .htmyo-bform label{display:grid;gap:3px;font-size:12.5px;color:var(--htmyo-mut)}
+.htmyo-bform input{min-width:0;width:100%;box-sizing:border-box}@media (max-width:760px){.htmyo-bform{grid-template-columns:1fr 1fr!important}.htmyo-split{grid-template-columns:1fr}}
 .htmyo-baski,.htmyo-iptal{margin-top:18px;padding-top:12px;border-top:1px solid var(--htmyo-bd)}
 .htmyo-onlyprint{display:none}
 .htmyo-ma{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
@@ -203,7 +209,7 @@ td.ipt{color:#B91C1C;font-weight:700}
 .htmyo-ocrow{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:10px}
 .htmyo-ocn{font-size:13.5px;font-weight:600;color:var(--htmyo-p);display:flex;gap:8px;align-items:center}
 .htmyo-ocn select{border:1px solid var(--htmyo-bd);border-radius:8px;padding:7px 10px;font:inherit;background:#fff}
-.htmyo-ocb{display:flex;gap:8px;flex:1 1 320px}.htmyo-ocb input{flex:1;border:1px solid var(--htmyo-bd);border-radius:8px;padding:8px 10px;font:inherit}
+.htmyo-ocb{display:flex;gap:8px;flex:1 1 320px;min-width:0;max-width:100%}.htmyo-ocb input{min-width:0}.htmyo-ocb input{flex:1;border:1px solid var(--htmyo-bd);border-radius:8px;padding:8px 10px;font:inherit}
 .htmyo-ocrow.ocyok .htmyo-ocb{display:none}
 .htmyo-q{grid-template-columns:40px 1fr auto auto auto}
 #qlist.ocyok .htmyo-oc{display:none}
@@ -481,25 +487,25 @@ E) Hattaki son durak</div></div>
 
 <footer class="htmyo-foot"><div class="in">
   <div>
-    <b>Kitapçık Oluşturucu</b> · v2.0.0<br>
+    <b>Kitapçık Oluşturucu</b> · v2.1.0<br>
     Sistem mimarı ve geliştirici: <b>Öğr. Gör. Dr. Behiç ÇETİN</b><br>
     Burdur Mehmet Akif Ersoy Üniversitesi<br>Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu<br>
     © 2026 Behiç ÇETİN · MIT Lisansı · Telif bildirimi korunarak ve atıf verilerek kullanılabilir.
   </div>
   <div>
     <b>Atıf için:</b>
-    <code>Çetin, B. (2026). Kitapçık Oluşturucu (Sürüm 2.0.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik</code>
+    <code>Çetin, B. (2026). Kitapçık Oluşturucu (Sürüm 2.1.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik</code>
   </div>
 </div></footer>
 
 <script>
 /*!
- * HTMYO Kitapçık Oluşturucu v2.0.0
+ * HTMYO Kitapçık Oluşturucu v2.1.0
  * Sistem mimarı ve geliştirici: Öğr. Gör. Dr. Behiç ÇETİN (HTMYO, MAKÜ)
  * © 2026 Behiç ÇETİN · MIT Lisansı · Atıf: https://github.com/behiccetin/htmyo-kitapcik
  */
 "use strict";
-const HTMYO_SURUM='2.0.0', HTMYO_MIMAR='Dr. Behiç ÇETİN';
+const HTMYO_SURUM='2.1.0', HTMYO_MIMAR='Dr. Behiç ÇETİN';
 const HTMYO_W='http://schemas.openxmlformats.org/wordprocessingml/2006/main';
 const $=s=>document.querySelector(s);
 const htmyoDurum={zip:null,ad:'',model:null,sonuc:null,metin:false,metinCevap:null};
@@ -1171,7 +1177,7 @@ const HTMYO_YARDIM={
   maOpt:['Optik sonuç dosyası',`Optik okuyucunun verdiği öğrenci cevapları (.xlsx, .csv ya da .txt). Her satırda bir öğrenci olmalı: <b>numara</b> (ya da ad), <b>kitapçık türü</b> (A-E) ve <b>cevaplar</b>.<br>Cevaplar tek bir dizi hâlinde olur: <code>BCDAE-ABCD</code>. Boş soru için tire, boşluk ya da nokta; birden çok işaret için yıldız kullanılır. İlk satır başlık olabilir.<br>Öğrenci bilgileri bilgisayarınızdan çıkmaz.`,'analiz'],
   maIptal:['İptal edilen sorular',`İptal edilen soruların <b>A kitapçığındaki</b> numaralarını virgülle yazın (örneğin <code>7, 12</code>). Bu sorular bütün öğrencilere doğru sayılır; güçlük, ayırt edicilik, KR-20 ve ÖÇ hesabına katılmaz.`,'analiz'],
   esik:['Başarı eşiği ve ÖÇ raporu',`Bir ÖÇ'ye "Ulaşıldı" denmesi için gereken en düşük başarı yüzdesidir (varsayılan %60, PFRM-250'deki gibi). Sınıfın o ÖÇ'yü ölçen sorulardaki ortalama başarısı bu eşiğe ulaşırsa "Ulaşıldı" yazar.<br>Ders, sınav türü ve tarih, yazdırılan ÖÇ raporunun ve CSV dosyasının başlığına girer. Eşiği değiştirince tablo yeniden hesaplanır.`,'oc-tablo'],
-  madde:['p, D ve KR-20 nasıl okunur?',`<b>p (güçlük):</b> soruyu doğru yapanların oranı. 0,30 altı zor, 0,30-0,70 orta, 0,70 üstü kolay.<br><b>D (ayırt edicilik):</b> en başarılı %27 ile en başarısız %27'nin doğru oranları farkı. 0,40 ve üstü çok iyi, 0,30-0,39 iyi, 0,20-0,29 düzeltilmeli, 0,19 ve altı zayıf; negatifse anahtarı kontrol edin.<br><b>A-E sütunları:</b> o şıkkı seçen öğrenci sayısı; doğru cevap koyu renklidir. Kimsenin seçmediği çeldirici işlemiyor demektir.<br><b>KR-20:</b> sınavın güvenirliği; 0,70 ve üstü genellikle yeterli sayılır.`,'analiz'],
+  madde:['p, D ve KR-20 nasıl okunur?',`<b>p (güçlük):</b> soruyu doğru yapanların oranı. 0,30 altı zor, 0,30-0,70 orta, 0,70 üstü kolay.<br><b>D (ayırt edicilik):</b> en başarılı %27 ile en başarısız %27'nin doğru oranları farkı. 0,40 ve üstü çok iyi, 0,30-0,39 iyi, 0,20-0,29 düzeltilmeli, 0,19 ve altı zayıf; negatifse anahtarı kontrol edin.<br><b>A-E sütunları:</b> o şıkkı seçen öğrenci sayısı; doğru cevap koyu renklidir. Kimsenin seçmediği çeldirici işlemiyor demektir.<br><b>KR-20:</b> sınavın güvenirliği; 0,70 ve üstü genellikle yeterli sayılır.<br><b>Kırmızı uyarı:</b> sonuçlar cevapların bu anahtarla uyuşmadığını düşündürüyorsa (ortalama şans düzeyine yakın, KR-20 negatif, soruların yarısından fazlasında anahtar hatası notu ya da kitapçıklar arasında 2 kat fark) en üstte çıkar. Önce anahtar dosyasındaki üretim kodunu ve optik dosyadaki kitapçık türlerini kontrol edin.`,'uyusma'],
   octablo:['Öğrenme Çıktılarına Ulaşma tablosu',`<b>Sınıfın başarı yüzdesi:</b> o ÖÇ'yü ölçen sorularda öğrencilerin ortalama doğru oranı (PFRM-250'deki "Gerçekleşme %").<br><b>Hedefe ulaşan öğrenci:</b> bu sorularda eşik ve üstü başarı gösteren öğrenci sayısı.<br><b>Durum:</b> sınıfın başarı yüzdesine göre belirlenir.<br>İptal edilen sorular sayılmaz; birden çok ÖÇ'ye bağlı soru her birine tam sayılır. CSV'deki "Gerçekleşme %" ve "Sonuç (S/X)" sütunları PFRM-250'ye aktarılır.`,'oc-tablo']
 };
 const htmyoYB=k=>`<button type="button" class="htmyo-yb htmyo-noprint" data-yardim="${k}" aria-label="${htmyoEsc(HTMYO_YARDIM[k][0])}: açıklama" aria-haspopup="dialog" aria-expanded="false">?</button>`;
@@ -1196,9 +1202,14 @@ htmyoMaDurum('Henüz anahtar yok. Aşağıdaki düğmeyle dosyayı seçin. (Kita
 function htmyoMaAnahtarDurum(){
   if(htmyoDurum.sonuc&&!htmyoDurum.maAnahtar)htmyoMaDurum(`✓ Az önce bu sayfada oluşturduğunuz kitapçıkların anahtarı hazır (${htmyoDurum.sonuc.map(r=>r.h).join(', ')} · ${htmyoDurum.sonuc[0].cevap.length} soru). Ayrıca dosya seçmenize gerek yok.`,'ok');
   if(htmyoDurum.sonuc){$('#maIptal').value=[...htmyoDurum.iptal].map(x=>x+1).sort((a,b)=>a-b).join(', ');if(!htmyoDurum.maAnahtar){$('#maDers').value=$('#pDers').value;$('#maSinav').value=$('#pSinav').value;$('#maTarih').value=$('#pTarih').value}}}
+/* HTMYO · tırnaklı CSV satırı: "a;b";c ve "" kaçışı; ayraç ; , ya da sekme (Excel'de yeniden kaydedilen dosyalar için) */
+function htmyoCsvBol(l,d){const r=[];let c='',q=false;for(let i=0;i<l.length;i++){const ch=l[i];if(q){if(ch==='"'){if(l[i+1]==='"'){c+='"';i++}else q=false}else c+=ch}else if(ch==='"'&&!c.trim()){q=true;c=''}else if(ch===d){r.push(c);c=''}else c+=ch}r.push(c);return r}
+function htmyoCsvAyrac(l){const say=d=>htmyoCsvBol(l,d).length;return [';','\t',','].reduce((a,d)=>say(d)>say(a)?d:a,';')}
 function htmyoAnahtarCsv(metin){
-  const L=metin.replace(/^\uFEFF/,'').split(/\r?\n/).map(x=>x.split(';'));const K={};let n=0,i=L.findIndex(r=>/^Kitap/i.test(r[0]||''));
-  if(i<0)throw new Error('Bu dosya Kitapçık Oluşturucu\'nun cevap anahtarı dosyası değil.');n=L[i].length-1;
+  const ham=metin.replace(/^\uFEFF/,'').split(/\r?\n/),bas=ham.find(x=>/^\s*"?\s*Kitap/i.test(x)),d=bas?htmyoCsvAyrac(bas):';';
+  const L=ham.map(x=>htmyoCsvBol(x,d).map(y=>y.trim()));const K={};let n=0,i=L.findIndex(r=>/^Kitap/i.test(r[0]||''));
+  if(i<0)throw new Error('Bu dosya Kitapçık Oluşturucu\'nun cevap anahtarı dosyası değil.');n=L[i].filter((x,j)=>j>0&&/^\d+$/.test(x)).length||L[i].length-1;
+  if(!(i+1<L.length&&/^[A-E]$/.test(L[i+1][0]||''))||n<1)throw new Error('Cevap anahtarı tablosu okunamadı. Dosya Excel\'de açılıp farklı biçimde kaydedilmiş olabilir; aracın indirdiği özgün .csv dosyasını seçin.');
   for(i++;i<L.length&&/^[A-E]$/.test((L[i][0]||'').trim());i++)K[L[i][0].trim()]={cevap:L[i].slice(1,n+1).map(x=>/^[A-E]$/.test(x.trim())?x.trim():'')};
   let ipt=[],ana=null,oc=null,ocSay=0,bilgi=null,kod='',puan=null,ad='';
   L.forEach(r=>{if(r[0]==='#OC')oc=r.slice(1,n+1).map(x=>(String(x||'').match(/\d{1,2}/g)||[]).map(Number).filter(v=>v>=1&&v<=15));if(r[0]==='#OCSAYI')ocSay=+r[1]||0;if(r[0]==='#BILGI')bilgi=r.slice(1);if(r[0]==='#HTMYO'){kod=r[2]||'';ad=r[3]||''}if(r[0]==='#PUAN')puan=r.slice(1,n+1).map(x=>x?parseFloat(x.replace(',','.')):null);if(r[0]==='#SIRA'&&K[r[1]])K[r[1]].sira=r.slice(2,n+2).map(x=>(+x)-1);if(r[0]==='#SIK'&&K[r[1]])K[r[1]].sikSira=r.slice(2,n+2).map(x=>x==='-'?'':x.trim());if(r[0]==='#IPTAL')ipt=r.slice(1).filter(Boolean).map(x=>(+x)-1);if(r[0]==='#ANAHTAR')ana=r.slice(1,n+1)});
@@ -1214,12 +1225,13 @@ async function htmyoXlsxSatir(buf){
   return Array.from(htmyoXml(g(sh)).getElementsByTagName('row')).map(r=>{const c=[];Array.from(r.getElementsByTagName('c')).forEach(x=>{const col=(x.getAttribute('r')||'').replace(/\d+/g,'');let ci=0;for(const ch of col)ci=ci*26+ch.charCodeAt(0)-64;ci=ci?ci-1:c.length;const t=x.getAttribute('t');let v='';
     if(t==='inlineStr')v=Array.from(x.getElementsByTagName('t')).map(y=>y.textContent).join('');else{const ve=x.getElementsByTagName('v')[0];v=ve?ve.textContent:'';if(t==='s')v=ss[+v]||''}c[ci]=v});return Array.from(c,y=>y==null?'':String(y))});
 }
-function htmyoMetinSatir(m){return m.replace(/^\uFEFF/,'').split(/\r?\n/).filter(x=>x.trim()).map(l=>l.includes(';')?l.split(';'):l.includes('\t')?l.split('\t'):(l.match(/,/g)||[]).length>=2?l.split(','):[l])}
+function htmyoMetinSatir(m){return m.replace(/^\uFEFF/,'').split(/\r?\n/).filter(x=>x.trim()).map(l=>l.includes(';')?htmyoCsvBol(l,';'):l.includes('\t')?htmyoCsvBol(l,'\t'):(l.match(/,/g)||[]).length>=2?htmyoCsvBol(l,','):[l.replace(/^\s*"(.*)"\s*$/,'$1')])}
 function htmyoOptik(satirlar,n,harfler){
   const CV=/^[A-Ea-e\-\*\._ 0]+$/,ogr=[],hata=[];
-  satirlar.forEach((r,ri)=>{const f=r.map(x=>(x||'').replace(/\s+$/,''));let kit=-1,cv=-1,cvs='',kh='',kimlik='';
+  satirlar.forEach((r,ri)=>{if(ri===0&&!/\d{3}/.test(r.join(' '))&&/kitap|cevap|numara|öğrenci|ogrenci|yan[ıi]t/i.test(r.join(' ')))return;const f=r.map(x=>(x||'').replace(/\s+$/,''));let kit=-1,cv=-1,cvs='',kh='',kimlik='';
     if(f.filter(x=>x.trim()).length>1){
       f.forEach((x,i)=>{const y=x.trim();if(CV.test(x)&&/[A-Ea-e]/.test(x)&&y.length>=2&&x.length>(cv<0?0:f[cv].length))cv=i});
+      if(cv<0)f.forEach((x,i)=>{if(cv<0&&/^[\-\*\._ ]+$/.test(x)&&x.length>=Math.max(2,n/2)&&f.some((z,j)=>j!==i&&/^[A-Ea-e]$/.test(z.trim())))cv=i});
       f.forEach((x,i)=>{if(kit<0&&i!==cv&&/^[A-Ea-e]$/.test(x.trim()))kit=i});
       if(cv>=0){cvs=f[cv].replace(/^\s+/,'');kh=kit>=0?f[kit].trim().toUpperCase():'';kimlik=f.filter((_,i)=>i!==cv&&i!==kit).map(x=>x.trim()).filter(Boolean).join(' ')}
     }else{const m=(f[0]||'').match(/^(.*?)(?:^|\s)([A-Ea-e]) ([A-Ea-e\-\*\._ ]*[A-Ea-e][A-Ea-e\-\*\._ ]*)$/);if(m){kimlik=m[1].trim();kh=m[2].toUpperCase();cvs=m[3]}else{const m2=(f[0]||'').match(/^(.*?)\s*([A-Ea-e\-\*\._]{2,})$/);if(m2){kimlik=m2[1].trim();cvs=m2[2]}}}
@@ -1227,7 +1239,7 @@ function htmyoOptik(satirlar,n,harfler){
     if(!kh&&harfler.length===1)kh=harfler[0];
     if(!harfler.includes(kh)){hata.push(ri+1);return}
     const c=[...cvs.padEnd(n,' ')].slice(0,n).map(x=>/[A-Ea-e]/.test(x)?x.toUpperCase():x==='*'?'X':'');
-    ogr.push({kimlik:kimlik||('Satır '+(ri+1)),kit:kh,c});
+    ogr.push({kimlik:kimlik||('Satır '+(ri+1)),kit:kh,c,fazla:/[A-Ea-e]/.test(cvs.slice(n))});
   });
   return {ogr,hata};
 }
@@ -1262,7 +1274,17 @@ function htmyoAnaliz(K,ogr,iptal,esik){esik=esik||60;
       OCT.push({k,n:qs.length,qs,puan,yuzde,ulasan,oran:ulasan/N*100,ok:yuzde>=esik-1e-9})}
     ocAtanmamis=analiz.filter(q=>!(ocL[q]||[]).length).length;
     O.forEach(o=>{o.oc=OCT.map(t=>t.n?t.qs.reduce((b,q)=>b+o.dg[q],0)/t.n*100:null)})}
-  return {OCT,ocAtanmamis,esik,O,M,N,kk,ort,ss,med,min:sir[0],max:sir[N-1],kr20,g,iptal,maddeler,sk,puanOrt:O.reduce((a,o)=>a+o.puan,0)/N};
+  /* HTMYO · eşleşme denetimi: cevaplar bu anahtarla uyuşmuyor olabilir mi? */
+  const uyusma=[],sans=analiz.reduce((a,q)=>a+1/(sk[q]||5),0);
+  if(kk&&ort<1.5*sans)uyusma.push(`Sınıfın ortalama doğru sayısı (${htmyoF(ort,1)} / ${kk}) şans düzeyine yakın: rastgele işaretlemede beklenen ${htmyoF(sans,1)} doğru, bunun 1,5 katı ${htmyoF(1.5*sans,1)}.`);
+  if(kr20!=null&&kr20<0)uyusma.push(`KR-20 güvenirlik katsayısı negatif (${htmyoF(kr20)}).`);
+  const ahSay=M.filter(m=>m.not.some(x=>x.includes('anahtar hatası olabilir'))).length;
+  if(kk&&ahSay>kk/2)uyusma.push(`${kk} sorunun ${ahSay} tanesinde "anahtar hatası olabilir" notu var.`);
+  const kitOrt={};O.forEach(o=>{(kitOrt[o.kit]=kitOrt[o.kit]||[]).push(o.top)});
+  const ko=Object.keys(kitOrt).sort().filter(h=>kitOrt[h].length>=3).map(h=>({h,n:kitOrt[h].length,o:kitOrt[h].reduce((a,b)=>a+b,0)/kitOrt[h].length}));
+  if(ko.length>=2){const mx=ko.reduce((a,b)=>b.o>a.o?b:a),mn=ko.reduce((a,b)=>b.o<a.o?b:a);
+    if(mx.o-mn.o>=Math.max(1,kk*0.1)&&(mn.o<=0||mx.o/mn.o>=2))uyusma.push(`Kitapçık türleri arasında ortalama doğru farkı çok büyük: ${mx.h} kitapçığı ${htmyoF(mx.o,1)}, ${mn.h} kitapçığı ${htmyoF(mn.o,1)} (${ko.map(k=>`${k.h}: ${htmyoF(k.o,1)}, ${k.n} öğrenci`).join(' · ')}).`)}
+  return {OCT,ocAtanmamis,esik,O,M,N,kk,ort,ss,med,min:sir[0],max:sir[N-1],kr20,g,iptal,maddeler,sk,uyusma,sans,kitOrt:ko,puanOrt:O.reduce((a,o)=>a+o.puan,0)/N};
 }
 const htmyoF=(x,d=2)=>x==null||isNaN(x)?'·':x.toFixed(d).replace('.',',');
 const htmyoDsin=D=>D<0?['Hatalı','kotu']:D>=.40?['Çok iyi','iyi']:D>=.30?['İyi','iyi']:D>=.20?['Düzeltilmeli','orta']:['Zayıf','kotu'];
@@ -1271,7 +1293,8 @@ function htmyoAnalizGoster(S){
   const kr=S.kr20==null?'·':htmyoF(S.kr20),krY=S.kr20==null?'':S.kr20>=.70?'yeterli':S.kr20>=.50?'kabul edilebilir sınırda':'düşük';
   const bv=id=>htmyoEsc(($(id).value||'').trim())||'&nbsp;';
   const basl=b=>`<div class="htmyo-onlyprint"><div class="htmyo-ph"><div class="gz">${b}</div><table><tr><td>Ders</td><td>${bv('#maDers')}</td><td>Sınav türü</td><td>${bv('#maSinav')}</td></tr><tr><td>Tarih</td><td>${bv('#maTarih')}</td><td>Öğrenci sayısı</td><td>${S.N}</td></tr><tr><td>Üretim kodu</td><td>${htmyoEsc(S.kod)||'&nbsp;'}</td><td>Başarı eşiği</td><td>%${S.esik}</td></tr></table></div></div>`;
-  let t=`<div class="ma-madde">${basl('MADDE ANALİZİ')}
+  const uy=S.uyusma&&S.uyusma.length?`<div class="htmyo-note r ma-uyusma" role="alert"><span>⛔</span><div><b>Öğrenci cevapları bu cevap anahtarıyla uyuşmuyor olabilir.</b> Anahtar dosyasındaki üretim kodunun basılan kitapçıklardaki kodla aynı olduğunu ve optik dosyada kitapçık türünün doğru okunduğunu kontrol edin.<ul>${S.uyusma.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`:'';
+  let t=uy+`<div class="ma-bas htmyo-noprint"><span>Analiz sonuçları</span><div><small>Cevap anahtarının üretim kodu</small><b>${htmyoEsc(S.kod)||'(kod yok)'}</b></div></div><div class="ma-madde">${basl('MADDE ANALİZİ')}
   <div class="htmyo-stats"><div><b>${S.N}</b><span>öğrenci</span></div><div><b>${S.kk}</b><span>analiz edilen soru${S.iptal.size?` (+${S.iptal.size} iptal)`:''}</span></div><div><b>${htmyoF(S.puanOrt,1)}</b><span>ortalama puan (100)</span></div><div><b>${htmyoF(S.ort,1)} / ${S.kk}</b><span>ortalama doğru</span></div><div><b>${htmyoF(S.ss,2)}</b><span>standart sapma</span></div><div><b>${htmyoF(S.med,1)}</b><span>ortanca doğru</span></div><div><b>${S.min} · ${S.max}</b><span>en düşük · en yüksek</span></div><div><b>${kr}</b><span>KR-20 güvenirlik${krY?' ('+krY+')':''}</span></div></div>`;
   if(S.N<20)t+=`<div class="htmyo-note w"><span>⚠️</span><div>Öğrenci sayısı az (${S.N}). Üst ve alt grupların her biri ${S.g} kişi; değerler büyük dalgalanabilir, yorumlarken dikkatli olun.</div></div>`;
   t+=`<h3 class="htmyo-h">Soru bazında sonuçlar (A kitapçığı sırasıyla)${htmyoYB('madde')}</h3><p class="lead" style="margin:0">p: güçlük indeksi (doğru yanıtlayanların oranı; büyüdükçe soru kolaylaşır). D: ayırt edicilik indeksi (üst %27 ile alt %27 grubun doğru oranları farkı). Şık sütunları o şıkkı seçen öğrenci sayısıdır; doğru cevap koyu renkli.</p>
@@ -1284,7 +1307,7 @@ function htmyoAnalizGoster(S){
   <div class="htmyo-noprint" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="htmyo-btn sec" id="maPrint">Analizi yazdır</button><button class="htmyo-btn sec" id="maCsv">Madde analizini indir (CSV)</button><button class="htmyo-btn sec" id="maOgr">Öğrenci puanlarını indir (CSV)</button></div>`;
   t+='</div>';
   if(S.OCT){
-    t+=`<div class="ma-oc">${basl('ÖĞRENME ÇIKTILARINA ULAŞMA')}<h3 class="htmyo-h">Öğrenme Çıktılarına Ulaşma${htmyoYB('octablo')}</h3><p class="lead" style="margin:0">Sınıf başarı yüzdesi: o ÖÇ'yü ölçen sorularda öğrencilerin ortalama doğru oranı (PFRM-250'deki "Gerçekleşme %"). Hedefe ulaşan öğrenci: bu sorularda %${S.esik} ve üstü başarı gösteren öğrenci. İptal edilen sorular hesaba katılmaz; birden çok ÖÇ'ye bağlı soru her birine tam sayılır.</p>
+    t+=`<div class="ma-oc">${basl('ÖĞRENME ÇIKTILARINA ULAŞMA')}${uy.replace('ma-uyusma','ma-uyusma-oc')}<h3 class="htmyo-h">Öğrenme Çıktılarına Ulaşma${htmyoYB('octablo')}</h3><p class="lead" style="margin:0">Sınıf başarı yüzdesi: o ÖÇ'yü ölçen sorularda öğrencilerin ortalama doğru oranı (PFRM-250'deki "Gerçekleşme %"). Hedefe ulaşan öğrenci: bu sorularda %${S.esik} ve üstü başarı gösteren öğrenci. İptal edilen sorular hesaba katılmaz; birden çok ÖÇ'ye bağlı soru her birine tam sayılır.</p>
     <div class="htmyo-tbl"><table><tr><th>ÖÇ</th><th>Soru sayısı</th><th>Sorular (A kitapçığı)</th><th>Toplam puan</th><th>Sınıfın başarı yüzdesi</th><th>Hedefe ulaşan öğrenci</th><th>Oran</th><th>Durum</th></tr>`+
     S.OCT.map(o=>o.n?`<tr><td class="kb">ÖÇ${o.k}</td><td>${o.n}</td><td>${o.qs.map(q=>q+1).join(', ')}</td><td>${htmyoF(o.puan,1)}</td><td>%${htmyoF(o.yuzde,1)}</td><td>${o.ulasan} / ${S.N}</td><td>%${htmyoF(o.oran,1)}</td><td class="${o.ok?'iyi':'kotu'}">${o.ok?'Ulaşıldı':'Ulaşılamadı'}</td></tr>`:`<tr><td class="kb">ÖÇ${o.k}</td><td>0</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td style="color:var(--htmyo-mut)">Ölçülmedi</td></tr>`).join('')+'</table></div>';
     if(S.ocAtanmamis)t+=`<p style="font-size:12px;color:var(--htmyo-mut)">${S.ocAtanmamis} soruya ÖÇ atanmamış; bu sorular ÖÇ tablosuna katılmadı.</p>`;
@@ -1306,8 +1329,8 @@ function htmyoAnalizGoster(S){
   const ocB=S.OCT?S.OCT.filter(o=>o.n):[];
   $('#maOgr').onclick=()=>kay(`${ad}_ogrenci-puanlari.csv`,'Öğrenci;Kitapçık;Doğru;Yanlış;Boş;Puan (100)'+ocB.map(o=>`;ÖÇ${o.k} başarı %`).join('')+'\n'+S.O.map(o=>[o.kimlik.replace(/;/g,','),o.kit,o.dogru,o.yanlis,o.bos,htmyoF(o.puan,1),...ocB.map(b=>htmyoF(o.oc[S.OCT.indexOf(b)],1))].join(';')).join('\n')+'\n');
 }
-$('#maKey').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{htmyoDurum.maAnahtar=htmyoAnahtarCsv(htmyoMetinOku(await f.arrayBuffer()));const K=htmyoDurum.maAnahtar;htmyoMaDurum(`✓ <b>${htmyoEsc(f.name)}</b> yüklendi: ${K.R.map(r=>r.h).join(', ')} kitapçıkları, ${K.n} soru.`,'ok');$('#maIptal').value=K.iptal.map(x=>x+1).join(', ');if(K.bilgi){$('#maDers').value=K.bilgi[0]||'';$('#maSinav').value=K.bilgi[1]||'';$('#maTarih').value=K.bilgi[2]||''}}catch(err){htmyoDurum.maAnahtar=null;htmyoMaDurum(`⚠️ ${htmyoEsc(err.message)}`,'hata')}};
-$('#maOpt').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const b=await f.arrayBuffer();htmyoDurum.maSatir=/\.xlsx$/i.test(f.name)?await htmyoXlsxSatir(b):htmyoMetinSatir(htmyoMetinOku(b));$('#maOptAd').textContent=`✓ ${f.name} · ${htmyoDurum.maSatir.length} satır`;$('#maTxt').value=''}catch(err){htmyoDurum.maSatir=null;$('#maOptAd').textContent='⚠️ '+err.message}};
+$('#maKey').onchange=async e=>{const f=e.target.files[0];if(!f)return;e.target.value='';try{htmyoDurum.maAnahtar=htmyoAnahtarCsv(htmyoMetinOku(await f.arrayBuffer()));const K=htmyoDurum.maAnahtar;htmyoMaDurum(`✓ <b>${htmyoEsc(f.name)}</b> yüklendi: ${K.R.map(r=>r.h).join(', ')} kitapçıkları, ${K.n} soru${K.kod?`, üretim kodu <b>${htmyoEsc(K.kod)}</b>`:''}.`,'ok');$('#maIptal').value=K.iptal.map(x=>x+1).join(', ');if(K.bilgi){$('#maDers').value=K.bilgi[0]||'';$('#maSinav').value=K.bilgi[1]||'';$('#maTarih').value=K.bilgi[2]||''}}catch(err){htmyoDurum.maAnahtar=null;htmyoMaDurum(`⚠️ ${htmyoEsc(err.message)}`,'hata')}};
+$('#maOpt').onchange=async e=>{const f=e.target.files[0];if(!f)return;e.target.value='';try{const b=await f.arrayBuffer();htmyoDurum.maSatir=/\.xlsx$/i.test(f.name)?await htmyoXlsxSatir(b):htmyoMetinSatir(htmyoMetinOku(b));$('#maOptAd').textContent=`✓ ${f.name} · ${htmyoDurum.maSatir.length} satır`;$('#maTxt').value=''}catch(err){htmyoDurum.maSatir=null;$('#maOptAd').textContent='⚠️ '+err.message}};
 $('#maEsik').onchange=()=>{if(htmyoDurum.maSon)$('#maGo').click()};
 $('#maTxt').oninput=()=>{htmyoDurum.maSatir=null;$('#maOptAd').textContent=''};
 $('#maGo').onclick=()=>{
@@ -1315,11 +1338,17 @@ $('#maGo').onclick=()=>{
     const K=htmyoDurum.maAnahtar||(htmyoDurum.sonuc&&{R:htmyoDurum.sonuc,n:htmyoDurum.sonuc[0].cevap.length,iptal:[...htmyoDurum.iptal],oc:htmyoDurum.oc,ocSay:htmyoDurum.ocSay,kod:htmyoDurum.kod,puan:htmyoDurum.puan});
     if(!K)throw new Error('Önce cevap anahtarını yükleyin ya da bu sayfada kitapçıkları oluşturun.');
     const sat=htmyoDurum.maSatir||($('#maTxt').value.trim()?htmyoMetinSatir($('#maTxt').value):null);if(!sat)throw new Error('Öğrenci cevaplarını yükleyin ya da yapıştırın.');
-    const iptal=new Set(($('#maIptal').value.match(/\d+/g)||[]).map(x=>(+x)-1).filter(q=>q>=0&&q<K.n));
+    const iptNo=($('#maIptal').value.match(/\d+/g)||[]).map(Number),iptGecersiz=iptNo.filter(x=>x<1||x>K.n);
+    const iptal=new Set(iptNo.map(x=>x-1).filter(q=>q>=0&&q<K.n));
     const {ogr,hata}=htmyoOptik(sat,K.n,K.R.map(r=>r.h));if(!ogr.length)throw new Error('Öğrenci satırı okunamadı. Her satırda kitapçık türü (A-E) ve cevaplar ayrı sütunda olmalı; örnek: 2025001;B;ACDBE-ABCE');
     const esik=Math.min(100,Math.max(1,+$('#maEsik').value||60));$('#maEsik').value=esik;
     const S=htmyoAnaliz(K,ogr,iptal,esik);S.kod=K.kod||'';S.ad=(htmyoDurum.maAnahtar&&K.ad)||htmyoDurum.ad||K.ad||'sinav';htmyoAnalizGoster(S);htmyoDurum.maSon=true;
-    if(hata.length)$('#maSonuc').insertAdjacentHTML('afterbegin',`<div class="htmyo-note w htmyo-noprint"><span>⚠️</span><div>${hata.length} satır okunamadı ve analize alınmadı (satır ${hata.slice(0,15).join(', ')}${hata.length>15?'...':''}). Kitapçık türü yazılmamış ya da anahtarda olmayan bir kitapçık olabilir.</div></div>`);
+    const fz=ogr.filter(o=>o.fazla).length,ek=[];
+    if(iptGecersiz.length)ek.push(`İptal kutusundaki ${iptGecersiz.join(', ')} ${iptGecersiz.length>1?'numaralı sorular':'numaralı soru'} bu sınavda yok (sınavda ${K.n} soru var); dikkate alınmadı.`);
+    if(fz)ek.push(`${fz} öğrencinin optik dosyasında ${K.n}. sorudan sonra da işaretli cevap var; bu cevaplar dikkate alınmadı. Anahtar dosyası başka bir sınava ait olabilir.`);
+    if(ek.length)$('#maSonuc').insertAdjacentHTML('afterbegin',ek.map(x=>`<div class="htmyo-note w htmyo-noprint"><span>⚠️</span><div>${x}</div></div>`).join(''));
+    const uyB=()=>{const u=$('#maSonuc>.ma-uyusma');if(u)$('#maSonuc').prepend(u)};
+    if(hata.length)$('#maSonuc').insertAdjacentHTML('afterbegin',`<div class="htmyo-note w htmyo-noprint"><span>⚠️</span><div>${hata.length} satır okunamadı ve analize alınmadı (satır ${hata.slice(0,15).join(', ')}${hata.length>15?'...':''}). Kitapçık türü yazılmamış ya da anahtarda olmayan bir kitapçık olabilir.</div></div>`);uyB();
   }catch(err){$('#maSonuc').innerHTML=`<div class="htmyo-note w"><span>⚠️</span><div>${htmyoEsc(err.message)}</div></div>`}
 };
 console.info('%cKitapçık Oluşturucu (Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu) v'+HTMYO_SURUM+' · Sistem mimarı: '+HTMYO_MIMAR,'color:#3B2A8F;font-weight:bold');

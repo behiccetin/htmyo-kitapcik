@@ -78,9 +78,17 @@ Aracın "Nasıl kullanılır?" bölümünden örnek Aiken ve düz metin dosyalar
 - **Öğrenme çıktıları (ÖÇ):** her sorunun ölçtüğü ÖÇ araçta seçilir; sorulara ve öğrenciye giden kitapçıklara ÖÇ yazılmaz. ÖÇ bilgisi ayrı olarak üretilen **PFRM-248 Sınav Cevap Anahtarı** Word dosyasına (Soru No, Beklenen cevap, Ölçülen DÖÇ, Puan; her kitapçık için ayrı tablo), cevap anahtarı tablosuna ve CSV dosyasına yazılır. Dosyadaki `[ÖÇ2]` notları ve Aiken'daki `OC: 2` satırları okunur ve kitapçıklardan silinir.
 - **Öğrenme Çıktılarına Ulaşma tablosu:** madde analizinde her ÖÇ için soru sayısı, toplam puan, sınıfın başarı yüzdesi, hedefe ulaşan öğrenci sayısı ve oranı, Ulaşıldı/Ulaşılamadı durumu; eşik ayarlanabilir (varsayılan %60), iptal edilen sorular sayılmaz, birden çok ÖÇ'ye bağlı soru her birine tam sayılır. Tablo yazdırılır ve PFRM-250 Program Çıktıları Değerlendirme Formu'na aktarılacak düzende CSV olarak iner.
 - **Bağlam yardımı:** her bölümün yanındaki **?** düğmesine basınca o bölümün ne işe yaradığını anlatan kısa bir pencere açılır; pencereden resimli yardımın ilgili başlığına geçilir.
-- **Madde analizi:** optik okuyucu çıktısı (.txt, .csv, .xlsx) yüklenir; bütün kitapçıklar A sırasına çevrilir, her soru için güçlük (p), ayırt edicilik (D) ve çeldirici analizi, sınav için KR-20 güvenirliği hesaplanır; öğrenci puanları CSV olarak alınır.
+- **Madde analizi:** optik okuyucu çıktısı (.txt, .csv, .xlsx) yüklenir; bütün kitapçıklar A sırasına çevrilir, her soru için güçlük (p), ayırt edicilik (D) ve çeldirici analizi, sınav için KR-20 güvenirliği hesaplanır; öğrenci puanları CSV olarak alınır. Cevaplar anahtarla uyuşmuyor görünüyorsa (şans düzeyinde ortalama, negatif KR-20, yaygın anahtar hatası notu, kitapçıklar arasında büyük fark) kırmızı uyarı verir.
 
 ## Sürüm notları
+
+**2.1.0 (14 Kasım 2026).** Madde analizinde eşleşme denetimi: sınıf ortalaması şans düzeyine yakınsa, KR-20 negatifse, soruların yarısından fazlasında "anahtar hatası olabilir" notu varsa ya da kitapçık türleri arasında ortalama doğru farkı 2 kat ve üstündeyse sonuçların en üstünde ve ÖÇ tablosunun üstünde kırmızı uyarı çıkar. Sonuç başlığında anahtar dosyasının üretim kodu büyük yazılır. Düzeltmeler:
+- Excel'de açılıp virgül ya da sekmeyle veya tırnaklı olarak yeniden kaydedilen cevap anahtarı dosyaları okunur; okunamayan dosya için "0 soru" yerine açık bir hata verilir.
+- Bütün soruları boş bırakan öğrenci analize katılır.
+- Optik dosyada soru sayısından fazla cevap varsa ve iptal kutusuna sınavda olmayan bir numara yazılırsa uyarı verilir.
+- Optik Excel dosyasındaki başlık satırı "okunamayan satır" sayılmaz.
+- Telefonda sayfanın yana taşması giderildi (ÖÇ toplu giriş ve ÖÇ raporu alanları).
+- Anahtar dosyası yüklenince üretim kodu da gösterilir; aynı dosya yeniden seçilebilir.
 
 **2.0.0 (14 Kasım 2026).** Araç kitapçık karıştırmanın yanında sınav belgelendirme ve akreditasyon işini de üstlenir:
 - Öğrenme çıktıları (ÖÇ) seçimi; ÖÇ'ler öğrenciye giden kitapçıklara yazılmaz.
@@ -102,6 +110,6 @@ Aracın "Nasıl kullanılır?" bölümünden örnek Aiken ve düz metin dosyalar
 
 Bu yazılım MIT Lisansı ile yayımlanmıştır. Kullanan, değiştiren veya dağıtan herkes telif bildirimini korumalı ve şu atfı vermelidir:
 
-> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 2.0.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
+> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 2.1.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
 
 © 2026 Behiç ÇETİN

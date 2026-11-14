@@ -193,7 +193,7 @@ araç doluluk oranını artırmak</div></div></div>
 <section class="card" id="oc">
   <h2><span class="n">4</span>Öğrenme çıktıları (ÖÇ): sistem nasıl çalışır?</h2>
   <p class="lead">Bir sınavın hangi öğrenme çıktılarını ne ölçüde sağladığını göstermek, MEDEK ve YÖKAK süreçlerinde istenen bir kanıttır. Kitapçık Oluşturucu bunu sorulara hiçbir şey eklemeden yapar: ÖÇ'leri yalnızca araçta seçersiniz, araç da bunları ayrı dosyalara yazar.</p>
-  <div class="flow" style="grid-template-columns:repeat(4,1fr)">
+  <div class="flow">
     <a href="#oc-sec"><div class="e">✍️</div><b>1. Sorular her zamanki gibi</b><span>Soru formuna ya da sorulara ÖÇ yazılmaz.</span></a>
     <a href="#oc-sec"><div class="e">🎯</div><b>2. ÖÇ araçta seçilir</b><span>2. adımda her sorunun ölçtüğü ÖÇ işaretlenir.</span></a>
     <a href="#oc-dosya"><div class="e">📄</div><b>3. Ayrı dosyalar</b><span>PFRM-248 Sınav Cevap Anahtarı ve cevap anahtarı dosyası ÖÇ'leri içerir. Kitapçıklarda ÖÇ yoktur.</span></a>
@@ -348,6 +348,15 @@ araç doluluk oranını artırmak</div></div></div>
     <li><b>Ayırt edicilik.</b> Sorunun başarılı öğrencilerle başarısız öğrencileri ne kadar iyi ayırdığı. Renkli yorum: yeşil iyi, sarı düzeltilmeli, kırmızı zayıf.</li>
     <li><b>Not sütunu.</b> Araç dikkat edilmesi gereken durumları yazar: anahtar hatası olabileceği, kimsenin seçmediği (işlemeyen) çeldiriciler, üst grubun yanlış şıkka yöneldiği sorular.</li>
   </ol>
+  <h3 id="uyusma">Kırmızı uyarı: "Öğrenci cevapları bu cevap anahtarıyla uyuşmuyor olabilir"</h3>
+  <p>Sonuçların en üstünde, anahtar dosyasının <b>üretim kodu</b> büyük harflerle yazar. Araç ayrıca sonuçların yanlış anahtardan ya da yanlış okunan kitapçık türünden kaynaklanıp kaynaklanmadığını denetler. Aşağıdakilerden biri varsa en üstte ve ÖÇ tablosunun üstünde kırmızı bir uyarı çıkar; kutunun içinde hangi durumun görüldüğü yazar.</p>
+  <ul>
+    <li><b>Ortalama şans düzeyine yakın.</b> Sınıfın ortalama doğru sayısı, rastgele işaretlemede beklenen doğru sayısının 1,5 katının altında. Beklenen sayı şık sayısından hesaplanır: 25 soru, 5 şık için 5 doğru, sınır 7,5.</li>
+    <li><b>KR-20 negatif.</b> Sorular birbiriyle ters yönde çalışıyor; çoğunlukla anahtar ya da kitapçık eşleşmesi hatalıdır.</li>
+    <li><b>Soruların yarısından fazlasında "anahtar hatası olabilir" notu var.</b></li>
+    <li><b>Kitapçıklar arasında çok büyük fark.</b> Bir kitapçığın ortalama doğru sayısı diğerinin en az 2 katı (yalnızca en az 3 öğrencisi olan kitapçıklar karşılaştırılır; çok küçük farklar sayılmaz). Genellikle o kitapçığın türü optikte yanlış kodlanmıştır ya da başka bir koddan üretilmiş kitapçık basılmıştır.</li>
+  </ul>
+  <div class="note">🔎 Uyarı çıkarsa önce şunlara bakın: (1) Seçtiğiniz anahtar dosyasındaki üretim kodu, basılan kitapçıkların altındaki üretim koduyla aynı mı? (2) Optik dosyada kitapçık türü sütunu doğru okunmuş mu, öğrenciler kitapçık türünü işaretlemiş mi? Kod farklıysa doğru anahtar dosyasını seçin ya da 3. adımda o kodu yazıp kitapçıkları yeniden oluşturarak anahtarı yeniden indirin.</div>
   <h3>Sonuçlar nasıl okunur?</h3>
   <table>
     <tr><th>Değer</th><th>Anlamı</th><th>Yorum</th></tr>
