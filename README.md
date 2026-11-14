@@ -44,6 +44,8 @@ E) Sayım
 - Soruları ve şıkları karıştırır; görselli, öncüllü ve tablolu sorular bütün olarak taşınır.
 - "Hepsi / Hiçbiri" gibi şıkları yerinde bırakabilir; iki şıklı (Doğru/Yanlış) soruları karıştırmaz.
 - Klasik şablonda soru puanlarını puan tablosunda sorularla birlikte taşır.
+- İstenirse bir sorunun doğru cevabının harfini her kitapçıkta farklı yapar (A'da B olan cevap diğer kitapçıklarda B'de olmaz ve kitapçıklar arasında tekrar etmez).
+- Doğru cevapların şıklara dağılımını (hangi şıkta kaç doğru cevap olduğunu) her kitapçık için gösterir.
 - Her dosyanın "Kitapçık türü" alanını kendi harfiyle doldurur.
 - Cevap anahtarını ve soru eşleşme tablosunu yazdırılabilir ve CSV olarak verir.
 
@@ -57,6 +59,6 @@ E) Sayım
 
 Bu yazılım MIT Lisansı ile yayımlanmıştır. Kullanan, değiştiren veya dağıtan herkes telif bildirimini korumalı ve şu atfı vermelidir:
 
-> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 1.0.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
+> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 1.1.0) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
 
 © 2026 Behiç ÇETİN
