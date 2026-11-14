@@ -59,6 +59,6 @@ E) Sayım
 
 Bu yazılım MIT Lisansı ile yayımlanmıştır. Kullanan, değiştiren veya dağıtan herkes telif bildirimini korumalı ve şu atfı vermelidir:
 
-> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 1.1.1) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
+> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 1.1.2) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik
 
 © 2026 Behiç ÇETİN

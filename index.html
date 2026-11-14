@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   ╔══════════════════════════════════════════════════════════════════════╗
-  ║  HTMYO Kitapçık Oluşturucu  ·  v1.1.1                                  ║
+  ║  HTMYO Kitapçık Oluşturucu  ·  v1.1.2                                  ║
   ║  Sistem mimarı ve geliştirici: Öğr. Gör. Dr. Behiç ÇETİN               ║
   ║  Burdur Mehmet Akif Ersoy Üniversitesi                                 ║
   ║  Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu (HTMYO) ║
@@ -9,7 +9,7 @@
   ║  © 2026 Behiç ÇETİN. MIT Lisansı ile yayımlanmıştır.                   ║
   ║  Bu kodu kullanan, değiştiren veya dağıtan herkes yukarıdaki telif      ║
   ║  bildirimini korumak ve şu atfı vermek zorundadır:                     ║
-  ║    Çetin, B. (2026). Kitapçık Oluşturucu (v1.1.1). Burdur Mehmet Akif  ║
+  ║    Çetin, B. (2026). Kitapçık Oluşturucu (v1.1.2). Burdur Mehmet Akif  ║
   ║    Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu.  ║
   ║    https://github.com/behiccetin/htmyo-kitapcik                        ║
   ║                                                                        ║
@@ -261,25 +261,25 @@ E) Sayım</div>
 
 <footer class="htmyo-foot"><div class="in">
   <div>
-    <b>Kitapçık Oluşturucu</b> · v1.1.1<br>
+    <b>Kitapçık Oluşturucu</b> · v1.1.2<br>
     Sistem mimarı ve geliştirici: <b>Öğr. Gör. Dr. Behiç ÇETİN</b><br>
     Burdur Mehmet Akif Ersoy Üniversitesi<br>Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu<br>
     © 2026 Behiç ÇETİN · MIT Lisansı · Telif bildirimi korunarak ve atıf verilerek kullanılabilir.
   </div>
   <div>
     <b>Atıf için:</b>
-    <code>Çetin, B. (2026). Kitapçık Oluşturucu (Sürüm 1.1.1) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik</code>
+    <code>Çetin, B. (2026). Kitapçık Oluşturucu (Sürüm 1.1.2) [Yazılım]. Burdur Mehmet Akif Ersoy Üniversitesi Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu. https://github.com/behiccetin/htmyo-kitapcik</code>
   </div>
 </div></footer>
 
 <script>
 /*!
- * HTMYO Kitapçık Oluşturucu v1.1.1
+ * HTMYO Kitapçık Oluşturucu v1.1.2
  * Sistem mimarı ve geliştirici: Öğr. Gör. Dr. Behiç ÇETİN (HTMYO, MAKÜ)
  * © 2026 Behiç ÇETİN · MIT Lisansı · Atıf: https://github.com/behiccetin/htmyo-kitapcik
  */
 "use strict";
-const HTMYO_SURUM='1.1.1', HTMYO_MIMAR='Dr. Behiç ÇETİN';
+const HTMYO_SURUM='1.1.2', HTMYO_MIMAR='Dr. Behiç ÇETİN';
 const HTMYO_W='http://schemas.openxmlformats.org/wordprocessingml/2006/main';
 const $=s=>document.querySelector(s);
 const htmyoDurum={zip:null,ad:'',model:null,sonuc:null};
@@ -304,16 +304,22 @@ async function htmyoUnzip(buf){
 }
 const HTMYO_CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
 function htmyoCrc(u8){let c=0xFFFFFFFF;for(let i=0;i<u8.length;i++)c=HTMYO_CRC[(c^u8[i])&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0}
-function htmyoZip(files){
+async function htmyoDeflate(u8){const cs=new CompressionStream('deflate-raw');return new Uint8Array(await new Response(new Blob([u8]).stream().pipeThrough(cs)).arrayBuffer())}
+async function htmyoZip(files){
+  /* HTMYO · Word uyumlu ZIP: deflate sıkıştırma, geçerli DOS tarihi, [Content_Types].xml ilk sırada · Dr. Behiç ÇETİN */
   const enc=new TextEncoder(),parts=[],cent=[];let off=0;
-  for(const f of files){
-    const nm=enc.encode(f.name),d=f.data,c=htmyoCrc(d);
-    const h=new DataView(new ArrayBuffer(30));h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint32(14,c,true);h.setUint32(18,d.length,true);h.setUint32(22,d.length,true);h.setUint16(26,nm.length,true);
-    parts.push(new Uint8Array(h.buffer),nm,d);
-    const ch=new DataView(new ArrayBuffer(46));ch.setUint32(0,0x02014b50,true);ch.setUint16(4,20,true);ch.setUint16(6,20,true);ch.setUint16(8,0x0800,true);ch.setUint32(16,c,true);ch.setUint32(20,d.length,true);ch.setUint32(24,d.length,true);ch.setUint16(28,nm.length,true);ch.setUint32(42,off,true);
-    cent.push(new Uint8Array(ch.buffer),nm);off+=30+nm.length+d.length;
+  const now=new Date(),dt=((now.getFullYear()-1980)<<9)|((now.getMonth()+1)<<5)|now.getDate(),tm=(now.getHours()<<11)|(now.getMinutes()<<5)|(now.getSeconds()>>1);
+  const sirali=files.slice().sort((x,y)=>(y.name==='[Content_Types].xml')-(x.name==='[Content_Types].xml'));
+  for(const f of sirali){
+    const nm=enc.encode(f.name),d=f.data,c=htmyoCrc(d),z=await htmyoDeflate(d);
+    const h=new DataView(new ArrayBuffer(30));h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0,true);h.setUint16(8,8,true);h.setUint16(10,tm,true);h.setUint16(12,dt,true);
+    h.setUint32(14,c,true);h.setUint32(18,z.length,true);h.setUint32(22,d.length,true);h.setUint16(26,nm.length,true);h.setUint16(28,0,true);
+    parts.push(new Uint8Array(h.buffer),nm,z);
+    const ch=new DataView(new ArrayBuffer(46));ch.setUint32(0,0x02014b50,true);ch.setUint16(4,20,true);ch.setUint16(6,20,true);ch.setUint16(8,0,true);ch.setUint16(10,8,true);ch.setUint16(12,tm,true);ch.setUint16(14,dt,true);
+    ch.setUint32(16,c,true);ch.setUint32(20,z.length,true);ch.setUint32(24,d.length,true);ch.setUint16(28,nm.length,true);ch.setUint32(42,off,true);
+    cent.push(new Uint8Array(ch.buffer),nm);off+=30+nm.length+z.length;
   }
-  const cs=cent.reduce((a,b)=>a+b.length,0),e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cs,true);e.setUint32(16,off,true);
+  const cs=cent.reduce((a,b)=>a+b.length,0),e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,sirali.length,true);e.setUint16(10,sirali.length,true);e.setUint32(12,cs,true);e.setUint32(16,off,true);
   return new Blob([...parts,...cent,new Uint8Array(e.buffer)],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
 }
 
@@ -417,6 +423,7 @@ function htmyoSdtBul(doc,tag){return Array.from(doc.getElementsByTagNameNS(HTMYO
 function htmyoSdtYaz(doc,tag,val){
   for(const sdt of htmyoSdtBul(doc,tag)){
     const pr=htmyoKids(sdt,'sdtPr')[0];htmyoKids(pr,'showingPlcHdr').forEach(x=>pr.removeChild(x));
+    const dl=htmyoKids(pr,'dropDownList')[0]||htmyoKids(pr,'comboBox')[0];if(dl&&!htmyoKids(dl,'listItem').some(li=>li.getAttributeNS(HTMYO_W,'value')===val)){const li=doc.createElementNS(HTMYO_W,'w:listItem');li.setAttributeNS(HTMYO_W,'w:displayText',val);li.setAttributeNS(HTMYO_W,'w:value',val);dl.appendChild(li)}
     const runs=Array.from(htmyoKids(sdt,'sdtContent')[0].getElementsByTagNameNS(HTMYO_W,'r'));if(!runs.length)continue;
     runs.slice(1).forEach(r=>r.parentNode.removeChild(r));const rp=htmyoKids(runs[0],'rPr')[0];if(rp)htmyoKids(rp,'rStyle').forEach(x=>rp.removeChild(x));
     const ts=runs[0].getElementsByTagNameNS(HTMYO_W,'t');ts[0].textContent=val;Array.from(ts).slice(1).forEach(t=>t.parentNode.removeChild(t));
@@ -517,7 +524,7 @@ async function htmyoYukle(f){
 $('#applyBulk').onclick=()=>{const s=$('#bulk').value.toUpperCase().replace(/[^A-E]/g,'');htmyoDurum.model.units.forEach((q,i)=>{const c=s[i];const el=c&&document.querySelector(`input[name=a${i}][value=${c}]`);if(el)el.checked=true});htmyoSay()};
 $('#bulk').onkeydown=e=>{if(e.key==='Enter')$('#applyBulk').click()};
 
-$('#go').onclick=()=>{
+$('#go').onclick=async()=>{
   const M=htmyoDurum.model,n=M.units.length;
   const harfler=[...document.querySelectorAll('.bk:checked')].map(x=>x.value);
   if(!harfler.length){alert('En az bir kitapçık (B, C, D veya E) seçin.');return}
@@ -526,10 +533,12 @@ $('#go').onclick=()=>{
   const ilk=i=>new Set(anahtar[i]&&M.units[i].siklar.length?[HTMYO_HARF.indexOf(anahtar[i])]:[]);
   const kullanilan={poz:M.units.map((_,i)=>ilk(i)),icerik:M.units.map((_,i)=>ilk(i))};let olmadi=new Set();
   const dl=$('#dl');dl.innerHTML='';
-  const indir=(h,xml)=>{const files=htmyoDurum.zip.map(f=>f.name==='word/document.xml'?{name:f.name,data:new TextEncoder().encode(xml)}:f);const a=document.createElement('a');a.href=URL.createObjectURL(htmyoZip(files));a.download=`${htmyoDurum.ad}_${h}.docx`;a.innerHTML=`<div class="L">${h}</div><div><b>${h} kitapçığı</b><span>Word (.docx) indir</span></div>`;dl.appendChild(a)};
-  const A=htmyoKitapcik(M.xml,M.numXml,M.stilXml,'A',{q:false,o:false,fix:true},anahtar);indir('A',A.xml);
+  const indir=async(h,xml)=>{let files=htmyoDurum.zip.map(f=>f.name==='word/document.xml'?{name:f.name,data:new TextEncoder().encode(xml)}:f);
+    const rels=files.filter(f=>f.name.endsWith('.rels')).map(f=>new TextDecoder().decode(f.data)).join(' ');
+    files=files.filter(f=>!/^word\/media\//.test(f.name)||rels.includes(f.name.replace(/^word\//,'')));const a=document.createElement('a');a.href=URL.createObjectURL(await htmyoZip(files));a.download=`${htmyoDurum.ad}_${h}.docx`;a.innerHTML=`<div class="L">${h}</div><div><b>${h} kitapçığı</b><span>Word (.docx) indir</span></div>`;dl.appendChild(a)};
+  const A=htmyoKitapcik(M.xml,M.numXml,M.stilXml,'A',{q:false,o:false,fix:true},anahtar);await indir('A',A.xml);
   const res=[{h:'A',cevap:anahtar.map((a,i)=>M.units[i].siklar.length?a:''),sira:[...Array(n).keys()]}];
-  for(const h of harfler){const b=htmyoKitapcik(M.xml,M.numXml,M.stilXml,h,sec,anahtar,kullanilan);indir(h,b.xml);b.olmadi.forEach(x=>olmadi.add(x));res.push({h,cevap:b.cevap,sira:b.sira})}
+  for(const h of harfler){const b=htmyoKitapcik(M.xml,M.numXml,M.stilXml,h,sec,anahtar,kullanilan);await indir(h,b.xml);b.olmadi.forEach(x=>olmadi.add(x));res.push({h,cevap:b.cevap,sira:b.sira})}
   htmyoDurum.sonuc=res;
   const bas='<tr><th>Kitapçık</th>'+[...Array(n).keys()].map(i=>`<th>${i+1}</th>`).join('')+'</tr>';
   let t=`<h3 class="htmyo-h">Cevap anahtarı</h3><div class="htmyo-tbl"><table>${bas}`+res.map(r=>`<tr><td class="kb">${r.h}</td>`+r.cevap.map(a=>`<td>${a||'·'}</td>`).join('')+'</tr>').join('')+'</table></div>';
