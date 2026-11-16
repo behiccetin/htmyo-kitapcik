@@ -4,7 +4,7 @@
 
 **Burdur Mehmet Akif Ersoy Üniversitesi, Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu**
 
-Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir metin dosyasıyla (.txt, Aiken biçimi dahil) hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı. Aynı araç sınavın **ölçme planını** hazırlar ve sınavdan sonra madde analiziyle birlikte aynı düzende **ölçme sonuçlarını** verir.
+Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir metin dosyasıyla (.txt, Aiken biçimi dahil) hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı. Soruları dersin **öğrenme çıktılarıyla (ÖÇ)** eşleştirir ve sınavdan önce **ölçme planını** hazırlar. Sınavdan sonra optik okuyucu sonuçlarıyla **madde analizi** yapar; öğrenme çıktılarına ulaşmayı ve **program çıktılarına (PÇ) katkıyı** ölçme planıyla aynı düzende raporlar.
 
 **Kullanmak için:** https://behiccetin.github.io/htmyo-kitapcik/
 
