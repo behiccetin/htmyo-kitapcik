@@ -87,6 +87,11 @@ body.lb-acik{overflow:hidden}
 @media (max-width:600px){.lb{padding:60px 8px 12px}}
 @media print{.lb{display:none!important}}
 @media print{header.hero{background:#fff;color:var(--tx)}.btns,.top{display:none}.card{break-inside:avoid-page;box-shadow:none}figure{break-inside:avoid}}
+.htmyo-terim{text-decoration:underline dotted;text-decoration-thickness:1.5px;text-underline-offset:3px;cursor:help;border-bottom:0}
+.htmyo-terim:focus-visible{outline:2px solid var(--p3);outline-offset:2px;border-radius:3px}
+.htmyo-ipucu{position:absolute;z-index:120;background:#1F1846;color:#F4F2FF;border-radius:10px;padding:9px 12px;font-size:13px;line-height:1.5;box-shadow:0 10px 30px rgba(20,10,60,.3);pointer-events:none}
+.htmyo-ipucu b{display:block;color:#fff;margin-bottom:2px;font-size:13.5px}
+@media print{.htmyo-ipucu{display:none!important}.htmyo-terim{text-decoration:none}}
 </style>
 <script>
 /* Araçta "Kurum ve görünüm ayarları"ndan seçilen ana renk yardım sayfasına da uygulanır */
@@ -576,6 +581,59 @@ try{const k=JSON.parse(localStorage.getItem('htmyoKurum')||'null'),b=document.qu
   lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-kutu'))kapat()});
   document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')kapat();else if(e.key==='Tab'){e.preventDefault();lb.querySelector('.lb-x').focus()}});
 })();
+</script>
+<script>
+/* Terim ipuçları: araçtaki açıklamaların aynısı; her bölümde terimin ilk geçtiği yer işaretlenir */
+const HTMYO_TERIM={
+  kr20:['KR-20 güvenirlik','Sınavın ne kadar tutarlı ölçtüğünü gösteren katsayı (0-1). Bilen öğrenci soruların çoğunu doğru, bilmeyen çoğunu yanlış yapıyorsa yüksek çıkar. 0,70 ve üstü genellikle yeterli, 0,50-0,69 sınırda, 0,50 altı düşük. Negatifse cevap anahtarı ya da kitapçık türü hatalı olabilir. Soru sayısı azaldıkça doğal olarak düşer.'],
+  p:['Güçlük indeksi (p)','Soruyu doğru yanıtlayan öğrencilerin oranı (0-1). Büyüdükçe soru kolaylaşır: 0,30 altı zor, 0,30-0,70 orta, 0,70 üstü kolay.'],
+  guc:['Güçlük','p değerine göre sorunun zorluk sınıfı: 0,30 altı zor, 0,30-0,70 orta, 0,70 üstü kolay. Orta güçlükteki sorular öğrencileri en iyi ayırır.'],
+  d:['Ayırt edicilik (D)','Sorunun başarılı öğrencilerle başarısız öğrencileri ne kadar ayırdığı: toplam puanı en yüksek %27 ile en düşük %27 grubun bu soruyu doğru yapma oranları farkı. 0,40 ve üstü çok iyi, 0,30-0,39 iyi, 0,20-0,29 düzeltilmeli, 0,19 ve altı zayıf. Negatifse anahtarı kontrol edin.'],
+  ust:['Üst grup','Toplam puanı en yüksek %27 öğrencinin bu soruyu doğru yapma oranı.'],
+  alt:['Alt grup','Toplam puanı en düşük %27 öğrencinin bu soruyu doğru yapma oranı.'],
+  celdirici:['Çeldirici','Sorudaki yanlış şıklar. İyi bir çeldirici konuyu bilmeyen öğrenciye doğru gibi görünür. Kimsenin seçmediği çeldirici işlemiyor demektir; başarılı öğrenciler bir çeldiriciyi doğru cevaptan çok seçiyorsa anahtar ya da soru hatalı olabilir.'],
+  ss:['Standart sapma','Öğrencilerin doğru sayılarının ortalamadan ne kadar uzaklaştığı. Büyükse puanlar geniş bir aralığa yayılmış, küçükse öğrenciler birbirine yakın puan almıştır.'],
+  ortanca:['Ortanca (medyan)','Öğrenciler doğru sayısına göre sıralandığında tam ortada kalan değer. Birkaç çok yüksek ya da çok düşük puandan ortalama kadar etkilenmez.'],
+  ortpuan:['Ortalama puan','Öğrencilerin 100 üzerinden puanlarının ortalaması. İptal edilen sorular herkese doğru sayılır.'],
+  oc:['Öğrenme çıktısı (ÖÇ, DÖÇ)','Dersi başarıyla tamamlayan öğrencinin neyi bilmesi ya da yapabilmesi gerektiğini anlatan ifade. Ders Bilgi Paketinde numaralı olarak yer alır. DÖÇ: ders öğrenme çıktısı.'],
+  pc:['Program öğrenme çıktısı (PÇ)','Programdan mezun olan öğrencinin kazanması beklenen yeterlilik. Her dersin DÖÇ\'leri belirli PÇ\'lere belirli düzeyde katkı verir.'],
+  matris:['DÖÇ-PÇ ilişki matrisi','Her ders öğrenme çıktısının her program çıktısına ne kadar katkı verdiğini 0-5 arasında gösteren tablo (0 ilişki yok, 5 çok yüksek). Ders Bilgi Paketinden alınır.'],
+  duzey:['Bilişsel düzey','Sorunun gerektirdiği düşünme düzeyi (Bloom sınıflaması): Hatırlama, Anlama, Uygulama, Analiz, Değerlendirme, Yaratma. Hatırlamadan yaratmaya doğru zorlaşır.'],
+  katki:['Katkı','Sınavın bir PÇ\'ye ne ölçüde hizmet ettiği (1-5): soruların ölçtüğü DÖÇ\'lerin matristeki değerlerinin ortalaması. 3 altı düşük, 3-3,99 orta, 4 ve üstü yüksek.'],
+  gerkatki:['Gerçekleşen katkı','Planlanan katkının, öğrencilerin o sorulardaki başarı oranıyla çarpımı. PÇ\'ye ulaşmanın doğrudan ölçümü değil, sınava dayalı bir göstergedir.'],
+  esik:['Başarı eşiği','Bir öğrenme çıktısına "Ulaşıldı" denmesi için gereken en düşük başarı yüzdesi (varsayılan %60).'],
+  basari:['Sınıfın başarı yüzdesi','O ÖÇ\'yü ölçen sorularda bütün öğrencilerin ortalama doğru oranı. PFRM-250\'deki "Gerçekleşme %" değeridir.'],
+  hedef:['Hedefe ulaşan öğrenci','O ÖÇ\'yü ölçen sorularda başarı eşiği ve üstünde başarı gösteren öğrenci sayısı.'],
+  kod:['Üretim kodu','Kitapçıkların karıştırma anahtarı. Aynı A kitapçığı, aynı seçenekler ve aynı kodla kitapçıklar birebir yeniden üretilir. Öğrencinin göreceği bir yere yazmayın.'],
+  aiken:['Aiken biçimi','Soruların düz metin olarak yazıldığı yaygın biçim: soru, altında A) B) ... şıklar ve son satırda "ANSWER: B". Moodle gibi sistemler de kullanır.'],
+  iptal:['İptal edilen soru','Hatalı bulunduğu için değerlendirmeden çıkarılan soru. Herkese doğru sayılır; güçlük, ayırt edicilik ve KR-20 hesabına katılmaz.'],
+  optik:['Optik sonuç dosyası','Optik formların okutulmasıyla alınan dosya: her satırda öğrenci numarası, kitapçık türü ve cevaplar.']
+};
+(function(){
+  const H='A-Za-zÇĞİÖŞÜçğıöşü0-9';
+  const K=[['kr20','KR-20'],['matris','DÖÇ-PÇ ilişki matris[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*|ilişki matris[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*|matris[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['oc','DÖÇ[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*|ÖÇ[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['pc','PÇ[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],
+    ['guc','güçlük'],['d','[aA]yırt edici[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['ust','üst grup[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['celdirici','çeldirici[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['ss','standart sapma[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['ortpuan','ortalama puan[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],
+    ['duzey','[bB]ilişsel düzey[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['katki','katkı[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['basari','başarı yüzdesi[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['esik','başarı eşiğ[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*|eşik[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['hedef','[hH]edefe ulaşan'],
+    ['kod','[üÜ]retim kodu[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['aiken','Aiken'],['iptal','[iİ]ptal edil[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]* soru[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*|[iİ]ptal[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*'],['optik','[oO]ptik sonuç dosyası[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*|[oO]ptik okuyucu[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*|[oO]ptik[A-Za-zÇĞİÖŞÜçğıöşü\u2019\u0027]*']]
+    .map(([k,r])=>[k,new RegExp('(^|[^'+H+'])('+r+')','u')]);
+  const ATLA=['H1','H2','H3','H4','A','BUTTON','CODE','KBD','ABBR','SCRIPT','STYLE','SUMMARY'];
+  const sar=(n,k,bas,uz)=>{const o=n.splitText(bas),kal=o.splitText(uz),a=document.createElement('abbr');a.className='htmyo-terim';a.dataset.terim=k;a.tabIndex=0;a.textContent=o.nodeValue;o.replaceWith(a);return kal};
+  document.querySelectorAll('main section').forEach(sec=>{
+    const kalan=new Set(K.map(x=>x[0]));
+    const w=document.createTreeWalker(sec,NodeFilter.SHOW_TEXT,{acceptNode:n=>{for(let e=n.parentElement;e&&e!==sec;e=e.parentElement)if(ATLA.includes(e.tagName)||e.classList.contains('toc'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
+    const dugum=[];while(w.nextNode())dugum.push(w.currentNode);
+    dugum.forEach(n=>{let d=n;for(;;){let en=null;for(const [k,re] of K){if(!kalan.has(k))continue;const m=re.exec(d.nodeValue);if(m){const bas=m.index+m[1].length;if(!en||bas<en[1])en=[k,bas,m[2].length]}}
+      if(!en)break;kalan.delete(en[0]);d=sar(d,en[0],en[1],en[2])}});
+  });
+})();
+{const ip=document.createElement('div');ip.id='htmyoIpucu';ip.className='htmyo-ipucu htmyo-noprint';ip.setAttribute('role','tooltip');ip.hidden=true;document.body.appendChild(ip);let hedef=null,zaman=0;
+  const goster=el=>{const y=HTMYO_TERIM[el.dataset.terim];if(!y)return;if(hedef!==el||ip.hidden)zaman=Date.now();hedef=el;ip.innerHTML='';const b=document.createElement('b');b.textContent=y[0];const t=document.createElement('span');t.textContent=y[1];ip.append(b,t);ip.hidden=false;el.setAttribute('aria-describedby','htmyoIpucu');
+    const r=el.getBoundingClientRect(),W=Math.min(340,innerWidth-16);ip.style.width=W+'px';let x=r.left+scrollX+r.width/2-W/2;x=Math.max(scrollX+8,Math.min(x,scrollX+innerWidth-W-8));let y2=r.bottom+scrollY+8;const h=ip.offsetHeight;if(r.bottom+8+h>innerHeight&&r.top-8-h>0)y2=r.top+scrollY-8-h;ip.style.left=x+'px';ip.style.top=y2+'px'};
+  const gizle=()=>{if(hedef)hedef.removeAttribute('aria-describedby');hedef=null;ip.hidden=true};
+  document.addEventListener('pointerover',e=>{if(e.pointerType!=='mouse')return;const el=e.target.closest&&e.target.closest('.htmyo-terim');if(el&&el!==hedef)goster(el);else if(!el&&hedef)gizle()});
+  document.addEventListener('focusin',e=>{const el=e.target.closest&&e.target.closest('.htmyo-terim');if(el)goster(el);else if(hedef)gizle()});
+  document.addEventListener('click',e=>{const el=e.target.closest&&e.target.closest('.htmyo-terim');if(el){e.preventDefault();hedef===el&&!ip.hidden&&Date.now()-zaman>500?gizle():goster(el)}else if(hedef)gizle()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')gizle()});addEventListener('scroll',()=>{if(hedef&&!hedef.matches(':hover'))gizle()},{passive:true})}
 </script>
 </body>
 </html>
