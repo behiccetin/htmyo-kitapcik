@@ -112,6 +112,10 @@ code,kbd{font-family:ui-monospace,Consolas,monospace;background:var(--l);padding
     <li><a href="#sinav">Çoğaltma ve sınav günü</a></li>
     <li><a href="#sonra">Sınavdan sonra: iptal ve düzeltme</a></li>
     <li><a href="#analiz">Madde analizi, öğrenci puanları ve ÖÇ tablosu</a></li>
+    <li><a href="#olcme-plani">Ölçme planı (sınavdan önce)</a></li>
+    <li><a href="#olcme-sonuclari">Ölçme sonuçları (sınavdan sonra)</a></li>
+    <li><a href="#kurum">Kurum ve görünüm ayarları</a></li>
+    <li><a href="#oturum">Çalışmayı kaydetme ve kaldığınız yerden devam etme</a></li>
     <li><a href="#deneme">Deneme dosyalarıyla alıştırma</a></li>
     <li><a href="#sss">Sık karşılaşılan durumlar</a></li>
   </ol>
@@ -202,7 +206,7 @@ araç doluluk oranını artırmak</div></div></div>
   <div class="not b"><span class="i">💡</span><div><b>Neden sorulara yazılmıyor?</b> Kitapçıkta ÖÇ görünürse öğrenci sorunun hangi konudan geldiğini anlar, bu da bir tür ipucudur. Bu yüzden ÖÇ bilgisi yalnızca hocada kalan dosyalarda bulunur. ÖÇ seçmek isteğe bağlıdır; seçmezseniz araç eskisi gibi çalışır.</div></div>
 
   <h3 id="oc-sec">ÖÇ'leri seçme (2. adım)</h3>
-  <figure><a href="yardim/14-oc-secim.png"><img src="yardim/14-oc-secim.png" width="1452" height="693" alt="2. adımda ÖÇ seçimi" loading="lazy"></a><figcaption>2. adım: dersin ÖÇ sayısı ve her sorunun ÖÇ'sü</figcaption></figure>
+  <figure><a href="yardim/14-oc-secim.png"><img src="yardim/14-oc-secim.png" width="1455" height="698" alt="2. adımda ÖÇ seçimi" loading="lazy"></a><figcaption>2. adım: dersin ÖÇ sayısı ve her sorunun ÖÇ'sü</figcaption></figure>
   <ol class="adim">
     <li><b>Dersin ÖÇ sayısı.</b> Ders Bilgi Paketindeki öğrenme çıktısı sayısını seçin (1 ile 15 arası). "ÖÇ kullanmıyorum" seçili kalırsa ÖÇ alanları gizlenir.</li>
     <li><b>Toplu giriş.</b> Bütün soruların ÖÇ'lerini soru sırasıyla, boşlukla ayırarak yazıp <b>Uygula</b>'ya basın. Birden fazla ÖÇ için virgül, ÖÇ'süz soru için tire kullanın: <code>1 2 1,3 - 2</code> demek 1. soru ÖÇ1, 2. soru ÖÇ2, 3. soru ÖÇ1 ve ÖÇ3, 4. soru ÖÇ'süz, 5. soru ÖÇ2 demektir.</li>
@@ -212,9 +216,9 @@ araç doluluk oranını artırmak</div></div></div>
   <div class="not g"><span class="i">📝</span><div>Dosyanızda zaten <code>[ÖÇ2]</code> ya da <code>[ÖÇ1,ÖÇ3]</code> gibi notlar varsa araç bunları okuyup seçimleri kendiliğinden doldurur ve öğrenciye giden kitapçıklardan siler. Aiken dosyasında <code>ANSWER: B</code> satırından sonraki <code>OC: 2</code> satırı da okunur. Bunları yazmanız gerekmez; seçimi araçta yapmanız yeterlidir.</div></div>
 
   <h3 id="oc-dosya">ÖÇ'lerin yazıldığı dosyalar</h3>
-  <figure><a href="yardim/15-oc-anahtar.png"><img src="yardim/15-oc-anahtar.png" width="1443" height="1031" alt="Sonuç ekranında PFRM-248 düğmesi ve ÖÇ'li cevap anahtarı" loading="lazy"></a><figcaption>Sonuç ekranı: ayrı dosya ve ÖÇ'li cevap anahtarı</figcaption></figure>
+  <figure><a href="yardim/15-oc-anahtar.png"><img src="yardim/15-oc-anahtar.png" width="1446" height="1035" alt="Sonuç ekranında PFRM-248 düğmesi ve ÖÇ'li cevap anahtarı" loading="lazy"></a><figcaption>Sonuç ekranı: ayrı dosya ve ÖÇ'li cevap anahtarı</figcaption></figure>
   <ol class="adim">
-    <li><b>PFRM-248 Sınav Cevap Anahtarı.</b> Yüksekokulun formunun doldurulmuş hâli Word olarak iner. Ders, bölüm/program, öğretim elemanı, sınav türü ve tarih "Yazdırma bilgileri" kutularından alınır.</li>
+    <li><b>PFRM-248 Sınav Cevap Anahtarı.</b> Yüksekokulun formunun doldurulmuş hali Word olarak iner. Ders, bölüm/program, öğretim elemanı, sınav türü ve tarih "Yazdırma bilgileri" kutularından alınır.</li>
     <li><b>Cevap anahtarı tablosu.</b> Her cevap harfinin altında o sorunun ölçtüğü ÖÇ küçük yazıyla görünür. Aynı bilgi "Cevap anahtarını indir (Excel/CSV)" dosyasına da yazılır; madde analizi ÖÇ'leri bu dosyadan okur.</li>
   </ol>
   <figure><a href="yardim/16-pfrm248.png"><img src="yardim/16-pfrm248.png" width="1075" height="1521" alt="Üretilen PFRM-248 Sınav Cevap Anahtarı" loading="lazy"></a><figcaption>Üretilen PFRM-248 Sınav Cevap Anahtarı (ilk sayfa)</figcaption></figure>
@@ -226,7 +230,7 @@ araç doluluk oranını artırmak</div></div></div>
 
   <h3 id="oc-tablo">Sınavdan sonra: Öğrenme Çıktılarına Ulaşma tablosu</h3>
   <p>Madde analizini çalıştırdığınızda, ÖÇ seçilmişse soru tablosunun altında bu tablo çıkar (<a href="#analiz">bkz. Madde analizi</a>).</p>
-  <figure><a href="yardim/17-oc-tablo.png"><img src="yardim/17-oc-tablo.png" width="1452" height="564" alt="Öğrenme Çıktılarına Ulaşma tablosu" loading="lazy"></a><figcaption>Öğrenme Çıktılarına Ulaşma tablosu</figcaption></figure>
+  <figure><a href="yardim/17-oc-tablo.png"><img src="yardim/17-oc-tablo.png" width="1422" height="540" alt="Öğrenme Çıktılarına Ulaşma tablosu" loading="lazy"></a><figcaption>Öğrenme Çıktılarına Ulaşma tablosu</figcaption></figure>
   <ol class="adim">
     <li><b>Sınıfın başarı yüzdesi.</b> O ÖÇ'yü ölçen sorularda bütün öğrencilerin ortalama doğru oranıdır. PFRM-250'deki "Gerçekleşme %" değeri budur.</li>
     <li><b>Durum.</b> Sınıfın başarı yüzdesi başarı eşiğine (varsayılan %60) ulaştıysa "Ulaşıldı", ulaşmadıysa "Ulaşılamadı". Hiç sorusu olmayan ÖÇ "Ölçülmedi" görünür.</li>
@@ -283,10 +287,12 @@ araç doluluk oranını artırmak</div></div></div>
     <li><b>Yazdırma bilgileri.</b> Ders, bölüm/program, sınav, tarih ve öğretim elemanı; yazdırılan cevap anahtarının ve PFRM-248 dosyasının başında görünür. Şablon kullandıysanız kendiliğinden dolar.</li>
     <li><b>Cevap anahtarı tablosu.</b> Her kitapçığın her sorusunun doğru cevabı; ÖÇ seçtiyseniz harfin altında ÖÇ'si. Altında soru eşleşmesi (B'deki 1. soru A'da kaçıncı soru) ve harf dağılımı tabloları bulunur. Bu ekranda ayrıca <b>PFRM-248 Sınav Cevap Anahtarı</b> Word dosyası da iner (<a href="#oc-dosya">bkz. ÖÇ bölümü</a>).</li>
   </ol>
-  <figure><a href="yardim/08-anahtar-indir.png"><img src="yardim/08-anahtar-indir.png" width="1452" height="450" alt="Cevap anahtarını yazdırma ve indirme düğmeleri" loading="lazy"></a><figcaption>Cevap anahtarı düğmeleri</figcaption></figure>
+  <figure><a href="yardim/08-anahtar-indir.png"><img src="yardim/08-anahtar-indir.png" width="1452" height="608" alt="Cevap anahtarını yazdırma ve indirme düğmeleri" loading="lazy"></a><figcaption>Cevap anahtarı düğmeleri</figcaption></figure>
   <ol class="adim">
     <li><b>Cevap anahtarını indir (Excel/CSV).</b> Bu dosyayı mutlaka indirip saklayın.</li>
     <li><b>Cevap anahtarını yazdır.</b> "GİZLİDİR · CEVAP ANAHTARI" başlıklı, imza alanlı bir sayfa yazdırır. Sınav evrakıyla birlikte saklanabilir.</li>
+    <li><b>Ölçme planını yazdır.</b> 2. adımda ölçme planı girdiyseniz yatay A4 planı yazdırır (<a href="#olcme-plani">bkz. Ölçme planı</a>).</li>
+    <li><b>Çalışmayı kaydet (.htmyo).</b> O ana kadar yaptığınız her şeyi tek dosyaya kaydeder; sonra kaldığınız yerden devam edersiniz (<a href="#oturum">bkz. Çalışmayı kaydetme</a>).</li>
   </ol>
   <div class="not r"><span class="i">📌</span><div><b>Cevap anahtarı dosyasını (.csv) neden saklamalıyım?</b> Araç hiçbir şeyi kaydetmez; sayfayı kapattığınızda her şey silinir. Sınavdan günler sonra madde analizi yapmak ya da bir soruyu iptal etmek istediğinizde, aracın hangi sorunun hangi kitapçıkta kaçıncı sırada olduğunu bilmesi gerekir. Bu bilgi yalnızca bu dosyada bulunur. Dosyayı ders klasörünüzde, kitapçıkların yanında saklayın. Kaybederseniz <b>üretim kodu</b> ile kitapçıkları yeniden oluşturup dosyayı tekrar indirebilirsiniz.</div></div>
   <a class="top" href="#ozet">↑ Başa dön</a>
@@ -302,7 +308,7 @@ araç doluluk oranını artırmak</div></div></div>
   <ul>
     <li><b>Çift taraflı baskı:</b> 4 sayfalık kitapçıkta 1-2 ve 3-4. sayfaları arkalı önlü basıp zımbalayın.</li>
     <li><b>Dağıtım:</b> Kitapçıkları sıra sıra A, B, C, D, E diye dağıtın; yan yana ve arka arkaya oturanlar aynı kitapçığı almasın.</li>
-    <li><b>Renkli kâğıt (isteğe bağlı):</b> Her kitapçığı farklı renkte kâğıda basmak, gözetmenin dağıtımı bir bakışta kontrol etmesini sağlar.</li>
+    <li><b>Renkli kağıt (isteğe bağlı):</b> Her kitapçığı farklı renkte kağıda basmak, gözetmenin dağıtımı bir bakışta kontrol etmesini sağlar.</li>
     <li><b>Optik form:</b> Öğrencilere kitapçık türünü optik forma kodlamalarını sınav başında hatırlatın. Yanlış kitapçık kodlayan öğrencinin cevapları yanlış anahtarla okunur.</li>
   </ul>
   <a class="top" href="#ozet">↑ Başa dön</a>
@@ -373,12 +379,119 @@ araç doluluk oranını artırmak</div></div></div>
   <a class="top" href="#ozet">↑ Başa dön</a>
 </section>
 
+<section class="card" id="olcme-plani">
+  <h2><span class="n">10</span>Ölçme planı (sınavdan önce)</h2>
+  <p class="lead">Ölçme planı, sınavın hangi ders öğrenme çıktısını (DÖÇ) hangi bilişsel düzeyde ve hangi sorularla ölçtüğünü, program öğrenme çıktılarına (PÇ) ne kadar katkı verdiğini gösteren iki sayfalık belgedir. Araç bu belgeyi 2. adımda girdiğiniz bilgilerden hazırlar. Sınavdan sonra aynı düzende <a href="#olcme-sonuclari">ölçme sonuçları</a> alınır. İsteğe bağlıdır; plan girmezseniz araç önceki gibi çalışır.</p>
+  <h3>Neye ihtiyacınız var?</h3>
+  <table>
+    <tr><th>Bilgi</th><th>Nereden gelir?</th></tr>
+    <tr><td><b>Soruların DÖÇ'leri</b></td><td>2. adımda her sorunun yanındaki ÖÇ düğmesinden ya da ÖÇ toplu girişinden (<a href="#oc-sec">bkz. ÖÇ seçme</a>).</td></tr>
+    <tr><td><b>DÖÇ ve PÇ metinleri</b></td><td>Dersin Ders Bilgi Paketi ve programın öğrenme çıktıları listesi.</td></tr>
+    <tr><td><b>DÖÇ-PÇ ilişki matrisi</b></td><td>Ders Bilgi Paketindeki "öğrenme çıktıları ile program çıktıları ilişkisi" tablosu (0-5).</td></tr>
+    <tr><td><b>Bilişsel düzey ve hafta</b></td><td>Her sorunun düzeyi (Hatırlama, Anlama, Uygulama, Analiz, Değerlendirme, Yaratma) ve konusunun işlendiği hafta. Bunları siz belirlersiniz.</td></tr>
+  </table>
+  <figure><a href="yardim/18-olcme-plani-panel.png"><img src="yardim/18-olcme-plani-panel.png" width="1383" height="837" alt="Ölçme planı paneli: düğmeler, ders bilgileri, DÖÇ ve PÇ metinleri" loading="lazy"></a><figcaption>2. adım, soru listesinin altında: Ölçme planı paneli</figcaption></figure>
+  <ol class="adim">
+    <li><b>Plan dosyası yükle (.json).</b> Daha önce kaydettiğiniz planı geri getirir. Aynı dersin DÖÇ, PÇ ve matris bilgileri her dönem yeniden yazılmaz. Plan dosyasında soruların ÖÇ'leri de varsa listeye işlenir.</li>
+    <li><b>Planı kaydet (.json).</b> Paneldeki bütün bilgileri bilgisayarınıza bir dosya olarak indirir. Araç hiçbir şeyi kendisi saklamaz.</li>
+    <li><b>Ölçme planını yazdır.</b> Belgeyi yatay A4 olarak yazdırır. Yazıcı penceresinde "PDF olarak kaydet"i seçerek PDF de alabilirsiniz.</li>
+    <li><b>Ders ve sınav bilgileri.</b> Belgenin başlığına ve bilgi satırına yazılır. Şablondan gelen ders, sınav türü ve tarih kendiliğinden dolar.</li>
+    <li><b>DÖÇ ve PÇ metinleri.</b> Her satıra bir çıktı. Satır başındaki "DÖÇ1", "PÇ2" gibi kodları yapıştırsanız da olur; araç numarayı satır sırasından verir. DÖÇ satır sayısı seçtiğiniz ÖÇ sayısıyla aynı olmalı.</li>
+  </ol>
+  <figure><a href="yardim/19-olcme-plani-matris.png"><img src="yardim/19-olcme-plani-matris.png" width="1383" height="1116" alt="DÖÇ-PÇ matrisi ve soruların bilişsel düzeyi ile haftası" loading="lazy"></a><figcaption>DÖÇ-PÇ ilişki matrisi ve soru bilgileri</figcaption></figure>
+  <ol class="adim">
+    <li><b>DÖÇ-PÇ ilişki matrisi.</b> Her hücreye 0 ile 5 arasında bir sayı yazın. Ders Bilgi Paketindeki ya da Excel'deki tabloyu kopyalayıp ilk hücreye yapıştırırsanız bütün hücreler dolar. 4 ve 5 koyu görünür.</li>
+    <li><b>Toplu giriş.</b> Düzeyleri soru sırasıyla harfle yazın: <code>H A A A H</code> (H: Hatırlama, A: Anlama, U: Uygulama, Z: Analiz, D: Değerlendirme, Y: Yaratma). Haftaları sayıyla yazın: <code>1 7 7 2 4</code>. Bir soruyu atlamak için tire (-) yazın.</li>
+    <li><b>Soru tablosu.</b> Her sorunun DÖÇ'ü listede seçtiğiniz ÖÇ'den gelir. Düzeyi ve haftayı burada tek tek de değiştirebilirsiniz.</li>
+  </ol>
+  <p>Panelin en altındaki <b>Puanlama ölçütleri</b> kutusu boş kalırsa belgeye varsayılan metin yazılır (soru puanı, yanlışın doğruyu götürmediği, optik okuma ve düzeylerin kısa tanımı). Kendi metninizi her satıra "Başlık: açıklama" biçiminde yazabilirsiniz.</p>
+  <h3>Çıktı</h3>
+  <figure><a href="yardim/20-olcme-plani-1.png"><img src="yardim/20-olcme-plani-1.png" width="1521" height="1075" alt="Ölçme planı, birinci sayfa" loading="lazy"></a><figcaption>Ölçme planı, 1. sayfa: DÖÇ ve düzeye göre sorular, puanlama ölçütleri, PÇ katkısı</figcaption></figure>
+  <figure><a href="yardim/21-olcme-plani-2.png"><img src="yardim/21-olcme-plani-2.png" width="1521" height="1075" alt="Ölçme planı, ikinci sayfa: soru-çıktı matrisi" loading="lazy"></a><figcaption>Ölçme planı, 2. sayfa: soru, DÖÇ ve PÇ matrisi</figcaption></figure>
+  <table>
+    <tr><th>Bölüm</th><th>Ne gösterir?</th></tr>
+    <tr><td><b>1. Ölçme planı</b></td><td>Her DÖÇ satırında, sütunlardaki bilişsel düzeylere düşen A kitapçığı soru numaraları; DÖÇ'nün soru sayısı ve puanı. Toplam satırı her düzeydeki soru ve puan toplamıdır. Hiç sorusu olmayan DÖÇ'ler tablonun altında "bu sınavda ölçülmedi" diye yazılır.</td></tr>
+    <tr><td><b>2. Puanlama ölçütleri</b></td><td>Soru başına puan, okuma biçimi ve düzeylerin tanımı.</td></tr>
+    <tr><td><b>3. Program öğrenme çıktıları</b></td><td>Sınavın her PÇ'ye ortalama katkısı (1-5) ve düzeyi: 3 altı düşük, 3-3,99 orta, 4 ve üstü yüksek.</td></tr>
+    <tr><td><b>4. Soru-çıktı matrisi</b></td><td>Her soru için cevap, hafta, düzey, DÖÇ ve her PÇ'ye katkı. Son satır PÇ'lerin ortalama katkısıdır.</td></tr>
+  </table>
+  <div class="not b"><span class="i">💡</span><div><b>PÇ katkısı nasıl hesaplanır?</b> Bir sorunun PÇ katkısı, ölçtüğü DÖÇ'nün matristeki değeridir. Soru birden çok DÖÇ'ye bağlıysa en yüksek değer alınır. Sınavın PÇ katkısı, DÖÇ'ü olan soruların ortalamasıdır. Örnek: 25 sorunun 4'ü PÇ1'e katkısı 5 olan, 14'ü katkısı 3 olan, 4'ü katkısı 4 olan ve 3'ü katkısı 2 olan DÖÇ'leri ölçüyorsa PÇ1 katkısı (4×5 + 14×3 + 4×4 + 3×2) ÷ 25 = 3,36 olur (orta).</div></div>
+  <p>Plan bilgileri, kitapçıkları oluşturduktan sonra indirdiğiniz cevap anahtarı dosyasına da yazılır. Sınavdan sonra o dosyayı madde analizine yüklediğinizde plan da gelir.</p>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="olcme-sonuclari">
+  <h2><span class="n">11</span>Ölçme sonuçları (sınavdan sonra)</h2>
+  <p class="lead">Madde analizini çalıştırdıktan sonra sonuçların en altında çıkar. Ölçme planındaki dört bölümü bu kez sınav sonuçlarıyla doldurur. Ders dosyası, program öz değerlendirmesi ve akreditasyon kanıtı için kullanılabilir.</p>
+  <figure><a href="yardim/22-olcme-sonuclari-dugmeler.png"><img src="yardim/22-olcme-sonuclari-dugmeler.png" width="1437" height="285" alt="Ölçme sonuçları düğmeleri" loading="lazy"></a><figcaption>Madde analizinin altında: Ölçme sonuçları</figcaption></figure>
+  <ol class="adim">
+    <li><b>Ölçme sonuçlarını yazdır.</b> İki sayfalık, yatay A4 belge. PDF olarak da kaydedilebilir.</li>
+    <li><b>Ölçme sonuçlarını indir (CSV).</b> Aynı tablolar Excel'de açılan bir dosya olarak iner.</li>
+    <li><b>Plan dosyası yükle (.json).</b> Cevap anahtarı dosyası bu sürümden önce oluşturulduysa içinde plan yoktur. Planı ayrıca kaydettiyseniz buradan yükleyin; rapor yeniden hazırlanır.</li>
+  </ol>
+  <figure><a href="yardim/23-olcme-sonuclari-1.png"><img src="yardim/23-olcme-sonuclari-1.png" width="1521" height="1075" alt="Ölçme sonuçları, birinci sayfa" loading="lazy"></a><figcaption>Ölçme sonuçları, 1. sayfa</figcaption></figure>
+  <figure><a href="yardim/24-olcme-sonuclari-2.png"><img src="yardim/24-olcme-sonuclari-2.png" width="1521" height="1075" alt="Ölçme sonuçları, ikinci sayfa" loading="lazy"></a><figcaption>Ölçme sonuçları, 2. sayfa</figcaption></figure>
+  <table>
+    <tr><th>Bölüm</th><th>Ne gösterir?</th></tr>
+    <tr><td><b>1. DÖÇ ve bilişsel düzeye göre başarı</b></td><td>Her hücrede soru numaraları ve altında o soruların ortalama başarı yüzdesi. Sağda DÖÇ'nün başarı yüzdesi, hedefe ulaşan öğrenci sayısı ve "Ulaşıldı / Ulaşılamadı" durumu (<a href="#oc-tablo">ÖÇ tablosuyla</a> aynı hesap). Toplam satırı her düzeyin başarı yüzdesidir.</td></tr>
+    <tr><td><b>2. Sınav istatistikleri</b></td><td>Öğrenci ve soru sayısı, puan ortalaması ve aralığı, doğru sayısı istatistikleri, puan dağılımı, KR-20 güvenirliği, güçlük ve ayırt edicilik dağılımı, başarı eşiği.</td></tr>
+    <tr><td><b>3. Program öğrenme çıktıları</b></td><td>Planlanan katkı ve düzeyi; <b>başarı %</b> (soruların PÇ katkısıyla ağırlıklandırılmış doğru oranı); <b>gerçekleşen katkı</b> (planlanan katkı × başarı oranı); başarı eşiğe ulaştıysa "Ulaşıldı".</td></tr>
+    <tr><td><b>4. Soru matrisi</b></td><td>Her soru için p, D ve karar, DÖÇ ve PÇ katkıları. Son iki satır planlanan ve gerçekleşen PÇ katkısıdır.</td></tr>
+  </table>
+  <h3>Karar sütunu nasıl okunur?</h3>
+  <table>
+    <tr><th>Karar</th><th>Ne zaman?</th><th>Ne yapılır?</th></tr>
+    <tr><td><b>Koru</b></td><td>D 0,30 ve üstü</td><td>Soru iyi çalışıyor; soru havuzunda tutulabilir.</td></tr>
+    <tr><td><b>Gözden geçir</b></td><td>D 0,20-0,29</td><td>Soru kökü ve çeldiriciler kontrol edilip düzeltilebilir.</td></tr>
+    <tr><td><b>Düzelt ya da çıkar</b></td><td>D 0,20 altı</td><td>Soru başarılıyla başarısızı ayırmıyor; yeniden yazılmalı ya da havuzdan çıkarılmalı.</td></tr>
+    <tr><td><b>Anahtarı kontrol et</b></td><td>D negatif ya da üst grup bir çeldiriciyi doğru cevaptan çok seçmiş</td><td>Cevap anahtarında hata olabilir; gerekirse <a href="#sonra">anahtarı düzeltin ya da soruyu iptal edin</a>.</td></tr>
+  </table>
+  <div class="not w"><span class="i">⚠️</span><div><b>Yorumlarken dikkat:</b> PÇ değerleri tek bir sınava dayanan bir göstergedir; PÇ'ye ulaşmanın doğrudan ölçümü değildir. Üçten az soruyla ölçülen bir DÖÇ'nün başarı yüzdesi tek soruya çok bağlıdır. İptal edilen sorular hesaba katılmaz. Karar sütunundaki ölçütler yol göstericidir; son karar dersin öğretim elemanına aittir.</div></div>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="kurum">
+  <h2><span class="n">12</span>Kurum ve görünüm ayarları (başka okullar için)</h2>
+  <p class="lead">Kitapçık Oluşturucu açık kaynaklıdır ve başka okullarda da kullanılabilir. Kurum adı, logo, ana renk ve cevap anahtarı formunun doküman numarası sayfanın en altındaki <b>Kurum ve görünüm ayarları</b> bölümünden değiştirilir.</p>
+  <figure><a href="yardim/25-kurum-ayarlari.png"><img src="yardim/25-kurum-ayarlari.png" width="1452" height="675" alt="Kurum ve görünüm ayarları" loading="lazy"></a><figcaption>Kurum ve görünüm ayarları</figcaption></figure>
+  <ol class="adim">
+    <li><b>Kurum bilgileri.</b> Üst satır (T.C.), üniversite, birim, kısa ad, cevap anahtarı formunun doküman numarası ve yürürlük tarihi. Ana renk seçilince bütün arayüz bu renge göre yeniden boyanır.</li>
+    <li><b>Logo.</b> PNG ya da JPG (400 KB'tan küçük). Ölçme planı, ölçme sonuçları ve cevap anahtarı Word dosyasının başlığına konur. "Logoyu kaldır" ile logosuz da kullanılabilir.</li>
+    <li><b>Kaydet ve ayar dosyası.</b> Kaydet, ayarları yalnızca bu tarayıcıda saklar. "Ayar dosyasını indir" ile ayarları .json olarak alıp başka bir bilgisayarda "Ayar dosyası yükle" ile kullanırsınız. "Varsayılana dön" ilk ayarlara döndürür.</li>
+  </ol>
+  <div class="not b"><span class="i">💡</span><div><b>Kalıcı uyarlama (fork):</b> Aracı kendi sunucunuzda ya da GitHub sayfanızda yayımlayacaksanız <code>index.html</code> içindeki <code>HTMYO_KURUM_VARS</code> nesnesini düzenleyin; böylece ayarlar herkes için varsayılan olur. Ayrıntı ve örnek <a href="https://github.com/behiccetin/htmyo-kitapcik#kendi-kurumunuza-uyarlama-şablon">README dosyasında</a>. Telif bildirimi ve atıf korunmalıdır.</div></div>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
+<section class="card" id="oturum">
+  <h2><span class="n">13</span>Çalışmayı kaydetme ve kaldığınız yerden devam etme</h2>
+  <p class="lead">Araç hiçbir şeyi kendisi saklamaz; sayfayı kapatınca yaptıklarınız silinir. İşinizi yarıda bırakacaksanız ya da sınavdan sonra aynı çalışmaya dönecekseniz <b>.htmyo</b> uzantılı bir çalışma dosyası kaydedin.</p>
+  <figure><a href="yardim/26-calismayi-kaydet.png"><img src="yardim/26-calismayi-kaydet.png" width="1488" height="297" alt="Çalışmayı kaydet ve aç düğmeleri" loading="lazy"></a><figcaption>Sayfanın üstünde, adımların altında: çalışmayı kaydetme ve açma</figcaption></figure>
+  <ol class="adim">
+    <li><b>Çalışmayı kaydet (.htmyo).</b> Dosya bilgisayarınıza iner. Aynı düğme sonuç ekranında da vardır.</li>
+    <li><b>Kayıtlı çalışmayı aç.</b> Daha önce kaydettiğiniz .htmyo dosyasını seçin. Dosyayı A kitapçığı alanına sürükleyip bırakmak da olur.</li>
+    <li><b>Durum satırı.</b> Kaydın ya da açılışın sonucunu gösterir. Bir sorun varsa (örneğin kitapçıklar kayıttakiyle aynı üretilemezse) burada kırmızı uyarı çıkar.</li>
+  </ol>
+  <h3>Dosyada neler saklanır?</h3>
+  <table>
+    <tr><th>Bölüm</th><th>Saklananlar</th></tr>
+    <tr><td><b>1-2. adım</b></td><td>Yüklediğiniz A kitapçığı dosyasının kendisi, işaretlediğiniz cevaplar, Öncekiyle ve Sabit işaretleri, ÖÇ sayısı ve soruların ÖÇ'leri, ölçme planının bütün bilgileri.</td></tr>
+    <tr><td><b>3. adım</b></td><td>Seçilen kitapçıklar, bütün seçenekler ve üretim kodu.</td></tr>
+    <tr><td><b>Sonuç</b></td><td>Kitapçıklar oluşturulmuşsa açılışta aynı üretim koduyla birebir aynı yeniden üretilir; soru iptalleri, anahtar düzeltmeleri ve yazdırma bilgileri geri yüklenir.</td></tr>
+    <tr><td><b>Madde analizi</b></td><td>Seçtiğiniz cevap anahtarı dosyası, optik sonuç dosyası ya da yapıştırılan cevaplar, iptal edilen sorular, başarı eşiği ve rapor bilgileri. Analiz yapılmışsa açılışta yeniden çalışır.</td></tr>
+  </table>
+  <div class="not w"><span class="i">🔒</span><div><b>Güvenlik:</b> Çalışma dosyası soruları ve, analiz yapıldıysa, öğrenci cevaplarını içerir. Dosya hiçbir sunucuya gönderilmez, yalnızca bilgisayarınıza iner; ders klasörünüzde güvenli bir yerde saklayın ve öğrencilerle paylaşmayın. Kurum ve görünüm ayarları çalışma dosyasına girmez; onlar için ayrı ayar dosyası kullanılır.</div></div>
+  <div class="not b"><span class="i">💡</span><div>Sayfada kaydedilmemiş bir çalışma varken sekmeyi kapatmaya çalışırsanız tarayıcı sizi uyarır. Cevap anahtarı dosyasını (.csv) yine de saklayın: madde analizi için o dosya yeterlidir.</div></div>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
 <section class="card" id="deneme">
-  <h2><span class="n">10</span>Deneme dosyalarıyla alıştırma</h2>
+  <h2><span class="n">14</span>Deneme dosyalarıyla alıştırma</h2>
   <p class="lead">Aracı gerçek bir sınavdan önce denemek için aşağıdaki örnek dosyaları kullanabilirsiniz. Öğrenci adları ve cevapları uydurmadır.</p>
   <div class="dl">
     <a href="ornek/Ornek_Sinav.docx" download><span class="e">📝</span><div><b>Örnek A kitapçığı</b><span>25 soruluk test, yüksekokul şablonuyla (Word)</span></div></a>
-    <a href="ornek/Ornek_Sinav_cevap-anahtari.csv" download><span class="e">🔑</span><div><b>Örnek cevap anahtarı dosyası</b><span>A, B, C, D, E kitapçıkları · üretim kodu ORNEK1 · ÖÇ'li</span></div></a>
+    <a href="ornek/Ornek_Sinav_cevap-anahtari.csv" download><span class="e">🔑</span><div><b>Örnek cevap anahtarı dosyası</b><span>A, B, C, D, E kitapçıkları · üretim kodu ORNEK1 · ÖÇ'li ve ölçme planlı</span></div></a>
+    <a href="ornek/Ornek_Sinav_olcme-plani.json" download><span class="e">📋</span><div><b>Örnek ölçme planı (.json)</b><span>5 DÖÇ, 8 PÇ, DÖÇ-PÇ matrisi, düzey ve hafta</span></div></a>
     <a href="ornek/ornek-optik.xlsx" download><span class="e">📊</span><div><b>Örnek optik sonuç (Excel)</b><span>42 uydurma öğrenci</span></div></a>
     <a href="ornek/ornek-optik.csv" download><span class="e">📄</span><div><b>Örnek optik sonuç (CSV)</b><span>Aynı veriler, metin biçiminde</span></div></a>
   </div>
@@ -386,10 +499,11 @@ araç doluluk oranını artırmak</div></div></div>
   <ol>
     <li>Kitapçık Oluşturucu'yu açın ve <b>Örnek A kitapçığı</b>nı yükleyin.</li>
     <li>Toplu giriş kutusuna <code>EBDABCDACBEACBEDACBDACAEB</code> yazıp <b>Uygula</b>'ya basın.</li>
-    <li>İsterseniz ÖÇ'leri de deneyin: "Dersin ÖÇ sayısı" olarak <b>5</b> seçin, ÖÇ toplu giriş kutusuna <code>1 2 3 4 5 1,2 2 3 - 4 5 1 2,3 3 4 5 1 2 3 4 5,1 1 2 3 4</code> yazıp <b>Uygula</b>'ya basın.</li>
+    <li>İsterseniz ÖÇ'leri de deneyin: "Dersin ÖÇ sayısı" olarak <b>5</b> seçin, ÖÇ toplu giriş kutusuna <code>1 5 5 2 3 2 2,3 4 4 3 2 2 4 4 2 3 3 3 1 1,2 2 2 5 3 1</code> yazıp <b>Uygula</b>'ya basın.</li>
+    <li>Ölçme planını denemek için soru listesinin altındaki <b>Ölçme planı</b> panelini açın, <b>Plan dosyası yükle</b> ile <b>örnek ölçme planı</b>nı seçin (ÖÇ'ler de kendiliğinden işlenir) ve <b>Ölçme planını yazdır</b>'a basın.</li>
     <li>3. adımda B, C, D ve E'nin hepsini seçin, seçenekleri olduğu gibi bırakın, üretim koduna <code>ORNEK1</code> yazıp <b>Kitapçıkları oluştur</b>'a basın. Ortaya çıkan anahtar, örnek cevap anahtarı dosyasıyla birebir aynı olur.</li>
     <li>Sonuç ekranından <b>PFRM-248 Sınav Cevap Anahtarı</b>'nı indirip açın.</li>
-    <li>Sayfanın en altındaki madde analizinde <b>örnek cevap anahtarı dosyası</b>nı ve <b>örnek optik sonucu</b> seçip <b>Analizi başlat</b>'a basın. Soru tablosunun altında ÖÇ tablosu da görünür.</li>
+    <li>Sayfanın en altındaki madde analizinde <b>örnek cevap anahtarı dosyası</b>nı ve <b>örnek optik sonucu</b> seçip <b>Analizi başlat</b>'a basın. Soru tablosunun altında ÖÇ tablosu, en altta da <b>Ölçme sonuçları</b> düğmeleri görünür.</li>
   </ol>
   <a class="top" href="#ozet">↑ Başa dön</a>
 </section>

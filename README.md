@@ -1,12 +1,14 @@
 # Kitapçık Oluşturucu
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24226188.svg)](https://doi.org/10.5281/zenodo.24226188)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24226187.svg)](https://doi.org/10.5281/zenodo.24226187)
 
 **Burdur Mehmet Akif Ersoy Üniversitesi, Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu**
 
-Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir metin dosyasıyla (.txt, Aiken biçimi dahil) hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı.
+Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir metin dosyasıyla (.txt, Aiken biçimi dahil) hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı. Aynı araç sınavın **ölçme planını** hazırlar ve sınavdan sonra madde analiziyle birlikte aynı düzende **ölçme sonuçlarını** verir.
 
 **Kullanmak için:** https://behiccetin.github.io/htmyo-kitapcik/
+
+**Önceki sürümler:** https://behiccetin.github.io/htmyo-kitapcik/surumler/ (sayfanın altındaki sürüm numarasına tıklayınca da açılır; eski bir sürümle hazırlanmış kitapçıklar aynı üretim koduyla yeniden üretilebilir)
 
 **Resimli yardım:** https://behiccetin.github.io/htmyo-kitapcik/yardim.html (ekran görüntüleriyle adım adım anlatım ve deneme dosyaları)
 
@@ -61,6 +63,49 @@ ANSWER: B
 
 Aracın "Nasıl kullanılır?" bölümünden örnek Aiken ve düz metin dosyaları indirilebilir.
 
+## Çalışmayı kaydetme (.htmyo)
+
+Araç hiçbir şeyi kendisi saklamaz. Sayfanın üstündeki **Çalışmayı kaydet (.htmyo)** düğmesi o ana kadar yapılan her şeyi (A kitapçığı dosyası, cevaplar, ÖÇ'ler, ölçme planı, seçenekler, üretim kodu, iptaller ve anahtar düzeltmeleri, madde analizi girdileri) gzip ile sıkıştırılmış tek bir JSON dosyasına yazar. **Kayıtlı çalışmayı aç** ile ya da dosyayı A kitapçığı alanına bırakarak iş kaldığı yerden sürer; kitapçıklar oluşturulmuşsa aynı üretim koduyla birebir yeniden üretilir. Dosya öğrenci cevaplarını içerebilir; yalnızca kullanıcının bilgisayarına iner.
+
+## Ölçme planı ve ölçme sonuçları
+
+2. adımdaki **Ölçme planı** panelinde dersin ve programın öğrenme çıktıları (DÖÇ, PÇ), Ders Bilgi Paketindeki DÖÇ-PÇ ilişki matrisi (0-5) ve her sorunun bilişsel düzeyi (Hatırlama, Anlama, Uygulama, Analiz, Değerlendirme, Yaratma) ile haftası girilir. Sorunun DÖÇ'ü listede seçilen ÖÇ'dür.
+
+**Sınavdan önce** iki sayfalık, yatay A4 **Ölçme planı** yazdırılır (ya da PDF'e kaydedilir):
+1. DÖÇ ve bilişsel düzeye göre A kitapçığı soru numaraları, soru sayısı ve puan,
+2. puanlama ölçütleri,
+3. sınavın PÇ'lere ortalama katkısı (1-5) ve düzeyi (3 altı düşük, 3-3,99 orta, 4 ve üstü yüksek),
+4. soru, cevap, hafta, düzey, DÖÇ ve PÇ katkılarını gösteren soru-çıktı matrisi.
+
+Bir sorunun PÇ katkısı, ölçtüğü DÖÇ'nün matristeki değeridir (birden çok DÖÇ varsa en yükseği); sınavın katkısı soruların ortalamasıdır.
+
+**Sınavdan sonra**, madde analizinin altındaki **Ölçme sonuçları** aynı dört bölümü sonuçlarla doldurur: her hücrede başarı yüzdesi ve DÖÇ'ye ulaşma durumu; sınav istatistikleri (puan, puan dağılımı, KR-20, güçlük ve ayırt edicilik dağılımı); PÇ'ye planlanan katkı, katkı ağırlıklı başarı ve gerçekleşen katkı (planlanan × başarı oranı); soru bazında p, D ve karar (koru, gözden geçir, düzelt ya da çıkar, anahtarı kontrol et). Rapor yazdırılır ve CSV olarak iner. PÇ değerleri sınava dayalı bir göstergedir, PÇ'nin doğrudan ölçümü değildir.
+
+Plan bilgileri cevap anahtarı dosyasına (`#PLAN` satırı) yazılır; ayrıca `.json` olarak kaydedilip sonraki dönem aynı ders için yeniden yüklenebilir. Örnek: [ornek/Ornek_Sinav_olcme-plani.json](ornek/Ornek_Sinav_olcme-plani.json).
+
+## Kendi kurumunuza uyarlama (şablon)
+
+Araç açık kaynaklıdır ve başka okullarda kullanılabilir. Kurum adı, logo, ana renk ve cevap anahtarı formunun doküman numarası iki yoldan değiştirilir:
+
+- **Sayfadan:** en alttaki **Kurum ve görünüm ayarları** bölümünde üst satır, üniversite, birim, kısa ad, form doküman numarası ve yürürlük tarihi yazılır, ana renk seçilir, logo (PNG ya da JPG) yüklenir. Ayarlar yalnızca o tarayıcıda saklanır; **Ayar dosyasını indir** ile `.json` olarak alınıp başka bilgisayarda yüklenebilir.
+- **Kalıcı olarak (fork):** `index.html` içindeki `HTMYO_KURUM_VARS` nesnesini düzenleyin:
+
+```js
+const HTMYO_KURUM_VARS={
+  ust:'T.C.',
+  univ:'ÜNİVERSİTENİZİN ADI',
+  birim:'Fakülte ya da yüksekokul adı',
+  kisa:'KISA AD',
+  renk:'#3B2A8F',                       // arayüz ve Word başlık rengi
+  logo:'data:image/png;base64,...',     // boş bırakılabilir
+  logoW:114,logoH:200,                  // logonun piksel boyutu (oran için)
+  p248No:'FORM-NO',p248Tarih:'GG.AA.YYYY',
+  p248Not:'Cevap anahtarının teslimine ilişkin kurum notu.'
+};
+```
+
+Bu bilgiler ölçme planı ve ölçme sonuçları raporlarının başlığına, PFRM-248 biçimindeki Sınav Cevap Anahtarı Word dosyasına ve sayfanın üst şeridine yazılır. Ana renk değişince arayüzün bütün tonları bu renkten türetilir. Sayfadaki "Yüksekokulumuzun şablonu" gibi kuruma özgü metinler ve şablon bağlantısı `index.html` içinde düz metin olarak durur; fork eden kurum bunları kendi metniyle değiştirebilir. Telif bildirimi ve atıf korunmalıdır.
+
 ## Özellikler
 
 - Soruları ve şıkları karıştırır; görselli, öncüllü ve tablolu sorular bütün olarak taşınır.
@@ -84,6 +129,18 @@ Aracın "Nasıl kullanılır?" bölümünden örnek Aiken ve düz metin dosyalar
 
 ## Sürüm notları
 
+**2.2.0 (16 Kasım 2026).** Ölçme planı ve ölçme sonuçları, kurum şablonu:
+- 2. adımda **Ölçme planı** paneli: ders ve sınav bilgileri, DÖÇ ve PÇ metinleri, DÖÇ-PÇ matrisi (Excel'den yapıştırılabilir), soru başına bilişsel düzey ve hafta (toplu giriş), puanlama ölçütleri; plan dosyası (.json) kaydetme ve yükleme.
+- Sınav öncesi iki sayfalık, yatay A4 **Ölçme planı** çıktısı.
+- Madde analizinden sonra aynı düzende **Ölçme sonuçları** çıktısı ve CSV dosyası.
+- Plan bilgisi cevap anahtarı dosyasına yazılır ve madde analizinde okunur; eski anahtar dosyaları için plan dosyası ayrıca yüklenebilir.
+- **Kurum ve görünüm ayarları:** kurum adı, logo, ana renk, form numarası; tarayıcıda saklanır, .json olarak dışa ve içe aktarılır. PFRM-248 dosyası bu ayarlarla üretilir. Fork için `HTMYO_KURUM_VARS`.
+- **Önceki sürümler:** 1.0.0'dan 2.1.0'a kadar eski sürümler `surumler/` klasöründe çalışır halde durur; sayfanın altındaki sürüm numarasından açılır.
+- **Çalışmayı kaydet (.htmyo):** yüklenen A kitapçığı, cevaplar, ÖÇ'ler, ölçme planı, seçenekler, üretim kodu, iptal ve anahtar düzeltmeleri ve madde analizi girdileri tek dosyaya kaydedilir; dosya açılınca kitapçıklar aynı kodla birebir yeniden üretilir ve iş kaldığı yerden sürer. Kaydedilmemiş çalışmada sayfa kapatılırken uyarı verilir.
+- Yeni yardım bölümleri ve ekran görüntüleri; örnek ölçme planı dosyası.
+
+Önceki sürümlerle uyumludur: üretim kodları aynı kitapçıkları verir, eski cevap anahtarı dosyaları okunur; plan girilmezse araç önceki gibi çalışır.
+
 **2.1.0 (14 Kasım 2026).** Madde analizinde eşleşme denetimi: sınıf ortalaması şans düzeyine yakınsa, KR-20 negatifse, soruların yarısından fazlasında "anahtar hatası olabilir" notu varsa ya da kitapçık türleri arasında ortalama doğru farkı 2 kat ve üstündeyse sonuçların en üstünde ve ÖÇ tablosunun üstünde kırmızı uyarı çıkar. Sonuç başlığında anahtar dosyasının üretim kodu büyük yazılır. Düzeltmeler:
 - Excel'de açılıp virgül ya da sekmeyle veya tırnaklı olarak yeniden kaydedilen cevap anahtarı dosyaları okunur; okunamayan dosya için "0 soru" yerine açık bir hata verilir.
 - Bütün soruları boş bırakan öğrenci analize katılır.
@@ -106,14 +163,14 @@ Aracın "Nasıl kullanılır?" bölümünden örnek Aiken ve düz metin dosyalar
 
 - Sorular hiçbir sunucuya gönderilmez; tüm işlem tarayıcıda yapılır.
 - Sayfa, İçerik Güvenliği Politikası (CSP) ile hiçbir adrese bağlanamayacak, form gönderemeyecek ve dışarıdan kod yükleyemeyecek şekilde kilitlenmiştir. Dış kütüphane kullanılmaz.
-- Aracı yalnızca resmî bağlantıdan (yukarıdaki adres ya da yüksekokulun web sitesindeki bağlantı) açın. E-posta veya mesajla gönderilen başka kopyaları kullanmayın.
+- Aracı yalnızca resmi bağlantıdan (yukarıdaki adres ya da yüksekokulun web sitesindeki bağlantı) açın. E-posta veya mesajla gönderilen başka kopyaları kullanmayın.
 
 ## Atıf
 
 Bu yazılım MIT Lisansı ile yayımlanmıştır. Kullanan, değiştiren veya dağıtan herkes telif bildirimini korumalı ve şu atfı vermelidir:
 
-> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 2.1.0) [Yazılım]. Zenodo. https://doi.org/10.5281/zenodo.24226188
+> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 2.2.0) [Yazılım]. Zenodo. https://doi.org/10.5281/zenodo.24226187
 
-DOI: [10.5281/zenodo.24226188](https://doi.org/10.5281/zenodo.24226188) (bu sürüm) · Bütün sürümler için: [10.5281/zenodo.24226187](https://doi.org/10.5281/zenodo.24226187) · Kaynak kod: https://github.com/behiccetin/htmyo-kitapcik
+DOI (bütün sürümler, her zaman en son sürüme gider): [10.5281/zenodo.24226187](https://doi.org/10.5281/zenodo.24226187) · Sürüm 2.1.0: [10.5281/zenodo.24226188](https://doi.org/10.5281/zenodo.24226188) · Kaynak kod: https://github.com/behiccetin/htmyo-kitapcik
 
 © 2026 Behiç ÇETİN
