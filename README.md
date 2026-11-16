@@ -4,7 +4,7 @@
 
 **Burdur Mehmet Akif Ersoy Üniversitesi, Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu**
 
-Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir metin dosyasıyla (.txt, Aiken biçimi dahil) hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı. Soruları dersin **öğrenme çıktılarıyla (ÖÇ)** eşleştirir ve sınavdan önce **ölçme planını** hazırlar. Sınavdan sonra optik okuyucu sonuçlarıyla **madde analizi** yapar; öğrenme çıktılarına ulaşmayı ve **program çıktılarına (PÇ) katkıyı** ölçme planıyla aynı düzende raporlar.
+Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir metin dosyasıyla (.txt, Aiken biçimi dahil) hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı. Soruları dersin **öğrenme çıktılarıyla (ÖÇ)** eşleştirir ve sınavdan önce **ölçme planını** hazırlar. Sınavdan sonra optik okuyucu sonuçlarıyla **madde analizi** yapar; öğrenme çıktılarına ulaşmayı ve **program çıktılarına (PÇ) katkıyı** ölçme planıyla aynı düzende raporlar. **Klasik ve karma sınavlarda** da öğrencilerin soru soru aldığı puanlardan aynı analizleri hazırlar. Bütün işlem kullanıcının bilgisayarında yapılır; sorular ve öğrenci verileri hiçbir sunucuya gönderilmez, hiçbir yerde saklanmaz.
 
 **Kullanmak için:** https://behiccetin.github.io/htmyo-kitapcik/
 
@@ -69,7 +69,7 @@ Araç hiçbir şeyi kendisi saklamaz. Sayfanın üstündeki **Çalışmayı kayd
 
 ## Ölçme planı ve ölçme sonuçları
 
-2. adımdaki **Ölçme planı** panelinde dersin ve programın öğrenme çıktıları (DÖÇ, PÇ), Ders Bilgi Paketindeki DÖÇ-PÇ ilişki matrisi (0-5) ve her sorunun bilişsel düzeyi (Hatırlama, Anlama, Uygulama, Analiz, Değerlendirme, Yaratma) ile haftası girilir. Sorunun DÖÇ'ü listede seçilen ÖÇ'dür.
+2. adımdaki **Ölçme planı** panelinde dersin ve programın öğrenme çıktıları (DÖÇ, PÇ), Ders Bilgi Paketindeki DÖÇ-PÇ ilişki matrisi (0-5) ve her sorunun bilişsel düzeyi (Hatırlama, Anlama, Uygulama, Analiz, Değerlendirme, Yaratma) ile haftası girilir. Sorunun DÖÇ'si listede seçilen ÖÇ'dir.
 
 **Sınavdan önce** iki sayfalık, yatay A4 **Ölçme planı** yazdırılır (ya da PDF'e kaydedilir):
 1. DÖÇ ve bilişsel düzeye göre A kitapçığı soru numaraları, soru sayısı ve puan,
@@ -77,11 +77,22 @@ Araç hiçbir şeyi kendisi saklamaz. Sayfanın üstündeki **Çalışmayı kayd
 3. sınavın PÇ'lere ortalama katkısı (1-5) ve düzeyi (3 altı düşük, 3-3,99 orta, 4 ve üstü yüksek),
 4. soru, cevap, hafta, düzey, DÖÇ ve PÇ katkılarını gösteren soru-çıktı matrisi.
 
-Bir sorunun PÇ katkısı, ölçtüğü DÖÇ'nün matristeki değeridir (birden çok DÖÇ varsa en yükseği); sınavın katkısı soruların ortalamasıdır.
+Bir sorunun PÇ katkısı, ölçtüğü DÖÇ'nin matristeki değeridir (birden çok DÖÇ varsa en yükseği); sınavın katkısı soruların ortalamasıdır.
 
 **Sınavdan sonra**, madde analizinin altındaki **Ölçme sonuçları** aynı dört bölümü sonuçlarla doldurur: her hücrede başarı yüzdesi ve DÖÇ'ye ulaşma durumu; sınav istatistikleri (puan, puan dağılımı, KR-20, güçlük ve ayırt edicilik dağılımı); PÇ'ye planlanan katkı, katkı ağırlıklı başarı ve gerçekleşen katkı (planlanan × başarı oranı); soru bazında p, D ve karar (koru, gözden geçir, düzelt ya da çıkar, anahtarı kontrol et). Rapor yazdırılır ve CSV olarak iner. PÇ değerleri sınava dayalı bir göstergedir, PÇ'nin doğrudan ölçümü değildir.
 
 Plan bilgileri cevap anahtarı dosyasına (`#PLAN` satırı) yazılır; ayrıca `.json` olarak kaydedilip sonraki dönem aynı ders için yeniden yüklenebilir. Örnek: [ornek/Ornek_Sinav_olcme-plani.json](ornek/Ornek_Sinav_olcme-plani.json).
+
+## Klasik ve karma sınav değerlendirmesi
+
+Yazılı (klasik) sınavlar ve klasik sorularla test, doğru-yanlış, boşluk doldurma ya da eşleştirme sorularının birlikte sorulduğu karma sınavlar için ayrı bir bölüm vardır. Kitapçık üretmez; sınav okunup puanlandıktan sonra çalışır:
+
+1. **Sınav soruları:** Sınav Soruları Formu (Klasik ve Karma) ya da soruları "1." ile başlayan bir Word veya metin dosyası seçilir. Soru puanları formdaki puan alanlarından ya da sorunun sonundaki "(20 puan)" ifadesinden okunur, soru türü tahmin edilir. Dosya yoksa yalnızca soru sayısı yazılır.
+2. **Öğrenci puanları:** her satırda numara (isteğe bağlı ad) ve soru soru alınan puanlar (.xlsx, .csv, .txt ya da yapıştırma). Araç, soru başlıkları hazır bir puan çizelgesi (CSV) verir. Çoktan seçmeli sorularda puan yerine işaretlenen şık yazılabilir; doğru cevap seçildiyse puan kendiliğinden verilir.
+3. **Soru tablosu:** her sorunun türü, tam puanı, ÖÇ'si, (çoktan seçmeli ise) doğru cevabı, bilişsel düzeyi ve haftası. Ölçme planı (DÖÇ, PÇ, matris) bu bölümde de girilir; test sınavlarının plan dosyası (.json) burada da kullanılır.
+4. **Sonuç:** her soru için ortalama puan, güçlük (ortalama puan ÷ tam puan), ayırt edicilik (üst ve alt %27 grubun puan oranları farkı), tam puan, sıfır ve boş sayıları; sınav için **Cronbach alfa**; puan ağırlıklı Öğrenme Çıktılarına Ulaşma tablosu ve dört bölümlü ölçme sonuçları raporu. Tam puandan büyük, eksi ya da okunamayan puanlar tek tek listelenir.
+
+Örnek: [ornek/Ornek_Klasik_Sinav.docx](ornek/Ornek_Klasik_Sinav.docx), [ornek/Ornek_Klasik_puanlar.csv](ornek/Ornek_Klasik_puanlar.csv), [ornek/Ornek_Klasik_olcme-plani.json](ornek/Ornek_Klasik_olcme-plani.json).
 
 ## Kendi kurumunuza uyarlama (şablon)
 
@@ -114,7 +125,7 @@ Bu bilgiler ölçme planı ve ölçme sonuçları raporlarının başlığına, 
 - İstenirse aynı sıradaki sorunun doğru cevabını kitapçıklar arasında farklı harfe koyar (A kitapçığının 1. sorusunun cevabı B ise B, C, D, E kitapçıklarının 1. sorusunun cevabı B olmaz ve birbirini tekrar etmez); harf dağılımını da dengeler.
 - Doğru cevapların şıklara dağılımını (hangi şıkta kaç doğru cevap olduğunu) her kitapçık için gösterir.
 - Her dosyanın "Kitapçık türü" alanını kendi harfiyle doldurur.
-- Cevap anahtarını ve soru eşleşme tablosunu yazdırılabilir ve CSV olarak verir. Yazdırılan anahtarda ders, sınav, tarih, öğretim elemanı ve imza alanı bulunur.
+- Cevap anahtarını ve soru eşleşme tablosunu yazdırılabilir ve CSV olarak verir. Yazdırılan anahtar kurum başlıklı, yatay A4 ve "gizlidir" ibarelidir; ders, sınav, tarih ve öğretim elemanı bilgisi bulunur.
 - **Soru blokları ve sabit sorular:** ortak metne bağlı ya da "yukarıdaki soruya göre" diye başlayan sorular birlikte taşınır; istenen soru yerinde sabit kalır.
 - **Ardışık harf sınırı:** aynı cevap harfi en fazla 3 kez üst üste gelir.
 - **Alt bilgi:** her sayfanın altına "B KİTAPÇIĞI · Sayfa 2 / 4" yazılır.
@@ -126,8 +137,21 @@ Bu bilgiler ölçme planı ve ölçme sonuçları raporlarının başlığına, 
 - **Öğrenme Çıktılarına Ulaşma tablosu:** madde analizinde her ÖÇ için soru sayısı, toplam puan, sınıfın başarı yüzdesi, hedefe ulaşan öğrenci sayısı ve oranı, Ulaşıldı/Ulaşılamadı durumu; eşik ayarlanabilir (varsayılan %60), iptal edilen sorular sayılmaz, birden çok ÖÇ'ye bağlı soru her birine tam sayılır. Tablo yazdırılır ve PFRM-250 Program Çıktıları Değerlendirme Formu'na aktarılacak düzende CSV olarak iner.
 - **Bağlam yardımı:** her bölümün yanındaki **?** düğmesine basınca o bölümün ne işe yaradığını anlatan kısa bir pencere açılır; pencereden resimli yardımın ilgili başlığına geçilir.
 - **Madde analizi:** optik okuyucu çıktısı (.txt, .csv, .xlsx) yüklenir; bütün kitapçıklar A sırasına çevrilir, her soru için güçlük (p), ayırt edicilik (D) ve çeldirici analizi, sınav için KR-20 güvenirliği hesaplanır; öğrenci puanları CSV olarak alınır. Cevaplar anahtarla uyuşmuyor görünüyorsa (şans düzeyinde ortalama, negatif KR-20, yaygın anahtar hatası notu, kitapçıklar arasında büyük fark) kırmızı uyarı verir.
+- **Klasik ve karma sınav:** soru puanlarından madde analizi, Cronbach alfa, ÖÇ tablosu ve ölçme sonuçları (yukarıdaki bölüm).
+- **Çıktılar:** madde analizi, ÖÇ tablosu, cevap anahtarı, ölçme planı ve ölçme sonuçları aynı düzende, kurum başlıklı yatay A4 olarak yazdırılır.
 
 ## Sürüm notları
+
+**2.3.0 (16 Kasım 2026).** Klasik ve karma sınav değerlendirmesi, yeni çıktı düzeni:
+- **Klasik ve karma sınav değerlendirmesi** bölümü: Sınav Soruları Formu (Klasik ve Karma), Word ya da metin dosyasından sorular, puanlar ve soru türleri okunur (ya da yalnızca soru sayısı girilir); öğrenci puanları Excel, CSV ya da yapıştırmayla alınır, hazır puan çizelgesi indirilir. Çoktan seçmeli sorularda puan yerine işaretlenen şık yazılabilir. Puanlı sorular için güçlük ve ayırt edicilik, Cronbach alfa, puan ağırlıklı ÖÇ tablosu (PFRM-250 için CSV), ölçme planı ve ölçme sonuçları raporu. Tam puandan büyük, eksi ya da okunamayan puanlar listelenir.
+- Test akışına klasik bir form yüklenirse klasik bölüme yönlendiren not çıkar.
+- Madde analizi, ÖÇ tablosu ve cevap anahtarı çıktıları ölçme planıyla aynı düzende, kurum başlıklı yatay A4 olarak yazdırılır.
+- **Kişisel veriler ve KVKK:** araçta ve resimli yardımda verilerin hiçbir sunucuya gönderilmediği ve saklanmadığı açıklanır.
+- Terimlerin (KR-20, p, D, ÖÇ, PÇ, Cronbach alfa vb.) üzerine gelince ya da dokununca kısa açıklama açılır; resimli yardımda da.
+- Resimli yardımda yeni bölüm ve ekran görüntüleri, klasik sınav deneme dosyaları; resimler yalnızca tıklanan resmi büyütür; yardım sayfası kurum rengini kullanır.
+- Footer'da geliştirici adı behic.net'e, iletişim cümlesi iletişim formuna bağlanır. İkincil düğmelerin üzerine gelince yazının görünmemesi düzeltildi.
+
+Önceki sürümlerle uyumludur: test akışının bütün çıktıları (kitapçıklar, anahtarlar, madde analizi, raporlar) 2.2.0 ile aynıdır; eski .htmyo ve cevap anahtarı dosyaları açılır.
 
 **2.2.0 (16 Kasım 2026).** Ölçme planı ve ölçme sonuçları, kurum şablonu:
 - 2. adımda **Ölçme planı** paneli: ders ve sınav bilgileri, DÖÇ ve PÇ metinleri, DÖÇ-PÇ matrisi (Excel'den yapıştırılabilir), soru başına bilişsel düzey ve hafta (toplu giriş), puanlama ölçütleri; plan dosyası (.json) kaydetme ve yükleme.
@@ -161,7 +185,7 @@ Bu bilgiler ölçme planı ve ölçme sonuçları raporlarının başlığına, 
 
 ## Güvenlik ve gizlilik
 
-- Sorular hiçbir sunucuya gönderilmez; tüm işlem tarayıcıda yapılır.
+- Sorular ve öğrenci verileri (optik sonuçlar, puanlar) hiçbir sunucuya gönderilmez ve hiçbir yerde saklanmaz; tüm işlem tarayıcıda yapılır. Çalışma yalnızca kullanıcı isterse .htmyo dosyası olarak kendi bilgisayarına kaydedilir. Bu, öğrenci verilerinin 6698 sayılı KVKK kapsamında kurum dışına aktarılmaması açısından önemlidir.
 - Sayfa, İçerik Güvenliği Politikası (CSP) ile hiçbir adrese bağlanamayacak, form gönderemeyecek ve dışarıdan kod yükleyemeyecek şekilde kilitlenmiştir. Dış kütüphane kullanılmaz.
 - Aracı yalnızca resmi bağlantıdan (yukarıdaki adres ya da yüksekokulun web sitesindeki bağlantı) açın. E-posta veya mesajla gönderilen başka kopyaları kullanmayın.
 
@@ -169,8 +193,8 @@ Bu bilgiler ölçme planı ve ölçme sonuçları raporlarının başlığına, 
 
 Bu yazılım MIT Lisansı ile yayımlanmıştır. Kullanan, değiştiren veya dağıtan herkes telif bildirimini korumalı ve şu atfı vermelidir:
 
-> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 2.2.0) [Yazılım]. Zenodo. https://doi.org/10.5281/zenodo.24226187
+> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 2.3.0) [Yazılım]. Zenodo. https://doi.org/10.5281/zenodo.24226187
 
-DOI (bütün sürümler, her zaman en son sürüme gider): [10.5281/zenodo.24226187](https://doi.org/10.5281/zenodo.24226187) · Sürüm 2.1.0: [10.5281/zenodo.24226188](https://doi.org/10.5281/zenodo.24226188) · Kaynak kod: https://github.com/behiccetin/htmyo-kitapcik
+DOI (bütün sürümler, her zaman en son sürüme gider): [10.5281/zenodo.24226187](https://doi.org/10.5281/zenodo.24226187) · Sürüm 2.2.0: [10.5281/zenodo.24288513](https://doi.org/10.5281/zenodo.24288513) · Sürüm 2.1.0: [10.5281/zenodo.24226188](https://doi.org/10.5281/zenodo.24226188) · Kaynak kod: https://github.com/behiccetin/htmyo-kitapcik
 
 © 2026 Behiç ÇETİN
