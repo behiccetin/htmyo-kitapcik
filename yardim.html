@@ -114,7 +114,7 @@ try{const k=JSON.parse(localStorage.getItem('htmyoKurum')||'null'),r=k&&k.renk;
 
 <section class="card" id="ozet">
   <h2>Kısaca nasıl işler?</h2>
-  <p class="lead">Siz yalnızca <b>A kitapçığını</b> hazırlarsınız. Araç soruların ve şıkların yerini değiştirerek B, C, D ve E kitapçıklarını ve her birinin cevap anahtarını üretir. Bütün işlem kendi bilgisayarınızda yapılır; sorularınız internete gönderilmez.</p>
+  <p class="lead">Siz yalnızca <b>A kitapçığını</b> hazırlarsınız. Araç soruların ve şıkların yerini değiştirerek B, C, D ve E kitapçıklarını ve her birinin cevap anahtarını üretir. Bütün işlem kendi bilgisayarınızda yapılır; sorularınız ve öğrenci verileri internete gönderilmez, hiçbir yerde saklanmaz (<a href="#kvkk">bkz. Kişisel veriler ve KVKK</a>).</p>
   <div class="flow">
     <a href="#hazirla"><div class="e">✍️</div><b>1. Hazırlayın</b><span>A kitapçığını şablona, Word'e ya da metin dosyasına yazın.</span></a>
     <a href="#yukle"><div class="e">📤</div><b>2. Yükleyin ve işaretleyin</b><span>Dosyayı yükleyin, doğru cevapları işaretleyin.</span></a>
@@ -145,6 +145,7 @@ try{const k=JSON.parse(localStorage.getItem('htmyoKurum')||'null'),r=k&&k.renk;
     <li><a href="#olcme-sonuclari">Ölçme sonuçları (sınavdan sonra)</a></li>
     <li><a href="#kurum">Kurum ve görünüm ayarları</a></li>
     <li><a href="#oturum">Çalışmayı kaydetme ve kaldığınız yerden devam etme</a></li>
+    <li><a href="#kvkk">Kişisel veriler ve KVKK</a></li>
     <li><a href="#deneme">Deneme dosyalarıyla alıştırma</a></li>
     <li><a href="#sss">Sık karşılaşılan durumlar</a></li>
   </ol>
@@ -514,8 +515,25 @@ araç doluluk oranını artırmak</div></div></div>
   <a class="top" href="#ozet">↑ Başa dön</a>
 </section>
 
+<section class="card" id="kvkk">
+  <h2><span class="n">14</span>Kişisel veriler ve KVKK</h2>
+  <p class="lead">Optik sonuç dosyasındaki öğrenci numaraları, adlar ve cevaplar 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında kişisel veridir. Kitapçık Oluşturucu bu verileri <b>hiçbir yere göndermez ve hiçbir yerde saklamaz.</b></p>
+  <h3>Araç verilerinizle ne yapar?</h3>
+  <ul>
+    <li><b>Yalnızca sizin tarayıcınızda işler.</b> Yüklediğiniz kitapçık, cevap anahtarı ve optik dosyası açık olan sayfanın içinde, bilgisayarınızın belleğinde işlenir. Sekmeyi kapattığınızda silinir.</li>
+    <li><b>Dışarıya bağlanamaz.</b> Sayfa, tarayıcının güvenlik kuralıyla hiçbir sunucuya bağlantı kuramayacak, form gönderemeyecek ve dışarıdan kod yükleyemeyecek şekilde kilitlenmiştir. Sayfa açıldıktan sonra internet bağlantısını kesseniz de çalışır. Hesap, giriş, çerez ya da izleme kodu yoktur.</li>
+    <li><b>Kaydı siz tutarsınız.</b> Çalışmanızı saklamak isterseniz <a href="#oturum">.htmyo çalışma dosyası</a> yalnızca sizin seçtiğiniz yere, kendi bilgisayarınıza iner. Devam etmek için aynı dosyayı araçta açarsınız; dosya bu sırada da hiçbir yere yüklenmez.</li>
+    <li><b>Tarayıcıda kalan tek bilgi</b>, isterseniz kaydettiğiniz kurum ve görünüm ayarlarıdır (kurum adı, logo, renk). Bunlar soru ya da öğrenci bilgisi içermez.</li>
+  </ul>
+  <h3>Bu neden önemli?</h3>
+  <p>Benzer işi yapan çevrim içi hizmetlerin çoğunda dosyalar hizmeti sunan firmanın sunucusuna yüklenir ve orada saklanır. Bu durumda öğrenci verileri kurum dışındaki bir tarafça işlenmiş olur: verinin nerede ve ne kadar süre tutulduğu, kimlerin erişebildiği, yurt dışına aktarılıp aktarılmadığı sizin denetiminizden çıkar ve KVKK açısından ek yükümlülükler doğabilir. Bu araçta böyle bir aktarım olmadığı için veriler, zaten sorumluluğu sizde olan bilgisayarınızdan çıkmaz.</p>
+  <div class="not w"><span class="i">🔒</span><div><b>Size düşen:</b> .htmyo, cevap anahtarı ve optik sonuç dosyalarını kurumunuzun kurallarına uygun, güvenli bir klasörde saklayın; e-postayla dolaştırmayın, öğrencilerle paylaşmayın ve gereksiz kopyaları silin.</div></div>
+  <p style="font-size:13px;color:var(--mut)">Bu bölüm aracın teknik işleyişini anlatır, hukuki görüş değildir. Kişisel verilerle ilgili olarak kurumunuzun KVKK politikası ve düzenlemeleri geçerlidir.</p>
+  <a class="top" href="#ozet">↑ Başa dön</a>
+</section>
+
 <section class="card" id="deneme">
-  <h2><span class="n">14</span>Deneme dosyalarıyla alıştırma</h2>
+  <h2><span class="n">15</span>Deneme dosyalarıyla alıştırma</h2>
   <p class="lead">Aracı gerçek bir sınavdan önce denemek için aşağıdaki örnek dosyaları kullanabilirsiniz. Öğrenci adları ve cevapları uydurmadır.</p>
   <div class="dl">
     <a href="ornek/Ornek_Sinav.docx" download><span class="e">📝</span><div><b>Örnek A kitapçığı</b><span>25 soruluk test, yüksekokul şablonuyla (Word)</span></div></a>

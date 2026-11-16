@@ -330,7 +330,7 @@ footer.htmyo-foot .htmyo-surum li{margin:3px 0}footer.htmyo-foot .htmyo-surum li
     <div class="htmyo-herobtns"><a class="htmyo-howbtn" href="#nasil">Nasıl kullanılır? →</a><a class="htmyo-howbtn" href="yardim.html" target="_blank" rel="noopener">📘 Resimli yardım</a></div>
   </div>
   <div class="side">
-    <div class="htmyo-chip"><b>Çevrimdışı ve güvenli</b>Sorular bilgisayarınızdan çıkmaz</div>
+    <div class="htmyo-chip"><b>Çevrimdışı ve güvenli</b>Sorular ve öğrenci verileri bilgisayarınızdan çıkmaz</div>
     <div class="htmyo-chip"><b>Word ve metin dosyası</b>.docx ya da .txt (Aiken) yükleyin, çıktılar .docx iner</div>
   </div>
 </div></header>
@@ -364,7 +364,7 @@ footer.htmyo-foot .htmyo-surum li{margin:3px 0}footer.htmyo-foot .htmyo-surum li
   </div>
   <input id="file" type="file" accept=".docx,.txt,.htmyo" class="hide">
   <div id="fileinfo"></div>
-  <div class="htmyo-note i"><span>🔒</span><div>Dosyanız <b>hiçbir sunucuya gönderilmez.</b> Tüm işlem bu sayfanın içinde, kendi tarayıcınızda yapılır. Sayfa açıldıktan sonra internet bağlantınızı kesseniz de çalışır.</div></div>
+  <div class="htmyo-note i"><span>🔒</span><div>Dosyanız <b>hiçbir sunucuya gönderilmez.</b> Tüm işlem bu sayfanın içinde, kendi tarayıcınızda yapılır. Sayfa açıldıktan sonra internet bağlantınızı kesseniz de çalışır. Öğrenci verileri dahil hiçbir bilgi kaydedilmez (<a href="yardim.html#kvkk" target="_blank" rel="noopener">KVKK</a>).</div></div>
 </section>
 
 <!-- ADIM 2 -->
@@ -496,7 +496,7 @@ footer.htmyo-foot .htmyo-surum li{margin:3px 0}footer.htmyo-foot .htmyo-surum li
       <div class="htmyo-mah" data-yb="maOpt"><i>2</i><b>Öğrenci cevapları</b></div>
       <p>Optik okuyucunun verdiği sonuç dosyası (.xlsx, .csv ya da .txt). Her satırda bir öğrenci; <b>öğrenci numarası</b>, <b>kitapçık türü</b> ve <b>cevaplar</b> bulunmalı:</p>
       <div class="htmyo-tbl htmyo-orn"><table><tr><th>Numara</th><th>Kitapçık</th><th>Cevaplar</th></tr><tr><td>2025001</td><td>A</td><td style="text-align:left">BCDAE-ABCD</td></tr><tr><td>2025002</td><td>B</td><td style="text-align:left">ACDBE*ABCE</td></tr></table></div>
-      <small class="htmyo-mak">Boş bırakılan soru: tire (-) ya da boşluk. Birden çok işaretlenen soru: yıldız (*).</small>
+      <small class="htmyo-mak">Boş bırakılan soru: tire (-) ya da boşluk. Birden çok işaretlenen soru: yıldız (*).<br>🔒 Öğrenci numaraları ve cevapları bu sayfadan çıkmaz, hiçbir sunucuya yüklenmez.</small>
       <label class="htmyo-btn sec htmyo-filebtn">📊 Optik sonuç dosyasını seç<input type="file" id="maOpt" accept=".txt,.csv,.xlsx"></label><span id="maOptAd" class="htmyo-count"></span>
       <details class="htmyo-yap"><summary>ya da cevapları buraya yapıştırın</summary><textarea id="maTxt" rows="4" spellcheck="false" placeholder="2025001;A;BCDAE-ABCD&#10;2025002;B;ACDBE*ABCE"></textarea></details>
     </div>
@@ -603,6 +603,7 @@ E) Hattaki son durak</div></div>
   <h2>Sık sorulanlar</h2>
   <div class="htmyo-faq" style="margin-top:10px">
     <div><b>Sorularım internete gidiyor mu?</b><p>Hayır. Sayfa, tarayıcının güvenlik kuralıyla (CSP) hiçbir sunucuya bağlanamayacak şekilde kilitlenmiştir. Dosyanız yalnızca sizin bilgisayarınızda işlenir.</p></div>
+    <div><b>Öğrenci verileri bir yere kaydediliyor mu? (KVKK)</b><p>Hayır. Optik sonuç dosyasındaki numaralar ve cevaplar yalnızca bu sayfada, sizin tarayıcınızda işlenir; hiçbir sunucuya yüklenmez, sayfa kapanınca silinir. Saklamak isterseniz .htmyo dosyası yalnızca kendi bilgisayarınıza iner. Dosyaları sunucuya yükleyen çevrim içi hizmetlerden farkı budur (<a href="yardim.html#kvkk" target="_blank" rel="noopener">ayrıntı</a>).</p></div>
     <div><b>Doğru sayfada olduğumu nasıl anlarım?</b><p>Aracı yalnızca yüksekokulumuzun web sitesindeki bağlantıdan açın. Size e-posta veya mesajla gönderilen başka bağlantıları ve kopyaları kullanmayın.</p></div>
     <div><b>Hangi dosyalarla çalışır?</b><p>Yüksekokulumuzun Sınav Soruları Formu (PFRM-217) şablonlarıyla, soruları numaralı ve şıkları ayrı satırlarda yazılmış her Word (.docx) dosyasıyla ve düz metin (.txt) dosyalarıyla (Aiken biçimi dahil). Eski .doc dosyalarını önce Word'de .docx olarak kaydedin.</p></div>
     <div><b>Bazı sorular birlikte kalmalı ya da yerinden oynamamalı. Ne yapmalıyım?</b><p>2. adımdaki listede soruya <b>🔗 Öncekiyle</b> işareti koyarsanız bir önceki soruyla aynı blokta taşınır. <b>📌 Sabit</b> işaretli sorunun numarası hiçbir kitapçıkta değişmez. "Yukarıdaki soruya göre" diye başlayan sorular ve "7-9. soruları" gibi başlıklı gruplar kendiliğinden işaretlenir.</p></div>
