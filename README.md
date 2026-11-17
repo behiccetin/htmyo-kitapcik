@@ -4,7 +4,7 @@
 
 **Burdur Mehmet Akif Ersoy Üniversitesi, Bucak Hikmet Tolunay Ulaştırma ve Lojistik Meslek Yüksekokulu**
 
-Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir metin dosyasıyla (.txt, Aiken biçimi dahil) hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı. Soruları dersin **öğrenme çıktılarıyla (ÖÇ)** eşleştirir ve sınavdan önce **ölçme planını** hazırlar. Sınavdan sonra optik okuyucu sonuçlarıyla **madde analizi** yapar; öğrenme çıktılarına ulaşmayı ve **program çıktılarına (PÇ) katkıyı** ölçme planıyla aynı düzende raporlar. **Klasik ve karma sınavlarda** da öğrencilerin soru soru aldığı puanlardan aynı analizleri hazırlar. Bütün işlem kullanıcının bilgisayarında yapılır; sorular ve öğrenci verileri hiçbir sunucuya gönderilmez, hiçbir yerde saklanmaz.
+Yüksekokulun Sınav Soruları Formu (PFRM-217), kendi Word dosyanız ya da bir metin dosyasıyla (.txt, Aiken biçimi dahil) hazırladığınız A kitapçığından, soruların ve şıkların yeri değiştirilmiş **B, C, D ve E kitapçıklarını** ve her birinin **cevap anahtarını** üreten, tek dosyalık web aracı. Soruları dersin **öğrenme çıktılarıyla (ÖÇ)** eşleştirir ve sınavdan önce **ölçme planını** hazırlar. Sınavdan sonra optik okuyucu sonuçlarıyla **madde analizi** yapar; öğrenme çıktılarına ulaşmayı ve **program çıktılarına (PÇ) katkıyı** ölçme planıyla aynı düzende raporlar. **Klasik, karma ve uygulama sınavlarında** da öğrencilerin soru ya da ölçüt başına aldığı puanlardan aynı analizleri hazırlar. Bütün işlem kullanıcının bilgisayarında yapılır; sorular ve öğrenci verileri hiçbir sunucuya gönderilmez, hiçbir yerde saklanmaz.
 
 **Kullanmak için:** https://behiccetin.github.io/htmyo-kitapcik/
 
@@ -83,16 +83,19 @@ Bir sorunun PÇ katkısı, ölçtüğü DÖÇ'nin matristeki değeridir (birden 
 
 Plan bilgileri cevap anahtarı dosyasına (`#PLAN` satırı) yazılır; ayrıca `.json` olarak kaydedilip sonraki dönem aynı ders için yeniden yüklenebilir. Örnek: [ornek/Ornek_Sinav_olcme-plani.json](ornek/Ornek_Sinav_olcme-plani.json).
 
-## Klasik ve karma sınav değerlendirmesi
+## Klasik, karma ve uygulama sınavı değerlendirmesi
 
-Yazılı (klasik) sınavlar ve klasik sorularla test, doğru-yanlış, boşluk doldurma ya da eşleştirme sorularının birlikte sorulduğu karma sınavlar için ayrı bir bölüm vardır. Kitapçık üretmez; sınav okunup puanlandıktan sonra çalışır:
+Yazılı (klasik) sınavlar, klasik sorularla test, doğru-yanlış, boşluk doldurma ya da eşleştirme sorularının birlikte sorulduğu karma sınavlar ve değerlendirme ölçütleriyle puanlanan uygulama sınavları için ayrı bir bölüm vardır. Kitapçık üretmez; sınav okunup puanlandıktan sonra çalışır:
 
-1. **Sınav soruları:** Sınav Soruları Formu (Klasik ve Karma) ya da soruları "1." ile başlayan bir Word veya metin dosyası seçilir. Soru puanları formdaki puan alanlarından ya da sorunun sonundaki "(20 puan)" ifadesinden okunur, soru türü tahmin edilir. Dosya yoksa yalnızca soru sayısı yazılır.
+1. **Sınav soruları:** Sınav Soruları Formu (Klasik ve Karma ya da Uygulama) ya da soruları "1." ile başlayan bir Word veya metin dosyası seçilir. Uygulama formunda değerlendirme ölçütleri ve puanları okunur; her ölçüt bir soru gibi analiz edilir. Soru puanları formdaki puan alanlarından ya da sorunun sonundaki "(20 puan)" ifadesinden okunur, soru türü tahmin edilir. Dosya yoksa yalnızca soru sayısı yazılır.
 2. **Öğrenci puanları:** her satırda numara (isteğe bağlı ad) ve soru soru alınan puanlar (.xlsx, .csv, .txt ya da yapıştırma). Araç, soru başlıkları hazır bir puan çizelgesi (CSV) verir. Çoktan seçmeli sorularda puan yerine işaretlenen şık yazılabilir; doğru cevap seçildiyse puan kendiliğinden verilir.
 3. **Soru tablosu:** her sorunun türü, tam puanı, ÖÇ'si, (çoktan seçmeli ise) doğru cevabı, bilişsel düzeyi ve haftası. Ölçme planı (DÖÇ, PÇ, matris) bu bölümde de girilir; test sınavlarının plan dosyası (.json) burada da kullanılır.
 4. **Sonuç:** her soru için ortalama puan, güçlük (ortalama puan ÷ tam puan), ayırt edicilik (üst ve alt %27 grubun puan oranları farkı), tam puan, sıfır ve boş sayıları; sınav için **Cronbach alfa**; puan ağırlıklı Öğrenme Çıktılarına Ulaşma tablosu ve dört bölümlü ölçme sonuçları raporu. Tam puandan büyük, eksi ya da okunamayan puanlar tek tek listelenir.
 
-Örnek: [ornek/Ornek_Klasik_Sinav.docx](ornek/Ornek_Klasik_Sinav.docx), [ornek/Ornek_Klasik_puanlar.csv](ornek/Ornek_Klasik_puanlar.csv), [ornek/Ornek_Klasik_olcme-plani.json](ornek/Ornek_Klasik_olcme-plani.json).
+Örnekler (her biri için sınav, puan dosyası ve ölçme planı; resimli yardımda adım adım anlatılır):
+- Klasik: [Ornek_Klasik_Sinav.docx](ornek/Ornek_Klasik_Sinav.docx), [Ornek_Klasik_puanlar.csv](ornek/Ornek_Klasik_puanlar.csv), [Ornek_Klasik_olcme-plani.json](ornek/Ornek_Klasik_olcme-plani.json)
+- Karma: [Ornek_Karma_Sinav.docx](ornek/Ornek_Karma_Sinav.docx), [Ornek_Karma_puanlar.csv](ornek/Ornek_Karma_puanlar.csv), [Ornek_Karma_olcme-plani.json](ornek/Ornek_Karma_olcme-plani.json)
+- Uygulama: [Ornek_Uygulama_Sinavi.docx](ornek/Ornek_Uygulama_Sinavi.docx), [Ornek_Uygulama_puanlar.csv](ornek/Ornek_Uygulama_puanlar.csv), [Ornek_Uygulama_olcme-plani.json](ornek/Ornek_Uygulama_olcme-plani.json)
 
 ## Kendi kurumunuza uyarlama (şablon)
 
@@ -137,10 +140,18 @@ Bu bilgiler ölçme planı ve ölçme sonuçları raporlarının başlığına, 
 - **Öğrenme Çıktılarına Ulaşma tablosu:** madde analizinde her ÖÇ için soru sayısı, toplam puan, sınıfın başarı yüzdesi, hedefe ulaşan öğrenci sayısı ve oranı, Ulaşıldı/Ulaşılamadı durumu; eşik ayarlanabilir (varsayılan %60), iptal edilen sorular sayılmaz, birden çok ÖÇ'ye bağlı soru her birine tam sayılır. Tablo yazdırılır ve PFRM-250 Program Çıktıları Değerlendirme Formu'na aktarılacak düzende CSV olarak iner.
 - **Bağlam yardımı:** her bölümün yanındaki **?** düğmesine basınca o bölümün ne işe yaradığını anlatan kısa bir pencere açılır; pencereden resimli yardımın ilgili başlığına geçilir.
 - **Madde analizi:** optik okuyucu çıktısı (.txt, .csv, .xlsx) yüklenir; bütün kitapçıklar A sırasına çevrilir, her soru için güçlük (p), ayırt edicilik (D) ve çeldirici analizi, sınav için KR-20 güvenirliği hesaplanır; öğrenci puanları CSV olarak alınır. Cevaplar anahtarla uyuşmuyor görünüyorsa (şans düzeyinde ortalama, negatif KR-20, yaygın anahtar hatası notu, kitapçıklar arasında büyük fark) kırmızı uyarı verir.
-- **Klasik ve karma sınav:** soru puanlarından madde analizi, Cronbach alfa, ÖÇ tablosu ve ölçme sonuçları (yukarıdaki bölüm).
+- **Klasik, karma ve uygulama sınavı:** soru ya da ölçüt puanlarından madde analizi, Cronbach alfa, ÖÇ tablosu ve ölçme sonuçları (yukarıdaki bölüm).
 - **Çıktılar:** madde analizi, ÖÇ tablosu, cevap anahtarı, ölçme planı ve ölçme sonuçları aynı düzende, kurum başlıklı yatay A4 olarak yazdırılır.
 
 ## Sürüm notları
+
+**2.4.0 (17 Kasım 2026).** Uygulama sınavı ve örnekler:
+- **Uygulama sınavı:** Sınav Soruları Formu (Uygulama) seçilince değerlendirme ölçütleri ve puanları okunur; her ölçüt bir soru gibi analiz edilir (güçlük, ayırt edicilik, Cronbach alfa, ÖÇ tablosu, ölçme sonuçları). Ekranda ve çıktılarda "ölçüt" yazar; puan dosyasında ölçütler Ö1, Ö2 ya da S1, S2 diye başlıklandırılabilir. Bölümün adı "Klasik, karma ve uygulama sınavı değerlendirmesi" oldu.
+- **Örnekler:** klasik, karma ve uygulama sınavı için okulun formlarından doldurulmuş sınav, puan dosyası ve ölçme planı (önceki klasik örneği karma oldu).
+- **Resimli yardım:** her sınav türü ekran görüntüleriyle adım adım anlatılır; madde analizi ve ÖÇ tablosunun basılı çıktıları da gösterilir.
+- Formda doldurulmamış ek soru tipleri (doğru-yanlış, boşluk doldurma, eşleştirme) soru sayılmaz; boş form ya da uygulama formu seçilince ne yapılacağı yazılır; uygulama formu kitapçık bölümüne yüklenirse doğru bölüme yönlendirilir.
+
+Önceki sürümlerle uyumludur: test akışının kitapçıkları, cevap anahtarları ve analiz sonuçları 2.3.0 ile aynıdır; eski .htmyo dosyaları açılır.
 
 **2.3.0 (16 Kasım 2026).** Klasik ve karma sınav değerlendirmesi, yeni çıktı düzeni:
 - **Klasik ve karma sınav değerlendirmesi** bölümü: Sınav Soruları Formu (Klasik ve Karma), Word ya da metin dosyasından sorular, puanlar ve soru türleri okunur (ya da yalnızca soru sayısı girilir); öğrenci puanları Excel, CSV ya da yapıştırmayla alınır, hazır puan çizelgesi indirilir. Çoktan seçmeli sorularda puan yerine işaretlenen şık yazılabilir. Puanlı sorular için güçlük ve ayırt edicilik, Cronbach alfa, puan ağırlıklı ÖÇ tablosu (PFRM-250 için CSV), ölçme planı ve ölçme sonuçları raporu. Tam puandan büyük, eksi ya da okunamayan puanlar listelenir.
@@ -193,8 +204,8 @@ Bu bilgiler ölçme planı ve ölçme sonuçları raporlarının başlığına, 
 
 Bu yazılım MIT Lisansı ile yayımlanmıştır. Kullanan, değiştiren veya dağıtan herkes telif bildirimini korumalı ve şu atfı vermelidir:
 
-> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 2.3.0) [Yazılım]. Zenodo. https://doi.org/10.5281/zenodo.24226187
+> Çetin, B. (2026). *Kitapçık Oluşturucu* (Sürüm 2.4.0) [Yazılım]. Zenodo. https://doi.org/10.5281/zenodo.24226187
 
-DOI (bütün sürümler, her zaman en son sürüme gider): [10.5281/zenodo.24226187](https://doi.org/10.5281/zenodo.24226187) · Sürüm 2.2.0: [10.5281/zenodo.24288513](https://doi.org/10.5281/zenodo.24288513) · Sürüm 2.1.0: [10.5281/zenodo.24226188](https://doi.org/10.5281/zenodo.24226188) · Kaynak kod: https://github.com/behiccetin/htmyo-kitapcik
+DOI (bütün sürümler, her zaman en son sürüme gider): [10.5281/zenodo.24226187](https://doi.org/10.5281/zenodo.24226187) · Sürüm 2.3.0: [10.5281/zenodo.24292837](https://doi.org/10.5281/zenodo.24292837) · Sürüm 2.2.0: [10.5281/zenodo.24288513](https://doi.org/10.5281/zenodo.24288513) · Sürüm 2.1.0: [10.5281/zenodo.24226188](https://doi.org/10.5281/zenodo.24226188) · Kaynak kod: https://github.com/behiccetin/htmyo-kitapcik
 
 © 2026 Behiç ÇETİN
