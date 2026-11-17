@@ -1,0 +1,136 @@
+{
+ "tur": "htmyo-olcme-plani",
+ "surum": 1,
+ "ders": "22602 Lojistiğe Giriş",
+ "program": "Lojistik Programı",
+ "sube": "1A",
+ "donem": "2026-2027 Eğitim Öğretim Yılı, Güz Dönemi",
+ "sinav": "Ara sınav (vize)",
+ "tarih": "7 Kasım 2026 Cumartesi, 10:30, Derslik 3",
+ "sure": "60 dakika",
+ "kapsam": "1-7. haftalar",
+ "doc": [
+  "Lojistiğin temel kavramlarını ve yedi doğru ilkesini açıklar.",
+  "Taşıma türlerini ve taşıma belgelerini karşılaştırır.",
+  "Depolama ve stok yönetimi yöntemlerini uygular.",
+  "Tedarik zinciri yönetimi yaklaşımlarını (JIT, 3PL, tersine lojistik) açıklar.",
+  "Dış ticaret teslim şekillerini ve gümrük rejimlerini yorumlar."
+ ],
+ "pc": [
+  "Lojistik ve tedarik zinciri yönetimine ilişkin temel kavramları bilir.",
+  "Taşıma türlerini ve operasyon süreçlerini planlar ve uygular.",
+  "Depolama, stok ve envanter yönetimi uygulamalarını yürütür.",
+  "Dış ticaret, gümrük ve taşıma mevzuatını izler ve uygular.",
+  "Lojistik süreçlerde bilişim teknolojilerini ve dijital sistemleri kullanır.",
+  "Mesleki sorunları analiz ederek çözüm önerileri geliştirir.",
+  "Ekip içinde etkili iletişim kurar ve sorumluluk alır.",
+  "İş sağlığı ve güvenliği, çevre ve kalite gereklerine uygun çalışır."
+ ],
+ "matris": [
+  [
+   5,
+   2,
+   2,
+   1,
+   3,
+   3,
+   2,
+   2
+  ],
+  [
+   3,
+   5,
+   1,
+   3,
+   2,
+   3,
+   2,
+   3
+  ],
+  [
+   3,
+   2,
+   5,
+   1,
+   4,
+   4,
+   2,
+   3
+  ],
+  [
+   4,
+   3,
+   3,
+   2,
+   3,
+   4,
+   3,
+   2
+  ],
+  [
+   2,
+   3,
+   1,
+   5,
+   2,
+   3,
+   2,
+   1
+  ]
+ ],
+ "duzey": [
+  "Anlama",
+  "Anlama",
+  "Hatırlama",
+  "Analiz",
+  "Uygulama",
+  "Hatırlama",
+  "Anlama"
+ ],
+ "hafta": [
+  "1",
+  "6",
+  "4",
+  "2",
+  "5",
+  "6",
+  "3"
+ ],
+ "ocSay": 5,
+ "oc": [
+  [
+   1
+  ],
+  [
+   4
+  ],
+  [
+   3
+  ],
+  [
+   2
+  ],
+  [
+   3
+  ],
+  [
+   4
+  ],
+  [
+   1,
+   2,
+   3
+  ]
+ ],
+ "olcut": "",
+ "bicim": "klasik",
+ "puan": [
+  15,
+  15,
+  15,
+  20,
+  15,
+  10,
+  10
+ ]
+}

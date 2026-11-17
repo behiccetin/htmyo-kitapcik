@@ -5,10 +5,10 @@
  "program": "Lojistik Programı",
  "sube": "1A",
  "donem": "2026-2027 Eğitim Öğretim Yılı, Güz Dönemi",
- "sinav": "Ara sınav (vize)",
- "tarih": "7 Kasım 2026 Cumartesi, 10:30, Derslik 3",
- "sure": "60 dakika",
- "kapsam": "1-7. haftalar",
+ "sinav": "Yarıyıl sonu (final)",
+ "tarih": "9 Ocak 2027 Cumartesi, 13:30, Amfi 1",
+ "sure": "75 dakika",
+ "kapsam": "1-14. haftalar",
  "doc": [
   "Lojistiğin temel kavramlarını ve yedi doğru ilkesini açıklar.",
   "Taşıma türlerini ve taşıma belgelerini karşılaştırır.",
@@ -80,32 +80,22 @@
  ],
  "duzey": [
   "Anlama",
-  "Anlama",
-  "Hatırlama",
   "Analiz",
-  "Uygulama",
-  "Hatırlama",
-  "Anlama"
+  "Anlama",
+  "Değerlendirme",
+  "Analiz"
  ],
  "hafta": [
   "1",
-  "6",
-  "4",
-  "2",
-  "5",
-  "6",
-  "3"
+  "3",
+  "8",
+  "11",
+  "13"
  ],
  "ocSay": 5,
  "oc": [
   [
    1
-  ],
-  [
-   4
-  ],
-  [
-   3
   ],
   [
    2
@@ -117,20 +107,16 @@
    4
   ],
   [
-   1,
-   2,
-   3
+   5
   ]
  ],
  "olcut": "",
  "bicim": "klasik",
  "puan": [
-  15,
-  15,
-  15,
   20,
-  15,
-  10,
-  10
+  20,
+  20,
+  20,
+  20
  ]
 }
